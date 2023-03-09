@@ -1,4 +1,7 @@
-import src.aima.basic.XYLocation;
+package src.blablacar;
+
+
+import aima.basic.XYLocation;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.lang.Math;
@@ -22,7 +25,6 @@ public class BlaBlaEstado {
 		int personas = trabajadores.size();
 
 		distancias = new ArrayList<Integer> (coches.size());
-		Collections.fill(vb, 0);
 		trayectos = new ArrayList<LinkedList<XYLocation>> (personas);
 
 		int q = 0;
@@ -54,7 +56,8 @@ public class BlaBlaEstado {
 
 		for (int cond : coches) s.add(cond);
 
-		//Falta poner distancias, mirar si es solucion valida y la condicion del bucle j < eq (puede ser que no esté bien para algunos casos)
+		int no_trabajo = trabajadores.size();
+
 		while (!sol_valida && i < max_iteraciones) {
 
 			for (int k = 0; k < coches.size(); ++k) {
@@ -68,7 +71,9 @@ public class BlaBlaEstado {
 				//Pasajeros que van actualmente con el conductor
 				LinkedList<Integer> pas = new LinkedList<Integer>();
 
-				while (j < eq) {
+				int dist_rec = 0;
+
+				while (j < eq && no_trabajo > 0) {
 
 					int rnd = rand.nextInt(2);
 
@@ -82,7 +87,11 @@ public class BlaBlaEstado {
 
 						vb.set(trbjd, true);
 
-						trayectos.get(cond).add(trabajadores.get(trbjd).get(0));
+						XYLocation ir = trabajadores.get(trbjd).get(0);
+
+						dist_rec += dist(ir, trayectos.get(cond).getLast());
+
+						trayectos.get(cond).add(ir);
 
 						pas.add(trbjd);
 					}
@@ -90,21 +99,30 @@ public class BlaBlaEstado {
 					else {
 
 						int dejar = rand.nextInt(pas.size());
-						trayectos.get(cond).add(trabajadores.get(dejar).get(1));
+						XYLocation ir = trabajadores.get(dejar).get(1);
+						dist_rec += dist(ir, trayectos.get(cond).getLast());
+
+						trayectos.get(cond).add(ir);
 						++j;
 						pas.remove(dejar);
+						--no_trabajo;
 					}
 
 				}
 
+				distancias.set(k, dist_rec);
+
+				if (dist_rec > 30000) break;
+
+				sol_valida = k + 1 == coches.size() && dist_rec <= 30000;
+
+
 			}
 
+			++i;
 		}
 
-			++i;
-	}
-
-	}
+	}	
 
 	public ArrayList<LinkedList<XYLocation>> consultar_trayecto() {
 
@@ -147,4 +165,19 @@ public class BlaBlaEstado {
 
 		return dist_X + dist_Y;
 	}
+
+	public void escribir_trayecto() {
+
+		for (int i = 0; i < coches.size(); ++i) {
+
+			System.out.printl("El coche " + i + " ha seguido este trayecto ");
+
+			for (XYLocation x : trayectos.get(i)) System.out.print(x.toString() + ", ");
+
+		}
+
+
+	}
+
 }
+
