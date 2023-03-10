@@ -1,189 +1,202 @@
 package src.blablacar;
 
 
-import aima.basic.XYLocation;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Random;
-import java.util.Set;
-import java.util.HashSet;
-import java.util.Collections;
+import java.lang.Math;
+import aima.XYLocation;
+
 
 
 
 public class BlaBlaEstado {
 
-	public BlaBlaEstado(ArrayList<Integer> dist, ArrayList<LinkedList<XYLocation>> coches) {
 
-		distancias = new ArrayList<Integer> (dist);
-		trayectos = new ArrayList<LinkedList<XYLocation>> (coches);
 
-	}
+	//Modo 0 -> Greedy
+	//Modo 1 -> Random
+	public BlaBlaEstado (Usuarios users, int modo) {		
 
-	public BlaBlaEstado() {
+		int n = users.size();
 
-	}
+		num_cond = 0;
 
-	void genera_inicial(ArrayList<Integer> coches, ArrayList<ArrayList<XYLocation>> trabajadores) {
+		ArrayList<Usuario> conductores = new ArrayList<Usuario>();
+		Set<Usuario> pasajeros = new HashSet<Usuario>();
 
-		int personas = trabajadores.size();
+		for (int i = 0; i < n; ++i) {
 
-		distancias = new ArrayList<Integer> (coches.size());
-		trayectos = new ArrayList<LinkedList<XYLocation>> (personas);
+			if (users.get(i).isConductor()) {
 
-		int q = 0;
+				++num_cond;
 
-		for (LinkedList l : trayectos) {
+				conductores.add(users.get(i));
 
-			l = new LinkedList<XYLocation> ();
+			}
 
-			l.add(trabajadores.get(coches.get(q)).get(0));
+			else pasajeros.add(users.get(i));
 
 		}
 
+		distancias = new ArrayList<Integer> (num_cond);
+		trayectos = new ArrayList<ArrayList<XYLocation>> (num_cond);
 
-		ArrayList<Boolean> vb = new ArrayList<Boolean> (personas);
-		Collections.fill(vb, Boolean.FALSE);
+		for (int i = 0; i < num_cond; ++i) {
 
-		int div = personas / coches.size();
+			distancias.add(0);
 
-		int eq = personas % coches.size() == 0 ? div : div + 1;
+			ArrayList<XYLocation> v = new ArrayList<XYLocation> ();
+			XYLocation ini = new XYLocation(conductores.get(i).getCoordOrigenX(), conductores.get(i).getCoordOrigenY());
+			v.add(ini);
+			trayectos.add(v);
 
-		int max_iteraciones = 100;
+		}
 
-		int i = 0;
+		if (modo == 0) greedy_sol(users, conductores, pasajeros);
+		else random_sol(users, conductores, pasajeros);
 
-		boolean sol_valida = false;
+	}
 
-		Random rand = new Random();
 
-		//Set para no poner conductores en otros coches
-		Set<Integer> s = new HashSet<Integer>();
 
-		for (int cond : coches) s.add(cond);
+	//Falta actualizar distancias y poner un paron cuando solo queden conductores
+	private void greedy_sol(Usuarios users, ArrayList<Usuario> conductores, Set<Usuario> pasajeros) {
 
-		int no_trabajo = trabajadores.size();
 
-		while (!sol_valida && i < max_iteraciones) {
 
-			for (int k = 0; k < coches.size(); ++k) {
+		int num_no_trabajando = users.size();
 
-				int cond = coches.get(k);
-				vb.set(cond, true);
+		ArrayList<ArrayList<Usuario>> pasj_coches = new ArrayList<ArrayList<Usuario>> (num_cond);
 
-				//Personas dejadas en el trabajo
-				int j = 0;
+		for (int i = 0; i < num_cond; ++i) {
 
-				//Pasajeros que van actualmente con el conductor
-				LinkedList<Integer> pas = new LinkedList<Integer>();
+			ArrayList<Usuario> u = new ArrayList<Usuario>();
 
-				int dist_rec = 0;
+		}
 
-				while (j < eq && no_trabajo > 0) {
+		while (num_no_trabajando > num_cond) {
 
-					int rnd = rand.nextInt(2);
 
-					boolean recoger = (pas.size() == 1 && rnd == 1) || pas.size() == 0;
+			for (int i = 0; i < num_cond; ++i) {
 
-					if (recoger) {
+				//Referente al conductor actual
+				ArrayList<XYLocation> trayecto_cond = trayectos.get(i);
+				ArrayList<Usuario> pasajeros_actuales = pasj_coches.get(i);
+				Usuario cond_act = conductores.get(i);
+				XYLocation pos_act = trayecto_cond.get(trayecto_cond.size() - 1);
+				int x_act = pos_act.getCoOrdinateX();
+				int y_act = pos_act.getCoOrdinateY();
 
-						int trbjd = rand.nextInt(personas);
 
-						while (!vb.get(rnd) || s.contains(rnd)) trbjd = rand.nextInt(personas);
+				//Eleccion de recoger o dejar
+				Usuario posible_pasajero;
 
-						vb.set(trbjd, true);
+				if (recoger(pasajeros_actuales, cond_act, posible_pasajero, pasajeros)) {
 
-						XYLocation ir = trabajadores.get(trbjd).get(0);
+					int x = posible_pasajero.getCoordOrigenX();
+					int y = posible_pasajero.getCoordOrigenY();
 
-						dist_rec += dist(ir, trayectos.get(cond).getLast());
+					XYLocation nuevo = new XYLocation(x,y);
 
-						trayectos.get(cond).add(ir);
+					trayecto_cond.add(nuevo);
 
-						pas.add(trbjd);
-					}
+					int distancia_actual = distancias.get(i) + dist(x,y,x_act, y_act);
 
-					else {
+					distancias.set(i, distancia_actual);
 
-						int dejar = rand.nextInt(pas.size());
-						XYLocation ir = trabajadores.get(dejar).get(1);
-						dist_rec += dist(ir, trayectos.get(cond).getLast());
-
-						trayectos.get(cond).add(ir);
-						++j;
-						pas.remove(dejar);
-						--no_trabajo;
-					}
 
 				}
 
-				distancias.set(k, dist_rec);
 
-				if (dist_rec > 30000) break;
+				else {
 
-				sol_valida = k + 1 == coches.size() && dist_rec <= 30000;
+					Usuario u1 = pasajeros_actuales.get(0);
+					Usuario u2 = pasajeros_actuales.get(1);
+
+					int dejar = dist(u1.getCoordDestinoX(), u1.getCoordDestinoY(), x_act, y_act) < dist(u2.getCoordDestinoX(), u2.getCoordDestinoY(), x_act, y_act) ? 0 : 1;
+
+					XYLocation dejar = new XYLocation(pasajeros_actuales.get(dejar).getCoordDestinoX(), pasajeros_actuales.get(dejar).getCoordDestinoY());
+
+					trayecto_cond.add(dejar);
+
+					int distancia_actual = distancias.get(i) + dist(dejar.getCoOrdinateX(), dejar.getCoOrdinateY() ,x_act, y_act);
+
+					distancias.set(i,distancia_actual);
+					--num_no_trabajando;
+					pasajeros.remove(pasajeros_actuales.get(dejar));
+
+				}
 
 
 			}
 
-			++i;
-		}
-
-	}	
-
-	public ArrayList<LinkedList<XYLocation>> consultar_trayecto() {
-
-		return trayectos;
-
-	}
-
-
-	public ArrayList<Integer> consultar_distancias() {
-
-		return distancias;
-
-	}
-
-	public LinkedList<XYLocation> consultar_trayecto_coche(int coche) {
-
-		return trayectos.get(coche);
-
-	}
-
-	public int consultar_distancia(int coche) {
-
-		return distancias.get(coche);
-
-	}
-
-	private ArrayList<LinkedList<XYLocation>> trayectos;
-	private ArrayList<Integer> distancias;
-
-	private int dist(XYLocation a, XYLocation b) {
-
-		int dist_X = a.getXCoOrdinate() - b.getXCoOrdinate();
-
-		dist_X = dist_X < 0 ? -dist_X : dist_X;
-
-
-		int dist_Y = a.getYCoOrdinate() - b.getYCoOrdinate();
-
-		dist_Y = dist_Y < 0 ? -dist_Y : dist_Y;
-
-		return dist_X + dist_Y;
-	}
-
-	public void escribir_trayecto() {
-
-		for (int i = 0; i < distancias.size(); ++i) {
-
-			System.out.println("El coche " + i + " ha seguido este trayecto ");
-
-			for (XYLocation x : trayectos.get(i)) System.out.print(x.toString() + ", ");
 
 		}
 
 
+		for (int i = 0; i < num_cond; ++i) {
+
+			Usuario conductor_actual = conductores.get(i);
+			trayectos.get(i).add(new XYLocation(conductor_actual.getCoordX(), conductor_actual.getCoordY()));
+			XYLocation last_pos = trayectos.get(i).get(trayectos.size() - 2);
+
+			int distancia_actual = distancias.get(i) + dist(conductor_actual.getCoOrdinateX(), conductor_actual.getCoOrdinateY() , last_pos.getCoOrdX(), last_pos.getCoOrdY());
+
+			distancias.set(i,distancia_actual);	
+		}
+
 	}
+
+	private static ArrayList<ArrayList<XYLocation>> trayectos;
+	private static ArrayList<Integer> distancias;
+
+	private boolean recoger (ArrayList<Usuario> pasajeros_en_coche, Usuario conductor, Usuario pasajero_recoger, Set<Usuario> pasajeros) {
+
+		if (pasajeros_en_coche.size() == 2) return false;
+
+		pasajero_recoger = cercano(pasajeos, conductor);
+
+		return true;
+
+	}
+
+	private int dist(int x1, int y1, int x2, int y2) {
+
+		return Math.abs(x1 - x2) + Math.abs(y1 - y2);
+	}
+
+	private Usuario cercano (Set<Usuario> s, Usuario u) {
+
+		int min = 10e9;
+
+		Usuario x;
+
+		for (Usuario pasj : s) {
+
+			int nueva_dist = dist(u.getCoordOrigenX(), u.getCoordOrigenY(), pasj.getCoordOrigenX(), pasj.getCoordOrigenY());
+
+			if (nueva_dist < min) x = pasj;
+
+		}
+
+		return x;
+	}
+
+
+
+
+	private int num_cond;
+
+	public int num_conductores() {
+
+		return num_conductores;
+
+	}
+
+	public int num_pasajeros() {
+
+		return trabajadores.size() - num_cond;
+
+	}
+
 
 }
-
