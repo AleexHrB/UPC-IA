@@ -1,4 +1,4 @@
-/*
+*
  *Práctica de IA (Búsqueda)
  * FIB - UPC
  * Curso 2006-2007

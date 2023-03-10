@@ -1,4 +1,4 @@
-package aima.basic;
+package src.aima.basic;
 
 public class XYLocation {
 	int xCoOrdinate, yCoOrdinate;

@@ -4,9 +4,10 @@ package src.blablacar;
 import aima.basic.XYLocation;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.lang.Math;
 import java.util.Random;
-import java.util.set;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.Collections;
 
 
 
@@ -19,8 +20,11 @@ public class BlaBlaEstado {
 
 	}
 
-	//Caso en que no sea posible llegar???
-	public BlaBlaEstado(ArrayList<Integer> coches, ArrayList<ArrayList<XYLocation>> trabajadores) {
+	public BlaBlaEstado() {
+
+	}
+
+	void genera_inicial(ArrayList<Integer> coches, ArrayList<ArrayList<XYLocation>> trabajadores) {
 
 		int personas = trabajadores.size();
 
@@ -41,7 +45,9 @@ public class BlaBlaEstado {
 		ArrayList<Boolean> vb = new ArrayList<Boolean> (personas);
 		Collections.fill(vb, Boolean.FALSE);
 
-		int eq = ceil(personas / coches.size());
+		int div = personas / coches.size();
+
+		int eq = personas % coches.size() == 0 ? div : div + 1;
 
 		int max_iteraciones = 100;
 
@@ -63,7 +69,7 @@ public class BlaBlaEstado {
 			for (int k = 0; k < coches.size(); ++k) {
 
 				int cond = coches.get(k);
-				vb.get(cond) = true;
+				vb.set(cond, true);
 
 				//Personas dejadas en el trabajo
 				int j = 0;
@@ -154,12 +160,12 @@ public class BlaBlaEstado {
 
 	private int dist(XYLocation a, XYLocation b) {
 
-		int dist_X = a.getXCoOrdinates() - b.getXCoOrdinates();
+		int dist_X = a.getXCoOrdinate() - b.getXCoOrdinate();
 
 		dist_X = dist_X < 0 ? -dist_X : dist_X;
 
 
-		int dist_Y = a.getYCoOrdinates() - b.getYCoOrdinates();
+		int dist_Y = a.getYCoOrdinate() - b.getYCoOrdinate();
 
 		dist_Y = dist_Y < 0 ? -dist_Y : dist_Y;
 
@@ -168,9 +174,9 @@ public class BlaBlaEstado {
 
 	public void escribir_trayecto() {
 
-		for (int i = 0; i < coches.size(); ++i) {
+		for (int i = 0; i < distancias.size(); ++i) {
 
-			System.out.printl("El coche " + i + " ha seguido este trayecto ");
+			System.out.println("El coche " + i + " ha seguido este trayecto ");
 
 			for (XYLocation x : trayectos.get(i)) System.out.print(x.toString() + ", ");
 
