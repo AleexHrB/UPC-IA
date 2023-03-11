@@ -50,6 +50,7 @@ public class BlaBlaEstado {
 
 		distancias = new ArrayList<Integer> (num_cond);
 		trayectos = new ArrayList<ArrayList<XYLocation>> (num_cond);
+		pajeros = new ArrayList<ArrayList<Usuario>> (num_cond);
 
 		for (int i = 0; i < num_cond; ++i) {
 
@@ -59,6 +60,8 @@ public class BlaBlaEstado {
 			XYLocation ini = new XYLocation(conductores.get(i).getCoordOrigenX(), conductores.get(i).getCoordOrigenY());
 			v.add(ini);
 			trayectos.add(v);
+
+			pajeros.get(i).add(conductores.get(i));
 
 		}
 
@@ -70,6 +73,13 @@ public class BlaBlaEstado {
 
 	private static ArrayList<ArrayList<XYLocation>> trayectos;
 	private static ArrayList<Integer> distancias;
+	private static ArrayList<ArrayList<Usuario>> pajeros;
+
+	public ArrayList<ArrayList<Usuario>> pasajeros_cada_coche() {
+
+		return pajeros;
+
+	}
 
 
 	private void random_sol(Usuarios users, ArrayList<Usuario> conductores, ArrayList<Usuario> pasajeros) {
@@ -114,6 +124,7 @@ public class BlaBlaEstado {
 						pasajeros_bool.set(num_recoger, true);
 
 						Usuario nuevo_pasajero = pasajeros.get(num_recoger);
+						pajeros.get(i).add(nuevo_pasajero);
 
 						int x = nuevo_pasajero.getCoordOrigenX();
 						int y = nuevo_pasajero.getCoordOrigenY();
@@ -224,6 +235,7 @@ public class BlaBlaEstado {
 					int y = posible_pasajero.getCoordOrigenY();
 
 					XYLocation nuevo = new XYLocation(x,y);
+					pajeros.get(i).add(posible_pasajero);
 
 					trayecto_cond.add(nuevo);
 
