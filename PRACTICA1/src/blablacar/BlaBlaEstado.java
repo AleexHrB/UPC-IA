@@ -24,8 +24,11 @@ public class BlaBlaEstado {
 		int n = users.size();
 
 		num_cond = 0;
+		cjt_usuarios = new ArrayList<Usuario>();
+		cjt_usuarios.addAll(users);
 
 		ArrayList<Usuario> conductores = new ArrayList<Usuario>();
+		ArrayList<Integer> conductores_id = new ArrayList<Integer>();
 		Set<Usuario> pasajeros = new HashSet<Usuario>();
 		ArrayList<Usuario> pasajeros_array = new ArrayList<Usuario>();
 
@@ -36,7 +39,7 @@ public class BlaBlaEstado {
 				++num_cond;
 
 				conductores.add(users.get(i));
-
+				conductores_id.add(i);
 			}
 
 			else {
@@ -50,7 +53,8 @@ public class BlaBlaEstado {
 
 		distancias = new ArrayList<Integer> (num_cond);
 		trayectos = new ArrayList<ArrayList<XYLocation>> (num_cond);
-		pajeros = new ArrayList<ArrayList<Usuario>> (num_cond);
+		trayectos_real = new ArrayList<ArrayList<Integer>>(num_cond);
+		//pajeros = new ArrayList<ArrayList<Usuario>> (num_cond);
 
 		for (int i = 0; i < num_cond; ++i) {
 
@@ -61,8 +65,11 @@ public class BlaBlaEstado {
 			v.add(ini);
 			trayectos.add(v);
 
-			pajeros.add(new ArrayList<Usuario>());
-			pajeros.get(i).add(conductores.get(i));
+			ArrayList<Integer> first = new ArrayList<Integer>();
+			first.add(conductores_id.get(i)); 
+			trayectos_real.add(first);
+			//pajeros.add(new ArrayList<Usuario>());
+			//pajeros.get(i).add(conductores.get(i));
 
 		}
 
@@ -71,10 +78,12 @@ public class BlaBlaEstado {
 
 	}
 
-
-	private static ArrayList<ArrayList<XYLocation>> trayectos;
-	private static ArrayList<Integer> distancias;
-	private static ArrayList<ArrayList<Usuario>> pajeros;
+	public BlaBlaEstado (BlaBlaEstado Og) {
+		this.trayectos_real = new ArrayList<ArrayList<Integer>> ();
+		for (ArrayList<Integer> conductor: Og.trayectos_real) trayectos_real.add(new ArrayList<Integer>(conductor));
+		this.distancias = new ArrayList<Integer>(Og.distancias);
+		this.num_cond = Og.num_cond;
+	}
 
 	public ArrayList<Integer> distancias_coches() {
 
@@ -82,11 +91,11 @@ public class BlaBlaEstado {
 
 	}
 
-	public ArrayList<ArrayList<Usuario>> pasajeros_cada_coche() {
+	/*public ArrayList<ArrayList<Usuario>> pasajeros_cada_coche() {
 
-		return pajeros;
+		//return pajeros;
 
-	}
+	}*/
 
 
 	private void random_sol(Usuarios users, ArrayList<Usuario> conductores, ArrayList<Usuario> pasajeros) {
@@ -131,7 +140,7 @@ public class BlaBlaEstado {
 						pasajeros_bool.set(num_recoger, true);
 
 						Usuario nuevo_pasajero = pasajeros.get(num_recoger);
-						pajeros.get(i).add(nuevo_pasajero);
+						//pajeros.get(i).add(nuevo_pasajero);
 
 						int x = nuevo_pasajero.getCoordOrigenX();
 						int y = nuevo_pasajero.getCoordOrigenY();
@@ -213,15 +222,9 @@ public class BlaBlaEstado {
 		ArrayList<ArrayList<Usuario>> pasj_coches = new ArrayList<ArrayList<Usuario>> (num_cond);
 
 		for (int i = 0; i < num_cond; ++i) {
-
-			ArrayList<Usuario> u = new ArrayList<Usuario>();
-
-		}
-
-
-		for (int i = 0; i < num_cond; ++i) {
 			pasj_coches.add(new ArrayList<Usuario>());
 		}
+
 		while (num_no_trabajando > num_cond) {
 
 
@@ -231,6 +234,7 @@ public class BlaBlaEstado {
 
 				//Referente al conductor actual
 				ArrayList<XYLocation> trayecto_cond = trayectos.get(i);
+				//ArrayList<Integer> trayecto_cond_real = trayectos_real.get(i);
 				ArrayList<Usuario> pasajeros_actuales = pasj_coches.get(i);
 				Usuario cond_act = conductores.get(i);
 				XYLocation pos_act = trayecto_cond.get(trayecto_cond.size() - 1);
@@ -248,7 +252,7 @@ public class BlaBlaEstado {
 					int y = posible_pasajero.getCoordOrigenY();
 
 					XYLocation nuevo = new XYLocation(x,y);
-					pajeros.get(i).add(posible_pasajero);
+					//pajeros.get(i).add(posible_pasajero);
 
 					trayecto_cond.add(nuevo);
 
@@ -337,7 +341,10 @@ public class BlaBlaEstado {
 
 
 
-
+	private ArrayList<ArrayList<XYLocation>> trayectos;
+	private ArrayList<ArrayList<Integer>> trayectos_real;
+	private ArrayList<Integer> distancias;
+	private static ArrayList<Usuario> cjt_usuarios;
 	private int num_cond;
 
 	public int num_conductores() {
