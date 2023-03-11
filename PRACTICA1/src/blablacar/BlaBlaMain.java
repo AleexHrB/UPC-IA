@@ -5,6 +5,8 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Set;
+import IA.Comparticion.*;
+
 import java.util.HashSet;
 import aima.basic.XYLocation;
 

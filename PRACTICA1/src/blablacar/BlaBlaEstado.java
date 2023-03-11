@@ -50,6 +50,7 @@ public class BlaBlaEstado {
 
 		distancias = new ArrayList<Integer> (num_cond);
 		trayectos = new ArrayList<ArrayList<XYLocation>> (num_cond);
+		pajeros = new ArrayList<ArrayList<Usuario>> (num_cond);
 
 		for (int i = 0; i < num_cond; ++i) {
 
@@ -59,6 +60,8 @@ public class BlaBlaEstado {
 			XYLocation ini = new XYLocation(conductores.get(i).getCoordOrigenX(), conductores.get(i).getCoordOrigenY());
 			v.add(ini);
 			trayectos.add(v);
+
+			pajeros.get(i).add(conductores.get(i));
 
 		}
 
@@ -70,6 +73,13 @@ public class BlaBlaEstado {
 
 	private static ArrayList<ArrayList<XYLocation>> trayectos;
 	private static ArrayList<Integer> distancias;
+	private static ArrayList<ArrayList<Usuario>> pajeros;
+
+	public ArrayList<ArrayList<Usuario>> pasajeros_cada_coche() {
+
+		return pajeros;
+
+	}
 
 
 	private void random_sol(Usuarios users, ArrayList<Usuario> conductores, ArrayList<Usuario> pasajeros) {
@@ -114,12 +124,13 @@ public class BlaBlaEstado {
 						pasajeros_bool.set(num_recoger, true);
 
 						Usuario nuevo_pasajero = pasajeros.get(num_recoger);
+						pajeros.get(i).add(nuevo_pasajero);
 
 						int x = nuevo_pasajero.getCoordOrigenX();
 						int y = nuevo_pasajero.getCoordOrigenY();
 						trayecto_conductor.add(new XYLocation(x,y));
 
-						int distancia_actual = distancias.get(i) + dist(x,y,pos_act.getCoOrdX(), pos_act.getCoOrdY());
+						int distancia_actual = distancias.get(i) + dist(x,y,pos_act.getXCoOrdinate(), pos_act.getYCoOrdinate());
 
 						distancias.set(i, distancia_actual);
 
@@ -137,7 +148,7 @@ public class BlaBlaEstado {
 
 						trayecto_conductor.add(new XYLocation(x,y));
 						
-						int distancia_actual = distancias.get(i) + dist(x,y,pos_act.getCoOrdX(), pos_act.getCoOrdY());
+						int distancia_actual = distancias.get(i) + dist(x,y,pos_act.getXCoOrdinate(), pos_act.getYCoOrdinate());
 
 						distancias.set(i, distancia_actual);
 
@@ -161,7 +172,7 @@ public class BlaBlaEstado {
 
 				XYLocation ultima = trayectos.get(i).get(trayectos.size() - 1);
 
-				int distancia_actual = distancias.get(i) + dist(x,y, ultima.getCoOrdX(), ultima.getCoOrdY());
+				int distancia_actual = distancias.get(i) + dist(x,y, ultima.getXCoOrdinate(), ultima.getYCoOrdinate());
 
 				distancias.set(i, distancia_actual);
 
@@ -207,12 +218,12 @@ public class BlaBlaEstado {
 				ArrayList<Usuario> pasajeros_actuales = pasj_coches.get(i);
 				Usuario cond_act = conductores.get(i);
 				XYLocation pos_act = trayecto_cond.get(trayecto_cond.size() - 1);
-				int x_act = pos_act.getCoOrdinateX();
-				int y_act = pos_act.getCoOrdinateY();
+				int x_act = pos_act.getXCoOrdinate();
+				int y_act = pos_act.getYCoOrdinate();
 
 
 				//Eleccion de recoger o dejar
-				Usuario posible_pasajero;
+				Usuario posible_pasajero = null;
 
 				if (recoger(pasajeros_actuales, cond_act, posible_pasajero, pasajeros)) {
 
@@ -220,6 +231,7 @@ public class BlaBlaEstado {
 					int y = posible_pasajero.getCoordOrigenY();
 
 					XYLocation nuevo = new XYLocation(x,y);
+					pajeros.get(i).add(posible_pasajero);
 
 					trayecto_cond.add(nuevo);
 
@@ -238,11 +250,11 @@ public class BlaBlaEstado {
 
 					int dejar = dist(u1.getCoordDestinoX(), u1.getCoordDestinoY(), x_act, y_act) < dist(u2.getCoordDestinoX(), u2.getCoordDestinoY(), x_act, y_act) ? 0 : 1;
 
-					XYLocation dejar = new XYLocation(pasajeros_actuales.get(dejar).getCoordDestinoX(), pasajeros_actuales.get(dejar).getCoordDestinoY());
+					XYLocation dejarPos = new XYLocation(pasajeros_actuales.get(dejar).getCoordDestinoX(), pasajeros_actuales.get(dejar).getCoordDestinoY());
 
-					trayecto_cond.add(dejar);
+					trayecto_cond.add(dejarPos);
 
-					int distancia_actual = distancias.get(i) + dist(dejar.getCoOrdinateX(), dejar.getCoOrdinateY() ,x_act, y_act);
+					int distancia_actual = distancias.get(i) + dist(dejarPos.getXCoOrdinate(), dejarPos.getYCoOrdinate() ,x_act, y_act);
 
 					distancias.set(i,distancia_actual);
 					--num_no_trabajando;
@@ -260,10 +272,10 @@ public class BlaBlaEstado {
 		for (int i = 0; i < num_cond; ++i) {
 
 			Usuario conductor_actual = conductores.get(i);
-			trayectos.get(i).add(new XYLocation(conductor_actual.getCoordX(), conductor_actual.getCoordY()));
+			trayectos.get(i).add(new XYLocation(conductor_actual.getCoordDestinoX(), conductor_actual.getCoordDestinoY()));
 			XYLocation last_pos = trayectos.get(i).get(trayectos.size() - 2);
 
-			int distancia_actual = distancias.get(i) + dist(conductor_actual.getCoOrdinateX(), conductor_actual.getCoOrdinateY() , last_pos.getCoOrdX(), last_pos.getCoOrdY());
+			int distancia_actual = distancias.get(i) + dist(conductor_actual.getCoordDestinoX(), conductor_actual.getCoordDestinoY() , last_pos.getXCoOrdinate(), last_pos.getYCoOrdinate());
 
 			distancias.set(i,distancia_actual);	
 		}
@@ -274,7 +286,7 @@ public class BlaBlaEstado {
 
 		if (pasajeros_en_coche.size() == 2) return false;
 
-		pasajero_recoger = cercano(pasajeos, conductor);
+		pasajero_recoger = cercano(pasajeros, conductor);
 
 		return true;
 
@@ -287,9 +299,9 @@ public class BlaBlaEstado {
 
 	private Usuario cercano (Set<Usuario> s, Usuario u) {
 
-		int min = 10e9;
+		int min = 1000000000;
 
-		Usuario x;
+		Usuario x = null;
 
 		for (Usuario pasj : s) {
 
@@ -309,13 +321,13 @@ public class BlaBlaEstado {
 
 	public int num_conductores() {
 
-		return num_conductores;
+		return num_cond;
 
 	}
 
 	public int num_pasajeros() {
 
-		return trabajadores.size() - num_cond;
+		return trayectos.size() - num_cond;
 
 	}
 
