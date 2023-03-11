@@ -193,10 +193,6 @@ public class BlaBlaEstado {
 	}
 
 
-
-
-
-
 	//Falta actualizar distancias y poner un paron cuando solo queden conductores
 	private void greedy_sol(Usuarios users, ArrayList<Usuario> conductores, Set<Usuario> pasajeros) {
 
@@ -336,4 +332,11 @@ public class BlaBlaEstado {
 	}
 
 
+	public void cambioCoche(Usuario userio, coches, ) {
+
+	}
+
+	public void intercambioCoches(Usuario) {
+
+	}
 }
