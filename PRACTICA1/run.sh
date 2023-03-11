@@ -1,1 +1,1 @@
-java src.blablacar.BlaBlaMain
+java -cp ./lib/Comparticion.jar:. src.blablacar.BlaBlaMain
