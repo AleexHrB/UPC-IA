@@ -76,6 +76,12 @@ public class BlaBlaEstado {
 	private static ArrayList<Integer> distancias;
 	private static ArrayList<ArrayList<Usuario>> pajeros;
 
+	public ArrayList<Integer> distancias_coches() {
+
+		return distancias;
+
+	}
+
 	public ArrayList<ArrayList<Usuario>> pasajeros_cada_coche() {
 
 		return pajeros;
