@@ -61,6 +61,7 @@ public class BlaBlaEstado {
 			v.add(ini);
 			trayectos.add(v);
 
+			pajeros.add(new ArrayList<Usuario>());
 			pajeros.get(i).add(conductores.get(i));
 
 		}
@@ -99,12 +100,12 @@ public class BlaBlaEstado {
 
 			for (int i = 0; i < distancias.size(); ++i) distancias.set(i, 0);
 
-
+			for (int i = 0; i < conductores.size(); ++i) usuarios.add(new ArrayList<Usuario>());
 			while (num_no_trabajando > conductores.size()) {
 
-				ArrayList<Boolean> pasajeros_bool = new ArrayList<Boolean> (pasajeros.size());
+				ArrayList<Boolean> pasajeros_bool = new ArrayList<Boolean> ();
 
-				for (int i = 0; i < pasajeros.size(); ++i) pasajeros_bool.set(i, false);
+				for (int i = 0; i < pasajeros.size(); ++i) pasajeros_bool.add(false);
 
 				
 				for (int i = 0; i < conductores.size() && distancias.get(i) <= max_dist; ++i) {
@@ -208,6 +209,10 @@ public class BlaBlaEstado {
 
 		}
 
+
+		for (int i = 0; i < num_cond; ++i) {
+			pasj_coches.add(new ArrayList<Usuario>());
+		}
 		while (num_no_trabajando > num_cond) {
 
 
@@ -227,6 +232,7 @@ public class BlaBlaEstado {
 
 				if (recoger(pasajeros_actuales, cond_act, posible_pasajero, pasajeros)) {
 
+					posible_pasajero = cercano(pasajeros, cond_act);
 					int x = posible_pasajero.getCoordOrigenX();
 					int y = posible_pasajero.getCoordOrigenY();
 
@@ -299,18 +305,20 @@ public class BlaBlaEstado {
 
 	private Usuario cercano (Set<Usuario> s, Usuario u) {
 
-		int min = 1000000000;
+		int min = 2000000000;
 
 		Usuario x = null;
 
 		for (Usuario pasj : s) {
 
 			int nueva_dist = dist(u.getCoordOrigenX(), u.getCoordOrigenY(), pasj.getCoordOrigenX(), pasj.getCoordOrigenY());
-
-			if (nueva_dist < min) x = pasj;
+			
+			if (nueva_dist < min) {
+				x = pasj;
+				min = nueva_dist;
+			}
 
 		}
-
 		return x;
 	}
 
