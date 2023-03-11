@@ -332,11 +332,29 @@ public class BlaBlaEstado {
 	}
 
 
-	public void cambioCoche(Usuario userio, coches, ) {
+	public void cambioCoche(Usuario pasajero, int cocheId) throws Exception{
+		Boolean found = false;
+		int i = 0;
+		while (!found && i < pajeros.size()) {
+			int j = 0;
+			while (!found && j < pajeros.get(i).size()) {
+				if (pasajero.equals(pajeros.get(i).get(j))) {
+					pajeros.get(i).remove(j);
+					//quitar del trayecto del coche j
 
+					found = true;
+				}
+				++j;
+			}
+			++i;
+		}
+
+		if(!found) throw new Exception("No se ha encontrado el pasajero en ningun coche");
+		else pajeros.get(cocheId).add(pasajero);
 	}
 
-	public void intercambioCoches(Usuario) {
-
+	public void intercambioCoches(Usuario usuario1, Usuario usuario2) {
+		
 	}
+
 }
