@@ -141,6 +141,8 @@ public class BlaBlaEstado {
 
 						distancias.set(i, distancia_actual);
 
+						pasajeros_actuales.add(nuevo_pasajero);
+
 					}
 
 
@@ -158,6 +160,7 @@ public class BlaBlaEstado {
 						int distancia_actual = distancias.get(i) + dist(x,y,pos_act.getXCoOrdinate(), pos_act.getYCoOrdinate());
 
 						distancias.set(i, distancia_actual);
+						pasajeros_actuales.remove(num_dejar);
 
 						--num_no_trabajando;
 
@@ -222,7 +225,9 @@ public class BlaBlaEstado {
 		while (num_no_trabajando > num_cond) {
 
 
+
 			for (int i = 0; i < num_cond; ++i) {
+
 
 				//Referente al conductor actual
 				ArrayList<XYLocation> trayecto_cond = trayectos.get(i);
@@ -250,6 +255,7 @@ public class BlaBlaEstado {
 					int distancia_actual = distancias.get(i) + dist(x,y,x_act, y_act);
 
 					distancias.set(i, distancia_actual);
+					pasajeros_actuales.add(posible_pasajero);
 
 
 				}
@@ -271,6 +277,7 @@ public class BlaBlaEstado {
 					distancias.set(i,distancia_actual);
 					--num_no_trabajando;
 					pasajeros.remove(pasajeros_actuales.get(dejar));
+					pasajeros_actuales.remove(dejar);
 
 				}
 
@@ -285,7 +292,7 @@ public class BlaBlaEstado {
 
 			Usuario conductor_actual = conductores.get(i);
 			trayectos.get(i).add(new XYLocation(conductor_actual.getCoordDestinoX(), conductor_actual.getCoordDestinoY()));
-			XYLocation last_pos = trayectos.get(i).get(trayectos.size() - 2);
+			XYLocation last_pos = trayectos.get(i).get(trayectos.get(i).size() - 2);
 
 			int distancia_actual = distancias.get(i) + dist(conductor_actual.getCoordDestinoX(), conductor_actual.getCoordDestinoY() , last_pos.getXCoOrdinate(), last_pos.getYCoOrdinate());
 
@@ -345,7 +352,14 @@ public class BlaBlaEstado {
 
 	}
 
+	public void escribir_distancias() {
 
+		for (int i = 0; i < distancias.size(); ++i) System.out.println("El coche "  + (i+1) + "ha recorrido " + distancias.get(i)); 
+
+
+	}
+
+/*
 	public void cambioCoche(Usuario userio, coches, ) {
 
 	}
@@ -353,4 +367,6 @@ public class BlaBlaEstado {
 	public void intercambioCoches(Usuario) {
 
 	}
+
+	*/
 }

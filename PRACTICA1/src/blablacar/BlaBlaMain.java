@@ -40,6 +40,8 @@ public class BlaBlaMain {
 
 		BlaBlaEstado e = new BlaBlaEstado(users, modo);
 
+		e.escribir_distancias();
+
 		//Ahora magia
 	}
 
