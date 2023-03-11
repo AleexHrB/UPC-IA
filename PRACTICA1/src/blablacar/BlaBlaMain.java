@@ -17,56 +17,29 @@ public class BlaBlaMain {
 		
 		Scanner s = new Scanner(System.in);
 
-		Set<Integer> cond = new HashSet<Integer> ();
-		
-		System.out.print("Introduzca el numero de personas que hay en la ciudad: ");
-		int num_trabajadores = s.nextInt();
+		System.out.print("Introduce la Semilla: ");
+		int seed = s.nextInt();
 
-		System.out.print("Introduzca el numero de conductores que hay en la ciudad: ");
+
+		System.out.print("Introduce el numero de conductores: ");
 		int conductores = s.nextInt();
 
-		System.out.println("Introduzca los conductores que van a trabajar (el numero que los identifica");
 
-		ArrayList<Integer> coches = new ArrayList<Integer>(conductores);
+		System.out.print("Introduce el numero de usuarios: ");
+		int usuarios = s.nextInt();
 
-		for (int i = 0; i < conductores; ++i) {
+		System.out.println("Que solucion inicial quieres usar?");
+		System.out.println("Modo 0: Greedy");
+		System.out.println("Modo 1: Random");
 
-			coches.add(s.nextInt());
-			cond.add(i);
+		int modo = s.nextInt();
 
-		}
+		Usuarios users = new Usuarios(usuarios, conductores, seed);
 
-		System.out.println("Ahora para cada trabajador introduce: Posicion X inicial, Posicion Y inicial, Posicion X final, Posicion Y final");
+		BlaBlaEstado e = new BlaBlaEstado(users, modo);
 
-		ArrayList<ArrayList<XYLocation>> trabajadores = new ArrayList<ArrayList<XYLocation>> (num_trabajadores);
-
-
-		for (int i = 0; i < num_trabajadores; ++i) {
-
-			String rol = cond.contains(i+1) ? "Conductor " : "Trabajador ";
-			System.out.print(rol + (i+1) + " : ");
-			ArrayList<XYLocation> v = new ArrayList<XYLocation> (2);
-
-			int x = s.nextInt();
-			int y = s.nextInt();
-
-			XYLocation ini = new XYLocation(x,y);
-
-			v.add(ini);
-
-			x = s.nextInt();
-			y = s.nextInt();
-
-			XYLocation fin = new XYLocation(x,y);
-
-			v.add(fin);
-			trabajadores.add(v);
-
-
-		}
-
-
+		//Ahora magia
 	}
 
-
 }
+
