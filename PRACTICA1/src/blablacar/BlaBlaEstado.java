@@ -359,14 +359,4 @@ public class BlaBlaEstado {
 
 	}
 
-/*
-	public void cambioCoche(Usuario userio, coches, ) {
-
-	}
-
-	public void intercambioCoches(Usuario) {
-
-	}
-
-	*/
 }
