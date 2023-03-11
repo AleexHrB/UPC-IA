@@ -18,12 +18,12 @@ public class BlaBlaHeuristicFunctions implements HeuristicFunction{
      * @return Depending on the function chosen, the value returned will be 
      *    O(1) 1. Total Number of cars  
      *    O(1) 2. Total Number of cars squared
-     *    O(n) 3. Sum of the length of the paths to work for each user 
-     *    O(n) 4. Sum of the length of the paths to work for each user squared
-     *    O(n) 5. Average of the length of the path to work for each user
-     *    O(n) 6. Average of the length of the path to work for each user (each element squared)
-     *    O(n) 7. Entropy of the length of path to work from each user
-     *    O(n) 8. Entropy of the length of path to work from each user multiplied by the number of cars
+     *    O(n) 3. Sum of the length of the paths for each car
+     *    O(n) 4. Sum of the length of the paths for each car squared
+     *    O(n) 5. Average of the length of the path for each car
+     *    O(n) 6. Average of the length of the path for each car (each element squared)
+     *    O(n) 7. Sum of the length of the paths for each car multiplied by the number of cars
+     *    O(n) 8. Sum of the length of the paths for each car multiplied by the number of cars squared
      */
     public double getHeuristicValue(Object State,int Choice) throws IllegalStateException{
 
@@ -65,15 +65,16 @@ public class BlaBlaHeuristicFunctions implements HeuristicFunction{
 
             case 7: 
 
-                for(int i = 0; i < n; ++i) h += PathLengths(i);
-                 h = h * Math.log(h);
+                for(int i = 0; i < n; ++i) h+= PathLengths(i);
+                h = h * NumberOfCars;
 
-            case 8:
-                for(int i = 0; i < n; ++i) h += PathLengths(i);
-                h = h * Math.log(h) * NumberOfCars;
+            case 8: 
+
+                for(int i = 0; i < n; ++i) h+= PathLengths(i);
+                h = h * NumberOfCars * NumberOfCars;
 
             default:
-                throw new IllegalStateException("maricones usad el numero entre 1 y 8 joder");
+                throw new IllegalStateException("maricones usad un numero entre 1 y 8");
                 break;
 
         }
