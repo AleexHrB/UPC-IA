@@ -171,6 +171,7 @@ public class BlaBlaEstado {
 				if (distancia_actual > max_dist) {
 
 					solucion_valida = false;
+					num_no_trabajando = users.size();
 					break;
 
 				}
@@ -182,25 +183,6 @@ public class BlaBlaEstado {
 		}
 
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
