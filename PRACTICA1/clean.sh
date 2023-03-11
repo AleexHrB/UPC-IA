@@ -1,0 +1,1 @@
+rm ./src/blablacar/*.class

@@ -2,9 +2,13 @@ package src.blablacar;
 
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.lang.Math;
-import aima.XYLocation;
+import aima.basic.XYLocation;
 import java.util.Random;
+import java.util.Set;
+
+import IA.Comparticion.*;
 
 
 
@@ -73,14 +77,7 @@ public class BlaBlaEstado {
 
 		int num_no_trabajando = users.size();
 
-		ArrayList<ArrayList<Usuario>> pasajeros = new ArrayList<ArrayList<XYLocation>> (conductores.size());
-
-		for (int i = 0; i < conductores.size(); ++i) {
-
-			ArrayList<Usuario> v = new ArrayList<Usuario>();
-			pasajeros.get(i).add(v);
-
-		}
+		ArrayList<ArrayList<Usuario>> usuarios = new ArrayList<ArrayList<Usuario>> (conductores.size());
 
 		Random r = new Random();
 
@@ -104,7 +101,7 @@ public class BlaBlaEstado {
 
 					ArrayList<XYLocation> trayecto_conductor = trayectos.get(i);
 					XYLocation pos_act = trayecto_conductor.get(trayecto_conductor.size() - 1);
-					ArrayList<Usuario> pasajeros_actuales = pasajeros.get(i);
+					ArrayList<Usuario> pasajeros_actuales = usuarios.get(i);
 
 					boolean recoger = pasajeros_actuales.size() == 0 || (pasajeros_actuales.size() == 1 && r.nextInt(2) == 0);
 

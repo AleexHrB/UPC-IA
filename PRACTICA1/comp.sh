@@ -1,3 +1,3 @@
-javac src/blablacar/BlaBlaMain.java
+javac -cp ./:./Comparticion/Comparticion.jar src/blablacar/BlaBlaMain.java
 java src.blablacar.BlaBlaMain
 
