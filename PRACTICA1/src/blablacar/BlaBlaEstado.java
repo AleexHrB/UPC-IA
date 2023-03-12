@@ -24,8 +24,7 @@ public class BlaBlaEstado {
 		int n = users.size();
 
 		num_cond = 0;
-		cjt_usuarios = new ArrayList<Usuario>();
-		cjt_usuarios.addAll(users);
+		cjt_usuarios = users;
 
 		ArrayList<Usuario> conductores = new ArrayList<Usuario>();
 		ArrayList<Integer> conductores_id = new ArrayList<Integer>();
@@ -53,7 +52,6 @@ public class BlaBlaEstado {
 
 		distancias = new ArrayList<Integer> (num_cond);
 		trayectos = new ArrayList<ArrayList<XYLocation>> (num_cond);
-		trayectos_real = new ArrayList<ArrayList<Integer>>(num_cond);
 		//pajeros = new ArrayList<ArrayList<Usuario>> (num_cond);
 
 		for (int i = 0; i < num_cond; ++i) {
@@ -67,7 +65,6 @@ public class BlaBlaEstado {
 
 			ArrayList<Integer> first = new ArrayList<Integer>();
 			first.add(conductores_id.get(i)); 
-			trayectos_real.add(first);
 			//pajeros.add(new ArrayList<Usuario>());
 			//pajeros.get(i).add(conductores.get(i));
 
@@ -79,8 +76,8 @@ public class BlaBlaEstado {
 	}
 
 	public BlaBlaEstado (BlaBlaEstado Og) {
-		this.trayectos_real = new ArrayList<ArrayList<Integer>> ();
-		for (ArrayList<Integer> conductor: Og.trayectos_real) trayectos_real.add(new ArrayList<Integer>(conductor));
+		this.trayectos = new ArrayList<ArrayList<XYLocation>> ();
+		for (ArrayList<XYLocation> conductor: Og.trayectos) trayectos.add(new ArrayList<XYLocation>(conductor));
 		this.distancias = new ArrayList<Integer>(Og.distancias);
 		this.num_cond = Og.num_cond;
 	}
@@ -342,9 +339,8 @@ public class BlaBlaEstado {
 
 
 	private ArrayList<ArrayList<XYLocation>> trayectos;
-	private ArrayList<ArrayList<Integer>> trayectos_real;
 	private ArrayList<Integer> distancias;
-	private static ArrayList<Usuario> cjt_usuarios;
+	private static Usuarios cjt_usuarios;
 	private int num_cond;
 
 	public int num_conductores() {
@@ -363,13 +359,7 @@ public class BlaBlaEstado {
 
 		for (int i = 0; i < distancias.size(); ++i) System.out.println("El coche "  + (i+1) + "ha recorrido " + distancias.get(i)); 
 
-	public void cambioCoche(Usuario userio, coches, ) {
-
-		if(!found) throw new Exception("No se ha encontrado el pasajero en ningun coche");
-		else pajeros.get(cocheId).add(pasajero);
-	}
-
-	public void intercambioCoches(Usuario) {
 
 	}
+
 }
