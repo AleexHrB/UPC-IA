@@ -363,7 +363,13 @@ public class BlaBlaEstado {
 
 		for (int i = 0; i < distancias.size(); ++i) System.out.println("El coche "  + (i+1) + "ha recorrido " + distancias.get(i)); 
 
+	public void cambioCoche(Usuario userio, coches, ) {
 
+		if(!found) throw new Exception("No se ha encontrado el pasajero en ningun coche");
+		else pajeros.get(cocheId).add(pasajero);
 	}
 
+	public void intercambioCoches(Usuario) {
+
+	}
 }
