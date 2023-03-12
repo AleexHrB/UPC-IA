@@ -109,7 +109,7 @@ public class BlaBlaEstado {
 
 		boolean solucion_valida = false;
 
-		int max_dist = 30000;
+		int max_dist = 300;
 
 		while (!solucion_valida) {
 
