@@ -1,6 +1,6 @@
 package src.blablacar;
 
-import src.blablacar.BlaBlaEstado;
+import src.blablacar.NewBlaBlaEstado;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -38,6 +38,7 @@ public class BlaBlaMain {
 
 		Usuarios users = new Usuarios(usuarios, conductores, seed);
 
+/*
 		for (int i = 0; i < 100; ++i) {
 			Usuarios u = new Usuarios(5000, 3000, i*373);
 			System.out.println("Solución número: " + Integer.toString(i));
@@ -47,10 +48,10 @@ public class BlaBlaMain {
 			}
 			
 		}  
+*/
+		NewBlaBlaEstado e = new NewBlaBlaEstado(users, modo);
 
-		//BlaBlaEstado e = new BlaBlaEstado(users, modo);
-
-		//e.escribir_distancias();
+		e.escribir_ruta();
 
 		//Ahora magia
 	}
