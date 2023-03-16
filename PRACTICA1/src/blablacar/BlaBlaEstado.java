@@ -13,9 +13,9 @@ import aima.basic.XYLocation;
 
 public class BlaBlaEstado {
 
-	private static ArrayList<ArrayList<Integer>> trayectos;
-	private static ArrayList<Integer> id_cond;
-	private static ArrayList<Integer> distancias;
+	private ArrayList<ArrayList<Integer>> trayectos;
+	private ArrayList<Integer> id_cond;
+	private ArrayList<Integer> distancias;
 	private static Usuarios cjt_usuarios;
 	private int num_cond;
 
@@ -57,7 +57,28 @@ public class BlaBlaEstado {
 
 	}
 
+	public BlaBlaEstado(BlaBlaEstado state) {
+		this.trayectos = new ArrayList<ArrayList<Integer>>();
+		for (ArrayList<Integer> tray: state.trayectos) {
+			ArrayList<Integer> current = new ArrayList<Integer>();
+			for (Integer us: tray) {
+				current.add(us);
+			}
+			this.trayectos.add(current);
+		}
 
+		this.id_cond = new ArrayList<Integer>();
+		for (Integer cond: state.id_cond) {
+			this.id_cond.add(cond);
+		}
+
+		this.distancias = new ArrayList<Integer>();
+		for (Integer dist: state.distancias) {
+			this.distancias.add(dist);
+		}
+
+		this.num_cond = state.num_cond;
+	}
 
 
 	public int get_route_length(int car) {
@@ -471,18 +492,24 @@ public class BlaBlaEstado {
 	}
 
 	/**
-	 * Swaps 2 actions from a route
-	 * The resoulting route can not leave users before picking them up (-abs(id1) does not apear before abs(id1))
-	 * id1 < id2
-	 */
-	public void route_permutation(int car, int id1, int id2) {
+ 	* 
+ 	* @param car car to permutate
+ 	* @param id1 First id to swap
+ 	* @param id2 Second id to swap
+ 	* @return new distance
+	* Fails if the resulting route leaves users before picking them up
+	* id1 < id2
+ 	*/
+	public int route_permutation(int car, int id1, int id2) {
 		ArrayList<Integer> route = trayectos.get(car);
 		
 		if (id1 > 0 || id2 < 0) {
 			for (int i = id1 + 1; i < id2; ++i) {
-				if (route.get(i) == -id1 || route.get(i) == -id2) return;
+				if (route.get(i) == -id1 || route.get(i) == -id2) return -1;
 			}
 		}
+
+		if (id1 == 0 || id1 == route.size() - 1 || id2 == 0 || id2 == route.size() - 1) return - 1;
 		
 		int anterior1 = route.get(id1 - 1);
 		Integer user1 = route.get(id1);
@@ -501,14 +528,82 @@ public class BlaBlaEstado {
 		int aux = user1;
 		user1 = user2;
 		user2 = aux;
+		
+		return distance;
 	}
+
+	/**
+	 * 
+	 * @param car1 first car 
+	 * @param car2 second car
+	 * @param id1 id of the position on the route to swap on the first car (route1[id1] has to be positive)
+	 * @param id2 id of the position on the route to swap on the second car (route2[id2] has to be positive)
+	 * @return returns new distance
+	 */
+	public void passenjer_swap(int car1, int car2, int id1, int id2) {
+		ArrayList<Integer> route1 = trayectos.get(car1);
+		ArrayList<Integer> route2 = trayectos.get(car2);
+
+		if (route1.get(id1) < 0 || route2.get(id2) < 0) return;
+		
+		int job1, job2;
+		job1 = job2 = -1;
+		for (int i = id1 + 1; (i < route1.size()) && (job1 == -1); ++i) {
+			if (route1.get(i) == -id1) {
+				job1 = i;
+			}
+		}
+
+		for (int i = id2 + 1; (i < route2.size()) && (job2 == -1); ++i) {
+			if (route2.get(i) == -id2) {
+				job2 = i;
+			}
+		}
+
+		int anterior1Og = route1.get(id1 - 1);
+		Integer user1Og =  route1.get(id1);
+		int post1Og = route1.get(id1 + 1);
+
+		int anterior1Dest = route1.get(job1 - 1);
+		Integer user1Dest =  route1.get(job1);
+		int post1Dest = route1.get(job1 + 1);
+
+		int anterior2Og = route2.get(id2 - 1);
+		Integer user2Og =  route2.get(id2);
+		int post2Og = route2.get(id2 + 1);
+
+		int anterior2Dest = route2.get(job2 - 1);
+		Integer user2Dest =  route2.get(job2);
+		int post2Dest = route2.get(job2 + 1);
+
+		int oldDist1 = distance(anterior1Og, user1Og) + distance(user1Og, post1Og) + distance(anterior1Dest, user1Dest) + distance(user1Dest, post1Dest);
+		int newDist1 = distance(anterior1Og, user2Og) + distance(user2Og, post1Og) + distance(anterior1Dest, user2Dest) + distance(user2Dest, post1Dest);
+
+		int oldDist2 = distance(anterior2Og, user2Og) + distance(user2Og, post2Og) + distance(anterior2Dest, user2Dest) + distance(user2Dest, post2Dest);
+		int newDist2 = distance(anterior2Og, user1Og) + distance(user1Og, post2Og) + distance(anterior2Dest, user1Dest) + distance(user1Dest, post2Dest);
+
+		Integer distance1 = distancias.get(car1);
+		distance1 = distance1 - oldDist1 + newDist1;
+
+		Integer distance2 = distancias.get(car2);
+		distance2 = distance2 - oldDist2 + newDist2;
+
+		int auxOg = user1Og;
+		int auxDest = user1Dest;
+
+		user1Og = user2Og;
+		user1Dest = user2Dest;
+
+		user2Og = auxOg;
+		user2Dest = auxDest;
+	} 
 
 	private int distance(int id1, int id2) {
 		int pos1X, pos1Y, pos2X, pos2Y;
 
 		if (id1 < 0) {
-			pos1X = cjt_usuarios.get(id1).getCoordDestinoX();
-			pos1Y = cjt_usuarios.get(id1).getCoordDestinoY();
+			pos1X = cjt_usuarios.get(java.lang.Math.abs(id1)).getCoordDestinoX();
+			pos1Y = cjt_usuarios.get(java.lang.Math.abs(id1)).getCoordDestinoY();
 		}
 
 		else {
@@ -517,8 +612,8 @@ public class BlaBlaEstado {
 		}
 
 		if (id2 < 0) {
-			pos2X = cjt_usuarios.get(id2).getCoordDestinoX();
-			pos2Y = cjt_usuarios.get(id2).getCoordDestinoY();
+			pos2X = cjt_usuarios.get(java.lang.Math.abs(id2)).getCoordDestinoX();
+			pos2Y = cjt_usuarios.get(java.lang.Math.abs(id2)).getCoordDestinoY();
 		}
 
 		else {
@@ -527,6 +622,21 @@ public class BlaBlaEstado {
 		}
 
 		return java.lang.Math.abs(pos1X - pos2X) + java.lang.Math.abs(pos1Y - pos2Y);
+	}
+
+	/**
+	 * @param route_id id of the route to check
+	 * @return lenght of the route_id'th route
+	*/
+	public int getRouteLength(int route_id) {
+		return trayectos.get(route_id).size();
+	}
+
+	/**
+	 * @return number of cars used
+	*/
+	public int getNumCars() {
+		return trayectos.size();
 	}
 }
 

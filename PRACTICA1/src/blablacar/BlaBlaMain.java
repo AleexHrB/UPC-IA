@@ -9,6 +9,10 @@ import IA.Comparticion.*;
 
 import java.util.HashSet;
 import aima.basic.XYLocation;
+import aima.search.framework.Problem;
+import aima.search.framework.Search;
+import aima.search.framework.SearchAgent;
+import aima.search.informed.SimulatedAnnealingSearch;
 
 
 public class BlaBlaMain {
@@ -53,6 +57,17 @@ public class BlaBlaMain {
 
 		e.escribir_ruta();
 
+		Search alg = new SimulatedAnnealingSearch(20, 20, 20, 2);
+		Problem p = new Problem(e, new BlaBlaSuccessorsSA(), new BlaBlaGoalTest());
+		try {
+			SearchAgent ag = new SearchAgent(p, alg);
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		BlaBlaEstado goal = (BlaBlaEstado) alg.getGoalState();
+		goal.escribir_ruta();
 		//Ahora magia
 	}
 
