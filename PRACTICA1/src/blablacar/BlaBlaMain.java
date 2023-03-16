@@ -38,7 +38,7 @@ public class BlaBlaMain {
 
 		Usuarios users = new Usuarios(usuarios, conductores, seed);
 
-		for (int i = 0; i < 100; ++i) {
+		/*for (int i = 0; i < 100; ++i) {
 			Usuarios u = new Usuarios(5000, 3000, i*373);
 			System.out.println("Solución número: " + Integer.toString(i));
 			System.out.println("--------------------------------------");
@@ -46,11 +46,11 @@ public class BlaBlaMain {
 				System.out.println("(" + Integer.toString(us.getCoordOrigenX())  + "," + Integer.toString(us.getCoordOrigenY()) + ")" + "(" + Integer.toString(us.getCoordDestinoX())  + "," + Integer.toString(us.getCoordDestinoY()) + ")"  );
 			}
 			
-		}  
+		}  */
 
-		//BlaBlaEstado e = new BlaBlaEstado(users, modo);
+		BlaBlaEstado e = new BlaBlaEstado(users, modo);
 
-		//e.escribir_distancias();
+		e.escribir_distancias();
 
 		//Ahora magia
 	}
