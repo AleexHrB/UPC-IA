@@ -26,7 +26,7 @@ public class BlaBlaHeuristicFunctions implements HeuristicFunction{
      */
     public double getHeuristicValue(Object State,int Choice, double lambda) throws IllegalStateException{
 
-        src.blablacar.BlaBlaEstado estado = (BlaBlaEstado) State;
+        src.blablacar.OldBlaBlaEstado estado = (OldBlaBlaEstado) State;
         double NumberOfCars = estado.num_conductores();
         ArrayList<Integer> PathLengths = estado.distancias_coches();h+= PathLengths(i);
         int n = PathLengths.size();

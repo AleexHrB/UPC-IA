@@ -1,6 +1,6 @@
 package src.blablacar;
 
-import src.blablacar.NewBlaBlaEstado;
+import src.blablacar.BlaBlaEstado;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -49,7 +49,7 @@ public class BlaBlaMain {
 			
 		}  
 */
-		NewBlaBlaEstado e = new NewBlaBlaEstado(users, modo);
+		BlaBlaEstado e = new BlaBlaEstado(users, modo);
 
 		e.escribir_ruta();
 
