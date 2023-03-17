@@ -429,8 +429,8 @@ public class BlaBlaEstado {
 					int segundo = primero == psj_1 ? psj_2 : psj_2;
 				    
 					int id_u = trayectos.get(i).get(trayectos.get(i).size() - 1);
-				    int x_a = cjt_usuarios.get(-(id_u + 1)).getCoordDestinoX();
-				    int y_a = cjt_usuarios.get(-(id_u + 1)).getCoordDestinoY();
+				    int x_a = id_u < 0 ? cjt_usuarios.get(-(id_u + 1)).getCoordDestinoX() : cjt_usuarios.get(id_u-1).getCoordOrigenX();
+				    int y_a = id_u < 0 ? cjt_usuarios.get(-(id_u + 1)).getCoordDestinoY() : cjt_usuarios.get(id_u-1).getCoordOrigenY();
 
 					trayectos.get(i).add(-primero);
 					trayectos.get(i).add(-segundo);
