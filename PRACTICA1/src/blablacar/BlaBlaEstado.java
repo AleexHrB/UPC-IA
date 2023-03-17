@@ -636,7 +636,11 @@ public class BlaBlaEstado {
 	 * @return number of cars used
 	*/
 	public int getNumCars() {
-		return trayectos.size();
+		return num_cond;
+	}
+
+	public ArrayList<Integer> get_Distances() {
+		return distancias;
 	}
 }
 
