@@ -11,6 +11,27 @@ import java.lang.IllegalStateException;
 public class BlaBlaHeuristicFunctions implements HeuristicFunction{
 
     
+    private double lambda = 1; //susman
+
+    private int Choice = 6; //stallman
+    
+    /**
+     * 
+     * @param NewChoice New choice of the heuristic function
+     */
+    public void ChangeHeuristicFunction(int NewChoice){
+    	Choice = NewChoice;
+    }
+
+    /**
+     * 
+     * @param NewLambda The new experimental lambda value for some heuristics
+     */
+    public void ChangeExperimentalLambda(double NewLambda){
+    	lambda = NewLambda;
+    }
+
+
     /**
      * @param state This is a non-instanciated state 
      * @param Choice This number determines which heuristic is gonna be used, from heuristic1 to heuristic 8. Throws exception
@@ -24,7 +45,7 @@ public class BlaBlaHeuristicFunctions implements HeuristicFunction{
      *    O(n) 6. Sum of the length of the paths for each car multiplied by the number of cars
      *    O(n) 7. Sum of the length of the paths for each car multiplied by the number of cars squared
      */
-    public double getHeuristicValue(Object State,int Choice, double lambda) throws IllegalStateException{
+    public double getHeuristicValue(Object State) throws IllegalStateException{
 
         src.blablacar.BlaBlaEstado estado = (BlaBlaEstado) State;
         double NumberOfCars = estado.num_conductores();
@@ -67,7 +88,7 @@ public class BlaBlaHeuristicFunctions implements HeuristicFunction{
                 h = h + lambda*maximo;
 
             default:
-                throw new IllegalStateException("maricones usad un numero entre 1 y 8");
+                throw new IllegalStateException("andaluces usad un numero entre 1 y 6");
                 break;
 
         }
