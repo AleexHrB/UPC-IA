@@ -264,6 +264,19 @@ public class BlaBlaEstado {
 
 				}
 
+				else {
+
+
+					int id_u = trayectos.get(i).get(trayectos.get(i).size() - 1);
+					Usuario conductor = cjt_usuarios.get(id_conductores.get(i)-1);
+				    int x_f = conductor.getCoordDestinoX();
+				    int y_f = conductor.getCoordDestinoY();
+				    int x_a = id_u < 0 ? cjt_usuarios.get(-(id_u + 1)).getCoordDestinoX() : cjt_usuarios.get(id_u-1).getCoordOrigenX();
+				    int y_a = id_u < 0 ? cjt_usuarios.get(-(id_u + 1)).getCoordDestinoY() : cjt_usuarios.get(id_u-1).getCoordOrigenY();
+				    distancias.set(i, distancias.get(i) + Math.abs(x_a - x_f) + Math.abs(y_a - y_f));
+				    trayectos.get(i).add(-id_conductores.get(i));
+				}
+
 
 
 				if (distancias.get(i) > max_dist) {
@@ -485,6 +498,19 @@ public class BlaBlaEstado {
 				    distancias.set(i, distancias.get(i) + Math.abs(x_a - x_f) + Math.abs(y_a - y_f));
 				    trayectos.get(i).add(-id_conductores.get(i));
 
+				}
+
+				else {
+
+
+					int id_u = trayectos.get(i).get(trayectos.get(i).size() - 1);
+					Usuario conductor = cjt_usuarios.get(id_conductores.get(i)-1);
+				    int x_f = conductor.getCoordDestinoX();
+				    int y_f = conductor.getCoordDestinoY();
+				    int x_a = id_u < 0 ? cjt_usuarios.get(-(id_u + 1)).getCoordDestinoX() : cjt_usuarios.get(id_u-1).getCoordOrigenX();
+				    int y_a = id_u < 0 ? cjt_usuarios.get(-(id_u + 1)).getCoordDestinoY() : cjt_usuarios.get(id_u-1).getCoordOrigenY();
+				    distancias.set(i, distancias.get(i) + Math.abs(x_a - x_f) + Math.abs(y_a - y_f));
+				    trayectos.get(i).add(-id_conductores.get(i));
 				}
 
 			}	
