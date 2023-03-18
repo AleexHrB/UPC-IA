@@ -529,14 +529,28 @@ public class BlaBlaEstado {
 	public int route_permutation(int car, int id1, int id2) {
 		ArrayList<Integer> route = trayectos.get(car);
 		
-		if (id1 > 0 || id2 < 0) {
-			for (int i = id1 + 1; i < id2; ++i) {
-				if (route.get(i) == -id1 || route.get(i) == -id2) return -1;
+		if (route.get(id1) > 0 || route.get(id2) < 0) {
+			for (int i = id1; i <= id2; ++i) {
+				if (route.get(i) == -route.get(id1) || route.get(i) == -route.get(id2)) return -1;
+			}
+		}
+		
+		//System.out.println("Coche: " + car);
+		//System.out.println("Posicion 1: " + id1 + "; Movimiento en cusetión: " +  route.get(id1));
+		//System.out.println("Posicion 2: " + id2 + "; Movimiento en cusetión: " +  route.get(id2));
+
+		if (route.get(id1) < 0 && route.get(id2) > 0) {
+			int capacity = 2;
+			for (int i = 1; i < id1; ++i) {
+				if (route.get(i) > 0) --capacity;
+				else ++capacity;
+				if (capacity <= 0) {
+					//System.out.println("Vamos mal!");
+					return -1;
+				}
 			}
 		}
 
-		if (id1 == 0 || id1 == route.size() - 1 || id2 == 0 || id2 == route.size() - 1) return - 1;
-		
 		int anterior1 = route.get(id1 - 1);
 		Integer user1 = route.get(id1);
 		int post1 = route.get(id1 + 1);
@@ -545,15 +559,25 @@ public class BlaBlaEstado {
 		Integer user2 = route.get(id2);
 		int post2 = route.get(id2 + 1);
 
-		int dAnt = distance(anterior1, user1) + distance(user1, post1) + distance(anterior2, user2) +distance(user2, post2);
-		int dNew = distance(anterior1, user2) + distance(user2, post1) + distance(anterior2, user1) +distance(user1, post2);
+		int dAnt = distance(anterior1, user1) + distance(user2, post2);
+		int dNew = distance(anterior1, user2) + distance(user1, post2);
 
-		Integer distance = distancias.get(car);
-		distance = distance - dAnt + dNew;
+		if (user1 != anterior2) {
+			dAnt += distance(anterior2, user2) + distance(user1, post1);
+			dNew += distance(anterior2, user1) + distance(user2, post1);
+		}
+
+		int distance = distancias.get(car);
+		distancias.set(car, distance - dAnt + dNew);
 		
-		int aux = user1;
-		user1 = user2;
-		user2 = aux;
+		System.out.println("Distancia antigua: " + distance);
+		System.out.println("Distancia restada: " + dAnt);
+		System.out.println("Distancia sumada: " + dNew);
+		System.out.println("Distancia nueva: " + distancias.get(car));
+
+
+		route.set(id1, user2);
+		route.set(id2, user1);
 		
 		return distance;
 	}
@@ -570,81 +594,95 @@ public class BlaBlaEstado {
 		ArrayList<Integer> route1 = trayectos.get(car1);
 		ArrayList<Integer> route2 = trayectos.get(car2);
 
-		if (route1.get(id1) < 0 || route2.get(id2) < 0) return;
+		if (id1 == 0 || id1 == route1.size() - 1 || id2 == 0 || id2 == route2.size() - 1) return;
+		if (route1.get(id1) <= 0 || route2.get(id2) <= 0) return;
+
+		//System.out.println("Coche 1: " + car1);
+		//System.out.println("Coche 2: " + car2);
+		//System.out.println("Posicion 1: " + id1 + "; Movimiento en cuestión: " +  route1.get(id1));
+		//System.out.println("Posicion 2: " + id2 + "; Movimiento en cuestión: " +  route2.get(id2));
+		
 		
 		int job1, job2;
 		job1 = job2 = -1;
 		for (int i = id1 + 1; (i < route1.size()) && (job1 == -1); ++i) {
-			if (route1.get(i) == -id1) {
+			if (route1.get(i) == -route1.get(id1)) {
 				job1 = i;
 			}
 		}
 
 		for (int i = id2 + 1; (i < route2.size()) && (job2 == -1); ++i) {
-			if (route2.get(i) == -id2) {
+			if (route2.get(i) == -route2.get(id2)) {
 				job2 = i;
 			}
 		}
 
-		int anterior1Og = route1.get(id1 - 1);
-		Integer user1Og =  route1.get(id1);
-		int post1Og = route1.get(id1 + 1);
+		//System.out.println("Trabajo 1: " + job1 +  " Verificación: " + route1.get(job1));
+		//System.out.println("Trabajo 1: " + job2 +  " Verificación: " + route2.get(job2));
+ 
+		//if (job2 < 1 || job1 < 2 || job1 == route1.size() - 1 || job2 == route2.size() - 1) return;
 
-		int anterior1Dest = route1.get(job1 - 1);
-		Integer user1Dest =  route1.get(job1);
-		int post1Dest = route1.get(job1 + 1);
 
-		int anterior2Og = route2.get(id2 - 1);
-		Integer user2Og =  route2.get(id2);
-		int post2Og = route2.get(id2 + 1);
+		int user1Og =  route1.get(id1);
+		int user1Dest =  route1.get(job1);
+		int user2Og =  route2.get(id2);
+		int user2Dest =  route2.get(job2);
 
-		int anterior2Dest = route2.get(job2 - 1);
-		Integer user2Dest =  route2.get(job2);
-		int post2Dest = route2.get(job2 + 1);
+		int distance1 = distancias.get(car1);
+		int distance2 = distancias.get(car2);
 
-		int oldDist1 = distance(anterior1Og, user1Og) + distance(user1Og, post1Og) + distance(anterior1Dest, user1Dest) + distance(user1Dest, post1Dest);
-		int newDist1 = distance(anterior1Og, user2Og) + distance(user2Og, post1Og) + distance(anterior1Dest, user2Dest) + distance(user2Dest, post1Dest);
+		route1.set(id1, user2Og);
+		route1.set(job1, user2Dest);
 
-		int oldDist2 = distance(anterior2Og, user2Og) + distance(user2Og, post2Og) + distance(anterior2Dest, user2Dest) + distance(user2Dest, post2Dest);
-		int newDist2 = distance(anterior2Og, user1Og) + distance(user1Og, post2Og) + distance(anterior2Dest, user1Dest) + distance(user1Dest, post2Dest);
+		route2.set(id2, user1Og);
+		route2.set(job2, user1Dest);
 
-		Integer distance1 = distancias.get(car1);
-		distance1 = distance1 - oldDist1 + newDist1;
+		if (!update_distance(car1) || !update_distance(car2)) {
+			route1.set(id1, user1Og);
+			route1.set(job1, user1Dest);
 
-		Integer distance2 = distancias.get(car2);
-		distance2 = distance2 - oldDist2 + newDist2;
+			route2.set(id2, user2Og);
+			route2.set(job2, user2Dest);
+		}
+		
+		
 
-		int auxOg = user1Og;
-		int auxDest = user1Dest;
+		//System.out.println("Nueva ruta 1: ");
+		//for (Integer x : trayectos.get(car1)) System.out.print(x + " , ");
 
-		user1Og = user2Og;
-		user1Dest = user2Dest;
-
-		user2Og = auxOg;
-		user2Dest = auxDest;
+		//System.out.println(" ");
+		//System.out.println("Distancia 1 antigua: " + distance1);
+		//System.out.println("Nueva distancia 1: " + distancias.get(car1));
+		
+		//System.out.println("Nueva ruta 2: ");
+		//for (Integer x : trayectos.get(car2)) System.out.print(x + " , ");
+		
+		//System.out.println(" ");
+		//System.out.println("Distancia 2 antigua: " + distance2);
+		//System.out.println("Nueva distancia 2: " + distancias.get(car2));
 	} 
 
 	private int distance(int id1, int id2) {
 		int pos1X, pos1Y, pos2X, pos2Y;
 
 		if (id1 < 0) {
-			pos1X = cjt_usuarios.get(java.lang.Math.abs(id1)).getCoordDestinoX();
-			pos1Y = cjt_usuarios.get(java.lang.Math.abs(id1)).getCoordDestinoY();
+			pos1X = cjt_usuarios.get(java.lang.Math.abs(id1) - 1).getCoordDestinoX();
+			pos1Y = cjt_usuarios.get(java.lang.Math.abs(id1) - 1).getCoordDestinoY();
 		}
 
 		else {
-			pos1X = cjt_usuarios.get(id1).getCoordOrigenX();
-			pos1Y = cjt_usuarios.get(id1).getCoordOrigenY();
+			pos1X = cjt_usuarios.get(id1 - 1).getCoordOrigenX();
+			pos1Y = cjt_usuarios.get(id1 - 1).getCoordOrigenY();
 		}
 
 		if (id2 < 0) {
-			pos2X = cjt_usuarios.get(java.lang.Math.abs(id2)).getCoordDestinoX();
-			pos2Y = cjt_usuarios.get(java.lang.Math.abs(id2)).getCoordDestinoY();
+			pos2X = cjt_usuarios.get(java.lang.Math.abs(id2) - 1).getCoordDestinoX();
+			pos2Y = cjt_usuarios.get(java.lang.Math.abs(id2) - 1).getCoordDestinoY();
 		}
 
 		else {
-			pos2X = cjt_usuarios.get(id2).getCoordOrigenX();
-			pos2Y = cjt_usuarios.get(id2).getCoordOrigenY();
+			pos2X = cjt_usuarios.get(id2 - 1).getCoordOrigenX();
+			pos2Y = cjt_usuarios.get(id2 - 1).getCoordOrigenY();
 		}
 
 		return java.lang.Math.abs(pos1X - pos2X) + java.lang.Math.abs(pos1Y - pos2Y);
@@ -667,6 +705,18 @@ public class BlaBlaEstado {
 
 	public ArrayList<Integer> get_Distances() {
 		return distancias;
+	}
+
+	private boolean update_distance(int car) {
+		int distance = 0;
+		ArrayList<Integer> actRoute = trayectos.get(car);
+		for (int i = 0; i < actRoute.size() - 1; ++i) {
+			distance += distance(actRoute.get(i), actRoute.get(i + 1));
+		}
+
+		if (distance > 300) return false;
+		distancias.set(car, distance);
+		return true;
 	}
 }
 

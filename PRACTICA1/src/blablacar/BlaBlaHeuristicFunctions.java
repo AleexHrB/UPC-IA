@@ -13,7 +13,7 @@ public class BlaBlaHeuristicFunctions implements HeuristicFunction{
     
     private double lambda = 1; //susman
 
-    private int Choice = 6; //stallman
+    private int Choice = 5; //stallman
     
     /**
      * 
