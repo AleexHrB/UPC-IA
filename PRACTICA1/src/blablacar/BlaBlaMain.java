@@ -13,6 +13,7 @@ import aima.search.framework.HeuristicFunction;
 import aima.search.framework.Problem;
 import aima.search.framework.Search;
 import aima.search.framework.SearchAgent;
+import aima.search.informed.HillClimbingSearch;
 import aima.search.informed.SimulatedAnnealingSearch;
 
 
@@ -65,8 +66,8 @@ public class BlaBlaMain {
 		heu.ChangeHeuristicFunction(5);
 		double entropia_og = heu.getHeuristicValue(e);
 
-		Search alg = new SimulatedAnnealingSearch(10000, 100, 20, 0.005);
-		Problem p = new Problem(e, new BlaBlaSuccessorsSA(), new BlaBlaGoalTest(), new BlaBlaHeuristicFunctions());
+		Search alg = new HillClimbingSearch();
+		Problem p = new Problem(e, new BlaBlaSuccessors(), new BlaBlaGoalTest(), new BlaBlaHeuristicFunctions());
 		try {
 			SearchAgent ag = new SearchAgent(p, alg);
 		} catch (Exception e1) {
@@ -90,7 +91,7 @@ public class BlaBlaMain {
 		//Ahora magia
 
 		heu.ChangeHeuristicFunction(1);
-		p = new Problem(e, new BlaBlaSuccessorsSA(), new BlaBlaGoalTest(), heu);
+		p = new Problem(e, new BlaBlaSuccessors(), new BlaBlaGoalTest(), heu);
 		try {
 			SearchAgent ag = new SearchAgent(p, alg);
 		} catch (Exception e1) {

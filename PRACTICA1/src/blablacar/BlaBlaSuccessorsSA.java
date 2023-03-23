@@ -23,7 +23,7 @@ public class BlaBlaSuccessorsSA implements SuccessorFunction {
         int rand_num = rand.nextInt(2);
 
         //Permutation
-        if (false) {
+        if (rand_num == 0) {
             int idCar = rand.nextInt(nCars);
             int routeLength = actState.getRouteLength(idCar);
 
@@ -40,7 +40,7 @@ public class BlaBlaSuccessorsSA implements SuccessorFunction {
             succ.add(new_succ);
         }
 
-        else if (true) {
+        else if (rand_num == 1) {
             int idCar = rand.nextInt(nCars);
             int idCar2 = rand.nextInt(nCars);
             
@@ -69,6 +69,9 @@ public class BlaBlaSuccessorsSA implements SuccessorFunction {
             succ.add(new_succ);
         }
 
+        else {
+            
+        }
         return succ;
     }
 
