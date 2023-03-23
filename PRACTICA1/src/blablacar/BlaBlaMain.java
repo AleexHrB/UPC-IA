@@ -9,6 +9,12 @@ import IA.Comparticion.*;
 
 import java.util.HashSet;
 import aima.basic.XYLocation;
+import aima.search.framework.HeuristicFunction;
+import aima.search.framework.Problem;
+import aima.search.framework.Search;
+import aima.search.framework.SearchAgent;
+import aima.search.informed.HillClimbingSearch;
+import aima.search.informed.SimulatedAnnealingSearch;
 
 
 public class BlaBlaMain {
@@ -38,11 +44,66 @@ public class BlaBlaMain {
 
 		Usuarios users = new Usuarios(usuarios, conductores, seed);
 
+/*
+		for (int i = 0; i < 100; ++i) {
+			Usuarios u = new Usuarios(5000, 3000, i*373);
+			System.out.println("Solución número: " + Integer.toString(i));
+			System.out.println("--------------------------------------");
+			for (Usuario us: u) {
+				System.out.println("(" + Integer.toString(us.getCoordOrigenX())  + "," + Integer.toString(us.getCoordOrigenY()) + ")" + "(" + Integer.toString(us.getCoordDestinoX())  + "," + Integer.toString(us.getCoordDestinoY()) + ")"  );
+			}
+			
+		}  
+*/
 		BlaBlaEstado e = new BlaBlaEstado(users, modo);
 
-		e.escribir_distancias();
+		e.escribir_ruta();
+		
+		BlaBlaHeuristicFunctions heu = new BlaBlaHeuristicFunctions();
+		heu.ChangeHeuristicFunction(1);
+		double suma_distancias_og = heu.getHeuristicValue(e);
 
+		heu.ChangeHeuristicFunction(5);
+		double entropia_og = heu.getHeuristicValue(e);
+
+		Search alg = new HillClimbingSearch();
+		Problem p = new Problem(e, new BlaBlaSuccessors(), new BlaBlaGoalTest(), new BlaBlaHeuristicFunctions());
+		try {
+			SearchAgent ag = new SearchAgent(p, alg);
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		
+		BlaBlaEstado goal = (BlaBlaEstado) alg.getGoalState();
+		//goal.escribir_ruta();
+		double calidad_def = heu.getHeuristicValue(goal);
+		heu.ChangeHeuristicFunction(1);
+		double suma_distancias_def = heu.getHeuristicValue(goal);
+
+		System.out.println("USANDO ENTROPÍA");
+		System.out.println("Suma de distancias inicial: " + suma_distancias_og);
+		System.out.println("Entropia inicial: " + entropia_og);
+
+		System.out.println("Suma de distancias final: " + suma_distancias_def);
+		System.out.println("Calidad final: " + calidad_def);
 		//Ahora magia
+
+		heu.ChangeHeuristicFunction(1);
+		p = new Problem(e, new BlaBlaSuccessors(), new BlaBlaGoalTest(), heu);
+		try {
+			SearchAgent ag = new SearchAgent(p, alg);
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		goal = (BlaBlaEstado) alg.getGoalState();
+		suma_distancias_def = heu.getHeuristicValue(goal);
+		System.out.println("USANDO SUMA DE DISTANCIAS");
+		System.out.println("Suma de distancias inicial: " + suma_distancias_og);
+		System.out.println("Suma de distancias final: " + suma_distancias_def);
 	}
 
 }

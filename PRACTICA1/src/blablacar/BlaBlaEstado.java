@@ -2,176 +2,175 @@ package src.blablacar;
 
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.lang.Math;
-import aima.basic.XYLocation;
 import java.util.Random;
-import java.util.Set;
 
 import IA.Comparticion.*;
+import aima.basic.XYLocation;
 
 
 
 
 public class BlaBlaEstado {
 
+	private ArrayList<ArrayList<Integer>> trayectos;
+	private ArrayList<Integer> id_cond;
+	private ArrayList<Integer> distancias;
+	private static Usuarios cjt_usuarios;
+	private int num_cond;
 
 
-	//Modo 0 -> Greedy
-	//Modo 1 -> Random
-	public BlaBlaEstado (Usuarios users, int modo) {		
+	public BlaBlaEstado(Usuarios users, int modo) {
 
-		int n = users.size();
+		cjt_usuarios = users;
+
+		ArrayList<Integer> id_conductores = new ArrayList<Integer> ();
+		ArrayList<Integer> id_pasajeros = new ArrayList<Integer> ();
 
 		num_cond = 0;
-		cjt_usuarios = new ArrayList<Usuario>();
-		cjt_usuarios.addAll(users);
 
-		ArrayList<Usuario> conductores = new ArrayList<Usuario>();
-		ArrayList<Integer> conductores_id = new ArrayList<Integer>();
-		Set<Usuario> pasajeros = new HashSet<Usuario>();
-		ArrayList<Usuario> pasajeros_array = new ArrayList<Usuario>();
+		distancias = new ArrayList<Integer> ();
+		trayectos = new ArrayList<ArrayList<Integer>> ();
 
-		for (int i = 0; i < n; ++i) {
+		id_cond = id_conductores;
+
+
+		for (int i = 0; i < users.size(); ++i) {
 
 			if (users.get(i).isConductor()) {
 
+				id_conductores.add(i+1);
+				distancias.add(0);
+				trayectos.add(new ArrayList<Integer>());
+				trayectos.get(num_cond).add(i+1);
 				++num_cond;
 
-				conductores.add(users.get(i));
-				conductores_id.add(i);
 			}
 
-			else {
-
-				if (modo == 0) pasajeros.add(users.get(i));
-				else pasajeros_array.add(users.get(i));
-
-			}
+			else id_pasajeros.add(i+1);
 
 		}
 
-		distancias = new ArrayList<Integer> (num_cond);
-		trayectos = new ArrayList<ArrayList<XYLocation>> (num_cond);
-		trayectos_real = new ArrayList<ArrayList<Integer>>(num_cond);
-		//pajeros = new ArrayList<ArrayList<Usuario>> (num_cond);
 
-		for (int i = 0; i < num_cond; ++i) {
+		if (modo == 1) random_sol(id_conductores, id_pasajeros);
+		else greedy_sol(id_conductores, id_pasajeros);
 
-			distancias.add(0);
+	}
 
-			ArrayList<XYLocation> v = new ArrayList<XYLocation> ();
-			XYLocation ini = new XYLocation(conductores.get(i).getCoordOrigenX(), conductores.get(i).getCoordOrigenY());
-			v.add(ini);
-			trayectos.add(v);
-
-			ArrayList<Integer> first = new ArrayList<Integer>();
-			first.add(conductores_id.get(i)); 
-			trayectos_real.add(first);
-			//pajeros.add(new ArrayList<Usuario>());
-			//pajeros.get(i).add(conductores.get(i));
-
+	public BlaBlaEstado(BlaBlaEstado state) {
+		this.trayectos = new ArrayList<ArrayList<Integer>>();
+		for (ArrayList<Integer> tray: state.trayectos) {
+			ArrayList<Integer> current = new ArrayList<Integer>();
+			for (Integer us: tray) {
+				current.add(us);
+			}
+			this.trayectos.add(current);
 		}
 
-		if (modo == 0) greedy_sol(users, conductores, pasajeros);
-		else random_sol(users, conductores, pasajeros_array);
+		this.id_cond = new ArrayList<Integer>();
+		for (Integer cond: state.id_cond) {
+			this.id_cond.add(cond);
+		}
 
+		this.distancias = new ArrayList<Integer>();
+		for (Integer dist: state.distancias) {
+			this.distancias.add(dist);
+		}
+
+		this.num_cond = state.num_cond;
 	}
 
-	public BlaBlaEstado (BlaBlaEstado Og) {
-		this.trayectos_real = new ArrayList<ArrayList<Integer>> ();
-		for (ArrayList<Integer> conductor: Og.trayectos_real) trayectos_real.add(new ArrayList<Integer>(conductor));
-		this.distancias = new ArrayList<Integer>(Og.distancias);
-		this.num_cond = Og.num_cond;
+
+	public int get_route_length(int car) {
+		return trayectos.get(car).size();
 	}
 
-	public ArrayList<Integer> distancias_coches() {
+	private void random_sol(ArrayList<Integer> id_conductores, ArrayList<Integer> id_pasajeros) {
 
-		return distancias;
-
-	}
-
-	/*public ArrayList<ArrayList<Usuario>> pasajeros_cada_coche() {
-
-		//return pajeros;
-
-	}*/
-
-
-	private void random_sol(Usuarios users, ArrayList<Usuario> conductores, ArrayList<Usuario> pasajeros) {
-
-
-		int num_no_trabajando = users.size();
-
-		ArrayList<ArrayList<Usuario>> usuarios = new ArrayList<ArrayList<Usuario>> (conductores.size());
-
-		Random r = new Random();
 
 		boolean solucion_valida = false;
 
-		int max_dist = 30000;
+		int max_dist = 300;
+
 
 		while (!solucion_valida) {
 
-			for (int i = 0; i < distancias.size(); ++i) distancias.set(i, 0);
+			ArrayList<ArrayList<Integer>> pasajeros = new ArrayList<ArrayList<Integer>> ();
 
-			for (int i = 0; i < conductores.size(); ++i) usuarios.add(new ArrayList<Usuario>());
-			while (num_no_trabajando > conductores.size()) {
+			for (int i = 0; i < distancias.size(); ++i) {
 
-				ArrayList<Boolean> pasajeros_bool = new ArrayList<Boolean> ();
+				distancias.set(i,0);
+				trayectos.get(i).clear();
+				trayectos.get(i).add(id_conductores.get(i));
 
-				for (int i = 0; i < pasajeros.size(); ++i) pasajeros_bool.add(false);
+				pasajeros.add(new ArrayList<Integer>());
 
-				
-				for (int i = 0; i < conductores.size() && distancias.get(i) <= max_dist; ++i) {
+			}
 
-					ArrayList<XYLocation> trayecto_conductor = trayectos.get(i);
-					XYLocation pos_act = trayecto_conductor.get(trayecto_conductor.size() - 1);
-					ArrayList<Usuario> pasajeros_actuales = usuarios.get(i);
+			int num_no_pillados = id_pasajeros.size();
 
-					boolean recoger = pasajeros_actuales.size() == 0 || (pasajeros_actuales.size() == 1 && r.nextInt(2) == 0);
+			Random r = new Random();
+
+			ArrayList<Boolean> vb = new ArrayList<Boolean> (id_pasajeros.size());
+
+			for (int i = 0; i < id_pasajeros.size(); ++i) vb.add(false);
+
+
+			while (num_no_pillados > 0) {
+
+				for (int i = 0; i < id_conductores.size() && distancias.get(i) <= max_dist && num_no_pillados > 0; ++i) {
+
+					int aux = trayectos.get(i).size();
+					int id_1 = trayectos.get(i).get(aux-1);
+
+					int psj_1 = pasajeros.get(i).size() == 0 ? 0 : pasajeros.get(i).get(0);
+					int psj_2 = pasajeros.get(i).size() <= 1 ? 0 : pasajeros.get(i).get(1);
+
+					int x_act = id_1 > 0 ? cjt_usuarios.get(id_1 - 1).getCoordOrigenX() : cjt_usuarios.get(-(id_1 + 1)).getCoordDestinoX();
+					int y_act = id_1 > 0 ? cjt_usuarios.get(id_1 - 1).getCoordOrigenY() : cjt_usuarios.get(-(id_1 + 1)).getCoordDestinoY();
+
+					int num_pasajeros = pasajeros.get(i).size();
+
+
+					boolean recoger = num_pasajeros == 0 || (num_pasajeros == 1 && r.nextInt(2) == 0);
+
 
 					if (recoger) {
 
-						int num_recoger = r.nextInt(pasajeros.size());
+						--num_no_pillados;
+						int num_recoger = r.nextInt(id_pasajeros.size());
 
-						while (pasajeros_bool.get(num_recoger)) num_recoger = r.nextInt(pasajeros.size());
+						while (vb.get(num_recoger)) num_recoger = r.nextInt(id_pasajeros.size());
 
-						pasajeros_bool.set(num_recoger, true);
+						vb.set(num_recoger, true);
 
-						Usuario nuevo_pasajero = pasajeros.get(num_recoger);
-						//pajeros.get(i).add(nuevo_pasajero);
+						pasajeros.get(i).add(id_pasajeros.get(num_recoger));
 
-						int x = nuevo_pasajero.getCoordOrigenX();
-						int y = nuevo_pasajero.getCoordOrigenY();
-						trayecto_conductor.add(new XYLocation(x,y));
+						int x_dest = cjt_usuarios.get(id_pasajeros.get(num_recoger)-1).getCoordOrigenX();
+						int y_dest = cjt_usuarios.get(id_pasajeros.get(num_recoger)-1).getCoordOrigenY();
 
-						int distancia_actual = distancias.get(i) + dist(x,y,pos_act.getXCoOrdinate(), pos_act.getYCoOrdinate());
+						distancias.set(i, distancias.get(i) + Math.abs(x_act - x_dest) + Math.abs(y_act - y_dest));
 
-						distancias.set(i, distancia_actual);
+						trayectos.get(i).add(id_pasajeros.get(num_recoger));
 
-						pasajeros_actuales.add(nuevo_pasajero);
 
 					}
 
-
 					else {
 
-						int num_dejar = r.nextInt(pasajeros_actuales.size());
+						int xd = r.nextInt(pasajeros.get(i).size());
+						int id_dejar = pasajeros.get(i).get(xd);
+
+						int x_dest = cjt_usuarios.get(id_dejar-1).getCoordDestinoX();
+						int y_dest = cjt_usuarios.get(id_dejar-1).getCoordDestinoY();
+
+						pasajeros.get(i).remove(xd);
+
+						distancias.set(i, distancias.get(i) + Math.abs(x_act - x_dest) + Math.abs(y_act - y_dest));
+
+						trayectos.get(i).add(-id_dejar);
+
 						
-						Usuario pasajero_dejado = pasajeros.get(num_dejar);
-
-						int x = pasajero_dejado.getCoordDestinoX();
-						int y = pasajero_dejado.getCoordDestinoY();
-
-						trayecto_conductor.add(new XYLocation(x,y));
-						
-						int distancia_actual = distancias.get(i) + dist(x,y,pos_act.getXCoOrdinate(), pos_act.getYCoOrdinate());
-
-						distancias.set(i, distancia_actual);
-						pasajeros_actuales.remove(num_dejar);
-
-						--num_no_trabajando;
 
 					}
 
@@ -180,196 +179,544 @@ public class BlaBlaEstado {
 
 			}
 
-			for (int i = 0; i < trayectos.size(); ++i) {
+			
+			
+			for (int i = 0; i < distancias.size(); ++i) {
 
-				Usuario conductor = conductores.get(i);
+				int psj_1 = pasajeros.get(i).size() == 0 ? 0 : pasajeros.get(i).get(0);
+				int psj_2 = pasajeros.get(i).size() <= 1 ? 0 : pasajeros.get(i).get(1);
 
-				int x = conductor.getCoordDestinoX();
-				int y = conductor.getCoordDestinoY();
 
-				trayectos.get(i).add(new XYLocation(x,y));
+				if (psj_1 != 0 && psj_2 != 0) {
 
-				XYLocation ultima = trayectos.get(i).get(trayectos.size() - 1);
+					int primero = r.nextInt(2) == 0 ? psj_1 : psj_2;
+					int segundo = primero == psj_1 ? psj_2 : psj_2;
+				    
+					int id_u = trayectos.get(i).get(trayectos.get(i).size() - 1);
+				    int x_a = id_u < 0 ? cjt_usuarios.get(-(id_u + 1)).getCoordDestinoX() : cjt_usuarios.get(id_u-1).getCoordOrigenX();
+				    int y_a = id_u < 0 ? cjt_usuarios.get(-(id_u + 1)).getCoordDestinoY() : cjt_usuarios.get(id_u-1).getCoordOrigenY();
 
-				int distancia_actual = distancias.get(i) + dist(x,y, ultima.getXCoOrdinate(), ultima.getYCoOrdinate());
+					trayectos.get(i).add(-primero);
+					trayectos.get(i).add(-segundo);
 
-				distancias.set(i, distancia_actual);
+					Usuario u_prim = cjt_usuarios.get(primero-1);
+					Usuario u_segu = cjt_usuarios.get(segundo-1);
 
-				if (distancia_actual > max_dist) {
+					distancias.set(i, distancias.get(i) + Math.abs(x_a - u_prim.getCoordDestinoX()) + Math.abs(y_a - u_prim.getCoordDestinoY()));
+					distancias.set(i, distancias.get(i) + Math.abs(u_prim.getCoordDestinoX() - u_segu.getCoordDestinoX()) + Math.abs(u_prim.getCoordDestinoY() - u_segu.getCoordDestinoY()));
+				    
+					Usuario conductor = cjt_usuarios.get(id_conductores.get(i)-1);
+				    int x_f = conductor.getCoordDestinoX();
+				    int y_f = conductor.getCoordDestinoY();
+				    distancias.set(i, distancias.get(i) + Math.abs(u_segu.getCoordDestinoX() - x_f) + Math.abs(u_segu.getCoordDestinoY() - y_f));
+				    trayectos.get(i).add(-id_conductores.get(i));
 
+				}
+
+				else if (psj_1 != 0) {
+
+					int id_u = trayectos.get(i).get(trayectos.get(i).size() - 1);
+				    int x_a = id_u < 0 ? cjt_usuarios.get(-(id_u + 1)).getCoordDestinoX() : cjt_usuarios.get(id_u-1).getCoordOrigenX();
+				    int y_a = id_u < 0 ? cjt_usuarios.get(-(id_u + 1)).getCoordDestinoY() : cjt_usuarios.get(id_u-1).getCoordOrigenY();
+
+					trayectos.get(i).add(-psj_1);
+
+					Usuario conductor = cjt_usuarios.get(id_conductores.get(i)-1);
+				    int x_f = conductor.getCoordDestinoX();
+				    int y_f = conductor.getCoordDestinoY();
+
+					if (id_u > 0) {
+
+						distancias.set(i, distancias.get(i) + Math.abs(x_a - cjt_usuarios.get(id_u-1).getCoordDestinoX()) + Math.abs(y_a - cjt_usuarios.get(id_u-1).getCoordDestinoY()));
+
+						x_a = cjt_usuarios.get(id_u-1).getCoordDestinoX();
+						y_a = cjt_usuarios.get(id_u-1).getCoordDestinoY();
+					}
+
+
+				    distancias.set(i, distancias.get(i) + Math.abs(x_a - x_f) + Math.abs(y_a - y_f));
+				    trayectos.get(i).add(-id_conductores.get(i));
+
+				}
+
+				else if (psj_2 != 0) {
+
+
+					int id_u = trayectos.get(i).get(trayectos.get(i).size() - 1);
+				    int x_a = id_u < 0 ? cjt_usuarios.get(-(id_u + 1)).getCoordDestinoX() : cjt_usuarios.get(id_u-1).getCoordOrigenX();
+				    int y_a = id_u < 0 ? cjt_usuarios.get(-(id_u + 1)).getCoordDestinoY() : cjt_usuarios.get(id_u-1).getCoordOrigenY();
+
+					trayectos.get(i).add(-psj_2);
+
+					Usuario conductor = cjt_usuarios.get(id_conductores.get(i)-1);
+				    int x_f = conductor.getCoordDestinoX();
+				    int y_f = conductor.getCoordDestinoY();
+
+					if (id_u > 0) {
+
+						distancias.set(i, distancias.get(i) + Math.abs(x_a - cjt_usuarios.get(id_u-1).getCoordDestinoX()) + Math.abs(y_a - cjt_usuarios.get(id_u-1).getCoordDestinoY()));
+
+						x_a = cjt_usuarios.get(id_u-1).getCoordDestinoX();
+						y_a = cjt_usuarios.get(id_u-1).getCoordDestinoY();
+					}
+				    distancias.set(i, distancias.get(i) + Math.abs(x_a - x_f) + Math.abs(y_a - y_f));
+				    trayectos.get(i).add(-id_conductores.get(i));
+
+				}
+
+				else {
+
+
+					int id_u = trayectos.get(i).get(trayectos.get(i).size() - 1);
+					Usuario conductor = cjt_usuarios.get(id_conductores.get(i)-1);
+				    int x_f = conductor.getCoordDestinoX();
+				    int y_f = conductor.getCoordDestinoY();
+				    int x_a = id_u < 0 ? cjt_usuarios.get(-(id_u + 1)).getCoordDestinoX() : cjt_usuarios.get(id_u-1).getCoordOrigenX();
+				    int y_a = id_u < 0 ? cjt_usuarios.get(-(id_u + 1)).getCoordDestinoY() : cjt_usuarios.get(id_u-1).getCoordOrigenY();
+				    distancias.set(i, distancias.get(i) + Math.abs(x_a - x_f) + Math.abs(y_a - y_f));
+				    trayectos.get(i).add(-id_conductores.get(i));
+				}
+
+
+
+				if (distancias.get(i) > max_dist) {
 					solucion_valida = false;
-					num_no_trabajando = users.size();
 					break;
-
 				}
 
 				else solucion_valida = true;
 
 			}
 
+			
+
 		}
 
 	}
 
-
-	//Falta actualizar distancias y poner un paron cuando solo queden conductores
-	private void greedy_sol(Usuarios users, ArrayList<Usuario> conductores, Set<Usuario> pasajeros) {
+	public void escribir_ruta() {
 
 
+		for (int i = 0; i < distancias.size(); ++i) {
 
-		int num_no_trabajando = users.size();
+			System.out.println("El coche " + id_cond.get(i) + " ha recorrido " + distancias.get(i) + " y ha hecho esto: ");
 
-		ArrayList<ArrayList<Usuario>> pasj_coches = new ArrayList<ArrayList<Usuario>> (num_cond);
+			for (Integer x : trayectos.get(i)) System.out.print(x + " , ");
+			System.out.println("");
 
-		for (int i = 0; i < num_cond; ++i) {
-			pasj_coches.add(new ArrayList<Usuario>());
 		}
 
-		while (num_no_trabajando > num_cond) {
+	}
+
+	private void greedy_sol(ArrayList<Integer> id_conductores, ArrayList<Integer> id_pasajeros) {
 
 
 
-			for (int i = 0; i < num_cond; ++i) {
+		int max_dist = 300;
 
 
-				//Referente al conductor actual
-				ArrayList<XYLocation> trayecto_cond = trayectos.get(i);
-				//ArrayList<Integer> trayecto_cond_real = trayectos_real.get(i);
-				ArrayList<Usuario> pasajeros_actuales = pasj_coches.get(i);
-				Usuario cond_act = conductores.get(i);
-				XYLocation pos_act = trayecto_cond.get(trayecto_cond.size() - 1);
-				int x_act = pos_act.getXCoOrdinate();
-				int y_act = pos_act.getYCoOrdinate();
+			ArrayList<ArrayList<Integer>> pasajeros = new ArrayList<ArrayList<Integer>> ();
+
+			for (int i = 0; i < distancias.size(); ++i) {
+
+				distancias.set(i,0);
+				trayectos.get(i).clear();
+				trayectos.get(i).add(id_conductores.get(i));
+
+				pasajeros.add(new ArrayList<Integer>());
+
+			}
+
+			int num_no_pillados = id_pasajeros.size();
+
+			ArrayList<Boolean> vb = new ArrayList<Boolean> (id_pasajeros.size());
+
+			for (int i = 0; i < id_pasajeros.size(); ++i) vb.add(false);
 
 
-				//Eleccion de recoger o dejar
-				Usuario posible_pasajero = null;
+			while (num_no_pillados > 0) {
 
-				if (recoger(pasajeros_actuales, cond_act, posible_pasajero, pasajeros)) {
+				for (int i = 0; i < id_conductores.size() && num_no_pillados > 0; ++i) {
 
-					posible_pasajero = cercano(pasajeros, cond_act);
-					int x = posible_pasajero.getCoordOrigenX();
-					int y = posible_pasajero.getCoordOrigenY();
+					int aux = trayectos.get(i).size();
+					int id_1 = trayectos.get(i).get(aux-1);
 
-					XYLocation nuevo = new XYLocation(x,y);
-					//pajeros.get(i).add(posible_pasajero);
+					int psj_1 = pasajeros.get(i).size() == 0 ? 0 : pasajeros.get(i).get(0);
+					int psj_2 = pasajeros.get(i).size() <= 1 ? 0 : pasajeros.get(i).get(1);
 
-					trayecto_cond.add(nuevo);
+					int x_act = id_1 > 0 ? cjt_usuarios.get(id_1 - 1).getCoordOrigenX() : cjt_usuarios.get(-(id_1 + 1)).getCoordDestinoX();
+					int y_act = id_1 > 0 ? cjt_usuarios.get(id_1 - 1).getCoordOrigenY() : cjt_usuarios.get(-(id_1 + 1)).getCoordDestinoY();
 
-					int distancia_actual = distancias.get(i) + dist(x,y,x_act, y_act);
+					int num_pasajeros = pasajeros.get(i).size();
 
-					distancias.set(i, distancia_actual);
-					pasajeros_actuales.add(posible_pasajero);
+					int min_dist = 1000000;
+					int id_posible = 0;
+
+					for (int j = 0; j < id_pasajeros.size() && num_pasajeros < 2; ++j) {
+
+						int x_p = cjt_usuarios.get(id_pasajeros.get(j) - 1).getCoordOrigenX();
+						int y_p = cjt_usuarios.get(id_pasajeros.get(j) - 1).getCoordOrigenY();
+
+						int d = Math.abs(x_p - x_act) + Math.abs(y_p - y_act);
+
+						if (!vb.get(j) && min_dist > d) {
+							min_dist = d;
+							id_posible = j;
+						}
+
+					}
+
+					boolean recoger = num_pasajeros == 0 || (num_pasajeros == 1 && min_dist < Math.abs(x_act - cjt_usuarios.get(id_pasajeros.get(id_posible)-1).getCoordDestinoX()) + Math.abs(y_act - cjt_usuarios.get(id_pasajeros.get(id_posible)-1).getCoordDestinoY()));
+
+
+					if (recoger) {
+
+						--num_no_pillados;
+						int num_recoger = id_posible;
+						vb.set(num_recoger, true);
+
+						pasajeros.get(i).add(id_pasajeros.get(num_recoger));
+
+						int x_dest = cjt_usuarios.get(id_pasajeros.get(num_recoger)-1).getCoordOrigenX();
+						int y_dest = cjt_usuarios.get(id_pasajeros.get(num_recoger)-1).getCoordOrigenY();
+
+						distancias.set(i, distancias.get(i) + Math.abs(x_act - x_dest) + Math.abs(y_act - y_dest));
+
+						trayectos.get(i).add(id_pasajeros.get(num_recoger));
+
+
+					}
+
+					else {
+
+						int xd;
+						
+						if (pasajeros.get(i).size() == 1) xd = 0;
+						else xd = Math.abs(x_act - cjt_usuarios.get(pasajeros.get(i).get(0) - 1).getCoordDestinoX()) + Math.abs(y_act - cjt_usuarios.get(pasajeros.get(i).get(0) - 1).getCoordDestinoY()) < Math.abs(x_act - cjt_usuarios.get(pasajeros.get(i).get(1) - 1).getCoordDestinoX()) + Math.abs(y_act - cjt_usuarios.get(pasajeros.get(i).get(1) - 1).getCoordDestinoY()) ? 0 : 1;
+
+						int id_dejar = pasajeros.get(i).get(xd);
+
+						int x_dest = cjt_usuarios.get(id_dejar-1).getCoordDestinoX();
+						int y_dest = cjt_usuarios.get(id_dejar-1).getCoordDestinoY();
+
+						pasajeros.get(i).remove(xd);
+
+						distancias.set(i, distancias.get(i) + Math.abs(x_act - x_dest) + Math.abs(y_act - y_dest));
+
+						trayectos.get(i).add(-id_dejar);
+
+						
+
+					}
 
 
 				}
 
+			}
+
+			
+			
+			for (int i = 0; i < distancias.size(); ++i) {
+
+				int psj_1 = pasajeros.get(i).size() == 0 ? 0 : pasajeros.get(i).get(0);
+				int psj_2 = pasajeros.get(i).size() <= 1 ? 0 : pasajeros.get(i).get(1);
+
+
+				if (psj_1 != 0 && psj_2 != 0) {
+
+					Random r = new Random();
+					int primero = r.nextInt(2) == 0 ? psj_1 : psj_2;
+					int segundo = primero == psj_1 ? psj_2 : psj_2;
+				    
+					int id_u = trayectos.get(i).get(trayectos.get(i).size() - 1);
+				    int x_a = id_u < 0 ? cjt_usuarios.get(-(id_u + 1)).getCoordDestinoX() : cjt_usuarios.get(id_u-1).getCoordOrigenX();
+				    int y_a = id_u < 0 ? cjt_usuarios.get(-(id_u + 1)).getCoordDestinoY() : cjt_usuarios.get(id_u-1).getCoordOrigenY();
+
+					trayectos.get(i).add(-primero);
+					trayectos.get(i).add(-segundo);
+
+					Usuario u_prim = cjt_usuarios.get(primero-1);
+					Usuario u_segu = cjt_usuarios.get(segundo-1);
+
+					distancias.set(i, distancias.get(i) + Math.abs(x_a - u_prim.getCoordDestinoX()) + Math.abs(y_a - u_prim.getCoordDestinoY()));
+					distancias.set(i, distancias.get(i) + Math.abs(u_prim.getCoordDestinoX() - u_segu.getCoordDestinoX()) + Math.abs(u_prim.getCoordDestinoY() - u_segu.getCoordDestinoY()));
+				    
+					Usuario conductor = cjt_usuarios.get(id_conductores.get(i)-1);
+				    int x_f = conductor.getCoordDestinoX();
+				    int y_f = conductor.getCoordDestinoY();
+				    distancias.set(i, distancias.get(i) + Math.abs(u_segu.getCoordDestinoX() - x_f) + Math.abs(u_segu.getCoordDestinoY() - y_f));
+				    trayectos.get(i).add(-id_conductores.get(i));
+
+				}
+
+				else if (psj_1 != 0) {
+
+					int id_u = trayectos.get(i).get(trayectos.get(i).size() - 1);
+				    int x_a = id_u < 0 ? cjt_usuarios.get(-(id_u + 1)).getCoordDestinoX() : cjt_usuarios.get(id_u-1).getCoordOrigenX();
+				    int y_a = id_u < 0 ? cjt_usuarios.get(-(id_u + 1)).getCoordDestinoY() : cjt_usuarios.get(id_u-1).getCoordOrigenY();
+
+					trayectos.get(i).add(-psj_1);
+
+					Usuario conductor = cjt_usuarios.get(id_conductores.get(i)-1);
+				    int x_f = conductor.getCoordDestinoX();
+				    int y_f = conductor.getCoordDestinoY();
+
+					if (id_u > 0) {
+
+						distancias.set(i, distancias.get(i) + Math.abs(x_a - cjt_usuarios.get(id_u-1).getCoordDestinoX()) + Math.abs(y_a - cjt_usuarios.get(id_u-1).getCoordDestinoY()));
+
+						x_a = cjt_usuarios.get(id_u-1).getCoordDestinoX();
+						y_a = cjt_usuarios.get(id_u-1).getCoordDestinoY();
+					}
+
+
+				    distancias.set(i, distancias.get(i) + Math.abs(x_a - x_f) + Math.abs(y_a - y_f));
+				    trayectos.get(i).add(-id_conductores.get(i));
+
+				}
+
+				else if (psj_2 != 0) {
+
+
+					int id_u = trayectos.get(i).get(trayectos.get(i).size() - 1);
+				    int x_a = id_u < 0 ? cjt_usuarios.get(-(id_u + 1)).getCoordDestinoX() : cjt_usuarios.get(id_u-1).getCoordOrigenX();
+				    int y_a = id_u < 0 ? cjt_usuarios.get(-(id_u + 1)).getCoordDestinoY() : cjt_usuarios.get(id_u-1).getCoordOrigenY();
+
+					trayectos.get(i).add(-psj_2);
+
+					Usuario conductor = cjt_usuarios.get(id_conductores.get(i)-1);
+				    int x_f = conductor.getCoordDestinoX();
+				    int y_f = conductor.getCoordDestinoY();
+
+					if (id_u > 0) {
+
+						distancias.set(i, distancias.get(i) + Math.abs(x_a - cjt_usuarios.get(id_u-1).getCoordDestinoX()) + Math.abs(y_a - cjt_usuarios.get(id_u-1).getCoordDestinoY()));
+
+						x_a = cjt_usuarios.get(id_u-1).getCoordDestinoX();
+						y_a = cjt_usuarios.get(id_u-1).getCoordDestinoY();
+					}
+				    distancias.set(i, distancias.get(i) + Math.abs(x_a - x_f) + Math.abs(y_a - y_f));
+				    trayectos.get(i).add(-id_conductores.get(i));
+
+				}
 
 				else {
 
-					Usuario u1 = pasajeros_actuales.get(0);
-					Usuario u2 = pasajeros_actuales.get(1);
 
-					int dejar = dist(u1.getCoordDestinoX(), u1.getCoordDestinoY(), x_act, y_act) < dist(u2.getCoordDestinoX(), u2.getCoordDestinoY(), x_act, y_act) ? 0 : 1;
-
-					XYLocation dejarPos = new XYLocation(pasajeros_actuales.get(dejar).getCoordDestinoX(), pasajeros_actuales.get(dejar).getCoordDestinoY());
-
-					trayecto_cond.add(dejarPos);
-
-					int distancia_actual = distancias.get(i) + dist(dejarPos.getXCoOrdinate(), dejarPos.getYCoOrdinate() ,x_act, y_act);
-
-					distancias.set(i,distancia_actual);
-					--num_no_trabajando;
-					pasajeros.remove(pasajeros_actuales.get(dejar));
-					pasajeros_actuales.remove(dejar);
-
+					int id_u = trayectos.get(i).get(trayectos.get(i).size() - 1);
+					Usuario conductor = cjt_usuarios.get(id_conductores.get(i)-1);
+				    int x_f = conductor.getCoordDestinoX();
+				    int y_f = conductor.getCoordDestinoY();
+				    int x_a = id_u < 0 ? cjt_usuarios.get(-(id_u + 1)).getCoordDestinoX() : cjt_usuarios.get(id_u-1).getCoordOrigenX();
+				    int y_a = id_u < 0 ? cjt_usuarios.get(-(id_u + 1)).getCoordDestinoY() : cjt_usuarios.get(id_u-1).getCoordOrigenY();
+				    distancias.set(i, distancias.get(i) + Math.abs(x_a - x_f) + Math.abs(y_a - y_f));
+				    trayectos.get(i).add(-id_conductores.get(i));
 				}
 
+			}	
 
+	}
+
+	/**
+ 	* 
+ 	* @param car car to permutate
+ 	* @param id1 First id to swap
+ 	* @param id2 Second id to swap
+ 	* @return new distance
+	* Fails if the resulting route leaves users before picking them up
+	* id1 < id2
+ 	*/
+	public int route_permutation(int car, int id1, int id2) {
+		ArrayList<Integer> route = trayectos.get(car);
+		
+		if (route.get(id1) > 0 || route.get(id2) < 0) {
+			for (int i = id1; i <= id2; ++i) {
+				if (route.get(i) == -route.get(id1) || route.get(i) == -route.get(id2)) return -1;
 			}
-
-
 		}
+		
+		//System.out.println("Coche: " + car);
+		//System.out.println("Posicion 1: " + id1 + "; Movimiento en cusetión: " +  route.get(id1));
+		//System.out.println("Posicion 2: " + id2 + "; Movimiento en cusetión: " +  route.get(id2));
 
-
-		for (int i = 0; i < num_cond; ++i) {
-
-			Usuario conductor_actual = conductores.get(i);
-			trayectos.get(i).add(new XYLocation(conductor_actual.getCoordDestinoX(), conductor_actual.getCoordDestinoY()));
-			XYLocation last_pos = trayectos.get(i).get(trayectos.get(i).size() - 2);
-
-			int distancia_actual = distancias.get(i) + dist(conductor_actual.getCoordDestinoX(), conductor_actual.getCoordDestinoY() , last_pos.getXCoOrdinate(), last_pos.getYCoOrdinate());
-
-			distancias.set(i,distancia_actual);	
-		}
-
-	}
-
-	private boolean recoger (ArrayList<Usuario> pasajeros_en_coche, Usuario conductor, Usuario pasajero_recoger, Set<Usuario> pasajeros) {
-
-		if (pasajeros_en_coche.size() == 2) return false;
-
-		pasajero_recoger = cercano(pasajeros, conductor);
-
-		return true;
-
-	}
-
-	private int dist(int x1, int y1, int x2, int y2) {
-
-		return Math.abs(x1 - x2) + Math.abs(y1 - y2);
-	}
-
-	private Usuario cercano (Set<Usuario> s, Usuario u) {
-
-		int min = 2000000000;
-
-		Usuario x = null;
-
-		for (Usuario pasj : s) {
-
-			int nueva_dist = dist(u.getCoordOrigenX(), u.getCoordOrigenY(), pasj.getCoordOrigenX(), pasj.getCoordOrigenY());
-			
-			if (nueva_dist < min) {
-				x = pasj;
-				min = nueva_dist;
+		if (route.get(id1) < 0 && route.get(id2) > 0) {
+			int capacity = 2;
+			for (int i = 1; i < id1; ++i) {
+				if (route.get(i) > 0) --capacity;
+				else ++capacity;
+				if (capacity <= 0) {
+					//System.out.println("Vamos mal!");
+					return -1;
+				}
 			}
-
 		}
-		return x;
+
+		int anterior1 = route.get(id1 - 1);
+		Integer user1 = route.get(id1);
+		int post1 = route.get(id1 + 1);
+
+		int anterior2 = route.get(id2 - 1);
+		Integer user2 = route.get(id2);
+		int post2 = route.get(id2 + 1);
+
+		int dAnt = distance(anterior1, user1) + distance(user2, post2);
+		int dNew = distance(anterior1, user2) + distance(user1, post2);
+
+		if (user1 != anterior2) {
+			dAnt += distance(anterior2, user2) + distance(user1, post1);
+			dNew += distance(anterior2, user1) + distance(user2, post1);
+		}
+
+		int distance = distancias.get(car);
+		distancias.set(car, distance - dAnt + dNew);
+		
+		System.out.println("Distancia antigua: " + distance);
+		System.out.println("Distancia restada: " + dAnt);
+		System.out.println("Distancia sumada: " + dNew);
+		System.out.println("Distancia nueva: " + distancias.get(car));
+
+
+		route.set(id1, user2);
+		route.set(id2, user1);
+		
+		return distance;
 	}
 
+	/**
+	 * 
+	 * @param car1 first car 
+	 * @param car2 second car
+	 * @param id1 id of the position on the route to swap on the first car (route1[id1] has to be positive)
+	 * @param id2 id of the position on the route to swap on the second car (route2[id2] has to be positive)
+	 * @return returns new distance
+	 */
+	public void passenjer_swap(int car1, int car2, int id1, int id2) {
+		ArrayList<Integer> route1 = trayectos.get(car1);
+		ArrayList<Integer> route2 = trayectos.get(car2);
+
+		if (id1 == 0 || id1 == route1.size() - 1 || id2 == 0 || id2 == route2.size() - 1) return;
+		if (route1.get(id1) <= 0 || route2.get(id2) <= 0) return;
+
+		//System.out.println("Coche 1: " + car1);
+		//System.out.println("Coche 2: " + car2);
+		//System.out.println("Posicion 1: " + id1 + "; Movimiento en cuestión: " +  route1.get(id1));
+		//System.out.println("Posicion 2: " + id2 + "; Movimiento en cuestión: " +  route2.get(id2));
+		
+		
+		int job1, job2;
+		job1 = job2 = -1;
+		for (int i = id1 + 1; (i < route1.size()) && (job1 == -1); ++i) {
+			if (route1.get(i) == -route1.get(id1)) {
+				job1 = i;
+			}
+		}
+
+		for (int i = id2 + 1; (i < route2.size()) && (job2 == -1); ++i) {
+			if (route2.get(i) == -route2.get(id2)) {
+				job2 = i;
+			}
+		}
+
+		//System.out.println("Trabajo 1: " + job1 +  " Verificación: " + route1.get(job1));
+		//System.out.println("Trabajo 1: " + job2 +  " Verificación: " + route2.get(job2));
+ 
+		//if (job2 < 1 || job1 < 2 || job1 == route1.size() - 1 || job2 == route2.size() - 1) return;
 
 
-	private ArrayList<ArrayList<XYLocation>> trayectos;
-	private ArrayList<ArrayList<Integer>> trayectos_real;
-	private ArrayList<Integer> distancias;
-	private static ArrayList<Usuario> cjt_usuarios;
-	private int num_cond;
+		int user1Og =  route1.get(id1);
+		int user1Dest =  route1.get(job1);
+		int user2Og =  route2.get(id2);
+		int user2Dest =  route2.get(job2);
 
-	public int num_conductores() {
+		int distance1 = distancias.get(car1);
+		int distance2 = distancias.get(car2);
 
+		route1.set(id1, user2Og);
+		route1.set(job1, user2Dest);
+
+		route2.set(id2, user1Og);
+		route2.set(job2, user1Dest);
+
+		if (!update_distance(car1) || !update_distance(car2)) {
+			route1.set(id1, user1Og);
+			route1.set(job1, user1Dest);
+
+			route2.set(id2, user2Og);
+			route2.set(job2, user2Dest);
+		}
+		
+		
+
+		//System.out.println("Nueva ruta 1: ");
+		//for (Integer x : trayectos.get(car1)) System.out.print(x + " , ");
+
+		//System.out.println(" ");
+		//System.out.println("Distancia 1 antigua: " + distance1);
+		//System.out.println("Nueva distancia 1: " + distancias.get(car1));
+		
+		//System.out.println("Nueva ruta 2: ");
+		//for (Integer x : trayectos.get(car2)) System.out.print(x + " , ");
+		
+		//System.out.println(" ");
+		//System.out.println("Distancia 2 antigua: " + distance2);
+		//System.out.println("Nueva distancia 2: " + distancias.get(car2));
+	} 
+
+	private int distance(int id1, int id2) {
+		int pos1X, pos1Y, pos2X, pos2Y;
+
+		if (id1 < 0) {
+			pos1X = cjt_usuarios.get(java.lang.Math.abs(id1) - 1).getCoordDestinoX();
+			pos1Y = cjt_usuarios.get(java.lang.Math.abs(id1) - 1).getCoordDestinoY();
+		}
+
+		else {
+			pos1X = cjt_usuarios.get(id1 - 1).getCoordOrigenX();
+			pos1Y = cjt_usuarios.get(id1 - 1).getCoordOrigenY();
+		}
+
+		if (id2 < 0) {
+			pos2X = cjt_usuarios.get(java.lang.Math.abs(id2) - 1).getCoordDestinoX();
+			pos2Y = cjt_usuarios.get(java.lang.Math.abs(id2) - 1).getCoordDestinoY();
+		}
+
+		else {
+			pos2X = cjt_usuarios.get(id2 - 1).getCoordOrigenX();
+			pos2Y = cjt_usuarios.get(id2 - 1).getCoordOrigenY();
+		}
+
+		return java.lang.Math.abs(pos1X - pos2X) + java.lang.Math.abs(pos1Y - pos2Y);
+	}
+
+	/**
+	 * @param route_id id of the route to check
+	 * @return lenght of the route_id'th route
+	*/
+	public int getRouteLength(int route_id) {
+		return trayectos.get(route_id).size();
+	}
+
+	/**
+	 * @return number of cars used
+	*/
+	public int getNumCars() {
 		return num_cond;
-
 	}
 
-	public int num_pasajeros() {
-
-		return trayectos.size() - num_cond;
-
+	public ArrayList<Integer> get_Distances() {
+		return distancias;
 	}
 
-	public void escribir_distancias() {
+	private boolean update_distance(int car) {
+		int distance = 0;
+		ArrayList<Integer> actRoute = trayectos.get(car);
+		for (int i = 0; i < actRoute.size() - 1; ++i) {
+			distance += distance(actRoute.get(i), actRoute.get(i + 1));
+		}
 
-		for (int i = 0; i < distancias.size(); ++i) System.out.println("El coche "  + (i+1) + "ha recorrido " + distancias.get(i)); 
-
-	public void cambioCoche(Usuario userio, coches, ) {
-
-		if(!found) throw new Exception("No se ha encontrado el pasajero en ningun coche");
-		else pajeros.get(cocheId).add(pasajero);
-	}
-
-	public void intercambioCoches(Usuario) {
-
+		if (distance > 300) return false;
+		distancias.set(car, distance);
+		return true;
 	}
 }
+
