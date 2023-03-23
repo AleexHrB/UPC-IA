@@ -526,12 +526,12 @@ public class BlaBlaEstado {
 	* Fails if the resulting route leaves users before picking them up
 	* id1 < id2
  	*/
-	public int route_permutation(int car, int id1, int id2) {
+	public boolean route_permutation(int car, int id1, int id2) {
 		ArrayList<Integer> route = trayectos.get(car);
 		
 		if (route.get(id1) > 0 || route.get(id2) < 0) {
 			for (int i = id1; i <= id2; ++i) {
-				if (route.get(i) == -route.get(id1) || route.get(i) == -route.get(id2)) return -1;
+				if (route.get(i) == -route.get(id1) || route.get(i) == -route.get(id2)) return false;
 			}
 		}
 		
@@ -546,7 +546,7 @@ public class BlaBlaEstado {
 				else ++capacity;
 				if (capacity <= 0) {
 					//System.out.println("Vamos mal!");
-					return -1;
+					return false;
 				}
 			}
 		}
@@ -579,7 +579,7 @@ public class BlaBlaEstado {
 		route.set(id1, user2);
 		route.set(id2, user1);
 		
-		return distance;
+		return true;
 	}
 
 	/**
@@ -590,12 +590,12 @@ public class BlaBlaEstado {
 	 * @param id2 id of the position on the route to swap on the second car (route2[id2] has to be positive)
 	 * @return returns new distance
 	 */
-	public void passenjer_swap(int car1, int car2, int id1, int id2) {
+	public boolean passenjer_swap(int car1, int car2, int id1, int id2) {
 		ArrayList<Integer> route1 = trayectos.get(car1);
 		ArrayList<Integer> route2 = trayectos.get(car2);
 
-		if (id1 == 0 || id1 == route1.size() - 1 || id2 == 0 || id2 == route2.size() - 1) return;
-		if (route1.get(id1) <= 0 || route2.get(id2) <= 0) return;
+		if (id1 == 0 || id1 == route1.size() - 1 || id2 == 0 || id2 == route2.size() - 1) return false;
+		if (route1.get(id1) <= 0 || route2.get(id2) <= 0) return false;
 
 		//System.out.println("Coche 1: " + car1);
 		//System.out.println("Coche 2: " + car2);
@@ -643,10 +643,11 @@ public class BlaBlaEstado {
 
 			route2.set(id2, user2Og);
 			route2.set(job2, user2Dest);
+			return false;
 		}
 		
 		
-
+		return true;
 		//System.out.println("Nueva ruta 1: ");
 		//for (Integer x : trayectos.get(car1)) System.out.print(x + " , ");
 
@@ -661,6 +662,10 @@ public class BlaBlaEstado {
 		//System.out.println("Distancia 2 antigua: " + distance2);
 		//System.out.println("Nueva distancia 2: " + distancias.get(car2));
 	} 
+
+	public void ChangeCar() {
+
+	}
 
 	private int distance(int id1, int id2) {
 		int pos1X, pos1Y, pos2X, pos2Y;
