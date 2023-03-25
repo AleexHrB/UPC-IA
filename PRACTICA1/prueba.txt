@@ -1,211 +1,204 @@
 Introduce la Semilla: Introduce el numero de conductores: Introduce el numero de usuarios: Que solucion inicial quieres usar?
 Modo 0: Greedy
 Modo 1: Random
-El coche 1 ha recorrido 133 y ha hecho esto: 
-1 , 188 , -188 , -1 , 
-El coche 3 ha recorrido 149 y ha hecho esto: 
-3 , 144 , -144 , -3 , 
-El coche 6 ha recorrido 166 y ha hecho esto: 
-6 , 159 , -159 , -6 , 
-El coche 8 ha recorrido 291 y ha hecho esto: 
-8 , 178 , -178 , -8 , 
-El coche 9 ha recorrido 203 y ha hecho esto: 
-9 , 22 , -22 , -9 , 
-El coche 10 ha recorrido 233 y ha hecho esto: 
-10 , 11 , -11 , -10 , 
-El coche 12 ha recorrido 204 y ha hecho esto: 
-12 , 63 , -63 , -12 , 
-El coche 15 ha recorrido 217 y ha hecho esto: 
-15 , 164 , -164 , -15 , 
-El coche 16 ha recorrido 224 y ha hecho esto: 
-16 , 31 , -31 , -16 , 
-El coche 18 ha recorrido 227 y ha hecho esto: 
-18 , 23 , -23 , -18 , 
-El coche 20 ha recorrido 178 y ha hecho esto: 
-20 , 172 , -172 , -20 , 
-El coche 24 ha recorrido 292 y ha hecho esto: 
-24 , 5 , -5 , -24 , 
-El coche 25 ha recorrido 123 y ha hecho esto: 
-25 , 75 , -75 , -25 , 
-El coche 27 ha recorrido 127 y ha hecho esto: 
-27 , 179 , -179 , -27 , 
-El coche 28 ha recorrido 203 y ha hecho esto: 
-28 , 4 , -4 , -28 , 
-El coche 29 ha recorrido 179 y ha hecho esto: 
-29 , 54 , -54 , -29 , 
-El coche 30 ha recorrido 220 y ha hecho esto: 
-30 , 169 , -169 , -30 , 
-El coche 35 ha recorrido 182 y ha hecho esto: 
-35 , 32 , -32 , -35 , 
-El coche 36 ha recorrido 199 y ha hecho esto: 
-36 , 84 , -84 , -36 , 
-El coche 37 ha recorrido 233 y ha hecho esto: 
-37 , 89 , -89 , -37 , 
-El coche 40 ha recorrido 177 y ha hecho esto: 
-40 , 33 , -33 , -40 , 
-El coche 41 ha recorrido 272 y ha hecho esto: 
-41 , 185 , -185 , -41 , 
-El coche 42 ha recorrido 124 y ha hecho esto: 
-42 , 57 , -57 , -42 , 
-El coche 45 ha recorrido 227 y ha hecho esto: 
-45 , 44 , -44 , -45 , 
-El coche 47 ha recorrido 240 y ha hecho esto: 
-47 , 100 , -100 , -47 , 
-El coche 48 ha recorrido 206 y ha hecho esto: 
-48 , 162 , -162 , -48 , 
-El coche 52 ha recorrido 252 y ha hecho esto: 
-52 , 21 , -21 , -52 , 
-El coche 53 ha recorrido 274 y ha hecho esto: 
-53 , 81 , -81 , -53 , 
-El coche 56 ha recorrido 220 y ha hecho esto: 
-56 , 96 , -96 , -56 , 
-El coche 59 ha recorrido 130 y ha hecho esto: 
-59 , 49 , -49 , -59 , 
-El coche 60 ha recorrido 196 y ha hecho esto: 
-60 , 69 , -69 , -60 , 
-El coche 61 ha recorrido 287 y ha hecho esto: 
-61 , 129 , -129 , -61 , 
+El coche 1 ha recorrido 269 y ha hecho esto: 
+1 , 192 , -192 , -1 , 
+El coche 3 ha recorrido 209 y ha hecho esto: 
+3 , 32 , -32 , -3 , 
+El coche 6 ha recorrido 140 y ha hecho esto: 
+6 , 148 , -148 , -6 , 
+El coche 8 ha recorrido 209 y ha hecho esto: 
+8 , 19 , -19 , -8 , 
+El coche 9 ha recorrido 245 y ha hecho esto: 
+9 , 126 , -126 , -9 , 
+El coche 10 ha recorrido 237 y ha hecho esto: 
+10 , 75 , -75 , -10 , 
+El coche 12 ha recorrido 276 y ha hecho esto: 
+12 , 135 , -135 , -12 , 
+El coche 15 ha recorrido 173 y ha hecho esto: 
+15 , 119 , -119 , -15 , 
+El coche 16 ha recorrido 186 y ha hecho esto: 
+16 , 21 , -21 , -16 , 
+El coche 18 ha recorrido 187 y ha hecho esto: 
+18 , 169 , -169 , -18 , 
+El coche 20 ha recorrido 168 y ha hecho esto: 
+20 , 187 , -187 , -20 , 
+El coche 24 ha recorrido 156 y ha hecho esto: 
+24 , 164 , -164 , -24 , 
+El coche 25 ha recorrido 199 y ha hecho esto: 
+25 , 14 , -14 , -25 , 
+El coche 27 ha recorrido 183 y ha hecho esto: 
+27 , 167 , -167 , -27 , 
+El coche 28 ha recorrido 243 y ha hecho esto: 
+28 , 22 , -22 , -28 , 
+El coche 29 ha recorrido 189 y ha hecho esto: 
+29 , 159 , -159 , -29 , 
+El coche 30 ha recorrido 210 y ha hecho esto: 
+30 , 172 , -172 , -30 , 
+El coche 35 ha recorrido 246 y ha hecho esto: 
+35 , 43 , -43 , -35 , 
+El coche 36 ha recorrido 165 y ha hecho esto: 
+36 , 190 , -190 , -36 , 
+El coche 37 ha recorrido 151 y ha hecho esto: 
+37 , 178 , -178 , -37 , 
+El coche 40 ha recorrido 279 y ha hecho esto: 
+40 , 11 , -11 , -40 , 
+El coche 41 ha recorrido 232 y ha hecho esto: 
+41 , 175 , -175 , -41 , 
+El coche 42 ha recorrido 212 y ha hecho esto: 
+42 , 66 , -66 , -42 , 
+El coche 45 ha recorrido 287 y ha hecho esto: 
+45 , 115 , -115 , -45 , 
+El coche 47 ha recorrido 252 y ha hecho esto: 
+47 , 57 , -57 , -47 , 
+El coche 48 ha recorrido 250 y ha hecho esto: 
+48 , 158 , -158 , -48 , 
+El coche 52 ha recorrido 240 y ha hecho esto: 
+52 , 33 , -33 , -52 , 
+El coche 53 ha recorrido 242 y ha hecho esto: 
+53 , 122 , -122 , -53 , 
+El coche 56 ha recorrido 238 y ha hecho esto: 
+56 , 44 , -44 , -56 , 
+El coche 59 ha recorrido 134 y ha hecho esto: 
+59 , 157 , -157 , -59 , 
+El coche 60 ha recorrido 142 y ha hecho esto: 
+60 , 138 , -138 , -60 , 
+El coche 61 ha recorrido 123 y ha hecho esto: 
+61 , 84 , -84 , -61 , 
 El coche 62 ha recorrido 287 y ha hecho esto: 
 62 , 2 , -2 , -62 , 
-El coche 65 ha recorrido 149 y ha hecho esto: 
-65 , 85 , -85 , -65 , 
-El coche 67 ha recorrido 262 y ha hecho esto: 
-67 , 135 , -135 , -67 , 
-El coche 70 ha recorrido 115 y ha hecho esto: 
-70 , 154 , -154 , -70 , 
-El coche 71 ha recorrido 191 y ha hecho esto: 
-71 , 167 , -167 , -71 , 
-El coche 72 ha recorrido 166 y ha hecho esto: 
-72 , 148 , -148 , -72 , 
-El coche 74 ha recorrido 259 y ha hecho esto: 
-74 , 94 , -94 , -74 , 
-El coche 78 ha recorrido 213 y ha hecho esto: 
-78 , 128 , -128 , -78 , 
-El coche 79 ha recorrido 170 y ha hecho esto: 
-79 , 73 , -73 , -79 , 
-El coche 80 ha recorrido 225 y ha hecho esto: 
-80 , 14 , -14 , -80 , 
-El coche 82 ha recorrido 157 y ha hecho esto: 
-82 , 51 , -51 , -82 , 
-El coche 83 ha recorrido 228 y ha hecho esto: 
-83 , 7 , -7 , -83 , 
-El coche 87 ha recorrido 202 y ha hecho esto: 
-87 , 174 , -174 , -87 , 
-El coche 91 ha recorrido 230 y ha hecho esto: 
-91 , 197 , -197 , -91 , 
-El coche 92 ha recorrido 159 y ha hecho esto: 
-92 , 156 , -156 , -92 , 
-El coche 93 ha recorrido 137 y ha hecho esto: 
-93 , 76 , -76 , -93 , 
-El coche 95 ha recorrido 262 y ha hecho esto: 
-95 , 170 , -170 , -95 , 
-El coche 97 ha recorrido 234 y ha hecho esto: 
-97 , 103 , -103 , -97 , 
-El coche 98 ha recorrido 253 y ha hecho esto: 
-98 , 160 , -160 , -98 , 
-El coche 99 ha recorrido 149 y ha hecho esto: 
-99 , 151 , -151 , -99 , 
-El coche 104 ha recorrido 166 y ha hecho esto: 
-104 , 140 , -140 , -104 , 
-El coche 105 ha recorrido 130 y ha hecho esto: 
-105 , 26 , -26 , -105 , 
-El coche 107 ha recorrido 229 y ha hecho esto: 
-107 , 102 , -102 , -107 , 
-El coche 108 ha recorrido 109 y ha hecho esto: 
-108 , 58 , -58 , -108 , 
-El coche 109 ha recorrido 215 y ha hecho esto: 
-109 , 88 , -88 , -109 , 
-El coche 110 ha recorrido 204 y ha hecho esto: 
-110 , 39 , -39 , -110 , 
-El coche 111 ha recorrido 164 y ha hecho esto: 
-111 , 184 , -184 , -111 , 
-El coche 112 ha recorrido 275 y ha hecho esto: 
-112 , 64 , -64 , -112 , 
-El coche 113 ha recorrido 256 y ha hecho esto: 
-113 , 136 , -136 , -113 , 
-El coche 118 ha recorrido 232 y ha hecho esto: 
-118 , 55 , -55 , -118 , 
-El coche 120 ha recorrido 260 y ha hecho esto: 
-120 , 86 , -86 , -120 , 
-El coche 121 ha recorrido 198 y ha hecho esto: 
-121 , 77 , -77 , -121 , 
+El coche 65 ha recorrido 153 y ha hecho esto: 
+65 , 38 , -38 , -65 , 
+El coche 67 ha recorrido 160 y ha hecho esto: 
+67 , 85 , -85 , -67 , 
+El coche 70 ha recorrido 145 y ha hecho esto: 
+70 , 64 , -64 , -70 , 
+El coche 71 ha recorrido 209 y ha hecho esto: 
+71 , 161 , -161 , -71 , 
+El coche 72 ha recorrido 152 y ha hecho esto: 
+72 , 136 , -136 , -72 , 
+El coche 74 ha recorrido 215 y ha hecho esto: 
+74 , 185 , -185 , -74 , 
+El coche 78 ha recorrido 227 y ha hecho esto: 
+78 , 55 , -55 , -78 , 
+El coche 79 ha recorrido 160 y ha hecho esto: 
+79 , 103 , -103 , -79 , 
+El coche 80 ha recorrido 259 y ha hecho esto: 
+80 , 116 , -116 , -80 , 
+El coche 82 ha recorrido 159 y ha hecho esto: 
+82 , 49 , -49 , -82 , 
+El coche 83 ha recorrido 136 y ha hecho esto: 
+83 , 101 , -101 , -83 , 
+El coche 87 ha recorrido 186 y ha hecho esto: 
+87 , 89 , -89 , -87 , 
+El coche 91 ha recorrido 250 y ha hecho esto: 
+91 , 102 , -102 , -91 , 
+El coche 92 ha recorrido 129 y ha hecho esto: 
+92 , 179 , -179 , -92 , 
+El coche 93 ha recorrido 207 y ha hecho esto: 
+93 , 39 , -39 , -93 , 
+El coche 95 ha recorrido 152 y ha hecho esto: 
+95 , 88 , -88 , -95 , 
+El coche 97 ha recorrido 180 y ha hecho esto: 
+97 , 69 , -69 , -97 , 
+El coche 98 ha recorrido 237 y ha hecho esto: 
+98 , 77 , -77 , -98 , 
+El coche 99 ha recorrido 199 y ha hecho esto: 
+99 , 197 , -197 , -99 , 
+El coche 104 ha recorrido 144 y ha hecho esto: 
+104 , 68 , -68 , -104 , 
+El coche 105 ha recorrido 188 y ha hecho esto: 
+105 , 46 , -46 , -105 , 
+El coche 107 ha recorrido 97 y ha hecho esto: 
+107 , 188 , -188 , -107 , 
+El coche 108 ha recorrido 241 y ha hecho esto: 
+108 , 177 , -177 , -108 , 
+El coche 109 ha recorrido 227 y ha hecho esto: 
+109 , 51 , -51 , -109 , 
+El coche 110 ha recorrido 242 y ha hecho esto: 
+110 , 149 , -149 , -110 , 
+El coche 111 ha recorrido 132 y ha hecho esto: 
+111 , 50 , -50 , -111 , 
+El coche 112 ha recorrido 239 y ha hecho esto: 
+112 , 170 , -170 , -112 , 
+El coche 113 ha recorrido 300 y ha hecho esto: 
+113 , 132 , -132 , -113 , 
+El coche 118 ha recorrido 224 y ha hecho esto: 
+118 , 5 , -5 , -118 , 
+El coche 120 ha recorrido 236 y ha hecho esto: 
+120 , 194 , -194 , -120 , 
+El coche 121 ha recorrido 126 y ha hecho esto: 
+121 , 154 , -154 , -121 , 
 El coche 123 ha recorrido 208 y ha hecho esto: 
 123 , 195 , -195 , -123 , 
-El coche 124 ha recorrido 106 y ha hecho esto: 
-124 , 66 , -66 , -124 , 
-El coche 125 ha recorrido 135 y ha hecho esto: 
-125 , 101 , -101 , -125 , 
-El coche 127 ha recorrido 180 y ha hecho esto: 
-127 , 192 , -192 , -127 , 
-El coche 131 ha recorrido 288 y ha hecho esto: 
-131 , 114 , -114 , -131 , 
-El coche 134 ha recorrido 278 y ha hecho esto: 
-134 , 175 , -175 , -134 , 
-El coche 137 ha recorrido 176 y ha hecho esto: 
-137 , 122 , -122 , -137 , 
-El coche 139 ha recorrido 209 y ha hecho esto: 
-139 , 177 , -177 , -139 , 
-El coche 141 ha recorrido 232 y ha hecho esto: 
-141 , 106 , -106 , -141 , 
-El coche 142 ha recorrido 149 y ha hecho esto: 
-142 , 17 , -17 , -142 , 
-El coche 143 ha recorrido 171 y ha hecho esto: 
-143 , 13 , -13 , -143 , 
-El coche 145 ha recorrido 201 y ha hecho esto: 
-145 , 158 , -158 , -145 , 
-El coche 146 ha recorrido 209 y ha hecho esto: 
-146 , 116 , -116 , -146 , 
-El coche 147 ha recorrido 289 y ha hecho esto: 
-147 , 126 , -126 , -147 , 
-El coche 150 ha recorrido 181 y ha hecho esto: 
-150 , 138 , -138 , -150 , 
-El coche 152 ha recorrido 208 y ha hecho esto: 
-152 , 157 , -157 , -152 , 
-El coche 153 ha recorrido 208 y ha hecho esto: 
-153 , 133 , -133 , -153 , 
-El coche 155 ha recorrido 220 y ha hecho esto: 
-155 , 34 , -34 , -155 , 
-El coche 163 ha recorrido 178 y ha hecho esto: 
-163 , 190 , -190 , -163 , 
-El coche 165 ha recorrido 158 y ha hecho esto: 
-165 , 90 , -90 , -165 , 
-El coche 166 ha recorrido 154 y ha hecho esto: 
-166 , 68 , -68 , -166 , 
-El coche 168 ha recorrido 142 y ha hecho esto: 
-168 , 115 , -115 , -168 , 
-El coche 171 ha recorrido 184 y ha hecho esto: 
-171 , 38 , -38 , -171 , 
-El coche 173 ha recorrido 184 y ha hecho esto: 
-173 , 117 , -117 , -173 , 
-El coche 176 ha recorrido 139 y ha hecho esto: 
-176 , 119 , -119 , -176 , 
-El coche 180 ha recorrido 178 y ha hecho esto: 
-180 , 43 , -43 , -180 , 
-El coche 182 ha recorrido 259 y ha hecho esto: 
-182 , 149 , -149 , -182 , 
-El coche 183 ha recorrido 228 y ha hecho esto: 
-183 , 130 , -130 , -183 , 
-El coche 186 ha recorrido 195 y ha hecho esto: 
-186 , 161 , -161 , -186 , 
-El coche 189 ha recorrido 150 y ha hecho esto: 
-189 , 187 , -187 , -189 , 
-El coche 191 ha recorrido 176 y ha hecho esto: 
-191 , 19 , -19 , -191 , 
-El coche 193 ha recorrido 76 y ha hecho esto: 
-193 , 181 , -181 , -193 , 
-El coche 196 ha recorrido 193 y ha hecho esto: 
-196 , 46 , -46 , -196 , 
-El coche 198 ha recorrido 161 y ha hecho esto: 
-198 , 50 , -50 , -198 , 
-El coche 199 ha recorrido 213 y ha hecho esto: 
-199 , 132 , -132 , -199 , 
-El coche 200 ha recorrido 200 y ha hecho esto: 
-200 , 194 , -194 , -200 , 
-USANDO ENTROPÍA
-Suma de distancias inicial: 19890.0
-Entropia inicial: 105873.17202854827
-Suma de distancias final: 12234.0
-Calidad final: 59316.220006087286
-USANDO SUMA DE DISTANCIAS
-Suma de distancias inicial: 19890.0
-Suma de distancias final: 12394.0
+El coche 124 ha recorrido 98 y ha hecho esto: 
+124 , 151 , -151 , -124 , 
+El coche 125 ha recorrido 131 y ha hecho esto: 
+125 , 94 , -94 , -125 , 
+El coche 127 ha recorrido 176 y ha hecho esto: 
+127 , 63 , -63 , -127 , 
+El coche 131 ha recorrido 182 y ha hecho esto: 
+131 , 181 , -181 , -131 , 
+El coche 134 ha recorrido 272 y ha hecho esto: 
+134 , 34 , -34 , -134 , 
+El coche 137 ha recorrido 200 y ha hecho esto: 
+137 , 81 , -81 , -137 , 
+El coche 139 ha recorrido 255 y ha hecho esto: 
+139 , 23 , -23 , -139 , 
+El coche 141 ha recorrido 188 y ha hecho esto: 
+141 , 54 , -54 , -141 , 
+El coche 142 ha recorrido 217 y ha hecho esto: 
+142 , 4 , -4 , -142 , 
+El coche 143 ha recorrido 289 y ha hecho esto: 
+143 , 96 , -96 , -143 , 
+El coche 145 ha recorrido 129 y ha hecho esto: 
+145 , 184 , -184 , -145 , 
+El coche 146 ha recorrido 135 y ha hecho esto: 
+146 , 156 , -156 , -146 , 
+El coche 147 ha recorrido 157 y ha hecho esto: 
+147 , 106 , -106 , -147 , 
+El coche 150 ha recorrido 131 y ha hecho esto: 
+150 , 144 , -144 , -150 , 
+El coche 152 ha recorrido 158 y ha hecho esto: 
+152 , 90 , -90 , -152 , 
+El coche 153 ha recorrido 238 y ha hecho esto: 
+153 , 130 , -130 , -153 , 
+El coche 155 ha recorrido 204 y ha hecho esto: 
+155 , 13 , -13 , -155 , 
+El coche 163 ha recorrido 258 y ha hecho esto: 
+163 , 7 , -7 , -163 , 
+El coche 165 ha recorrido 96 y ha hecho esto: 
+165 , 162 , -162 , -165 , 
+El coche 166 ha recorrido 260 y ha hecho esto: 
+166 , 140 , -140 , -166 , 
+El coche 168 ha recorrido 184 y ha hecho esto: 
+168 , 17 , -17 , -168 , 
+El coche 171 ha recorrido 254 y ha hecho esto: 
+171 , 86 , -86 , -171 , 
+El coche 173 ha recorrido 108 y ha hecho esto: 
+173 , 58 , -58 , -173 , 
+El coche 176 ha recorrido 177 y ha hecho esto: 
+176 , 128 , -128 , -176 , 
+El coche 180 ha recorrido 284 y ha hecho esto: 
+180 , 114 , -114 , -180 , 
+El coche 182 ha recorrido 203 y ha hecho esto: 
+182 , 73 , -73 , -182 , 
+El coche 183 ha recorrido 250 y ha hecho esto: 
+183 , 129 , -129 , -183 , 
+El coche 186 ha recorrido 111 y ha hecho esto: 
+186 , 26 , -26 , -186 , 
+El coche 189 ha recorrido 78 y ha hecho esto: 
+189 , 133 , -133 , -189 , 
+El coche 191 ha recorrido 180 y ha hecho esto: 
+191 , 76 , -76 , -191 , 
+El coche 193 ha recorrido 196 y ha hecho esto: 
+193 , 100 , -100 , -193 , 
+El coche 196 ha recorrido 213 y ha hecho esto: 
+196 , 160 , -160 , -196 , 
+El coche 198 ha recorrido 273 y ha hecho esto: 
+198 , 174 , -174 , -198 , 
+El coche 199 ha recorrido 267 y ha hecho esto: 
+199 , 117 , -117 , -199 , 
+El coche 200 ha recorrido 132 y ha hecho esto: 
+200 , 31 , -31 , -200 , 
+NOVA SOLUCIÓ --------------------------------

@@ -29,12 +29,25 @@ public class BlaBlaSuccessorsSA implements SuccessorFunction {
 
             int id1 = rand.nextInt(routeLength - 3) + 1;
             int id2 = rand.nextInt(routeLength - 2) + 1;
+            
             while (id2 <= id1) {
                 id2 = rand.nextInt(routeLength - 2) + 1;
             }
 
             BlaBlaEstado nextState = new BlaBlaEstado(actState);
-            nextState.route_permutation(idCar, id1, id2);
+
+            while (!nextState.route_permutation(idCar, id1, id2)) {
+                idCar = rand.nextInt(nCars);
+                routeLength = actState.getRouteLength(idCar);
+
+                id1 = rand.nextInt(routeLength - 3) + 1;
+                id2 = rand.nextInt(routeLength - 2) + 1;
+            
+                while (id2 <= id1) {
+                    id2 = rand.nextInt(routeLength - 2) + 1;
+                }
+            }
+
             String action = "Se permutan las posiciones " + id1 + " y " + id2 + "del trayecto número: " + idCar;
             Successor new_succ = new Successor(action, nextState);
             succ.add(new_succ);
@@ -56,13 +69,26 @@ public class BlaBlaSuccessorsSA implements SuccessorFunction {
             int id1 = rand.nextInt(routeLength - 2) + 1;
             int id2 = rand.nextInt(routeLength2 - 2) + 1;
 
-            BlaBlaHeuristicFunctions huristicTest = new BlaBlaHeuristicFunctions();
+            //BlaBlaHeuristicFunctions huristicTest = new BlaBlaHeuristicFunctions();
             BlaBlaEstado nextState = new BlaBlaEstado(actState);
 
             //System.out.println("Calidad antigua: " + huristicTest.getHeuristicValue(actState));
             //System.out.println("Calidad nueva: " + huristicTest.getHeuristicValue(nextState));
 
-            nextState.passenjer_swap(idCar, idCar2, id1, id2);
+            while(!nextState.passenjer_swap(idCar, idCar2, id1, id2)) {
+                idCar = rand.nextInt(nCars);
+                idCar2 = rand.nextInt(nCars);
+            
+                while (idCar2 < idCar) {
+                    idCar2 = rand.nextInt(nCars);
+                }
+
+                routeLength = actState.getRouteLength(idCar);
+                routeLength2 = actState.getRouteLength(idCar2);
+
+                id1 = rand.nextInt(routeLength - 2) + 1;
+                id2 = rand.nextInt(routeLength2 - 2) + 1;
+            }
             
             String action = "Se intercambia la persona en posición " + id1 + " del coche " + idCar + " con la persona en posición " + id2 + " del coche " + idCar2;
             Successor new_succ = new Successor(action, nextState);

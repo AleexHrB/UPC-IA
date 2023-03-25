@@ -551,34 +551,40 @@ public class BlaBlaEstado {
 			}
 		}
 
-		int anterior1 = route.get(id1 - 1);
-		Integer user1 = route.get(id1);
-		int post1 = route.get(id1 + 1);
+		
+		//int anterior1 = route.get(id1 - 1);
+		int user1 = route.get(id1);
+		//int post1 = route.get(id1 + 1);
 
-		int anterior2 = route.get(id2 - 1);
-		Integer user2 = route.get(id2);
-		int post2 = route.get(id2 + 1);
+		//int anterior2 = route.get(id2 - 1);
+		int user2 = route.get(id2);
+		//int post2 = route.get(id2 + 1);
 
+		/* 
 		int dAnt = distance(anterior1, user1) + distance(user2, post2);
 		int dNew = distance(anterior1, user2) + distance(user1, post2);
 
+		
 		if (user1 != anterior2) {
 			dAnt += distance(anterior2, user2) + distance(user1, post1);
 			dNew += distance(anterior2, user1) + distance(user2, post1);
 		}
-
-		int distance = distancias.get(car);
-		distancias.set(car, distance - dAnt + dNew);
+		*/
 		
-		System.out.println("Distancia antigua: " + distance);
-		System.out.println("Distancia restada: " + dAnt);
-		System.out.println("Distancia sumada: " + dNew);
-		System.out.println("Distancia nueva: " + distancias.get(car));
-
-
+		int distance = distancias.get(car);
+		
 		route.set(id1, user2);
 		route.set(id2, user1);
 		
+		int newDistance = calculate_distance(car);
+
+		if (newDistance > 300) {
+			route.set(id1, user1);
+			route.set(id2, user2);
+			return false;
+		}
+
+		distancias.set(car, newDistance);
 		return true;
 	}
 
@@ -637,7 +643,9 @@ public class BlaBlaEstado {
 		route2.set(id2, user1Og);
 		route2.set(job2, user1Dest);
 
-		if (!update_distance(car1) || !update_distance(car2)) {
+		int dist1 = calculate_distance(car1);
+		int dist2 = calculate_distance(car2);
+		if ( dist1 > 300 || dist2 > 300) {
 			route1.set(id1, user1Og);
 			route1.set(job1, user1Dest);
 
@@ -645,8 +653,10 @@ public class BlaBlaEstado {
 			route2.set(job2, user2Dest);
 			return false;
 		}
-		
-		
+
+		distancias.set(car1, dist1);
+		distancias.set(car2, dist2);
+
 		return true;
 		//System.out.println("Nueva ruta 1: ");
 		//for (Integer x : trayectos.get(car1)) System.out.print(x + " , ");
@@ -663,8 +673,154 @@ public class BlaBlaEstado {
 		//System.out.println("Nueva distancia 2: " + distancias.get(car2));
 	} 
 
-	public void ChangeCar() {
+	/**
+	 * 
+	 * @param carOg Origin car
+	 * @param id id of the user to change 
+	 * @param carDest car to go
+	 * @return returns true if the operator has been succesfully implemented
+	 */
+	public boolean changeCar(int carOg, int id, int carDest) {
+		ArrayList<Integer> routeOg = trayectos.get(carOg);
+		ArrayList<Integer> routeDest = trayectos.get(carDest);
+		
+		if (routeOg.get(id) <= 0) return false;
+		if (carOg == carDest) return false;
 
+		int job = -1;
+		for (int i = id + 1; (i < routeOg.size()) && (job == -1); ++i) {
+			if (routeOg.get(i) == -routeOg.get(id)) {
+				job = i;
+			}
+		}
+
+
+		int lastAction = routeDest.get(routeDest.size() - 1);
+		routeDest.set(routeDest.size() - 1, routeOg.get(id));
+		routeDest.add(routeOg.get(job));
+		routeDest.add(lastAction);
+
+		int distDest = calculate_distance(carDest);
+		if (distDest > 300) {
+			routeDest.remove(routeDest.size() - 1);
+			routeDest.remove(routeDest.size() - 1);
+			routeDest.remove(routeDest.size() - 1);
+			routeDest.add(lastAction);
+			return false;
+		}
+
+		int distancia_original_dest = distancias.get(carDest);
+		distancias.set(carDest, distDest);
+
+		int conductor = routeOg.get(0);
+		int usuario = routeOg.get(id);
+
+		routeOg.remove(id);
+		routeOg.remove(job - 1);
+
+		int distancia_original_Og = distancias.get(carOg);
+		distancias.set(carOg, calculate_distance(carOg));
+
+		if (routeOg.size() == 2) {
+			if (!reasignarConductor(carOg)) {
+				routeOg.add(conductor);
+				routeOg.add(usuario);
+				routeOg.add(-usuario);
+				routeOg.add(-conductor);
+
+				routeDest.remove(routeDest.size() - 1);
+				routeDest.remove(routeDest.size() - 1);
+				routeDest.remove(routeDest.size() - 1);
+				routeDest.add(lastAction);
+				distancias.set(carDest, distancia_original_dest);
+				distancias.set(carOg, distancia_original_Og);
+				return false;
+			}
+		}
+		
+		return true;
+	}
+
+	/**
+	 * 
+	 * @param carOg Origin car
+	 * @param id id of the user to change 
+	 * @param carDest car to go
+	 * @return returns true if the operator has been succesfully implemented
+	 */
+	public boolean changeCar2(int carOg, int id, int carDest) {
+		ArrayList<Integer> routeOg = trayectos.get(carOg);
+		ArrayList<Integer> routeDest = trayectos.get(carDest);
+		
+		if (routeOg.get(id) <= 0) return false;
+		if (carOg == carDest) return false;
+
+		int job = -1;
+		for (int i = id + 1; (i < routeOg.size()) && (job == -1); ++i) {
+			if (routeOg.get(i) == -routeOg.get(id)) {
+				job = i;
+			}
+		}
+
+
+		int lastAction = routeDest.get(routeDest.size() - 1);
+		routeDest.set(routeDest.size() - 1, routeOg.get(id));
+		routeDest.add(routeOg.get(job));
+		routeDest.add(lastAction);
+
+		int distDest = calculate_distance(carDest);
+		if (distDest > 300) {
+			routeDest.remove(routeDest.size() - 1);
+			routeDest.remove(routeDest.size() - 1);
+			routeDest.remove(routeDest.size() - 1);
+			routeDest.add(lastAction);
+			return false;
+		}
+
+		int distancia_original_dest = distancias.get(carDest);
+		distancias.set(carDest, distDest);
+
+		int conductor = routeOg.get(0);
+		int usuario = routeOg.get(id);
+
+		routeOg.remove(id);
+		routeOg.remove(job - 1);
+
+		int distancia_original_Og = distancias.get(carOg);
+		distancias.set(carOg, calculate_distance(carOg));
+
+		if (routeOg.size() == 2) {
+			if (!reasignarConductor(carOg)) {
+				routeOg.add(conductor);
+				routeOg.add(usuario);
+				routeOg.add(-usuario);
+				routeOg.add(-conductor);
+
+				routeDest.remove(routeDest.size() - 1);
+				routeDest.remove(routeDest.size() - 1);
+				routeDest.remove(routeDest.size() - 1);
+				routeDest.add(lastAction);
+				distancias.set(carDest, distancia_original_dest);
+				distancias.set(carOg, distancia_original_Og);
+				return false;
+			}
+		}
+		
+		return true;
+	}
+
+	private boolean reasignarConductor(int car) {
+		
+		for (int i = 0; i < num_cond; ++ i) {
+			if (changeCar(car, 0, i)) {
+				trayectos.remove(car);
+				distancias.remove(car);
+				--num_cond;
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	private int distance(int id1, int id2) {
@@ -712,15 +868,25 @@ public class BlaBlaEstado {
 		return distancias;
 	}
 
-	private boolean update_distance(int car) {
+	private int calculate_distance(int car) {
 		int distance = 0;
 		ArrayList<Integer> actRoute = trayectos.get(car);
 		for (int i = 0; i < actRoute.size() - 1; ++i) {
 			distance += distance(actRoute.get(i), actRoute.get(i + 1));
 		}
 
-		if (distance > 300) return false;
-		distancias.set(car, distance);
+		return distance;
+	}
+
+	public boolean checkDistances() {
+		for (int i = 0; i < num_cond; ++i) {
+			int actDist = calculate_distance(i);
+			if (actDist != distancias.get(i)) {
+				System.out.println("Coche número " + i + " no coincide :(");
+				System.out.println("Distancia real = " + actDist);
+				return false;
+			}
+		}
 		return true;
 	}
 }

@@ -55,21 +55,22 @@ public class BlaBlaMain {
 			
 		}  
 */
-		BlaBlaEstado e = new BlaBlaEstado(users, modo);
+		BlaBlaEstado estadoInicial = new BlaBlaEstado(users, modo);
 
-		e.escribir_ruta();
+		estadoInicial.escribir_ruta();
 		
 		BlaBlaHeuristicFunctions heu = new BlaBlaHeuristicFunctions();
 		heu.ChangeHeuristicFunction(1);
-		double suma_distancias_og = heu.getHeuristicValue(e);
-
-		heu.ChangeHeuristicFunction(5);
-		double entropia_og = heu.getHeuristicValue(e);
-
+		double suma_distancias_og = heu.getHeuristicValue(estadoInicial);
+	
 		Search alg = new HillClimbingSearch();
-		Problem p = new Problem(e, new BlaBlaSuccessors(), new BlaBlaGoalTest(), new BlaBlaHeuristicFunctions());
+		Problem p = new Problem(estadoInicial, new BlaBlaSuccessors(), new BlaBlaGoalTest(), heu);
+		double start = 0;
+		double finish = 0;
 		try {
+			start = System.currentTimeMillis();
 			SearchAgent ag = new SearchAgent(p, alg);
+			finish = System.currentTimeMillis();
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -77,33 +78,19 @@ public class BlaBlaMain {
 
 		
 		BlaBlaEstado goal = (BlaBlaEstado) alg.getGoalState();
-		//goal.escribir_ruta();
-		double calidad_def = heu.getHeuristicValue(goal);
-		heu.ChangeHeuristicFunction(1);
+		System.out.println("NOVA SOLUCIÓ --------------------------------");
+		goal.escribir_ruta();
+		goal.checkDistances();
 		double suma_distancias_def = heu.getHeuristicValue(goal);
 
-		System.out.println("USANDO ENTROPÍA");
-		System.out.println("Suma de distancias inicial: " + suma_distancias_og);
-		System.out.println("Entropia inicial: " + entropia_og);
 
+		System.out.println("Suma de distancias inicial: " + suma_distancias_og);
+		System.out.println("Numero de cars inicial: " + estadoInicial.getNumCars());
 		System.out.println("Suma de distancias final: " + suma_distancias_def);
-		System.out.println("Calidad final: " + calidad_def);
+		System.out.println("Numero de cars final: " + goal.getNumCars());
+		System.out.println("Tiempo de escalado de monte: " + (finish - start));
 		//Ahora magia
-
-		heu.ChangeHeuristicFunction(1);
-		p = new Problem(e, new BlaBlaSuccessors(), new BlaBlaGoalTest(), heu);
-		try {
-			SearchAgent ag = new SearchAgent(p, alg);
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-
-		goal = (BlaBlaEstado) alg.getGoalState();
-		suma_distancias_def = heu.getHeuristicValue(goal);
-		System.out.println("USANDO SUMA DE DISTANCIAS");
-		System.out.println("Suma de distancias inicial: " + suma_distancias_og);
-		System.out.println("Suma de distancias final: " + suma_distancias_def);
+		
 	}
 
 }
