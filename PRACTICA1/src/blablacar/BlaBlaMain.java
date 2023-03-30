@@ -68,9 +68,7 @@ public class BlaBlaMain {
 		for (int i = 0; i < 10; ++i) test4(seeds[i]/2, 6);*/
 
 		//PUNTO EXTRA
-		/*for (int i = 0; i < 5; ++i) {
-			OgMain();
-		}*/
+		OgMain();
 
 		//TEST 5
 		//Integer steps[] = {5000, 10000, 50000, 75000, 100000, 150000, 200000};
@@ -230,8 +228,8 @@ public class BlaBlaMain {
 	}*/
 
 	//Test 6
-	int users_ini = 200;
-	for (int i = 0; i < 10; ++i) {
+	/*int users_ini = 200;
+	for (int i = 5; i < 10; ++i) {
 		System.out.println("PERSONAS: " + (users_ini + 100*i));
 		for (int j = 0; j < 10; ++j) {
 			double[] resHC = test6NUsers((seeds[j]*37)/17, users_ini + 100*i);
@@ -243,7 +241,7 @@ public class BlaBlaMain {
 			System.out.println("Distancia total: " + distanceHC);
 			System.out.println("----------------------	");
 		}
-	}
+	}*/
 
 	//Test 7
 	/* 
