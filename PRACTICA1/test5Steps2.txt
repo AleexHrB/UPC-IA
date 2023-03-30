@@ -1,0 +1,350 @@
+Semilla actual: 19717
+Steps actuales: 10000
+Media de distancias SA: 11612.333333333334
+Media de tiempo SA: 85.66666666666667
+------------------------
+Semilla actual: 19717
+Steps actuales: 30000
+Media de distancias SA: 10737.666666666666
+Media de tiempo SA: 189.33333333333334
+------------------------
+Semilla actual: 19717
+Steps actuales: 50000
+Media de distancias SA: 10208.333333333334
+Media de tiempo SA: 297.0
+------------------------
+Semilla actual: 19717
+Steps actuales: 75000
+Media de distancias SA: 10003.333333333334
+Media de tiempo SA: 449.6666666666667
+------------------------
+Semilla actual: 19717
+Steps actuales: 100000
+Media de distancias SA: 9762.666666666666
+Media de tiempo SA: 609.6666666666666
+------------------------
+Semilla actual: 19717
+Steps actuales: 200000
+Media de distancias SA: 9528.333333333334
+Media de tiempo SA: 1205.3333333333333
+------------------------
+Semilla actual: 19717
+Distancias HC: 10411.0
+Ejecutando HILL CLIMBING
+Tiempo HC: 9209.0
+------------------------
+Semilla actual: 24516
+Steps actuales: 10000
+Media de distancias SA: 12229.0
+Media de tiempo SA: 60.0
+------------------------
+Semilla actual: 24516
+Steps actuales: 30000
+Media de distancias SA: 11337.0
+Media de tiempo SA: 176.0
+------------------------
+Semilla actual: 24516
+Steps actuales: 50000
+Media de distancias SA: 10591.666666666666
+Media de tiempo SA: 292.3333333333333
+------------------------
+Semilla actual: 24516
+Steps actuales: 75000
+Media de distancias SA: 10078.333333333334
+Media de tiempo SA: 438.6666666666667
+------------------------
+Semilla actual: 24516
+Steps actuales: 100000
+Media de distancias SA: 9750.0
+Media de tiempo SA: 572.6666666666666
+------------------------
+Semilla actual: 24516
+Steps actuales: 200000
+Media de distancias SA: 9607.0
+Media de tiempo SA: 1181.0
+------------------------
+Semilla actual: 24516
+Distancias HC: 11034.0
+Ejecutando HILL CLIMBING
+Tiempo HC: 9538.0
+------------------------
+Semilla actual: 27453
+Steps actuales: 10000
+Media de distancias SA: 11988.333333333334
+Media de tiempo SA: 63.666666666666664
+------------------------
+Semilla actual: 27453
+Steps actuales: 30000
+Media de distancias SA: 10849.666666666666
+Media de tiempo SA: 185.33333333333334
+------------------------
+Semilla actual: 27453
+Steps actuales: 50000
+Media de distancias SA: 10237.0
+Media de tiempo SA: 298.3333333333333
+------------------------
+Semilla actual: 27453
+Steps actuales: 75000
+Media de distancias SA: 9738.333333333334
+Media de tiempo SA: 457.3333333333333
+------------------------
+Semilla actual: 27453
+Steps actuales: 100000
+Media de distancias SA: 9590.0
+Media de tiempo SA: 602.6666666666666
+------------------------
+Semilla actual: 27453
+Steps actuales: 200000
+Media de distancias SA: 9449.333333333334
+Media de tiempo SA: 1210.3333333333333
+------------------------
+Semilla actual: 27453
+Distancias HC: 10804.0
+Ejecutando HILL CLIMBING
+Tiempo HC: 12127.0
+------------------------
+Semilla actual: 21339
+Steps actuales: 10000
+Media de distancias SA: 11990.333333333334
+Media de tiempo SA: 60.0
+------------------------
+Semilla actual: 21339
+Steps actuales: 30000
+Media de distancias SA: 10748.666666666666
+Media de tiempo SA: 173.33333333333334
+------------------------
+Semilla actual: 21339
+Steps actuales: 50000
+Media de distancias SA: 10420.0
+Media de tiempo SA: 298.0
+------------------------
+Semilla actual: 21339
+Steps actuales: 75000
+Media de distancias SA: 10064.333333333334
+Media de tiempo SA: 444.3333333333333
+------------------------
+Semilla actual: 21339
+Steps actuales: 100000
+Media de distancias SA: 9609.666666666666
+Media de tiempo SA: 590.6666666666666
+------------------------
+Semilla actual: 21339
+Steps actuales: 200000
+Media de distancias SA: 9360.333333333334
+Media de tiempo SA: 1186.6666666666667
+------------------------
+Semilla actual: 21339
+Distancias HC: 11059.0
+Ejecutando HILL CLIMBING
+Tiempo HC: 9600.0
+------------------------
+Semilla actual: 30538
+Steps actuales: 10000
+Media de distancias SA: 11732.0
+Media de tiempo SA: 58.666666666666664
+------------------------
+Semilla actual: 30538
+Steps actuales: 30000
+Media de distancias SA: 10887.666666666666
+Media de tiempo SA: 182.33333333333334
+------------------------
+Semilla actual: 30538
+Steps actuales: 50000
+Media de distancias SA: 10297.666666666666
+Media de tiempo SA: 297.3333333333333
+------------------------
+Semilla actual: 30538
+Steps actuales: 75000
+Media de distancias SA: 9910.666666666666
+Media de tiempo SA: 393.3333333333333
+------------------------
+Semilla actual: 30538
+Steps actuales: 100000
+Media de distancias SA: 9770.333333333334
+Media de tiempo SA: 524.0
+------------------------
+Semilla actual: 30538
+Steps actuales: 200000
+Media de distancias SA: 9476.666666666666
+Media de tiempo SA: 1029.3333333333333
+------------------------
+Semilla actual: 30538
+Distancias HC: 10649.0
+Ejecutando HILL CLIMBING
+Tiempo HC: 9268.0
+------------------------
+Semilla actual: 26684
+Steps actuales: 10000
+Media de distancias SA: 11884.0
+Media de tiempo SA: 52.0
+------------------------
+Semilla actual: 26684
+Steps actuales: 30000
+Media de distancias SA: 11093.0
+Media de tiempo SA: 153.66666666666666
+------------------------
+Semilla actual: 26684
+Steps actuales: 50000
+Media de distancias SA: 10316.0
+Media de tiempo SA: 259.3333333333333
+------------------------
+Semilla actual: 26684
+Steps actuales: 75000
+Media de distancias SA: 9944.0
+Media de tiempo SA: 397.3333333333333
+------------------------
+Semilla actual: 26684
+Steps actuales: 100000
+Media de distancias SA: 9695.666666666666
+Media de tiempo SA: 515.0
+------------------------
+Semilla actual: 26684
+Steps actuales: 200000
+Media de distancias SA: 9478.0
+Media de tiempo SA: 1077.0
+------------------------
+Semilla actual: 26684
+Distancias HC: 10945.0
+Ejecutando HILL CLIMBING
+Tiempo HC: 10458.0
+------------------------
+Semilla actual: 34400
+Steps actuales: 10000
+Media de distancias SA: 11653.666666666666
+Media de tiempo SA: 51.0
+------------------------
+Semilla actual: 34400
+Steps actuales: 30000
+Media de distancias SA: 10863.333333333334
+Media de tiempo SA: 151.0
+------------------------
+Semilla actual: 34400
+Steps actuales: 50000
+Media de distancias SA: 10335.0
+Media de tiempo SA: 253.0
+------------------------
+Semilla actual: 34400
+Steps actuales: 75000
+Media de distancias SA: 10135.666666666666
+Media de tiempo SA: 383.3333333333333
+------------------------
+Semilla actual: 34400
+Steps actuales: 100000
+Media de distancias SA: 9798.0
+Media de tiempo SA: 502.0
+------------------------
+Semilla actual: 34400
+Steps actuales: 200000
+Media de distancias SA: 9265.0
+Media de tiempo SA: 1008.6666666666666
+------------------------
+Semilla actual: 34400
+Distancias HC: 10481.0
+Ejecutando HILL CLIMBING
+Tiempo HC: 10133.0
+------------------------
+Semilla actual: 20530
+Steps actuales: 10000
+Media de distancias SA: 11406.0
+Media de tiempo SA: 50.333333333333336
+------------------------
+Semilla actual: 20530
+Steps actuales: 30000
+Media de distancias SA: 10512.333333333334
+Media de tiempo SA: 147.33333333333334
+------------------------
+Semilla actual: 20530
+Steps actuales: 50000
+Media de distancias SA: 10216.0
+Media de tiempo SA: 253.0
+------------------------
+Semilla actual: 20530
+Steps actuales: 75000
+Media de distancias SA: 9732.666666666666
+Media de tiempo SA: 384.0
+------------------------
+Semilla actual: 20530
+Steps actuales: 100000
+Media de distancias SA: 9496.0
+Media de tiempo SA: 509.0
+------------------------
+Semilla actual: 20530
+Steps actuales: 200000
+Media de distancias SA: 9016.666666666666
+Media de tiempo SA: 1006.0
+------------------------
+Semilla actual: 20530
+Distancias HC: 10303.0
+Ejecutando HILL CLIMBING
+Tiempo HC: 12127.0
+------------------------
+Semilla actual: 3969200
+Steps actuales: 10000
+Media de distancias SA: 12055.0
+Media de tiempo SA: 49.333333333333336
+------------------------
+Semilla actual: 3969200
+Steps actuales: 30000
+Media de distancias SA: 11057.333333333334
+Media de tiempo SA: 157.0
+------------------------
+Semilla actual: 3969200
+Steps actuales: 50000
+Media de distancias SA: 10673.0
+Media de tiempo SA: 255.0
+------------------------
+Semilla actual: 3969200
+Steps actuales: 75000
+Media de distancias SA: 10105.0
+Media de tiempo SA: 380.6666666666667
+------------------------
+Semilla actual: 3969200
+Steps actuales: 100000
+Media de distancias SA: 9910.333333333334
+Media de tiempo SA: 499.3333333333333
+------------------------
+Semilla actual: 3969200
+Steps actuales: 200000
+Media de distancias SA: 9662.0
+Media de tiempo SA: 1037.3333333333333
+------------------------
+Semilla actual: 3969200
+Distancias HC: 11010.0
+Ejecutando HILL CLIMBING
+Tiempo HC: 10994.0
+------------------------
+Semilla actual: 56454
+Steps actuales: 10000
+Media de distancias SA: 11493.333333333334
+Media de tiempo SA: 49.0
+------------------------
+Semilla actual: 56454
+Steps actuales: 30000
+Media de distancias SA: 10462.666666666666
+Media de tiempo SA: 152.0
+------------------------
+Semilla actual: 56454
+Steps actuales: 50000
+Media de distancias SA: 9757.666666666666
+Media de tiempo SA: 255.0
+------------------------
+Semilla actual: 56454
+Steps actuales: 75000
+Media de distancias SA: 9476.333333333334
+Media de tiempo SA: 393.3333333333333
+------------------------
+Semilla actual: 56454
+Steps actuales: 100000
+Media de distancias SA: 9345.0
+Media de tiempo SA: 506.3333333333333
+------------------------
+Semilla actual: 56454
+Steps actuales: 200000
+Media de distancias SA: 8876.0
+Media de tiempo SA: 1028.3333333333333
+------------------------
+Semilla actual: 56454
+Distancias HC: 10242.0
+Ejecutando HILL CLIMBING
+Tiempo HC: 12991.0
+------------------------

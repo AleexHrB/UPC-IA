@@ -60,7 +60,7 @@ public class BlaBlaHeuristicFunctions implements HeuristicFunction{
                 for(int i = 0; i < n; ++i) h += PathLengths.get(i);   
                 break; 
             case 2:
-
+                //DEMASIADO POCHA
                 for(int i = 0; i < n; ++i) h += PathLengths.get(i) * PathLengths.get(i);
                 break;
 

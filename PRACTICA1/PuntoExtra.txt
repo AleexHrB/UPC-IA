@@ -1,0 +1,30 @@
+Introduce la Semilla: Introduce el numero de conductores: Introduce el numero de usuarios: NOVA SOLUCIÓ --------------------------------
+Suma de distancias inicial: 15138.0
+Numero de cars inicial: 100
+Suma de distancias final: 10987.0
+Numero de cars final: 98
+Tiempo de escalado de monte: 8958.0
+Introduce la Semilla: Introduce el numero de conductores: Introduce el numero de usuarios: NOVA SOLUCIÓ --------------------------------
+Suma de distancias inicial: 15138.0
+Numero de cars inicial: 100
+Suma de distancias final: 10987.0
+Numero de cars final: 98
+Tiempo de escalado de monte: 8659.0
+Introduce la Semilla: Introduce el numero de conductores: Introduce el numero de usuarios: NOVA SOLUCIÓ --------------------------------
+Suma de distancias inicial: 15138.0
+Numero de cars inicial: 100
+Suma de distancias final: 10987.0
+Numero de cars final: 98
+Tiempo de escalado de monte: 8614.0
+Introduce la Semilla: Introduce el numero de conductores: Introduce el numero de usuarios: NOVA SOLUCIÓ --------------------------------
+Suma de distancias inicial: 15138.0
+Numero de cars inicial: 100
+Suma de distancias final: 10987.0
+Numero de cars final: 98
+Tiempo de escalado de monte: 8610.0
+Introduce la Semilla: Introduce el numero de conductores: Introduce el numero de usuarios: NOVA SOLUCIÓ --------------------------------
+Suma de distancias inicial: 15138.0
+Numero de cars inicial: 100
+Suma de distancias final: 10987.0
+Numero de cars final: 98
+Tiempo de escalado de monte: 8499.0

@@ -1,0 +1,153 @@
+Suma distancias
+Semilla: 5161
+Heuristico: 10752.0
+Suma de distancias final: 10752.0
+Tiempo: 8862.0
+------------------------------------
+Semilla: 36359
+Heuristico: 9926.0
+Suma de distancias final: 9926.0
+Tiempo: 9781.0
+------------------------------------
+Semilla: 55450
+Heuristico: 10738.0
+Suma de distancias final: 10738.0
+Tiempo: 7888.0
+------------------------------------
+Semilla: 15708
+Heuristico: 11133.0
+Suma de distancias final: 11133.0
+Tiempo: 8953.0
+------------------------------------
+Semilla: 75501
+Heuristico: 10759.0
+Suma de distancias final: 10759.0
+Tiempo: 8858.0
+------------------------------------
+Semilla: 50451
+Heuristico: 10348.0
+Suma de distancias final: 10348.0
+Tiempo: 11357.0
+------------------------------------
+Semilla: 100600
+Heuristico: 10378.0
+Suma de distancias final: 10378.0
+Tiempo: 9852.0
+------------------------------------
+Semilla: 10451
+Heuristico: 10220.0
+Suma de distancias final: 10220.0
+Tiempo: 11119.0
+------------------------------------
+Semilla: 25676806
+Heuristico: 10707.0
+Suma de distancias final: 10707.0
+Tiempo: 10560.0
+------------------------------------
+Semilla: 243956
+Heuristico: 11162.0
+Suma de distancias final: 11162.0
+Tiempo: 10198.0
+------------------------------------
+Entropia
+Semilla: 5161
+Heuristico: 51950.4321400653
+Suma de distancias final: 10791.0
+Tiempo: 9050.0
+------------------------------------
+Semilla: 36359
+Heuristico: 49738.12058067829
+Suma de distancias final: 10471.0
+Tiempo: 9037.0
+------------------------------------
+Semilla: 55450
+Heuristico: 52998.502157475814
+Suma de distancias final: 11125.0
+Tiempo: 7331.0
+------------------------------------
+Semilla: 15708
+Heuristico: 54576.66939890366
+Suma de distancias final: 11196.0
+Tiempo: 10803.0
+------------------------------------
+Semilla: 75501
+Heuristico: 52784.33407099489
+Suma de distancias final: 10961.0
+Tiempo: 11463.0
+------------------------------------
+Semilla: 50451
+Heuristico: 51312.965722097586
+Suma de distancias final: 10725.0
+Tiempo: 11524.0
+------------------------------------
+Semilla: 100600
+Heuristico: 52349.10376326848
+Suma de distancias final: 10903.0
+Tiempo: 7481.0
+------------------------------------
+Semilla: 10451
+Heuristico: 49294.69081252488
+Suma de distancias final: 10330.0
+Tiempo: 10067.0
+------------------------------------
+Semilla: 25676806
+Heuristico: 52938.08383310423
+Suma de distancias final: 10986.0
+Tiempo: 9255.0
+------------------------------------
+Semilla: 243956
+Heuristico: 57127.11185158159
+Suma de distancias final: 11724.0
+Tiempo: 9310.0
+------------------------------------
+Lambda = 1
+Semilla: 5161
+Heuristico: 11070.0
+Suma de distancias final: 10813.0
+Tiempo: 8614.0
+------------------------------------
+Semilla: 36359
+Heuristico: 10128.0
+Suma de distancias final: 9904.0
+Tiempo: 10372.0
+------------------------------------
+Semilla: 55450
+Heuristico: 10893.0
+Suma de distancias final: 10692.0
+Tiempo: 8724.0
+------------------------------------
+Semilla: 15708
+Heuristico: 11243.0
+Suma de distancias final: 10979.0
+Tiempo: 10571.0
+------------------------------------
+Semilla: 75501
+Heuristico: 10866.0
+Suma de distancias final: 10617.0
+Tiempo: 10622.0
+------------------------------------
+Semilla: 50451
+Heuristico: 10567.0
+Suma de distancias final: 10288.0
+Tiempo: 12623.0
+------------------------------------
+Semilla: 100600
+Heuristico: 10993.0
+Suma de distancias final: 10792.0
+Tiempo: 7939.0
+------------------------------------
+Semilla: 10451
+Heuristico: 10453.0
+Suma de distancias final: 10235.0
+Tiempo: 10760.0
+------------------------------------
+Semilla: 25676806
+Heuristico: 11036.0
+Suma de distancias final: 10781.0
+Tiempo: 9663.0
+------------------------------------
+Semilla: 243956
+Heuristico: 11538.0
+Suma de distancias final: 11280.0
+Tiempo: 9892.0
+------------------------------------

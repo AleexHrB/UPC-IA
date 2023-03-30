@@ -133,4 +133,8 @@ public class BlaBlaSuccessors implements SuccessorFunction {
         return null;
     }
 
+    public void change_mode(int mode) {
+        this.mode = mode;
+    }
+
 }

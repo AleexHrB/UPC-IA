@@ -1,0 +1,600 @@
+Semilla actual: 7373
+Stiter actual: 50
+Media de distancias SA: 9989.0
+Media de tiempo SA: 519.6666666666666
+------------------------
+Semilla actual: 7373
+Stiter actual: 75
+Media de distancias SA: 10129.333333333334
+Media de tiempo SA: 453.6666666666667
+------------------------
+Semilla actual: 7373
+Stiter actual: 100
+Media de distancias SA: 9994.333333333334
+Media de tiempo SA: 459.6666666666667
+------------------------
+Semilla actual: 7373
+Stiter actual: 150
+Media de distancias SA: 9992.666666666666
+Media de tiempo SA: 461.3333333333333
+------------------------
+Semilla actual: 7373
+Stiter actual: 200
+Media de distancias SA: 10037.666666666666
+Media de tiempo SA: 452.3333333333333
+------------------------
+Semilla actual: 7373
+Stiter actual: 250
+Media de distancias SA: 9929.0
+Media de tiempo SA: 446.3333333333333
+------------------------
+Semilla actual: 7373
+Stiter actual: 300
+Media de distancias SA: 9987.0
+Media de tiempo SA: 451.0
+------------------------
+Semilla actual: 7373
+Stiter actual: 500
+Media de distancias SA: 9952.0
+Media de tiempo SA: 450.6666666666667
+------------------------
+Semilla actual: 7373
+Stiter actual: 750
+Media de distancias SA: 10054.0
+Media de tiempo SA: 461.3333333333333
+------------------------
+Semilla actual: 7373
+Stiter actual: 1000
+Media de distancias SA: 9965.0
+Media de tiempo SA: 452.3333333333333
+------------------------
+Semilla actual: 7373
+Stiter actual: 1250
+Media de distancias SA: 10096.0
+Media de tiempo SA: 453.0
+------------------------
+Semilla actual: 7373
+Stiter actual: 1500
+Media de distancias SA: 10092.333333333334
+Media de tiempo SA: 453.6666666666667
+------------------------
+Semilla actual: 51941
+Stiter actual: 50
+Media de distancias SA: 9899.333333333334
+Media de tiempo SA: 438.6666666666667
+------------------------
+Semilla actual: 51941
+Stiter actual: 75
+Media de distancias SA: 9862.0
+Media de tiempo SA: 445.0
+------------------------
+Semilla actual: 51941
+Stiter actual: 100
+Media de distancias SA: 9984.666666666666
+Media de tiempo SA: 441.6666666666667
+------------------------
+Semilla actual: 51941
+Stiter actual: 150
+Media de distancias SA: 9949.666666666666
+Media de tiempo SA: 436.3333333333333
+------------------------
+Semilla actual: 51941
+Stiter actual: 200
+Media de distancias SA: 9834.333333333334
+Media de tiempo SA: 439.6666666666667
+------------------------
+Semilla actual: 51941
+Stiter actual: 250
+Media de distancias SA: 9931.333333333334
+Media de tiempo SA: 449.6666666666667
+------------------------
+Semilla actual: 51941
+Stiter actual: 300
+Media de distancias SA: 9893.666666666666
+Media de tiempo SA: 455.0
+------------------------
+Semilla actual: 51941
+Stiter actual: 500
+Media de distancias SA: 9934.0
+Media de tiempo SA: 440.3333333333333
+------------------------
+Semilla actual: 51941
+Stiter actual: 750
+Media de distancias SA: 9786.333333333334
+Media de tiempo SA: 453.6666666666667
+------------------------
+Semilla actual: 51941
+Stiter actual: 1000
+Media de distancias SA: 9809.666666666666
+Media de tiempo SA: 438.6666666666667
+------------------------
+Semilla actual: 51941
+Stiter actual: 1250
+Media de distancias SA: 9818.0
+Media de tiempo SA: 446.0
+------------------------
+Semilla actual: 51941
+Stiter actual: 1500
+Media de distancias SA: 9876.0
+Media de tiempo SA: 440.6666666666667
+------------------------
+Semilla actual: 79215
+Stiter actual: 50
+Media de distancias SA: 9869.666666666666
+Media de tiempo SA: 441.3333333333333
+------------------------
+Semilla actual: 79215
+Stiter actual: 75
+Media de distancias SA: 9855.333333333334
+Media de tiempo SA: 449.3333333333333
+------------------------
+Semilla actual: 79215
+Stiter actual: 100
+Media de distancias SA: 9829.333333333334
+Media de tiempo SA: 461.0
+------------------------
+Semilla actual: 79215
+Stiter actual: 150
+Media de distancias SA: 9849.333333333334
+Media de tiempo SA: 446.3333333333333
+------------------------
+Semilla actual: 79215
+Stiter actual: 200
+Media de distancias SA: 9719.333333333334
+Media de tiempo SA: 448.6666666666667
+------------------------
+Semilla actual: 79215
+Stiter actual: 250
+Media de distancias SA: 9809.333333333334
+Media de tiempo SA: 445.6666666666667
+------------------------
+Semilla actual: 79215
+Stiter actual: 300
+Media de distancias SA: 9809.333333333334
+Media de tiempo SA: 460.3333333333333
+------------------------
+Semilla actual: 79215
+Stiter actual: 500
+Media de distancias SA: 9907.333333333334
+Media de tiempo SA: 440.0
+------------------------
+Semilla actual: 79215
+Stiter actual: 750
+Media de distancias SA: 9874.333333333334
+Media de tiempo SA: 444.0
+------------------------
+Semilla actual: 79215
+Stiter actual: 1000
+Media de distancias SA: 9799.0
+Media de tiempo SA: 448.0
+------------------------
+Semilla actual: 79215
+Stiter actual: 1250
+Media de distancias SA: 9884.666666666666
+Media de tiempo SA: 451.0
+------------------------
+Semilla actual: 79215
+Stiter actual: 1500
+Media de distancias SA: 9840.0
+Media de tiempo SA: 440.3333333333333
+------------------------
+Semilla actual: 22440
+Stiter actual: 50
+Media de distancias SA: 9507.666666666666
+Media de tiempo SA: 461.6666666666667
+------------------------
+Semilla actual: 22440
+Stiter actual: 75
+Media de distancias SA: 9701.0
+Media de tiempo SA: 439.3333333333333
+------------------------
+Semilla actual: 22440
+Stiter actual: 100
+Media de distancias SA: 9826.666666666666
+Media de tiempo SA: 441.6666666666667
+------------------------
+Semilla actual: 22440
+Stiter actual: 150
+Media de distancias SA: 9693.0
+Media de tiempo SA: 441.6666666666667
+------------------------
+Semilla actual: 22440
+Stiter actual: 200
+Media de distancias SA: 9662.0
+Media de tiempo SA: 442.0
+------------------------
+Semilla actual: 22440
+Stiter actual: 250
+Media de distancias SA: 9545.666666666666
+Media de tiempo SA: 437.3333333333333
+------------------------
+Semilla actual: 22440
+Stiter actual: 300
+Media de distancias SA: 9705.666666666666
+Media de tiempo SA: 446.6666666666667
+------------------------
+Semilla actual: 22440
+Stiter actual: 500
+Media de distancias SA: 9713.0
+Media de tiempo SA: 442.0
+------------------------
+Semilla actual: 22440
+Stiter actual: 750
+Media de distancias SA: 9521.666666666666
+Media de tiempo SA: 448.6666666666667
+------------------------
+Semilla actual: 22440
+Stiter actual: 1000
+Media de distancias SA: 9616.666666666666
+Media de tiempo SA: 436.0
+------------------------
+Semilla actual: 22440
+Stiter actual: 1250
+Media de distancias SA: 9582.0
+Media de tiempo SA: 453.6666666666667
+------------------------
+Semilla actual: 22440
+Stiter actual: 1500
+Media de distancias SA: 9677.333333333334
+Media de tiempo SA: 449.3333333333333
+------------------------
+Semilla actual: 107858
+Stiter actual: 50
+Media de distancias SA: 10072.666666666666
+Media de tiempo SA: 454.6666666666667
+------------------------
+Semilla actual: 107858
+Stiter actual: 75
+Media de distancias SA: 9852.333333333334
+Media de tiempo SA: 470.0
+------------------------
+Semilla actual: 107858
+Stiter actual: 100
+Media de distancias SA: 9915.666666666666
+Media de tiempo SA: 453.6666666666667
+------------------------
+Semilla actual: 107858
+Stiter actual: 150
+Media de distancias SA: 9896.666666666666
+Media de tiempo SA: 445.6666666666667
+------------------------
+Semilla actual: 107858
+Stiter actual: 200
+Media de distancias SA: 9698.666666666666
+Media de tiempo SA: 454.6666666666667
+------------------------
+Semilla actual: 107858
+Stiter actual: 250
+Media de distancias SA: 9889.0
+Media de tiempo SA: 444.3333333333333
+------------------------
+Semilla actual: 107858
+Stiter actual: 300
+Media de distancias SA: 9966.666666666666
+Media de tiempo SA: 448.6666666666667
+------------------------
+Semilla actual: 107858
+Stiter actual: 500
+Media de distancias SA: 9910.666666666666
+Media de tiempo SA: 453.3333333333333
+------------------------
+Semilla actual: 107858
+Stiter actual: 750
+Media de distancias SA: 9721.333333333334
+Media de tiempo SA: 455.0
+------------------------
+Semilla actual: 107858
+Stiter actual: 1000
+Media de distancias SA: 9935.666666666666
+Media de tiempo SA: 471.0
+------------------------
+Semilla actual: 107858
+Stiter actual: 1250
+Media de distancias SA: 9956.0
+Media de tiempo SA: 463.3333333333333
+------------------------
+Semilla actual: 107858
+Stiter actual: 1500
+Media de distancias SA: 9952.666666666666
+Media de tiempo SA: 441.3333333333333
+------------------------
+Semilla actual: 72072
+Stiter actual: 50
+Media de distancias SA: 9730.333333333334
+Media de tiempo SA: 460.6666666666667
+------------------------
+Semilla actual: 72072
+Stiter actual: 75
+Media de distancias SA: 9866.333333333334
+Media de tiempo SA: 464.6666666666667
+------------------------
+Semilla actual: 72072
+Stiter actual: 100
+Media de distancias SA: 9680.0
+Media de tiempo SA: 456.0
+------------------------
+Semilla actual: 72072
+Stiter actual: 150
+Media de distancias SA: 9854.0
+Media de tiempo SA: 486.0
+------------------------
+Semilla actual: 72072
+Stiter actual: 200
+Media de distancias SA: 9791.0
+Media de tiempo SA: 456.0
+------------------------
+Semilla actual: 72072
+Stiter actual: 250
+Media de distancias SA: 9823.666666666666
+Media de tiempo SA: 451.6666666666667
+------------------------
+Semilla actual: 72072
+Stiter actual: 300
+Media de distancias SA: 10001.333333333334
+Media de tiempo SA: 457.0
+------------------------
+Semilla actual: 72072
+Stiter actual: 500
+Media de distancias SA: 9824.0
+Media de tiempo SA: 454.3333333333333
+------------------------
+Semilla actual: 72072
+Stiter actual: 750
+Media de distancias SA: 9898.0
+Media de tiempo SA: 445.6666666666667
+------------------------
+Semilla actual: 72072
+Stiter actual: 1000
+Media de distancias SA: 9823.333333333334
+Media de tiempo SA: 471.3333333333333
+------------------------
+Semilla actual: 72072
+Stiter actual: 1250
+Media de distancias SA: 9728.666666666666
+Media de tiempo SA: 456.3333333333333
+------------------------
+Semilla actual: 72072
+Stiter actual: 1500
+Media de distancias SA: 9702.333333333334
+Media de tiempo SA: 458.6666666666667
+------------------------
+Semilla actual: 143715
+Stiter actual: 50
+Media de distancias SA: 10126.666666666666
+Media de tiempo SA: 445.6666666666667
+------------------------
+Semilla actual: 143715
+Stiter actual: 75
+Media de distancias SA: 10102.666666666666
+Media de tiempo SA: 458.6666666666667
+------------------------
+Semilla actual: 143715
+Stiter actual: 100
+Media de distancias SA: 10196.0
+Media de tiempo SA: 446.0
+------------------------
+Semilla actual: 143715
+Stiter actual: 150
+Media de distancias SA: 10043.0
+Media de tiempo SA: 426.6666666666667
+------------------------
+Semilla actual: 143715
+Stiter actual: 200
+Media de distancias SA: 10064.0
+Media de tiempo SA: 381.3333333333333
+------------------------
+Semilla actual: 143715
+Stiter actual: 250
+Media de distancias SA: 10261.666666666666
+Media de tiempo SA: 381.6666666666667
+------------------------
+Semilla actual: 143715
+Stiter actual: 300
+Media de distancias SA: 10267.0
+Media de tiempo SA: 391.3333333333333
+------------------------
+Semilla actual: 143715
+Stiter actual: 500
+Media de distancias SA: 10166.666666666666
+Media de tiempo SA: 386.0
+------------------------
+Semilla actual: 143715
+Stiter actual: 750
+Media de distancias SA: 10149.666666666666
+Media de tiempo SA: 393.3333333333333
+------------------------
+Semilla actual: 143715
+Stiter actual: 1000
+Media de distancias SA: 10174.666666666666
+Media de tiempo SA: 373.3333333333333
+------------------------
+Semilla actual: 143715
+Stiter actual: 1250
+Media de distancias SA: 10162.333333333334
+Media de tiempo SA: 373.3333333333333
+------------------------
+Semilla actual: 143715
+Stiter actual: 1500
+Media de distancias SA: 10020.333333333334
+Media de tiempo SA: 396.6666666666667
+------------------------
+Semilla actual: 14930
+Stiter actual: 50
+Media de distancias SA: 9686.333333333334
+Media de tiempo SA: 378.6666666666667
+------------------------
+Semilla actual: 14930
+Stiter actual: 75
+Media de distancias SA: 9815.0
+Media de tiempo SA: 382.0
+------------------------
+Semilla actual: 14930
+Stiter actual: 100
+Media de distancias SA: 9740.333333333334
+Media de tiempo SA: 382.0
+------------------------
+Semilla actual: 14930
+Stiter actual: 150
+Media de distancias SA: 9820.666666666666
+Media de tiempo SA: 378.0
+------------------------
+Semilla actual: 14930
+Stiter actual: 200
+Media de distancias SA: 9862.0
+Media de tiempo SA: 387.3333333333333
+------------------------
+Semilla actual: 14930
+Stiter actual: 250
+Media de distancias SA: 9828.333333333334
+Media de tiempo SA: 386.0
+------------------------
+Semilla actual: 14930
+Stiter actual: 300
+Media de distancias SA: 9780.0
+Media de tiempo SA: 376.3333333333333
+------------------------
+Semilla actual: 14930
+Stiter actual: 500
+Media de distancias SA: 9651.0
+Media de tiempo SA: 400.0
+------------------------
+Semilla actual: 14930
+Stiter actual: 750
+Media de distancias SA: 9773.333333333334
+Media de tiempo SA: 371.3333333333333
+------------------------
+Semilla actual: 14930
+Stiter actual: 1000
+Media de distancias SA: 9671.666666666666
+Media de tiempo SA: 381.3333333333333
+------------------------
+Semilla actual: 14930
+Stiter actual: 1250
+Media de distancias SA: 9914.0
+Media de tiempo SA: 379.3333333333333
+------------------------
+Semilla actual: 14930
+Stiter actual: 1500
+Media de distancias SA: 9687.333333333334
+Media de tiempo SA: 399.3333333333333
+------------------------
+Semilla actual: 36681151
+Stiter actual: 50
+Media de distancias SA: 10238.333333333334
+Media de tiempo SA: 393.6666666666667
+------------------------
+Semilla actual: 36681151
+Stiter actual: 75
+Media de distancias SA: 10119.333333333334
+Media de tiempo SA: 394.3333333333333
+------------------------
+Semilla actual: 36681151
+Stiter actual: 100
+Media de distancias SA: 10295.666666666666
+Media de tiempo SA: 392.3333333333333
+------------------------
+Semilla actual: 36681151
+Stiter actual: 150
+Media de distancias SA: 10282.0
+Media de tiempo SA: 399.6666666666667
+------------------------
+Semilla actual: 36681151
+Stiter actual: 200
+Media de distancias SA: 10063.0
+Media de tiempo SA: 420.3333333333333
+------------------------
+Semilla actual: 36681151
+Stiter actual: 250
+Media de distancias SA: 10146.666666666666
+Media de tiempo SA: 394.6666666666667
+------------------------
+Semilla actual: 36681151
+Stiter actual: 300
+Media de distancias SA: 10128.666666666666
+Media de tiempo SA: 392.0
+------------------------
+Semilla actual: 36681151
+Stiter actual: 500
+Media de distancias SA: 10123.0
+Media de tiempo SA: 392.0
+------------------------
+Semilla actual: 36681151
+Stiter actual: 750
+Media de distancias SA: 10242.333333333334
+Media de tiempo SA: 396.6666666666667
+------------------------
+Semilla actual: 36681151
+Stiter actual: 1000
+Media de distancias SA: 10266.666666666666
+Media de tiempo SA: 389.6666666666667
+------------------------
+Semilla actual: 36681151
+Stiter actual: 1250
+Media de distancias SA: 10154.666666666666
+Media de tiempo SA: 401.6666666666667
+------------------------
+Semilla actual: 36681151
+Stiter actual: 1500
+Media de distancias SA: 10435.666666666666
+Media de tiempo SA: 394.6666666666667
+------------------------
+Semilla actual: 348508
+Stiter actual: 50
+Media de distancias SA: 9641.666666666666
+Media de tiempo SA: 392.3333333333333
+------------------------
+Semilla actual: 348508
+Stiter actual: 75
+Media de distancias SA: 9628.666666666666
+Media de tiempo SA: 384.6666666666667
+------------------------
+Semilla actual: 348508
+Stiter actual: 100
+Media de distancias SA: 9480.333333333334
+Media de tiempo SA: 386.3333333333333
+------------------------
+Semilla actual: 348508
+Stiter actual: 150
+Media de distancias SA: 9482.666666666666
+Media de tiempo SA: 395.3333333333333
+------------------------
+Semilla actual: 348508
+Stiter actual: 200
+Media de distancias SA: 9501.333333333334
+Media de tiempo SA: 384.3333333333333
+------------------------
+Semilla actual: 348508
+Stiter actual: 250
+Media de distancias SA: 9482.333333333334
+Media de tiempo SA: 373.6666666666667
+------------------------
+Semilla actual: 348508
+Stiter actual: 300
+Media de distancias SA: 9518.333333333334
+Media de tiempo SA: 372.0
+------------------------
+Semilla actual: 348508
+Stiter actual: 500
+Media de distancias SA: 9665.0
+Media de tiempo SA: 375.0
+------------------------
+Semilla actual: 348508
+Stiter actual: 750
+Media de distancias SA: 9440.666666666666
+Media de tiempo SA: 383.0
+------------------------
+Semilla actual: 348508
+Stiter actual: 1000
+Media de distancias SA: 9416.666666666666
+Media de tiempo SA: 382.6666666666667
+------------------------
+Semilla actual: 348508
+Stiter actual: 1250
+Media de distancias SA: 9656.333333333334
+Media de tiempo SA: 389.6666666666667
+------------------------
+Semilla actual: 348508
+Stiter actual: 1500
+Media de distancias SA: 9293.333333333334
+Media de tiempo SA: 369.0
+------------------------

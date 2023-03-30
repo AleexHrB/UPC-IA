@@ -600,6 +600,11 @@ public class BlaBlaEstado {
 		ArrayList<Integer> route1 = trayectos.get(car1);
 		ArrayList<Integer> route2 = trayectos.get(car2);
 
+		ArrayList<Integer> copy1 = new ArrayList<Integer> (route1);
+		ArrayList<Integer> copy2 = new ArrayList<Integer>(route2);
+		int Distance1 = distancias.get(car1);
+		int Distance2 = distancias.get(car2);
+
 		if (id1 == 0 || id1 == route1.size() - 1 || id2 == 0 || id2 == route2.size() - 1) return false;
 		if (route1.get(id1) <= 0 || route2.get(id2) <= 0) return false;
 
@@ -646,11 +651,11 @@ public class BlaBlaEstado {
 		int dist1 = calculate_distance(car1);
 		int dist2 = calculate_distance(car2);
 		if ( dist1 > 300 || dist2 > 300) {
-			route1.set(id1, user1Og);
-			route1.set(job1, user1Dest);
+			trayectos.set(car1, copy1);
+			distancias.set(car1, Distance1);
 
-			route2.set(id2, user2Og);
-			route2.set(job2, user2Dest);
+			trayectos.set(car2, copy2);
+			distancias.set(car2, Distance2);
 			return false;
 		}
 
@@ -683,7 +688,11 @@ public class BlaBlaEstado {
 	public boolean changeCar(int carOg, int id, int carDest) {
 		ArrayList<Integer> routeOg = trayectos.get(carOg);
 		ArrayList<Integer> routeDest = trayectos.get(carDest);
-		
+		ArrayList<Integer> copyOg = new ArrayList<Integer>(routeOg);
+		ArrayList<Integer> copyDest = new ArrayList<Integer>(routeDest);
+		int OgDistance = distancias.get(carOg);
+		int DestDistance = distancias.get(carDest);
+
 		if (routeOg.get(id) <= 0) return false;
 		if (carOg == carDest) return false;
 
@@ -702,14 +711,11 @@ public class BlaBlaEstado {
 
 		int distDest = calculate_distance(carDest);
 		if (distDest > 300) {
-			routeDest.remove(routeDest.size() - 1);
-			routeDest.remove(routeDest.size() - 1);
-			routeDest.remove(routeDest.size() - 1);
-			routeDest.add(lastAction);
+			trayectos.set(carDest, copyDest);
+			distancias.set(carDest, DestDistance);
 			return false;
 		}
 
-		int distancia_original_dest = distancias.get(carDest);
 		distancias.set(carDest, distDest);
 
 		int conductor = routeOg.get(0);
@@ -717,23 +723,14 @@ public class BlaBlaEstado {
 
 		routeOg.remove(id);
 		routeOg.remove(job - 1);
-
-		int distancia_original_Og = distancias.get(carOg);
 		distancias.set(carOg, calculate_distance(carOg));
 
 		if (routeOg.size() == 2) {
 			if (!reasignarConductor(carOg)) {
-				routeOg.add(conductor);
-				routeOg.add(usuario);
-				routeOg.add(-usuario);
-				routeOg.add(-conductor);
-
-				routeDest.remove(routeDest.size() - 1);
-				routeDest.remove(routeDest.size() - 1);
-				routeDest.remove(routeDest.size() - 1);
-				routeDest.add(lastAction);
-				distancias.set(carDest, distancia_original_dest);
-				distancias.set(carOg, distancia_original_Og);
+				trayectos.set(carDest, copyDest);
+				distancias.set(carDest, DestDistance);
+				trayectos.set(carOg, copyOg);
+				distancias.set(carOg, OgDistance);
 				return false;
 			}
 		}
@@ -761,19 +758,14 @@ public class BlaBlaEstado {
 				job = i;
 			}
 		}
-
-
-		int lastAction = routeDest.get(routeDest.size() - 1);
-		routeDest.set(routeDest.size() - 1, routeOg.get(id));
-		routeDest.add(routeOg.get(job));
-		routeDest.add(lastAction);
+		
+		routeDest.add(1, routeOg.get(id));
+		routeDest.add(2, routeOg.get(job));
 
 		int distDest = calculate_distance(carDest);
 		if (distDest > 300) {
-			routeDest.remove(routeDest.size() - 1);
-			routeDest.remove(routeDest.size() - 1);
-			routeDest.remove(routeDest.size() - 1);
-			routeDest.add(lastAction);
+			routeDest.remove(1);
+			routeDest.remove(1);
 			return false;
 		}
 
@@ -796,10 +788,8 @@ public class BlaBlaEstado {
 				routeOg.add(-usuario);
 				routeOg.add(-conductor);
 
-				routeDest.remove(routeDest.size() - 1);
-				routeDest.remove(routeDest.size() - 1);
-				routeDest.remove(routeDest.size() - 1);
-				routeDest.add(lastAction);
+				routeDest.remove(1);
+				routeDest.remove(1);
 				distancias.set(carDest, distancia_original_dest);
 				distancias.set(carOg, distancia_original_Og);
 				return false;
@@ -886,6 +876,7 @@ public class BlaBlaEstado {
 				System.out.println("Distancia real = " + actDist);
 				return false;
 			}
+			else if (actDist > 300) System.out.println(":[");
 		}
 		return true;
 	}

@@ -1,0 +1,206 @@
+PERSONAS: 200
+Semilla: 22467
+Tiempo de ejecución: 8513.0
+Distancia total: 10635.0
+----------------------	
+Semilla: 158268
+Tiempo de ejecución: 11482.0
+Distancia total: 10821.0
+----------------------	
+Semilla: 241372
+Tiempo de ejecución: 8150.0
+Distancia total: 10690.0
+----------------------	
+Semilla: 68376
+Tiempo de ejecución: 11151.0
+Distancia total: 10225.0
+----------------------	
+Semilla: 328651
+Tiempo de ejecución: 9084.0
+Distancia total: 10743.0
+----------------------	
+Semilla: 219610
+Tiempo de ejecución: 7716.0
+Distancia total: 11280.0
+----------------------	
+Semilla: 437908
+Tiempo de ejecución: 7904.0
+Distancia total: 10544.0
+----------------------	
+Semilla: 45492
+Tiempo de ejecución: 9794.0
+Distancia total: 10674.0
+----------------------	
+Semilla: 111769626
+Tiempo de ejecución: 8519.0
+Distancia total: 11164.0
+----------------------	
+Semilla: 1061926
+Tiempo de ejecución: 9158.0
+Distancia total: 10296.0
+----------------------	
+PERSONAS: 300
+Semilla: 22467
+Tiempo de ejecución: 54690.0
+Distancia total: 15144.0
+----------------------	
+Semilla: 158268
+Tiempo de ejecución: 45552.0
+Distancia total: 15430.0
+----------------------	
+Semilla: 241372
+Tiempo de ejecución: 43471.0
+Distancia total: 15425.0
+----------------------	
+Semilla: 68376
+Tiempo de ejecución: 42288.0
+Distancia total: 15641.0
+----------------------	
+Semilla: 328651
+Tiempo de ejecución: 53715.0
+Distancia total: 15897.0
+----------------------	
+Semilla: 219610
+Tiempo de ejecución: 50640.0
+Distancia total: 15166.0
+----------------------	
+Semilla: 437908
+Tiempo de ejecución: 50208.0
+Distancia total: 15776.0
+----------------------	
+Semilla: 45492
+Tiempo de ejecución: 52966.0
+Distancia total: 15208.0
+----------------------	
+Semilla: 111769626
+Tiempo de ejecución: 53081.0
+Distancia total: 15568.0
+----------------------	
+Semilla: 1061926
+Tiempo de ejecución: 55934.0
+Distancia total: 14852.0
+----------------------	
+PERSONAS: 400
+Semilla: 22467
+Tiempo de ejecución: 194217.0
+Distancia total: 19554.0
+----------------------	
+Semilla: 158268
+Tiempo de ejecución: 224399.0
+Distancia total: 20140.0
+----------------------	
+Semilla: 241372
+Tiempo de ejecución: 190554.0
+Distancia total: 20398.0
+----------------------	
+Semilla: 68376
+Tiempo de ejecución: 180468.0
+Distancia total: 19807.0
+----------------------	
+Semilla: 328651
+Tiempo de ejecución: 168132.0
+Distancia total: 20196.0
+----------------------	
+Semilla: 219610
+Tiempo de ejecución: 193369.0
+Distancia total: 20390.0
+----------------------	
+Semilla: 437908
+Tiempo de ejecución: 202655.0
+Distancia total: 20069.0
+----------------------	
+Semilla: 45492
+Tiempo de ejecución: 173186.0
+Distancia total: 20489.0
+----------------------	
+Semilla: 111769626
+Tiempo de ejecución: 210948.0
+Distancia total: 20484.0
+----------------------	
+Semilla: 1061926
+Tiempo de ejecución: 200314.0
+Distancia total: 20899.0
+----------------------	
+PERSONAS: 500
+Semilla: 22467
+Tiempo de ejecución: 503626.0
+Distancia total: 25036.0
+----------------------	
+Semilla: 158268
+Tiempo de ejecución: 543594.0
+Distancia total: 23203.0
+----------------------	
+Semilla: 241372
+Tiempo de ejecución: 476517.0
+Distancia total: 25149.0
+----------------------	
+Semilla: 68376
+Tiempo de ejecución: 513088.0
+Distancia total: 24595.0
+----------------------	
+Semilla: 328651
+Tiempo de ejecución: 403767.0
+Distancia total: 25572.0
+----------------------	
+Semilla: 219610
+Tiempo de ejecución: 527596.0
+Distancia total: 23598.0
+----------------------	
+Semilla: 437908
+Tiempo de ejecución: 436268.0
+Distancia total: 24531.0
+----------------------	
+Semilla: 45492
+Tiempo de ejecución: 504235.0
+Distancia total: 24721.0
+----------------------	
+Semilla: 111769626
+Tiempo de ejecución: 441979.0
+Distancia total: 24934.0
+----------------------	
+Semilla: 1061926
+Tiempo de ejecución: 464568.0
+Distancia total: 24654.0
+----------------------	
+PERSONAS: 600
+Semilla: 22467
+Tiempo de ejecución: 971524.0
+Distancia total: 29037.0
+----------------------	
+Semilla: 158268
+Tiempo de ejecución: 1034920.0
+Distancia total: 28914.0
+----------------------	
+Semilla: 241372
+Tiempo de ejecución: 1084058.0
+Distancia total: 29748.0
+----------------------	
+Semilla: 68376
+Tiempo de ejecución: 1066595.0
+Distancia total: 28774.0
+----------------------	
+Semilla: 328651
+Tiempo de ejecución: 976829.0
+Distancia total: 29336.0
+----------------------	
+Semilla: 219610
+Tiempo de ejecución: 1079850.0
+Distancia total: 29345.0
+----------------------	
+Semilla: 437908
+Tiempo de ejecución: 1018528.0
+Distancia total: 29069.0
+----------------------	
+Semilla: 45492
+Tiempo de ejecución: 1077354.0
+Distancia total: 29213.0
+----------------------	
+Semilla: 111769626
+Tiempo de ejecución: 1038688.0
+Distancia total: 29815.0
+----------------------	
+Semilla: 1061926
+Tiempo de ejecución: 1033860.0
+Distancia total: 29775.0
+----------------------	
+PERSONAS: 700

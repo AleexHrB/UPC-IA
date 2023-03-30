@@ -20,8 +20,9 @@ public class BlaBlaSuccessorsSA implements SuccessorFunction {
         int nCars = actState.getNumCars();
         Random rand = new Random();
 
-        int rand_num = rand.nextInt(2);
-
+        int rand_num = rand.nextInt(3);
+        
+        
         //Permutation
         if (rand_num == 0) {
             int idCar = rand.nextInt(nCars);
@@ -36,24 +37,16 @@ public class BlaBlaSuccessorsSA implements SuccessorFunction {
 
             BlaBlaEstado nextState = new BlaBlaEstado(actState);
 
-            while (!nextState.route_permutation(idCar, id1, id2)) {
-                idCar = rand.nextInt(nCars);
-                routeLength = actState.getRouteLength(idCar);
-
-                id1 = rand.nextInt(routeLength - 3) + 1;
-                id2 = rand.nextInt(routeLength - 2) + 1;
-            
-                while (id2 <= id1) {
-                    id2 = rand.nextInt(routeLength - 2) + 1;
-                }
+            if(nextState.route_permutation(idCar, id1, id2)) {
+                String action = "Se permutan las posiciones " + id1 + " y " + id2 + " del trayecto número: " + idCar;
+                Successor new_succ = new Successor(action, nextState);
+                succ.add(new_succ);
             }
 
-            String action = "Se permutan las posiciones " + id1 + " y " + id2 + "del trayecto número: " + idCar;
-            Successor new_succ = new Successor(action, nextState);
-            succ.add(new_succ);
+           else rand_num = 1; 
         }
 
-        else if (rand_num == 1) {
+        if (rand_num == 1) {
             int idCar = rand.nextInt(nCars);
             int idCar2 = rand.nextInt(nCars);
             
@@ -75,6 +68,7 @@ public class BlaBlaSuccessorsSA implements SuccessorFunction {
             //System.out.println("Calidad antigua: " + huristicTest.getHeuristicValue(actState));
             //System.out.println("Calidad nueva: " + huristicTest.getHeuristicValue(nextState));
 
+            
             while(!nextState.passenjer_swap(idCar, idCar2, id1, id2)) {
                 idCar = rand.nextInt(nCars);
                 idCar2 = rand.nextInt(nCars);
@@ -96,8 +90,39 @@ public class BlaBlaSuccessorsSA implements SuccessorFunction {
         }
 
         else {
-            
+            int idCar = rand.nextInt(nCars);
+            int idCarDest = rand.nextInt(nCars);
+
+            while (idCar == idCarDest) {
+                idCarDest = rand.nextInt(nCars);
+            }
+
+            int routeLength = actState.getRouteLength(idCar);
+            int id1 = rand.nextInt(routeLength - 2) + 1;
+
+            BlaBlaEstado nextState = new BlaBlaEstado(actState);
+            while(!nextState.changeCar(idCar, id1, idCarDest)) {
+                idCar = rand.nextInt(nCars);
+                idCarDest = rand.nextInt(nCars);
+
+                while (idCar == idCarDest) {
+                    idCarDest = rand.nextInt(nCars);
+                }
+
+                routeLength = actState.getRouteLength(idCar);
+                id1 = rand.nextInt(routeLength - 2) + 1;
+            }
+
+            String action = "Se mueve la persona en posición " + id1 + " del coche " + idCar + " al coche " + idCarDest;
+            Successor new_succ = new Successor(action, nextState);
+            succ.add(new_succ);
         }
+        
+        /* BlaBlaEstado nuevoEstado = (BlaBlaEstado) succ.get(0).getState();
+        if(!nuevoEstado.checkDistances()) {
+           System.out.println(succ.get(0).getAction());
+        }*/
+        
         return succ;
     }
 

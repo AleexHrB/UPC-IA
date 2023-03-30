@@ -1,0 +1,51 @@
+RANDOM
+-----------------------
+Seed: 10324
+Media de distancias de 5 ejecuciones: 10805.0
+Media de Tiempo de 5 ejecuciones: 10691.8
+-----------------------
+-----------------------
+Seed: 72719
+Media de distancias de 5 ejecuciones: 10572.0
+Media de Tiempo de 5 ejecuciones: 9301.4
+-----------------------
+-----------------------
+Seed: 110902
+Media de distancias de 5 ejecuciones: 10598.4
+Media de Tiempo de 5 ejecuciones: 11069.8
+-----------------------
+-----------------------
+Seed: 31417
+Media de distancias de 5 ejecuciones: 10272.4
+Media de Tiempo de 5 ejecuciones: 11635.6
+-----------------------
+-----------------------
+Seed: 151003
+Media de distancias de 5 ejecuciones: 11079.6
+Media de Tiempo de 5 ejecuciones: 9903.4
+-----------------------
+-----------------------
+Seed: 100903
+Media de distancias de 5 ejecuciones: 10769.0
+Media de Tiempo de 5 ejecuciones: 10617.6
+-----------------------
+-----------------------
+Seed: 201202
+Media de distancias de 5 ejecuciones: 11279.6
+Media de Tiempo de 5 ejecuciones: 9969.4
+-----------------------
+-----------------------
+Seed: 20903
+Media de distancias de 5 ejecuciones: 11040.8
+Media de Tiempo de 5 ejecuciones: 11196.4
+-----------------------
+-----------------------
+Seed: 51353613
+Media de distancias de 5 ejecuciones: 10671.2
+Media de Tiempo de 5 ejecuciones: 10705.8
+-----------------------
+-----------------------
+Seed: 487913
+Media de distancias de 5 ejecuciones: 11044.4
+Media de Tiempo de 5 ejecuciones: 12166.4
+-----------------------
