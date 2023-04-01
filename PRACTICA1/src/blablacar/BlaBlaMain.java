@@ -319,7 +319,7 @@ public class BlaBlaMain {
 	}*/
 
 	//TEST 9_2
-	int users_ini = 300;
+	int users_ini = 200;
 	for (int i = 0; i < 10; ++i) {
 		System.out.println("PERSONAS: " + (users_ini + 50*i));
 		for (int j = 0; j < 10; ++j) {
@@ -867,13 +867,14 @@ public class BlaBlaMain {
 	}
 
 	private static double[] test9NUsers2(int seed, int usuarios, int steps, int stiter, int k, double lambda) {
-		int conductores = usuarios/3;
+		int conductores = usuarios/2;
 		int modo = 0;
 
 		Usuarios users = new Usuarios(usuarios, conductores, seed);
 
 		BlaBlaEstado estadoInicial = new BlaBlaEstado(users, modo);
-		estadoInicial.escribir_ruta();
+		//estadoInicial.escribir_ruta();
+		
 
 		BlaBlaHeuristicFunctions heu = new BlaBlaHeuristicFunctions();
 		heu.ChangeHeuristicFunction(1);
@@ -897,6 +898,7 @@ public class BlaBlaMain {
 		
 		BlaBlaEstado goal = (BlaBlaEstado) alg.getGoalState();
 		goal.checkDistances();
+		//	goal.escribir_ruta();
 		heu.ChangeHeuristicFunction(1);
 		double suma_distancias_def = heu.getHeuristicValue(goal);
 

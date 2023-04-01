@@ -426,7 +426,7 @@ public class BlaBlaEstado {
 
 					Random r = new Random();
 					int primero = r.nextInt(2) == 0 ? psj_1 : psj_2;
-					int segundo = primero == psj_1 ? psj_2 : psj_2;
+					int segundo = primero == psj_1 ? psj_2 : psj_1;
 				    
 					int id_u = trayectos.get(i).get(trayectos.get(i).size() - 1);
 				    int x_a = id_u < 0 ? cjt_usuarios.get(-(id_u + 1)).getCoordDestinoX() : cjt_usuarios.get(id_u-1).getCoordOrigenX();
@@ -512,7 +512,7 @@ public class BlaBlaEstado {
 				    distancias.set(i, distancias.get(i) + Math.abs(x_a - x_f) + Math.abs(y_a - y_f));
 				    trayectos.get(i).add(-id_conductores.get(i));
 				}
-
+				distancias.set(i, calculate_distance(i));
 			}	
 
 	}
@@ -528,7 +528,8 @@ public class BlaBlaEstado {
  	*/
 	public boolean route_permutation(int car, int id1, int id2) {
 		ArrayList<Integer> route = trayectos.get(car);
-		
+		ArrayList<Integer> copyroute = new ArrayList<Integer>(route);
+
 		if (route.get(id1) > 0 || route.get(id2) < 0) {
 			for (int i = id1; i <= id2; ++i) {
 				if (route.get(i) == -route.get(id1) || route.get(i) == -route.get(id2)) return false;
@@ -579,8 +580,7 @@ public class BlaBlaEstado {
 		int newDistance = calculate_distance(car);
 
 		if (newDistance > 300) {
-			route.set(id1, user1);
-			route.set(id2, user2);
+			trayectos.set(car, copyroute);
 			return false;
 		}
 
@@ -608,13 +608,13 @@ public class BlaBlaEstado {
 		if (id1 == 0 || id1 == route1.size() - 1 || id2 == 0 || id2 == route2.size() - 1) return false;
 		if (route1.get(id1) <= 0 || route2.get(id2) <= 0) return false;
 
-		for (Integer x : route1) System.out.print(x + " , ");
-		System.out.println("");
+		//for (Integer x : route1) System.out.print(x + " , ");
+		//System.out.println("");
 
-		for (Integer x : route2) System.out.print(x + " , ");
-		System.out.println("");
-		System.out.println("Usuario a mover: " + route1.get(id1));
-		System.out.println("____________________________________");
+		//for (Integer x : route2) System.out.print(x + " , ");
+		//System.out.println("");
+		//System.out.println("Usuario a mover: " + route1.get(id1));
+		//System.out.println("____________________________________");
 
 		//System.out.println("Coche 1: " + car1);
 		//System.out.println("Coche 2: " + car2);
@@ -714,13 +714,13 @@ public class BlaBlaEstado {
 			}
 		}
 
-		for (Integer x : routeOg) System.out.print(x + " , ");
-		System.out.println("");
+		//for (Integer x : routeOg) System.out.print(x + " , ");
+		//System.out.println("");
 
-		for (Integer x : routeDest) System.out.print(x + " , ");
-		System.out.println("");
-		System.out.println("Usuario a mover: " + routeOg.get(id) + ", trabajo en la posición: " + job);
-		System.out.println("____________________________________");
+		//for (Integer x : routeDest) System.out.print(x + " , ");
+		//System.out.println("");
+		//System.out.println("Usuario a mover: " + routeOg.get(id) + ", trabajo en la posición: " + job);
+		//System.out.println("____________________________________");
 
 		int lastAction = routeDest.get(routeDest.size() - 1);
 		routeDest.set(routeDest.size() - 1, routeOg.get(id));
