@@ -244,8 +244,8 @@ public class BlaBlaMain {
 	}*/
 
 	//Test 7
-	/* 
-	for (int i = 0; i < 10; ++i) {
+	
+	/*for (int i = 0; i < 10; ++i) {
 		System.out.println("Semilla: " + seeds[i]*13);
 
 		System.out.println("Suma distancias: ");
@@ -272,6 +272,69 @@ public class BlaBlaMain {
 		System.out.println("----------------------");
 	}*/
 
+	//TEST 8
+	/*for (int i = 0; i < 10; ++i) {
+		System.out.println("Semilla: " + seeds[i]*13);
+
+		System.out.println("Suma distancias: ");
+		System.out.println("******************");
+		double[] resSumaDist = test8Heuristicas3(seeds[i]*13, 1, 300000, 200, 15, 0.00001);
+		System.out.println("Tiempo de ejecución: " + resSumaDist[1]);
+		System.out.println("Distancia total: " + resSumaDist[0]);
+		System.out.println("Número de coches: " + resSumaDist[2]);
+
+		System.out.println("Suma distancias x Numero de coches: ");
+		System.out.println("******************");
+		double[] resSumaCoches = test8Heuristicas3(seeds[i]*13, 3, 300000, 200, 15, 0.00001);
+		System.out.println("Tiempo de ejecución: " + resSumaCoches[1]);
+		System.out.println("Distancia total: " + resSumaCoches[0]);
+		System.out.println("Número de coches: " + resSumaCoches[2]);
+
+		System.out.println("Suma distancias x Numero de coches x Numero de coches: ");
+		System.out.println("******************");
+		double[] resSumaCochesCuadrado = test8Heuristicas3(seeds[i]*13, 4, 300000, 200, 15, 0.00001);
+		System.out.println("Tiempo de ejecución: " + resSumaCochesCuadrado[1]);
+		System.out.println("Distancia total: " + resSumaCochesCuadrado[0]);
+		System.out.println("Número de coches: " + resSumaCochesCuadrado[2]);
+
+		System.out.println("----------------------");
+	}*/
+
+	//TEST 9 
+	/*int users_ini = 200;
+	for (int i = 0; i < 10; ++i) {
+		System.out.println("PERSONAS: " + (users_ini + 50*i));
+		for (int j = 0; j < 10; ++j) {
+			double[] resHC = test9NUsers((seeds[j]*73)/23, users_ini + 50*i, 300000, 200, 15, 0.00001);
+			double distanceSA = resHC[0];
+			double timeSA = resHC[1];
+			double carsSA = resHC[2];
+
+			System.out.println("Semilla: " + (seeds[j]*73)/23);
+			System.out.println("Tiempo de ejecución: " + timeSA);
+			System.out.println("Distancia total: " + distanceSA);
+			System.out.println("Número de coches: " + carsSA);
+			System.out.println("----------------------	");
+		}
+	}*/
+
+	//TEST 9_2
+	int users_ini = 300;
+	for (int i = 0; i < 10; ++i) {
+		System.out.println("PERSONAS: " + (users_ini + 50*i));
+		for (int j = 0; j < 10; ++j) {
+			double[] resHC = test9NUsers2((seeds[j]*73)/23, users_ini + 50*i, 300000, 200, 15, 0.00001);
+			double distanceSA = resHC[0];
+			double timeSA = resHC[1];
+			double carsSA = resHC[2];
+
+			System.out.println("Semilla: " + (seeds[j]*73)/23);
+			System.out.println("Tiempo de ejecución: " + timeSA);
+			System.out.println("Distancia total: " + distanceSA);
+			System.out.println("Número de coches: " + carsSA);
+			System.out.println("----------------------	");
+		}
+	}
 }
 		
 
@@ -695,6 +758,133 @@ public class BlaBlaMain {
 
 		HC.change_mode(0);
 		heu.ChangeHeuristicFunction(mode);
+		try {
+			start = System.currentTimeMillis();
+			SearchAgent ag = new SearchAgent(p, alg);
+			finish = System.currentTimeMillis();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		
+		BlaBlaEstado goal = (BlaBlaEstado) alg.getGoalState();
+		goal.checkDistances();
+		heu.ChangeHeuristicFunction(1);
+		double suma_distancias_def = heu.getHeuristicValue(goal);
+
+		//Ahora magia
+
+		double time = finish - start;
+		double cars = goal.getNumCars();
+		double[] retVal = {suma_distancias_def, time, cars};
+		return retVal;
+	}
+
+	private static double[] test8Heuristicas3(int seed, int mode, int steps, int stiter, int k, double lambda) {
+		int conductores = 100;
+		int usuarios = 200;
+		int modo = 0;
+
+
+
+		Usuarios users = new Usuarios(usuarios, conductores, seed);
+
+		BlaBlaEstado estadoInicial = new BlaBlaEstado(users, modo);
+
+		BlaBlaHeuristicFunctions heu = new BlaBlaHeuristicFunctions();
+		heu.ChangeHeuristicFunction(1);
+	
+		BlaBlaSuccessorsSA SA = new BlaBlaSuccessorsSA();
+		Search alg = new SimulatedAnnealingSearch(steps, stiter, k, lambda);
+		Problem p = new Problem(estadoInicial, SA, new BlaBlaGoalTest(), heu);
+		double start = 0;
+		double finish = 0;
+
+		heu.ChangeHeuristicFunction(mode);
+		try {
+			start = System.currentTimeMillis();
+			SearchAgent ag = new SearchAgent(p, alg);
+			finish = System.currentTimeMillis();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		
+		BlaBlaEstado goal = (BlaBlaEstado) alg.getGoalState();
+		goal.checkDistances();
+		heu.ChangeHeuristicFunction(1);
+		double suma_distancias_def = heu.getHeuristicValue(goal);
+
+		//Ahora magia
+
+		double time = finish - start;
+		double cars = goal.getNumCars();
+		double[] retVal = {suma_distancias_def, time, cars};
+		return retVal;
+	}
+
+	private static double[] test9NUsers(int seed, int usuarios, int steps, int stiter, int k, double lambda) {
+		int conductores = usuarios/2;
+		int modo = 0;
+
+		Usuarios users = new Usuarios(usuarios, conductores, seed);
+
+		BlaBlaEstado estadoInicial = new BlaBlaEstado(users, modo);
+
+		BlaBlaHeuristicFunctions heu = new BlaBlaHeuristicFunctions();
+		heu.ChangeHeuristicFunction(1);
+	
+		BlaBlaSuccessorsSA SA = new BlaBlaSuccessorsSA();
+		Search alg = new SimulatedAnnealingSearch(steps, stiter, k, lambda);
+		Problem p = new Problem(estadoInicial, SA, new BlaBlaGoalTest(), heu);
+		double start = 0;
+		double finish = 0;
+
+		heu.ChangeHeuristicFunction(4);
+		try {
+			start = System.currentTimeMillis();
+			SearchAgent ag = new SearchAgent(p, alg);
+			finish = System.currentTimeMillis();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		
+		BlaBlaEstado goal = (BlaBlaEstado) alg.getGoalState();
+		goal.checkDistances();
+		heu.ChangeHeuristicFunction(1);
+		double suma_distancias_def = heu.getHeuristicValue(goal);
+
+		//Ahora magia
+
+		double time = finish - start;
+		double cars = goal.getNumCars();
+		double[] retVal = {suma_distancias_def, time, cars};
+		return retVal;
+	}
+
+	private static double[] test9NUsers2(int seed, int usuarios, int steps, int stiter, int k, double lambda) {
+		int conductores = usuarios/3;
+		int modo = 0;
+
+		Usuarios users = new Usuarios(usuarios, conductores, seed);
+
+		BlaBlaEstado estadoInicial = new BlaBlaEstado(users, modo);
+		estadoInicial.escribir_ruta();
+
+		BlaBlaHeuristicFunctions heu = new BlaBlaHeuristicFunctions();
+		heu.ChangeHeuristicFunction(1);
+	
+		BlaBlaSuccessorsSA SA = new BlaBlaSuccessorsSA();
+		Search alg = new SimulatedAnnealingSearch(steps, stiter, k, lambda);
+		Problem p = new Problem(estadoInicial, SA, new BlaBlaGoalTest(), heu);
+		double start = 0;
+		double finish = 0;
+
+		heu.ChangeHeuristicFunction(4);
 		try {
 			start = System.currentTimeMillis();
 			SearchAgent ag = new SearchAgent(p, alg);

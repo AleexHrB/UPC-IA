@@ -27,7 +27,7 @@ Semilla: 437908
 Tiempo de ejecución: 7904.0
 Distancia total: 10544.0
 ----------------------	
-Semilla: 45492
+Semilla: 45492 :[
 Tiempo de ejecución: 9794.0
 Distancia total: 10674.0
 ----------------------	

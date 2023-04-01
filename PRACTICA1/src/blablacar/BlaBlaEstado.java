@@ -608,6 +608,14 @@ public class BlaBlaEstado {
 		if (id1 == 0 || id1 == route1.size() - 1 || id2 == 0 || id2 == route2.size() - 1) return false;
 		if (route1.get(id1) <= 0 || route2.get(id2) <= 0) return false;
 
+		for (Integer x : route1) System.out.print(x + " , ");
+		System.out.println("");
+
+		for (Integer x : route2) System.out.print(x + " , ");
+		System.out.println("");
+		System.out.println("Usuario a mover: " + route1.get(id1));
+		System.out.println("____________________________________");
+
 		//System.out.println("Coche 1: " + car1);
 		//System.out.println("Coche 2: " + car2);
 		//System.out.println("Posicion 1: " + id1 + "; Movimiento en cuestión: " +  route1.get(id1));
@@ -690,6 +698,9 @@ public class BlaBlaEstado {
 		ArrayList<Integer> routeDest = trayectos.get(carDest);
 		ArrayList<Integer> copyOg = new ArrayList<Integer>(routeOg);
 		ArrayList<Integer> copyDest = new ArrayList<Integer>(routeDest);
+		
+		
+
 		int OgDistance = distancias.get(carOg);
 		int DestDistance = distancias.get(carDest);
 
@@ -703,6 +714,13 @@ public class BlaBlaEstado {
 			}
 		}
 
+		for (Integer x : routeOg) System.out.print(x + " , ");
+		System.out.println("");
+
+		for (Integer x : routeDest) System.out.print(x + " , ");
+		System.out.println("");
+		System.out.println("Usuario a mover: " + routeOg.get(id) + ", trabajo en la posición: " + job);
+		System.out.println("____________________________________");
 
 		int lastAction = routeDest.get(routeDest.size() - 1);
 		routeDest.set(routeDest.size() - 1, routeOg.get(id));
