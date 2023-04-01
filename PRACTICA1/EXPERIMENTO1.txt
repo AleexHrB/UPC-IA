@@ -5,60 +5,80 @@ Numero de cars inicial: 100
 Suma de distancias final: 9919.0
 Numero de cars final: 88
 Tiempo de escalado de monte: 8516.0
+
+
 Seed: 72718
 Suma de distancias inicial: 15121.0
 Numero de cars inicial: 100
 Suma de distancias final: 10707.0
 Numero de cars final: 87
 Tiempo de escalado de monte: 9530.0
+
+
 Seed: 110901
 Suma de distancias inicial: 15595.0
 Numero de cars inicial: 100
 Suma de distancias final: 10876.0
 Numero de cars final: 88
 Tiempo de escalado de monte: 10143.0
+
+
 Seed: 31416
 Suma de distancias inicial: 14852.0
 Numero de cars inicial: 100
 Suma de distancias final: 10614.0
 Numero de cars final: 93
 Tiempo de escalado de monte: 8912.0
+
+
 Seed: 151002
 Suma de distancias inicial: 14053.0
 Numero de cars inicial: 100
 Suma de distancias final: 10424.0
 Numero de cars final: 96
 Tiempo de escalado de monte: 7186.0
+
+
 Seed: 100902
 Suma de distancias inicial: 15737.0
 Numero de cars inicial: 100
 Suma de distancias final: 11202.0
 Numero de cars final: 91
 Tiempo de escalado de monte: 7895.0
+
+
 Seed: 201201
 Suma de distancias inicial: 15423.0
 Numero de cars inicial: 100
 Suma de distancias final: 10757.0
 Numero de cars final: 87
 Tiempo de escalado de monte: 11992.0
+
+
 Seed: 20902
 Suma de distancias inicial: 15162.0
 Numero de cars inicial: 100
 Suma de distancias final: 10913.0
 Numero de cars final: 94
 Tiempo de escalado de monte: 7706.0
+
+
 Seed: 51353612
 Suma de distancias inicial: 14953.0
 Numero de cars inicial: 100
 Suma de distancias final: 10521.0
 Numero de cars final: 90
 Tiempo de escalado de monte: 9889.0
+
+
 Seed: 487912
 Suma de distancias inicial: 14707.0
 Numero de cars inicial: 100
 Suma de distancias final: 11020.0
 Numero de cars final: 91
 Tiempo de escalado de monte: 8307.0
+
+
 MOVER PRINCIPIO
 Seed: 10323
 Suma de distancias inicial: 13665.0
@@ -66,54 +86,72 @@ Numero de cars inicial: 100
 Suma de distancias final: 10039.0
 Numero de cars final: 91
 Tiempo de escalado de monte: 7160.0
+
+
 Seed: 72718
 Suma de distancias inicial: 15121.0
 Numero de cars inicial: 100
 Suma de distancias final: 10772.0
 Numero de cars final: 95
 Tiempo de escalado de monte: 9062.0
+
+
 Seed: 110901
 Suma de distancias inicial: 15595.0
 Numero de cars inicial: 100
 Suma de distancias final: 11362.0
 Numero de cars final: 98
 Tiempo de escalado de monte: 7891.0
+
+
 Seed: 31416
 Suma de distancias inicial: 14852.0
 Numero de cars inicial: 100
 Suma de distancias final: 10868.0
 Numero de cars final: 94
 Tiempo de escalado de monte: 8397.0
+
+
 Seed: 151002
 Suma de distancias inicial: 14053.0
 Numero de cars inicial: 100
 Suma de distancias final: 10382.0
 Numero de cars final: 98
 Tiempo de escalado de monte: 7905.0
+
+
 Seed: 100902
 Suma de distancias inicial: 15737.0
 Numero de cars inicial: 100
 Suma de distancias final: 11318.0
 Numero de cars final: 97
 Tiempo de escalado de monte: 8343.0
+
+
 Seed: 201201
 Suma de distancias inicial: 15423.0
 Numero de cars inicial: 100
 Suma de distancias final:   
 Numero de cars final: 93
 Tiempo de escalado de monte: 9517.0
+
+
 Seed: 20902
 Suma de distancias inicial: 15162.0
 Numero de cars inicial: 100
 Suma de distancias final: 11017.0
 Numero de cars final: 97
 Tiempo de escalado de monte: 8299.0
+
+
 Seed: 51353612
 Suma de distancias inicial: 14953.0
 Numero de cars inicial: 100
 Suma de distancias final: 11114.0
 Numero de cars final: 96
 Tiempo de escalado de monte: 7534.0
+
+
 Seed: 487912
 Suma de distancias inicial: 14707.0
 Numero de cars inicial: 100

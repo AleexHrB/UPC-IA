@@ -52,12 +52,12 @@ public class BlaBlaMain {
 		}*/
 		
 		//TEST3
-		/*System.out.println("Medio");
-		for (int i = 0; i < 10; ++i) test3(seeds[i]*2, 0.5);
-		System.out.println("Uno");
+		/*System.out.println("Uno");
 		for (int i = 0; i < 10; ++i) test3(seeds[i]*2, 1);
 		System.out.println("Dos");
-		for (int i = 0; i < 10; ++i) test3(seeds[i]*2, 2);*/
+		for (int i = 0; i < 10; ++i) test3(seeds[i]*2, 2);
+		System.out.println("Sien");
+		for (int i = 0; i < 10; ++i) test3(seeds[i]*2, 100);*/
 
 		//TEST4
 		/*System.out.println("Suma distancias");
@@ -68,7 +68,7 @@ public class BlaBlaMain {
 		for (int i = 0; i < 10; ++i) test4(seeds[i]/2, 6);*/
 
 		//PUNTO EXTRA
-		OgMain();
+		//OgMain();
 
 		//TEST 5
 		//Integer steps[] = {5000, 10000, 50000, 75000, 100000, 150000, 200000};
@@ -231,7 +231,7 @@ public class BlaBlaMain {
 	/*int users_ini = 200;
 	for (int i = 5; i < 10; ++i) {
 		System.out.println("PERSONAS: " + (users_ini + 100*i));
-		for (int j = 0; j < 10; ++j) {
+		for (int j = 8; j < 10; ++j) {
 			double[] resHC = test6NUsers((seeds[j]*37)/17, users_ini + 100*i);
 			double distanceHC = resHC[0];
 			double timeHC = resHC[1];
@@ -409,6 +409,7 @@ public class BlaBlaMain {
 		System.out.println("Semilla: " + seed);
 		System.out.println("Heuristico: " + heuristico);
 		System.out.println("Suma de distancias final: " + suma_distancias_def);
+		System.out.println("Número de conductores: " + goal.getNumCars());
 		System.out.println("Tiempo: " + time);
 		System.out.println("------------------------------------");
 		//Ahora magia

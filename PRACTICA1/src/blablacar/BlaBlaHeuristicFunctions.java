@@ -88,7 +88,7 @@ public class BlaBlaHeuristicFunctions implements HeuristicFunction{
                     h+= PathLengths.get(i);
                 } 
 
-                h = h + lambda*maximo;
+                h = h*maximo*lambda;
                 break;
 
             default:

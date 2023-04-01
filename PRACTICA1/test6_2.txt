@@ -1,0 +1,33 @@
+PERSONAS: 700
+Semilla: 22467
+Tiempo de ejecución: 2277597.0
+Distancia total: 34008.0
+----------------------	
+Semilla: 158268
+Tiempo de ejecución: 2325629.0
+Distancia total: 33529.0
+----------------------	
+Semilla: 241372
+Tiempo de ejecución: 2388098.0
+Distancia total: 34241.0
+----------------------	
+Semilla: 68376
+Tiempo de ejecución: 2164062.0
+Distancia total: 33099.0
+----------------------	
+Semilla: 328651
+Tiempo de ejecución: 2085839.0
+Distancia total: 35219.0
+----------------------	
+Semilla: 219610
+Tiempo de ejecución: 2276727.0
+Distancia total: 33262.0
+----------------------	
+Semilla: 437908
+Tiempo de ejecución: 2350895.0
+Distancia total: 33169.0
+----------------------	
+Semilla: 45492
+Tiempo de ejecución: 2309991.0
+Distancia total: 33262.0
+----------------------	
