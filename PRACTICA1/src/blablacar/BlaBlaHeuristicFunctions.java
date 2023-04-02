@@ -88,11 +88,11 @@ public class BlaBlaHeuristicFunctions implements HeuristicFunction{
                     h+= PathLengths.get(i);
                 } 
 
-                h = h*maximo*lambda;
+                h = h + maximo*lambda;
                 break;
 
             default:
-                throw new IllegalStateException("andaluces usad un numero entre 1 y 6");
+                throw new IllegalStateException("Usad un numero entre 1 y 6");
 
         }
 

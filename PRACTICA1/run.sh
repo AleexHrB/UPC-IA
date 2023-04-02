@@ -1,1 +1,1 @@
-java -cp ./lib/Comparticion.jar:. src.blablacar.BlaBlaMain
+java -cp ./lib/Comparticion.jar:. -Xmx16g src.blablacar.BlaBlaMain
