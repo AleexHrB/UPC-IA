@@ -1,0 +1,8 @@
+PERSONAS: 200
+Coche número 4 no coincide :(
+Distancia real = 234
+Semilla: 32764
+Tiempo de ejecución: 1769.0
+Distancia total: 9731.0
+Número de coches: 54.0
+----------------------	

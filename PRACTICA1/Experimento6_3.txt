@@ -1,0 +1,10 @@
+PERSONAS: 700
+Semilla: 111769626
+Tiempo de ejecución: 2207761.0
+Distancia total: 33575.0
+----------------------	
+Semilla: 1061926
+Tiempo de ejecución: 2247471.0
+Distancia total: 32837.0
+----------------------	
+PERSONAS: 800

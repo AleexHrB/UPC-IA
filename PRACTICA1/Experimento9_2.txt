@@ -1,0 +1,510 @@
+PERSONAS: 200
+Semilla: 32764
+Tiempo de ejecución: 2291.0
+Distancia total: 10418.0
+Número de coches: 49.0
+----------------------	
+Semilla: 230800
+Tiempo de ejecución: 2067.0
+Distancia total: 10934.0
+Número de coches: 50.0
+----------------------	
+Semilla: 351990
+Tiempo de ejecución: 1881.0
+Distancia total: 10228.0
+Número de coches: 47.0
+----------------------	
+Semilla: 99711
+Tiempo de ejecución: 1774.0
+Distancia total: 10123.0
+Número de coches: 49.0
+----------------------	
+Semilla: 479267
+Tiempo de ejecución: 1772.0
+Distancia total: 10283.0
+Número de coches: 51.0
+----------------------	
+Semilla: 320254
+Tiempo de ejecución: 1819.0
+Distancia total: 10586.0
+Número de coches: 49.0
+----------------------	
+Semilla: 638594
+Tiempo de ejecución: 1839.0
+Distancia total: 10961.0
+Número de coches: 53.0
+----------------------	
+Semilla: 66341
+Tiempo de ejecución: 1932.0
+Distancia total: 10242.0
+Número de coches: 50.0
+----------------------	
+Semilla: -23745809
+Tiempo de ejecución: 1821.0
+Distancia total: 10165.0
+Número de coches: 50.0
+----------------------	
+Semilla: 1548590
+Tiempo de ejecución: 2067.0
+Distancia total: 10114.0
+Número de coches: 46.0
+----------------------	
+PERSONAS: 250
+Semilla: 32764
+Tiempo de ejecución: 2164.0
+Distancia total: 12393.0
+Número de coches: 61.0
+----------------------	
+Semilla: 230800
+Tiempo de ejecución: 2194.0
+Distancia total: 13164.0
+Número de coches: 63.0
+----------------------	
+Semilla: 351990
+Tiempo de ejecución: 2103.0
+Distancia total: 12809.0
+Número de coches: 65.0
+----------------------	
+Semilla: 99711
+Tiempo de ejecución: 2264.0
+Distancia total: 13491.0
+Número de coches: 63.0
+----------------------	
+Semilla: 479267
+Tiempo de ejecución: 2468.0
+Distancia total: 12738.0
+Número de coches: 59.0
+----------------------	
+Semilla: 320254
+Tiempo de ejecución: 2254.0
+Distancia total: 12796.0
+Número de coches: 60.0
+----------------------	
+Semilla: 638594
+Tiempo de ejecución: 2191.0
+Distancia total: 13091.0
+Número de coches: 65.0
+----------------------	
+Semilla: 66341
+Tiempo de ejecución: 2694.0
+Distancia total: 13006.0
+Número de coches: 57.0
+----------------------	
+Semilla: -23745809
+Tiempo de ejecución: 2188.0
+Distancia total: 12930.0
+Número de coches: 63.0
+----------------------	
+Semilla: 1548590
+Tiempo de ejecución: 2437.0
+Distancia total: 12469.0
+Número de coches: 57.0
+----------------------	
+PERSONAS: 300
+Semilla: 32764
+Tiempo de ejecución: 2614.0
+Distancia total: 14839.0
+Número de coches: 71.0
+----------------------	
+Semilla: 230800
+Tiempo de ejecución: 2838.0
+Distancia total: 15225.0
+Número de coches: 69.0
+----------------------	
+Semilla: 351990
+Tiempo de ejecución: 2746.0
+Distancia total: 15640.0
+Número de coches: 74.0
+----------------------	
+Semilla: 99711
+Tiempo de ejecución: 2363.0
+Distancia total: 14971.0
+Número de coches: 78.0
+----------------------	
+Semilla: 479267
+Tiempo de ejecución: 2502.0
+Distancia total: 14872.0
+Número de coches: 76.0
+----------------------	
+Semilla: 320254
+Tiempo de ejecución: 2417.0
+Distancia total: 14663.0
+Número de coches: 72.0
+----------------------	
+Semilla: 638594
+Tiempo de ejecución: 2738.0
+Distancia total: 15878.0
+Número de coches: 73.0
+----------------------	
+Semilla: 66341
+Tiempo de ejecución: 2422.0
+Distancia total: 14554.0
+Número de coches: 72.0
+----------------------	
+Semilla: -23745809
+Tiempo de ejecución: 2593.0
+Distancia total: 14577.0
+Número de coches: 71.0
+----------------------	
+Semilla: 1548590
+Tiempo de ejecución: 2722.0
+Distancia total: 15289.0
+Número de coches: 74.0
+----------------------	
+PERSONAS: 350
+Semilla: 32764
+Tiempo de ejecución: 2777.0
+Distancia total: 17502.0
+Número de coches: 87.0
+----------------------	
+Semilla: 230800
+Tiempo de ejecución: 2735.0
+Distancia total: 17614.0
+Número de coches: 89.0
+----------------------	
+Semilla: 351990
+Tiempo de ejecución: 3128.0
+Distancia total: 18144.0
+Número de coches: 82.0
+----------------------	
+Semilla: 99711
+Tiempo de ejecución: 2821.0
+Distancia total: 16712.0
+Número de coches: 80.0
+----------------------	
+Semilla: 479267
+Tiempo de ejecución: 3018.0
+Distancia total: 17578.0
+Número de coches: 82.0
+----------------------	
+Semilla: 320254
+Tiempo de ejecución: 2872.0
+Distancia total: 17335.0
+Número de coches: 83.0
+----------------------	
+Semilla: 638594
+Tiempo de ejecución: 2862.0
+Distancia total: 18102.0
+Número de coches: 86.0
+----------------------	
+Semilla: 66341
+Tiempo de ejecución: 3005.0
+Distancia total: 17056.0
+Número de coches: 82.0
+----------------------	
+Semilla: -23745809
+Tiempo de ejecución: 2788.0
+Distancia total: 17335.0
+Número de coches: 86.0
+----------------------	
+Semilla: 1548590
+Tiempo de ejecución: 2779.0
+Distancia total: 17855.0
+Número de coches: 86.0
+----------------------	
+PERSONAS: 400
+Semilla: 32764
+Tiempo de ejecución: 3231.0
+Distancia total: 19731.0
+Número de coches: 98.0
+----------------------	
+Semilla: 230800
+Tiempo de ejecución: 3052.0
+Distancia total: 20083.0
+Número de coches: 99.0
+----------------------	
+Semilla: 351990
+Tiempo de ejecución: 3129.0
+Distancia total: 19908.0
+Número de coches: 95.0
+----------------------	
+Semilla: 99711
+Tiempo de ejecución: 2986.0
+Distancia total: 20160.0
+Número de coches: 98.0
+----------------------	
+Semilla: 479267
+Tiempo de ejecución: 3073.0
+Distancia total: 20248.0
+Número de coches: 97.0
+----------------------	
+Semilla: 320254
+Tiempo de ejecución: 3059.0
+Distancia total: 18806.0
+Número de coches: 94.0
+----------------------	
+Semilla: 638594
+Tiempo de ejecución: 3094.0
+Distancia total: 20226.0
+Número de coches: 100.0
+----------------------	
+Semilla: 66341
+Tiempo de ejecución: 2995.0
+Distancia total: 19221.0
+Número de coches: 99.0
+----------------------	
+Semilla: -23745809
+Tiempo de ejecución: 2953.0
+Distancia total: 19927.0
+Número de coches: 99.0
+----------------------	
+Semilla: 1548590
+Tiempo de ejecución: 3133.0
+Distancia total: 20259.0
+Número de coches: 99.0
+----------------------	
+PERSONAS: 450
+Semilla: 32764
+Tiempo de ejecución: 3242.0
+Distancia total: 21773.0
+Número de coches: 109.0
+----------------------	
+Semilla: 230800
+Tiempo de ejecución: 3458.0
+Distancia total: 21970.0
+Número de coches: 106.0
+----------------------	
+Semilla: 351990
+Tiempo de ejecución: 3398.0
+Distancia total: 21918.0
+Número de coches: 107.0
+----------------------	
+Semilla: 99711
+Tiempo de ejecución: 3444.0
+Distancia total: 22284.0
+Número de coches: 112.0
+----------------------	
+Semilla: 479267
+Tiempo de ejecución: 3502.0
+Distancia total: 22299.0
+Número de coches: 109.0
+----------------------	
+Semilla: 320254
+Tiempo de ejecución: 3302.0
+Distancia total: 20992.0
+Número de coches: 106.0
+----------------------	
+Semilla: 638594
+Tiempo de ejecución: 3482.0
+Distancia total: 22438.0
+Número de coches: 112.0
+----------------------	
+Semilla: 66341
+Tiempo de ejecución: 3316.0
+Distancia total: 22162.0
+Número de coches: 112.0
+----------------------	
+Semilla: -23745809
+Tiempo de ejecución: 3314.0
+Distancia total: 21590.0
+Número de coches: 109.0
+----------------------	
+Semilla: 1548590
+Tiempo de ejecución: 3369.0
+Distancia total: 22207.0
+Número de coches: 111.0
+----------------------	
+PERSONAS: 500
+Semilla: 32764
+Tiempo de ejecución: 3868.0
+Distancia total: 25446.0
+Número de coches: 120.0
+----------------------	
+Semilla: 230800
+Tiempo de ejecución: 3833.0
+Distancia total: 24149.0
+Número de coches: 116.0
+----------------------	
+Semilla: 351990
+Tiempo de ejecución: 3704.0
+Distancia total: 24575.0
+Número de coches: 122.0
+----------------------	
+Semilla: 99711
+Tiempo de ejecución: 3728.0
+Distancia total: 23971.0
+Número de coches: 119.0
+----------------------	
+Semilla: 479267
+Tiempo de ejecución: 3704.0
+Distancia total: 24385.0
+Número de coches: 119.0
+----------------------	
+Semilla: 320254
+Tiempo de ejecución: 3892.0
+Distancia total: 24712.0
+Número de coches: 117.0
+----------------------	
+Semilla: 638594
+Tiempo de ejecución: 3838.0
+Distancia total: 24989.0
+Número de coches: 121.0
+----------------------	
+Semilla: 66341
+Tiempo de ejecución: 3690.0
+Distancia total: 24033.0
+Número de coches: 123.0
+----------------------	
+Semilla: -23745809
+Tiempo de ejecución: 3716.0
+Distancia total: 24113.0
+Número de coches: 121.0
+----------------------	
+Semilla: 1548590
+Tiempo de ejecución: 3691.0
+Distancia total: 23855.0
+Número de coches: 121.0
+----------------------	
+PERSONAS: 550
+Semilla: 32764
+Tiempo de ejecución: 3967.0
+Distancia total: 27002.0
+Número de coches: 133.0
+----------------------	
+Semilla: 230800
+Tiempo de ejecución: 4001.0
+Distancia total: 27118.0
+Número de coches: 134.0
+----------------------	
+Semilla: 351990
+Tiempo de ejecución: 4003.0
+Distancia total: 27288.0
+Número de coches: 131.0
+----------------------	
+Semilla: 99711
+Tiempo de ejecución: 3859.0
+Distancia total: 26210.0
+Número de coches: 128.0
+----------------------	
+Semilla: 479267
+Tiempo de ejecución: 4011.0
+Distancia total: 26578.0
+Número de coches: 130.0
+----------------------	
+Semilla: 320254
+Tiempo de ejecución: 4015.0
+Distancia total: 26466.0
+Número de coches: 130.0
+----------------------	
+Semilla: 638594
+Tiempo de ejecución: 3815.0
+Distancia total: 26538.0
+Número de coches: 135.0
+----------------------	
+Semilla: 66341
+Tiempo de ejecución: 4023.0
+Distancia total: 26322.0
+Número de coches: 131.0
+----------------------	
+Semilla: -23745809
+Tiempo de ejecución: 3956.0
+Distancia total: 26182.0
+Número de coches: 130.0
+----------------------	
+Semilla: 1548590
+Tiempo de ejecución: 4184.0
+Distancia total: 27385.0
+Número de coches: 133.0
+----------------------	
+PERSONAS: 600
+Semilla: 32764
+Tiempo de ejecución: 4227.0
+Distancia total: 28529.0
+Número de coches: 143.0
+----------------------	
+Semilla: 230800
+Tiempo de ejecución: 4324.0
+Distancia total: 29525.0
+Número de coches: 142.0
+----------------------	
+Semilla: 351990
+Tiempo de ejecución: 4301.0
+Distancia total: 29005.0
+Número de coches: 143.0
+----------------------	
+Semilla: 99711
+Tiempo de ejecución: 4314.0
+Distancia total: 28986.0
+Número de coches: 145.0
+----------------------	
+Semilla: 479267
+Tiempo de ejecución: 4269.0
+Distancia total: 29293.0
+Número de coches: 148.0
+----------------------	
+Semilla: 320254
+Tiempo de ejecución: 4278.0
+Distancia total: 28309.0
+Número de coches: 140.0
+----------------------	
+Semilla: 638594
+Tiempo de ejecución: 4320.0
+Distancia total: 29174.0
+Número de coches: 145.0
+----------------------	
+Semilla: 66341
+Tiempo de ejecución: 4515.0
+Distancia total: 28453.0
+Número de coches: 138.0
+----------------------	
+Semilla: -23745809
+Tiempo de ejecución: 4353.0
+Distancia total: 28498.0
+Número de coches: 141.0
+----------------------	
+Semilla: 1548590
+Tiempo de ejecución: 4397.0
+Distancia total: 29275.0
+Número de coches: 145.0
+----------------------	
+PERSONAS: 650
+Semilla: 32764
+Tiempo de ejecución: 4709.0
+Distancia total: 31323.0
+Número de coches: 153.0
+----------------------	
+Semilla: 230800
+Tiempo de ejecución: 4562.0
+Distancia total: 31121.0
+Número de coches: 151.0
+----------------------	
+Semilla: 351990
+Tiempo de ejecución: 4686.0
+Distancia total: 30866.0
+Número de coches: 152.0
+----------------------	
+Semilla: 99711
+Tiempo de ejecución: 4635.0
+Distancia total: 31475.0
+Número de coches: 158.0
+----------------------	
+Semilla: 479267
+Tiempo de ejecución: 4590.0
+Distancia total: 31379.0
+Número de coches: 157.0
+----------------------	
+Semilla: 320254
+Tiempo de ejecución: 4568.0
+Distancia total: 30797.0
+Número de coches: 155.0
+----------------------	
+Semilla: 638594
+Tiempo de ejecución: 4516.0
+Distancia total: 31642.0
+Número de coches: 164.0
+----------------------	
+Semilla: 66341
+Tiempo de ejecución: 4497.0
+Distancia total: 31335.0
+Número de coches: 158.0
+----------------------	
+Semilla: -23745809
+Tiempo de ejecución: 4745.0
+Distancia total: 31463.0
+Número de coches: 153.0
+----------------------	
+Semilla: 1548590
+Tiempo de ejecución: 4717.0
+Distancia total: 31962.0
+Número de coches: 156.0
+----------------------	

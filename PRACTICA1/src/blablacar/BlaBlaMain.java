@@ -228,7 +228,7 @@ public class BlaBlaMain {
 	}*/
 
 	//Test 6
-	int users_ini = 200;
+	/*int users_ini = 200;
 	for (int i = 5; i < 10; ++i) {
 		System.out.println("PERSONAS: " + (users_ini + 100*i));
 		for (int j = 8; j < 10; ++j) {
@@ -241,7 +241,7 @@ public class BlaBlaMain {
 			System.out.println("Distancia total: " + distanceHC);
 			System.out.println("----------------------	");
 		}
-	}
+	}*/
 
 	//Test 7
 	
@@ -301,7 +301,7 @@ public class BlaBlaMain {
 	}*/
 
 	//TEST 9 
-	/*int users_ini = 200;
+	int users_ini = 200;
 	for (int i = 0; i < 10; ++i) {
 		System.out.println("PERSONAS: " + (users_ini + 50*i));
 		for (int j = 0; j < 10; ++j) {
@@ -316,7 +316,7 @@ public class BlaBlaMain {
 			System.out.println("Número de coches: " + carsSA);
 			System.out.println("----------------------	");
 		}
-	}*/
+	}
 
 	//TEST 9_2
 	/*int users_ini = 200;
