@@ -9,6 +9,10 @@ import IA.Comparticion.*;
 import aima.basic.XYLocation;
 
 
+/**
+ * @author Alex H.
+ */
+
 
 
 public class BlaBlaEstado {
@@ -20,6 +24,11 @@ public class BlaBlaEstado {
 	private int num_cond;
 
 
+	/**
+	 * @param users instancia de la clase Usuarios sobre la que estarán todos los participantes del problema
+	 * @param modo con modo = 1 se genera una solución con el método aleatoria, con modo = 0 se genera la solución de manera greedy
+	 * @return Una instancia de la clase BlaBlaEstado en la que ya se ha generado una solución inicial.
+	 */
 	public BlaBlaEstado(Usuarios users, int modo) {
 
 		cjt_usuarios = users;
@@ -57,6 +66,10 @@ public class BlaBlaEstado {
 
 	}
 
+	/**
+	 * @param state Instancia de una clase BlaBlaEstado
+	 * @return una constructora por copia
+	 */
 	public BlaBlaEstado(BlaBlaEstado state) {
 		this.trayectos = new ArrayList<ArrayList<Integer>>();
 		for (ArrayList<Integer> tray: state.trayectos) {
@@ -81,6 +94,10 @@ public class BlaBlaEstado {
 	}
 
 
+	/**
+	 * @param car identificador del coche el cuál quiere referirse (refiriéndose a él como su ordinal)
+	 * @return la longitud de la ruta en concreto
+	 */
 	public int get_route_length(int car) {
 		return trayectos.get(car).size();
 	}
@@ -294,6 +311,9 @@ public class BlaBlaEstado {
 
 	}
 
+	/**
+	 * @return escribe la ruta de cada coche por pantalla
+	 */
 	public void escribir_ruta() {
 
 
@@ -872,6 +892,9 @@ public class BlaBlaEstado {
 		return num_cond;
 	}
 
+	/**
+	 * @return ArrayList con todas las distancias recorridas por cada coche
+	 */
 	public ArrayList<Integer> get_Distances() {
 		return distancias;
 	}
@@ -886,6 +909,9 @@ public class BlaBlaEstado {
 		return distance;
 	}
 
+	/**
+	 * @return Comprueba si las distancias calculadas i las reales coinciden. En caso contrario escribe por pantalla el error
+	 */
 	public boolean checkDistances() {
 		for (int i = 0; i < num_cond; ++i) {
 			int actDist = calculate_distance(i);
