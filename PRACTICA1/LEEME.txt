@@ -1,0 +1,21 @@
+Treball realitzat per:
+
+Lluc Clavera 
+Pol Forner
+Alex Herrero
+Walter J. Troiani
+
+-------------------------------
+
+Per compliar la pràctica utilitzeu el script "comp.sh" dintre la carpeta del codi font i per executarla utilitzeu el script "run.sh".
+
+L'srcipt clean.sh neteja tots els archius .obj.
+
+Per defecte, al executar l'script s'executa una versió del codi amb hill climbing on et demanen diversos paràmetres. Si exploreu el arxiu BlaBlaMain.java trobareu
+els diversos tests realitzats comentats. Per executar cada test podeu descomentar la part corresponent del main, recompilar amb l'arxiu "comp.sh" i executar 
+amb l'script "run.sh"
+
+Dins de la carpeta DocumentacióAdicional trobareu l'excel amb els resultats, l'script de MATLAB utilitzat per a la pràctica, els .txt de 
+tots els experiments realitzats i una carpeta amb totes les gràfiques que hem inserit (i algunes que no) dins del PDF.
+
+Cal destacar que la pràctica dona 2 warnings al compilarla, no us preocupeu, és intencional.

@@ -1,2 +1,2 @@
-javac -Xlint -cp ./lib/Comparticion.jar:. src/blablacar/BlaBlaMain.java
+javac -Xlint -cp ./lib/Comparticion.jar:. src/blablacar/BlaBlaMain.java 
 

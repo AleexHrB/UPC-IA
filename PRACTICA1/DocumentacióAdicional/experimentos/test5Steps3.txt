@@ -1,0 +1,200 @@
+Semilla actual: 19717
+Steps actuales: 300000
+Media de distancias SA: 9225.666666666666
+Media de tiempo SA: 1881.6666666666667
+------------------------
+Semilla actual: 19717
+Steps actuales: 500000
+Media de distancias SA: 9340.333333333334
+Media de tiempo SA: 2942.6666666666665
+------------------------
+Semilla actual: 19717
+Steps actuales: 1000000
+Media de distancias SA: 9261.666666666666
+Media de tiempo SA: 5917.333333333333
+------------------------
+Semilla actual: 19717
+Steps actuales: 2000000
+Media de distancias SA: 9245.666666666666
+Media de tiempo SA: 11785.0
+------------------------
+Semilla actual: 24516
+Steps actuales: 300000
+Media de distancias SA: 9553.333333333334
+Media de tiempo SA: 1717.6666666666667
+------------------------
+Semilla actual: 24516
+Steps actuales: 500000
+Media de distancias SA: 9566.333333333334
+Media de tiempo SA: 2941.6666666666665
+------------------------
+Semilla actual: 24516
+Steps actuales: 1000000
+Media de distancias SA: 9590.333333333334
+Media de tiempo SA: 5936.666666666667
+------------------------
+Semilla actual: 24516
+Steps actuales: 2000000
+Media de distancias SA: 9582.666666666666
+Media de tiempo SA: 12075.0
+------------------------
+Semilla actual: 27453
+Steps actuales: 300000
+Media de distancias SA: 9351.333333333334
+Media de tiempo SA: 1878.6666666666667
+------------------------
+Semilla actual: 27453
+Steps actuales: 500000
+Media de distancias SA: 9508.666666666666
+Media de tiempo SA: 3194.0
+------------------------
+Semilla actual: 27453
+Steps actuales: 1000000
+Media de distancias SA: 9361.0
+Media de tiempo SA: 6262.333333333333
+------------------------
+Semilla actual: 27453
+Steps actuales: 2000000
+Media de distancias SA: 9312.333333333334
+Media de tiempo SA: 12029.0
+------------------------
+Semilla actual: 21339
+Steps actuales: 300000
+Media de distancias SA: 9340.0
+Media de tiempo SA: 1804.3333333333333
+------------------------
+Semilla actual: 21339
+Steps actuales: 500000
+Media de distancias SA: 9369.666666666666
+Media de tiempo SA: 3054.0
+------------------------
+Semilla actual: 21339
+Steps actuales: 1000000
+Media de distancias SA: 9323.333333333334
+Media de tiempo SA: 6048.0
+------------------------
+Semilla actual: 21339
+Steps actuales: 2000000
+Media de distancias SA: 9446.0
+Media de tiempo SA: 11823.0
+------------------------
+Semilla actual: 30538
+Steps actuales: 300000
+Media de distancias SA: 9328.0
+Media de tiempo SA: 1817.0
+------------------------
+Semilla actual: 30538
+Steps actuales: 500000
+Media de distancias SA: 9506.666666666666
+Media de tiempo SA: 3054.0
+------------------------
+Semilla actual: 30538
+Steps actuales: 1000000
+Media de distancias SA: 9293.0
+Media de tiempo SA: 6058.333333333333
+------------------------
+Semilla actual: 30538
+Steps actuales: 2000000
+Media de distancias SA: 9506.666666666666
+Media de tiempo SA: 11813.333333333334
+------------------------
+Semilla actual: 26684
+Steps actuales: 300000
+Media de distancias SA: 9456.666666666666
+Media de tiempo SA: 1581.0
+------------------------
+Semilla actual: 26684
+Steps actuales: 500000
+Media de distancias SA: 9407.333333333334
+Media de tiempo SA: 2635.3333333333335
+------------------------
+Semilla actual: 26684
+Steps actuales: 1000000
+Media de distancias SA: 9452.333333333334
+Media de tiempo SA: 5445.333333333333
+------------------------
+Semilla actual: 26684
+Steps actuales: 2000000
+Media de distancias SA: 9409.0
+Media de tiempo SA: 10978.666666666666
+------------------------
+Semilla actual: 34400
+Steps actuales: 300000
+Media de distancias SA: 9288.666666666666
+Media de tiempo SA: 1603.6666666666667
+------------------------
+Semilla actual: 34400
+Steps actuales: 500000
+Media de distancias SA: 9484.666666666666
+Media de tiempo SA: 2606.6666666666665
+------------------------
+Semilla actual: 34400
+Steps actuales: 1000000
+Media de distancias SA: 9380.666666666666
+Media de tiempo SA: 5205.666666666667
+------------------------
+Semilla actual: 34400
+Steps actuales: 2000000
+Media de distancias SA: 9430.0
+Media de tiempo SA: 10545.666666666666
+------------------------
+Semilla actual: 20530
+Steps actuales: 300000
+Media de distancias SA: 9135.666666666666
+Media de tiempo SA: 1617.3333333333333
+------------------------
+Semilla actual: 20530
+Steps actuales: 500000
+Media de distancias SA: 8920.666666666666
+Media de tiempo SA: 2649.3333333333335
+------------------------
+Semilla actual: 20530
+Steps actuales: 1000000
+Media de distancias SA: 8986.333333333334
+Media de tiempo SA: 5227.666666666667
+------------------------
+Semilla actual: 20530
+Steps actuales: 2000000
+Media de distancias SA: 8962.0
+Media de tiempo SA: 10413.333333333334
+------------------------
+Semilla actual: 3969200
+Steps actuales: 300000
+Media de distancias SA: 9562.666666666666
+Media de tiempo SA: 1581.0
+------------------------
+Semilla actual: 3969200
+Steps actuales: 500000
+Media de distancias SA: 9600.333333333334
+Media de tiempo SA: 2726.3333333333335
+------------------------
+Semilla actual: 3969200
+Steps actuales: 1000000
+Media de distancias SA: 9563.0
+Media de tiempo SA: 5382.666666666667
+------------------------
+Semilla actual: 3969200
+Steps actuales: 2000000
+Media de distancias SA: 9738.666666666666
+Media de tiempo SA: 10690.0
+------------------------
+Semilla actual: 56454
+Steps actuales: 300000
+Media de distancias SA: 8895.333333333334
+Media de tiempo SA: 1525.6666666666667
+------------------------
+Semilla actual: 56454
+Steps actuales: 500000
+Media de distancias SA: 8804.333333333334
+Media de tiempo SA: 2535.0
+------------------------
+Semilla actual: 56454
+Steps actuales: 1000000
+Media de distancias SA: 8812.0
+Media de tiempo SA: 5209.0
+------------------------
+Semilla actual: 56454
+Steps actuales: 2000000
+Media de distancias SA: 8932.333333333334
+Media de tiempo SA: 10776.666666666666
+------------------------
