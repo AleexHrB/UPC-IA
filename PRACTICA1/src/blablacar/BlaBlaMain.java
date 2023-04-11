@@ -58,7 +58,7 @@ public class BlaBlaMain {
 		e.escribir_ruta();
 
 		Search alg = new SimulatedAnnealingSearch(20, 20, 20, 2);
-		Problem p = new Problem(e, new BlaBlaSuccessorsSA(), new BlaBlaGoalTest());
+		Problem p = new Problem(e, new BlaBlaSuccessorsSA(), new BlaBlaGoalTest(), new BlaBlaHeuristicFunctions());
 		try {
 			SearchAgent ag = new SearchAgent(p, alg);
 		} catch (Exception e1) {

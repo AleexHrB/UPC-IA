@@ -2,7 +2,7 @@ package src.blablacar;
 
 import java.util.*;
 import aima.search.framework.HeuristicFunction;
-import src.BlaBlaEstado;
+import src.blablacar;
 
 import java.lang.IllegalStateException;
 /**
@@ -49,7 +49,7 @@ public class BlaBlaHeuristicFunctions implements HeuristicFunction{
 
         src.blablacar.BlaBlaEstado estado = (BlaBlaEstado) State;
         double NumberOfCars = estado.num_conductores();
-        ArrayList<Integer> PathLengths = estado.distancias_coches();h+= PathLengths(i);
+        ArrayList<Integer> PathLengths = estado.distancias_coches();
         int n = PathLengths.size();
         double h = 0;
         double maximo = 0;
@@ -57,38 +57,38 @@ public class BlaBlaHeuristicFunctions implements HeuristicFunction{
         switch (Choice) {
             case 1:
 
-                for(int i = 0; i < n; ++i) h += PathLengths(i);   
+                for(int i = 0; i < n; ++i) h += PathLengths.get(i);   
                 break; 
             case 2:
 
-                for(int i = 0; i < n; ++i) h += PathLengths(i) * PathLengths(i);
+                for(int i = 0; i < n; ++i) h += PathLengths.get(i) * PathLengths.get(i);
                 break;
 
             case 3: 
 
-                for(int i = 0; i < n; ++i) h+= PathLengths(i);
+                for(int i = 0; i < n; ++i) h+= PathLengths.get(i);
                 h = h * NumberOfCars;
 
             case 4: 
 
-                for(int i = 0; i < n; ++i) h+= PathLengths(i);
+                for(int i = 0; i < n; ++i) h+= PathLengths.get(i);
                 h = h * NumberOfCars * NumberOfCars;
 
             case 5:
 
-                for(int i = 0; i < n; ++i) h+= PathLengths(i) * Math.log(PathLengths(i));
+                for(int i = 0; i < n; ++i) h+= PathLengths.get(i) * Math.log(PathLengths.get(i));
 
             case 6:
 
                 for(int i = 0; i < n; ++i){
-                    maximo = max(maximo, PathLengths(i));
-                    h+= PathLengths(i);
+                    maximo = Math.max(maximo, PathLengths.get(i));
+                    h+= PathLengths.get(i);
                 } 
 
                 h = h + lambda*maximo;
 
             default:
-                throw new IllegalStateException("andaluces usad un numero entre 1 y 6");
+                throw new IllegalStateException("andaluses usad un numero entre 1 y 6");
                 break;
 
         }
@@ -96,15 +96,6 @@ public class BlaBlaHeuristicFunctions implements HeuristicFunction{
         return h;
     }
 
-    /**
-     * 
-     * @param pointA First location
-     * @param pointB Second location
-     * @return The Manhattan distance between those 2 locations defined as D(i,j) = |ix - jx| + |iy - jy|
-     */
-    private double ManhattanDistance(src.aima.basic.XYLocation pointA, src.aima.basic.XYLocation pointB){
-        return Math.abs(pointA.getXCoOrdinate() - pointB.getXCoOrdinate()) + Math.abs(pointA.getYCoOrdinate() - pointB.getYCoOrdinate());
-    }
 }
 
  

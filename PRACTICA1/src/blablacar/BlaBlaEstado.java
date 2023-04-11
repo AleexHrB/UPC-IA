@@ -638,5 +638,13 @@ public class BlaBlaEstado {
 	public int getNumCars() {
 		return trayectos.size();
 	}
+
+	/**
+	 * mamasita super andalusian fast super solver
+	 * @return
+	 */
+	public ArrayList<Integer> distancias_coches(){
+		return distancias;
+	}
 }
 
