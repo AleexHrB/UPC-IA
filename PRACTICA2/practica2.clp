@@ -112,13 +112,13 @@
     (pattern-match reactive)
 )
 
-(defclass RDM4isSzhfP9CWPVdrMyS6b
+(defclass Almuerzo
     (is-a Thing)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass RYE70BZn4KgRzNqar9VNuK
+(defclass Cena
     (is-a Thing)
     (role concrete)
     (pattern-match reactive)
@@ -226,13 +226,13 @@
     (pattern-match reactive)
 )
 
-(defclass RDM4isSzhfP9CWPVdrMyS6b
+(defclass Almuerzo
     (is-a Thing)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass RYE70BZn4KgRzNqar9VNuK
+(defclass Cena
     (is-a Thing)
     (role concrete)
     (pattern-match reactive)
@@ -568,7 +568,7 @@
     (pattern-match reactive)
 )
 
-(defclass RDM4isSzhfP9CWPVdrMyS6b
+(defclass Almuerzo
     (is-a n0d40652eaa2147d29d5d177330f22566b25)
     (role concrete)
     (pattern-match reactive)
@@ -610,7 +610,7 @@
     (pattern-match reactive)
 )
 
-(defclass RYE70BZn4KgRzNqar9VNuK
+(defclass Cena
     (is-a n0d40652eaa2147d29d5d177330f22566b27)
     (role concrete)
     (pattern-match reactive)

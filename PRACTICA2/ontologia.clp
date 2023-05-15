@@ -1,269 +1,281 @@
 ;;; ---------------------------------------------------------
 ;;; ontologia.clp
 ;;; Translated by owl2clips
-;;; Translated to CLIPS from ontology urn_webprotege_ontology_df87f925-200c-455c-a141-b8634fb57c35.ttl
-;;; :Date 15/05/2023 09:44:18
+;;; Translated to CLIPS from ontology Ontologia.ttl
+;;; :Date 15/05/2023 19:05:42
 
-(defclass n0d40652eaa2147d29d5d177330f22566b1
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b10
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass R7kNfAiK1U17Mm7bdT5z9T5
-    (is-a n0d40652eaa2147d29d5d177330f22566b1)
+(defclass Lácteo
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b10)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass n0d40652eaa2147d29d5d177330f22566b18
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b17
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass R9suDiR0TwdDFKXJ7n5Apwu
-    (is-a n0d40652eaa2147d29d5d177330f22566b18)
+(defclass Plato_Principal
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b17)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass n0d40652eaa2147d29d5d177330f22566b29
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b4
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass Thing
-    (is-a n0d40652eaa2147d29d5d177330f22566b29)
+(defclass Cereal
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b4)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass R7fQZ5CFtxwZMMtCl4Qa1k2
-    (is-a Thing)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass R80JxUVh4E0HO9Dlk0qhTDd
-    (is-a Thing)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass R8rP3msrAtXxud6eW7IYgqw
-    (is-a Thing)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass R9mFsi8DBbrmmuGiyeys7pl
-    (is-a Thing)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass R9Zk3scyl2y8E9faOLU84oa
-    (is-a R9mFsi8DBbrmmuGiyeys7pl)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass RBLIjxzRkYfBmWmYe4LRYpC
-    (is-a R9mFsi8DBbrmmuGiyeys7pl)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass RDnzt78nBecj5rz4ClZyrr0
-    (is-a R9mFsi8DBbrmmuGiyeys7pl)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass R9ysiFfW6TVI8yCbap7V0CU
-    (is-a Thing)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass R7kNfAiK1U17Mm7bdT5z9T5
-    (is-a R9ysiFfW6TVI8yCbap7V0CU)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass R8MlIJGgR8x4r1z09mZaDv7
-    (is-a R9ysiFfW6TVI8yCbap7V0CU)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass R903nicbuJkfQmBeyVxFPUV
-    (is-a R9ysiFfW6TVI8yCbap7V0CU)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass RBliLPDvVmHz79hNFf3TH47
-    (is-a Thing)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass RDM4isSzhfP9CWPVdrMyS6b
-    (is-a Thing)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass RYE70BZn4KgRzNqar9VNuK
-    (is-a Thing)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass RubgM6qAxT0RMKbUB50fMF
-    (is-a Thing)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass n0d40652eaa2147d29d5d177330f22566b26
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b3
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass RDnzt78nBecj5rz4ClZyrr0
-    (is-a n0d40652eaa2147d29d5d177330f22566b26)
+(defclass Cena
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b3)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass n0d40652eaa2147d29d5d177330f22566b30
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b30
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
 )
 
 (defclass Thing
-    (is-a n0d40652eaa2147d29d5d177330f22566b30)
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b30)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass R7fQZ5CFtxwZMMtCl4Qa1k2
+(defclass Almuerzo
     (is-a Thing)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass R80JxUVh4E0HO9Dlk0qhTDd
+(defclass Cena
     (is-a Thing)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass R8rP3msrAtXxud6eW7IYgqw
+(defclass Composicion
     (is-a Thing)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass R9mFsi8DBbrmmuGiyeys7pl
+(defclass Macronutrientes
+    (is-a Composicion)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Micronutrientes
+    (is-a Composicion)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Vitaminas
+    (is-a Composicion)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Desayuno
     (is-a Thing)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass R9Zk3scyl2y8E9faOLU84oa
-    (is-a R9mFsi8DBbrmmuGiyeys7pl)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass RBLIjxzRkYfBmWmYe4LRYpC
-    (is-a R9mFsi8DBbrmmuGiyeys7pl)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass RDnzt78nBecj5rz4ClZyrr0
-    (is-a R9mFsi8DBbrmmuGiyeys7pl)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass R9ysiFfW6TVI8yCbap7V0CU
+(defclass Dieta
     (is-a Thing)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass R7kNfAiK1U17Mm7bdT5z9T5
-    (is-a R9ysiFfW6TVI8yCbap7V0CU)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass R8MlIJGgR8x4r1z09mZaDv7
-    (is-a R9ysiFfW6TVI8yCbap7V0CU)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass R903nicbuJkfQmBeyVxFPUV
-    (is-a R9ysiFfW6TVI8yCbap7V0CU)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass RBliLPDvVmHz79hNFf3TH47
+(defclass Menu_Diario
     (is-a Thing)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass RDM4isSzhfP9CWPVdrMyS6b
+(defclass Plato
     (is-a Thing)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass RYE70BZn4KgRzNqar9VNuK
+(defclass Plato_Principal
+    (is-a Plato)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Plato_único
+    (is-a Plato)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Postre
+    (is-a Plato)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Restricciones
     (is-a Thing)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass RubgM6qAxT0RMKbUB50fMF
+(defclass Temporada
     (is-a Thing)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass n0d40652eaa2147d29d5d177330f22566b21
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b21
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass RBLIjxzRkYfBmWmYe4LRYpC
-    (is-a n0d40652eaa2147d29d5d177330f22566b21)
+(defclass Restricciones
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b21)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass n0d40652eaa2147d29d5d177330f22566b11
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b8
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass R9UXxoyhJ5TpU2Eylk4s0RK
-    (is-a n0d40652eaa2147d29d5d177330f22566b11)
+(defclass Fruta
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b8)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b7
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Dieta
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b7)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b12
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Menu_Diario
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b12)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b16
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Plato
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b16)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Plato_Principal
+    (is-a Plato)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Plato_único
+    (is-a Plato)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Postre
+    (is-a Plato)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b20
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Preferencia
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b20)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b14
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Menu_Diario
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b14)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b13
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Menu_Diario
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b13)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b24
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Usuario
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b24)
     (role concrete)
     (pattern-match reactive)
     (slot R72EbdypXo2oJkt5LgAUhhu
@@ -277,116 +289,14 @@
         (create-accessor read-write))
 )
 
-(defclass n0d40652eaa2147d29d5d177330f22566b3
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b25
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass R81UQ4CAthPVPwXEA5yaUdz
-    (is-a n0d40652eaa2147d29d5d177330f22566b3)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass n0d40652eaa2147d29d5d177330f22566b16
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass R9mFsi8DBbrmmuGiyeys7pl
-    (is-a n0d40652eaa2147d29d5d177330f22566b16)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass R9Zk3scyl2y8E9faOLU84oa
-    (is-a R9mFsi8DBbrmmuGiyeys7pl)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass RBLIjxzRkYfBmWmYe4LRYpC
-    (is-a R9mFsi8DBbrmmuGiyeys7pl)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass RDnzt78nBecj5rz4ClZyrr0
-    (is-a R9mFsi8DBbrmmuGiyeys7pl)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass n0d40652eaa2147d29d5d177330f22566b2
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass R80JxUVh4E0HO9Dlk0qhTDd
-    (is-a n0d40652eaa2147d29d5d177330f22566b2)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass n0d40652eaa2147d29d5d177330f22566b17
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass R9nOdD5umvzD46WsAWcfPyD
-    (is-a n0d40652eaa2147d29d5d177330f22566b17)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass n0d40652eaa2147d29d5d177330f22566b23
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass RBliLPDvVmHz79hNFf3TH47
-    (is-a n0d40652eaa2147d29d5d177330f22566b23)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass n0d40652eaa2147d29d5d177330f22566b24
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass RBliLPDvVmHz79hNFf3TH47
-    (is-a n0d40652eaa2147d29d5d177330f22566b24)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass n0d40652eaa2147d29d5d177330f22566b8
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass R9BjVVNXtdbsZOMzxqcS0av
-    (is-a n0d40652eaa2147d29d5d177330f22566b8)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass n0d40652eaa2147d29d5d177330f22566b10
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass R9UXxoyhJ5TpU2Eylk4s0RK
-    (is-a n0d40652eaa2147d29d5d177330f22566b10)
+(defclass Usuario
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b25)
     (role concrete)
     (pattern-match reactive)
     (slot R72EbdypXo2oJkt5LgAUhhu
@@ -400,14 +310,26 @@
         (create-accessor read-write))
 )
 
-(defclass n0d40652eaa2147d29d5d177330f22566b9
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b18
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass R9UXxoyhJ5TpU2Eylk4s0RK
-    (is-a n0d40652eaa2147d29d5d177330f22566b9)
+(defclass Plato_único
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b18)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b26
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Usuario
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b26)
     (role concrete)
     (pattern-match reactive)
     (slot R72EbdypXo2oJkt5LgAUhhu
@@ -421,14 +343,14 @@
         (create-accessor read-write))
 )
 
-(defclass n0d40652eaa2147d29d5d177330f22566b13
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b22
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass R9UXxoyhJ5TpU2Eylk4s0RK
-    (is-a n0d40652eaa2147d29d5d177330f22566b13)
+(defclass Usuario
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b22)
     (role concrete)
     (pattern-match reactive)
     (slot R72EbdypXo2oJkt5LgAUhhu
@@ -442,212 +364,212 @@
         (create-accessor read-write))
 )
 
-(defclass n0d40652eaa2147d29d5d177330f22566b20
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b29
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass RBKgBrW7y3nv2JELPfHsnde
-    (is-a n0d40652eaa2147d29d5d177330f22566b20)
+(defclass Thing
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b29)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass n0d40652eaa2147d29d5d177330f22566b4
+(defclass Almuerzo
+    (is-a Thing)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Cena
+    (is-a Thing)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Composicion
+    (is-a Thing)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Macronutrientes
+    (is-a Composicion)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Micronutrientes
+    (is-a Composicion)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Vitaminas
+    (is-a Composicion)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Desayuno
+    (is-a Thing)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Dieta
+    (is-a Thing)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Menu_Diario
+    (is-a Thing)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Plato
+    (is-a Thing)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Plato_Principal
+    (is-a Plato)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Plato_único
+    (is-a Plato)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Postre
+    (is-a Plato)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Restricciones
+    (is-a Thing)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Temporada
+    (is-a Thing)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b2
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass R8MlIJGgR8x4r1z09mZaDv7
-    (is-a n0d40652eaa2147d29d5d177330f22566b4)
+(defclass Almuerzo
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b2)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass n0d40652eaa2147d29d5d177330f22566b15
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b11
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass R9Zk3scyl2y8E9faOLU84oa
-    (is-a n0d40652eaa2147d29d5d177330f22566b15)
+(defclass Macronutrientes
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b11)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass n0d40652eaa2147d29d5d177330f22566b22
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b19
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass RBliLPDvVmHz79hNFf3TH47
-    (is-a n0d40652eaa2147d29d5d177330f22566b22)
+(defclass Postre
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b19)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass n0d40652eaa2147d29d5d177330f22566b6
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b15
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass R8rP3msrAtXxud6eW7IYgqw
-    (is-a n0d40652eaa2147d29d5d177330f22566b6)
+(defclass Micronutrientes
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b15)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass n0d40652eaa2147d29d5d177330f22566b7
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b9
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass R903nicbuJkfQmBeyVxFPUV
-    (is-a n0d40652eaa2147d29d5d177330f22566b7)
+(defclass Ingrediente
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b9)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass n0d40652eaa2147d29d5d177330f22566b14
+(defclass Aceite
+    (is-a Ingrediente)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Cereal
+    (is-a Ingrediente)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Comida_Proteica
+    (is-a Ingrediente)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Fruta
+    (is-a Ingrediente)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Lácteo
+    (is-a Ingrediente)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Verdura
+    (is-a Ingrediente)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b23
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass R9XHqx8UFoTzOWjS9cy3k1U
-    (is-a n0d40652eaa2147d29d5d177330f22566b14)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass R81UQ4CAthPVPwXEA5yaUdz
-    (is-a R9XHqx8UFoTzOWjS9cy3k1U)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass R9BjVVNXtdbsZOMzxqcS0av
-    (is-a R9XHqx8UFoTzOWjS9cy3k1U)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass R9nOdD5umvzD46WsAWcfPyD
-    (is-a R9XHqx8UFoTzOWjS9cy3k1U)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass R9suDiR0TwdDFKXJ7n5Apwu
-    (is-a R9XHqx8UFoTzOWjS9cy3k1U)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass RBIdlPA2iHKqkcrXhDQubE1
-    (is-a R9XHqx8UFoTzOWjS9cy3k1U)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass RBKgBrW7y3nv2JELPfHsnde
-    (is-a R9XHqx8UFoTzOWjS9cy3k1U)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass n0d40652eaa2147d29d5d177330f22566b25
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass RDM4isSzhfP9CWPVdrMyS6b
-    (is-a n0d40652eaa2147d29d5d177330f22566b25)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass R8yZ374vwYN0taCMfp0fRSE
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass R9HU0yaXjNgBitm6HLgzjkJ
-    (is-a R8yZ374vwYN0taCMfp0fRSE)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass RNdBimGBPFeFTDMkyJYAOJ
-    (is-a R8yZ374vwYN0taCMfp0fRSE)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass n0d40652eaa2147d29d5d177330f22566b5
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass R8hdSIs6EMqPTQD4hUbEdZc
-    (is-a n0d40652eaa2147d29d5d177330f22566b5)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass n0d40652eaa2147d29d5d177330f22566b27
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass RYE70BZn4KgRzNqar9VNuK
-    (is-a n0d40652eaa2147d29d5d177330f22566b27)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass n0d40652eaa2147d29d5d177330f22566b19
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass RBIdlPA2iHKqkcrXhDQubE1
-    (is-a n0d40652eaa2147d29d5d177330f22566b19)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass n0d40652eaa2147d29d5d177330f22566b28
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass RubgM6qAxT0RMKbUB50fMF
-    (is-a n0d40652eaa2147d29d5d177330f22566b28)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass n0d40652eaa2147d29d5d177330f22566b12
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass R9UXxoyhJ5TpU2Eylk4s0RK
-    (is-a n0d40652eaa2147d29d5d177330f22566b12)
+(defclass Usuario
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b23)
     (role concrete)
     (pattern-match reactive)
     (slot R72EbdypXo2oJkt5LgAUhhu
@@ -661,7 +583,85 @@
         (create-accessor read-write))
 )
 
-(defclass RBhgCwMFQPG3JM674ZTf36W
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b5
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Comida_Proteica
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b5)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b28
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Vitaminas
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b28)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Limitacion
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Limitacion_Ingrediente
+    (is-a Limitacion)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Limitacion_MacroNutriente
+    (is-a Limitacion)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b6
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Desayuno
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b6)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b1
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Aceite
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b1)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass ndd758ab4639443fb9a4ba675abb51bb7b27
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Verdura
+    (is-a ndd758ab4639443fb9a4ba675abb51bb7b27)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Forma_Cocinar
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
