@@ -4,7 +4,7 @@
     (export ?ALL)
 )
 
-;;FALTA EL PUTISIMO PAN
+;;FALTA EL PUTISIMO PAN I EMBUTIDOS
 ;;HIPERTENSOS
 
 (defrule procesado::eliminar_lacteos_desaconsejados_para_hipertensos "Quita los lacteos desaconsejados para los que padecen hipertension"
