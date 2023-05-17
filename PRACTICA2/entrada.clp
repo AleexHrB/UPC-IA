@@ -2,22 +2,13 @@
 	(declare (salience 20)) 
 	=> 
 	(printout t "Super Galactic polynomial diet maker et al yayos solver" crlf)
-	(setup)
+    (make-instance [Invierno] of Temporada)
+    (make-instance [Verano] of Temporada)
+    (make-instance [Otono] of Temporada)
+    (make-instance [Primavera] of Temporada)
 	(focus entrada)
 )
 
-;;Esto hay que cambiarlo, pero esto lo tenemos que hacer entre todo igual (es del Juan). Hay que instanciar cosas
-;de acuerdo a la ontología
-(deffunction MAIN::setup ()
-
-    (bind $?tiempos_ejercicio (create$ Alta Media Baja 15 10 5))
-    (bind $?tiempos_actividad (create$ Alta Media Baja 90 60 30))
-	
-
-    (instanciar_ejercicio 	"Burpees" 								Resistencia 	Brazos 	"Nada" 3 $?tiempos_ejercicio)
-    (instanciar_actividad 	"Caminar" 			Resistencia		Piernas	"Nada" 	3 	$?tiempos_actividad)
-    
-)
 
 (defrule entrada::crear_anciano
 	(declare (salience 10))
@@ -27,28 +18,6 @@
 	(focus procesado)
 )
 
-;JUAN
-(deffunction MAIN::instanciar_ejercicio (?nombre_ejercicio ?objetivo ?zonacuerpo ?objeto ?corte $?intensidades_tiempos)
-    (bind $?intensidades (subseq$ $?intensidades_tiempos 1 ?corte))
-    (bind $?tiempos (subseq$ $?intensidades_tiempos (+ ?corte 1) (length$ $?intensidades_tiempos)))
-    (progn$ (?tiempo $?tiempos)
-        (progn$ (?intensidad $?intensidades)
-            (make-instance (gensym) of Ejercicio (nombre ?nombre_ejercicio)(ZonaCuerpo ?zonacuerpo)(Tipo_Objetivo ?objetivo)(objeto ?objeto)(Intensidad ?intensidad)(Tiempo_Ejercicio ?tiempo))
-        )
-    )
-)
-;JUAN
-(deffunction MAIN::instanciar_actividad (?nombre_actividad ?objetivo ?zonacuerpo ?objeto ?corte $?intensidades_tiempos)
-    (bind $?intensidades (subseq$ $?intensidades_tiempos 1 ?corte))
-    (bind $?tiempos (subseq$ $?intensidades_tiempos (+ ?corte 1) (length$ $?intensidades_tiempos)))
-    (progn$ (?tiempo $?tiempos)
-        (progn$ (?intensidad $?intensidades)
-            (make-instance (gensym) of Actividad (nombre ?nombre_actividad) (Tipo_Objetivo ?objetivo) (ZonaCuerpo ?zonacuerpo) (objeto ?objeto)(Intensidad ?intensidad)(Tiempo_Actividad ?tiempo))
-        )
-    )
-)
-
-
 
 
 (deffunction entrada::instanciacion_persona ()
@@ -57,17 +26,17 @@
     (bind ?sexo (obtener_sexo))
     
     ;Sobre su estado actual
-    (bind ?estilo (seleccion_una_opcion "Introduzca su estilo de vida: " Sedentaria Normal Activo))
+    (bind ?estilo (seleccion_una_opcion "Introduzca su estilo de vida usando el número correspondiente (0:Sedentaria , 1:Normal, 2:Activo): " 0 1 2))
     (bind ?temporada (seleccion_una_opcion "Introduzca la temporada del año" Invierno Primavera Otono Verano))
 
     ;Sobre preferencias y restricciones
     (bind ?preferencia (seleccion_una_opcion "Si tiene alguna preferencia introduzcala, en caso contrario eliga 'No': " No Vegana Vegetariana Mediterranea Proteica Pescado Carne))
 
-    (bind $?lista (obtener_tipo_enfermedad enf1 enf2 enf3 enf4 enf5))
+    (bind $?enfermedades (obtener_tipo_enfermedad Hipertensio Diabetes Osteoporosis Disfagia Alergia_Nueces))
 
 
     ;Hay que cambiar los nombres, pero eso cuando esté la ontología puesta
-    (make-instance Paciente of Persona (Padece $?enfermedades)(IMC ?valueIMC)(Duracion_dias ?duracion_rutina)(Equilibrio ?equilibrio) (Flexibilidad ?flexibilidad)(Fuerza_Muscular ?fuerza) (Resistencia ?resistencia) (duracion_sesion ?duracion_sesion) (edad ?edad))
+    (make-instance Paciente of Persona (Enfermedad $?enfermedades) (Sexo ?sexo) (edad ?edad) (Actividad ?estilo) (preferencia ?preferencia) (vive-durante ?temporada)) 
 )
 
 (deffunction entrada::seleccion_una_opcion (?question $?opcions)
