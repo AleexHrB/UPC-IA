@@ -42,6 +42,27 @@
 	(send ?enfermedad delete)
 )
 
+(deffunction sintesis::random_menu
+	(bind $?menu_list (create$))
+	(loop-for-count (?i 1 7)) do 
+		(bind ?desayun (find-instance (?Plat Plato-Desayuno)))
+		(bind ?comida (find-instance (?Plat Plato-principal)))
+		(bind ?postreComida (find-instance (?Plat Postre)))
+		(bind ?cena (find-instance (?Plat Plato-principal)))
+		(bind ?postreCena (find-instance (?Plat Postre)))
+
+		(bind ?desayuno (make-instance (gensym*) of Desayuno (compuesto-por-desayuno ?desayun)))
+		(bind ?almuerzo (make-instance (gensym*) of Almuerzo (compuesto-por-plato ?comida) (compuesto-por-postre ?postreComida)))
+		(bind ?cena (make-instance (gensym*) of Cena (compuesto-por-plato ?cena) (compuesto-por-postre ?postreCena)))
+		(bind ?pollo (make-instance (gensym*) of Menu_diario (compuesto-desayuno ?desayuno) (compuesto-almuerzo ?almuerzo) (compuesto-cena ?cena) (Dia-semana ?i)))
+
+		(bind $?menu-list (insert$ $?menu-list (+ (length$ $?menu_list) 1) ?pollo))
+	)
+	(bind ?dieta (make-instance (gensym) (compuesto-por-menu $?menu_list))
+	(return ?dieta)
+)
+
+
 (defrule sintesis::crear_dieta
     	(declare (salience 5))
 	(recomendacion (nombre "Calorias")(value ?Cal))
@@ -60,11 +81,15 @@
     (bind $?objetivos (obtener_objetivos ?temporada ?preferencia ?Cal ?CH ?Grasa ?Proteina))
 	
 	;; Creamos la dieta
-	(ditribuir-hidratos)
-    ;; Contar proteinas
-    (ditribuir-proteinas)
-    ;; Contar grasas
-    (completar-grasas)
-    ;;No se?
-    (hacer-correciones)
+	(bind ?juanAntonio (random_menu))
+	;;(ditribuir-hidratos)
+    
+	;; Contar proteinas
+    ;;(ditribuir-proteinas)
+    
+	;; Contar grasas
+    ;;(completar-grasas)
+    
+	;;No se?
+    ;;(hacer-correciones)
 )
