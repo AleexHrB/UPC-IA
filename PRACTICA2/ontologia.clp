@@ -2,49 +2,40 @@
 ;;; ontologia.clp
 ;;; Translated by owl2clips
 ;;; Translated to CLIPS from ontology Ontologia.ttl
-;;; :Date 17/05/2023 19:18:08
+;;; :Date 17/05/2023 20:46:34
 
-(defclass Ingrediente
+(defclass Limtacion
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
-    (multislot tiene-composicion
-        (type INSTANCE)
-        (create-accessor read-write))
 )
 
-(defclass Aceite
-    (is-a Ingrediente)
+(defclass Preferencia
+    (is-a Limtacion)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass Cereal
-    (is-a Ingrediente)
+(defclass Restriccion
+    (is-a Limtacion)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass Comida_Proteica
-    (is-a Ingrediente)
+(defclass Composicion
+    (is-a USER)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass Fruta
-    (is-a Ingrediente)
+(defclass Macronutrientes
+    (is-a Composicion)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass Lacteo
-    (is-a Ingrediente)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass Verdura
-    (is-a Ingrediente)
+(defclass Micronutrientes
+    (is-a Composicion)
     (role concrete)
     (pattern-match reactive)
 )
@@ -94,38 +85,47 @@
     (pattern-match reactive)
 )
 
-(defclass Composicion
+(defclass Ingrediente
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
+    (multislot tiene-composicion
+        (type INSTANCE)
+        (create-accessor read-write))
 )
 
-(defclass Macronutrientes
-    (is-a Composicion)
+(defclass Aceite
+    (is-a Ingrediente)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass Micronutrientes
-    (is-a Composicion)
+(defclass Cereal
+    (is-a Ingrediente)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass Limtacion
-    (is-a USER)
+(defclass Comida_Proteica
+    (is-a Ingrediente)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass Preferencia
-    (is-a Limtacion)
+(defclass Fruta
+    (is-a Ingrediente)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass Restriccion
-    (is-a Limtacion)
+(defclass Lacteo
+    (is-a Ingrediente)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Verdura
+    (is-a Ingrediente)
     (role concrete)
     (pattern-match reactive)
 )
@@ -188,7 +188,13 @@
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
-    (multislot compuesto-por-comidas
+    (slot compuesto-almuerzo
+        (type INSTANCE)
+        (create-accessor read-write))
+    (slot compuesto-cena
+        (type INSTANCE)
+        (create-accessor read-write))
+    (slot compuesto-desayuno
         (type INSTANCE)
         (create-accessor read-write))
     ;;; String perteneciente a {Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo}
