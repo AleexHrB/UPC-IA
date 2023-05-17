@@ -94,7 +94,7 @@
 )
 
 (deffunction entrada::obtener_sexo ()
-    (printout t "Introduzca su sexo ")
+    (printout t "Introduzca su sexo (Hombre/Mujer) ")
     (bind ?sexo (read))
     (while (and (neq ?sexo "Hombre")  (neq ?sexo "Mujer")) do
             (printout t "Qué sos, marsiano? Introduce bien el sexo ") 
