@@ -1,9 +1,23 @@
-(deffunction output::imprimirPlato (?plato)
-
+(deffunction salida::imprimirPlato (?plato)
+    (bind ?i 1)
+    (while (<= ?i (length$ (send ?plato get-compuesto-por-ingrediente)))
+        do
+        (bind ?ingrediente (nth$ ?i (send ?plato compuesto-por-ingrediente)))
+        (bind ?formaCocinar (nth$ ?i (send ?plato tiene-forma-cocinar)))
+        (printout t ?ingrediente " " ?formaCocinar crlf)
+        (bind ?i (+ ?i 1))
+    )
 
 )
 
-(deffunction output::imprimirComida (?comida)
+(deffunction salida::imprimirComida (?comida)
+    (?comida (is-a ?clase))
+    (switch clase
+        (case Desayuno  then (printout t "DESAYUNO: " crlf))
+        (case Almuerzo  then (printout t "ALMUERZO: " crlf))
+        (case Cena      then (printout t "CENA: " crlf))
+    )
+ 
     (bind ?i 1)
     (while (<= ?i (length$ (send ?comida get-compuesto-por-plato)))
         do
@@ -13,9 +27,9 @@
     )
 )
 
-(deffunction output::imprimirMenuDiario (?menuDiario)
+(deffunction salida::imprimirMenuDiario (?menuDiario)
     (bind ?dia (send ?menuDiario get-Dia_semana))
-    (printout t "Dia de la semana: " ?dia crlf)
+    (printout t "DIA DE LA SEMANA: " ?dia crlf)
 
     (bind ?i 1)
     (while (<= ?i (length$ (send ?menuDiario get-compuesto-por-comidas)))
@@ -24,6 +38,7 @@
         (imprimirComida ?comida)
         (bind ?i (+ ?i 1))
     )
+    (printout t crlf)
 )
 
 (defrule salida::mostrarDieta
