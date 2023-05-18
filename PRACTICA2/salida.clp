@@ -2,8 +2,8 @@
     (bind ?i 1)
     (while (<= ?i (length$ (send ?plato get-compuesto-por-ingrediente)))
         do
-        (bind ?ingrediente (nth$ ?i (send ?plato compuesto-por-ingrediente)))
-        (bind ?formaCocinar (nth$ ?i (send ?plato tiene-forma-cocinar)))
+        (bind ?ingrediente (nth$ ?i (send ?plato get-compuesto-por-ingrediente)))
+        (bind ?formaCocinar (nth$ ?i (send ?plato get-tiene-forma-cocinar)))
         (printout t ?ingrediente " " ?formaCocinar crlf)
         (bind ?i (+ ?i 1))
     )
