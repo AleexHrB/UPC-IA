@@ -748,30 +748,38 @@
         (printout t ?ingrediente " " ?formaCocinar crlf)
         (bind ?i (+ ?i 1))
     )
+)
 
+(deffunction salida::imprimirDesayuno (?desayuno)
+    (printout t (send ?desayuno get-compuesto-por-desayuno) crlf)
 )
 
 (deffunction salida::imprimirComida (?comida)
-    (bind ?i 1)
-    (while (<= ?i (length$ (send ?comida get-compuesto-por-plato)))
-        do
-        (bind ?plato (nth$ ?i (send ?comida get-compuesto-por-plato)))
-        (imprimirPlato ?plato)
-        (bind ?i (+ ?i 1))
-    )
+    (printout t "PLATO PRICIPAL" crlf)
+    (printout t (send ?comida get-compuesto-por-plato crlf))
+    (printout t "POSTRE" crlf)
+    (printout t (send ?comida get-compuesto-por-postre crlf))
 )
 
 (deffunction salida::imprimirMenuDiario (?menuDiario)
     (bind ?dia (send ?menuDiario get-Dia_semana))
     (printout t "DIA DE LA SEMANA: " ?dia crlf)
 
-    (bind ?i 1)
-    (while (<= ?i (length$ (send ?menuDiario get-compuesto-por-comidas)))
-        do
-        (bind ?comida (nth$ ?i (send ?menuDiario get-compuesto-por-comidas)))
-        (imprimirComida ?comida)
-        (bind ?i (+ ?i 1))
-    )
+    ;;DESAYUNO
+    (bind ?desayuno (send ?menuDiario get-compuesto-desayuno))
+    (printout t "DESAYUNO" crlf)
+    (imprimirDesayuno ?desayuno)
+
+    ;;ALMUERZO
+    (bind ?almuerzo (send ?menuDiario get-compuesto-almuerzo))
+    (printout t "ALMUERZO" crlf)
+    (imprimirComida ?almuerzo)
+
+    ;;CENA
+    (bind ?cena (send ?menuDiario get-compuesto-cena))
+    (printout t "CENA" crlf)
+    (imprimirComida ?cena)
+
     (printout t crlf)
 )
 
