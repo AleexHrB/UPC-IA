@@ -925,12 +925,21 @@
     => (send ?Ingrediente delete)
 )
 
+(defrule procesado::eliminar_cereales_desaconsejadas_para_hipertensos "Quita los cereales desaconsejados para los que padecen hipertension"
+    (declare (salience 10))
+    ?a <- (object (is-a Restriccion))
+    ?Ingrediente <- (object (is-a Cereal))
+
+    (test (and (eq ?a Hipertension) (eq ?Ingrediente Pan)))
+    => (send ?Ingrediente delete)
+)
+
 (defrule procesado::eliminar_proteinas_desaconsejadas_para_hipertensos "Quita los alimentos proteicos desaconsejados para los que padecen hipertension"
     (declare (salience 10))
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Comida_Proteica))
 
-    (test (and (eq ?a Hipertension)(eq ?Ingrediente Marisco)))
+    (test (and (eq ?a Hipertension) (or (eq ?Ingrediente Marisco) (eq ?Ingrediente Embutido) )))
     => (send ?Ingrediente delete)
 )
 
@@ -950,7 +959,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Comida_Proteica))
 
-    (test (and (eq ?a Diabetes) (or (eq ?Ingrediente Carne_roja) (eq ?Ingrediente Huevo))))
+    (test (and (eq ?a Diabetes) (or (eq ?Ingrediente Carne_roja) (eq ?Ingrediente Huevo) (eq ?Ingrediente Embutido))))
     => (send ?Ingrediente delete)
 )
 
@@ -965,19 +974,36 @@
     => (send ?Ingrediente delete)
 )
 
+(defrule procesado::eliminar_frutas_desaconsejadas_para_osteoporosicos "Quita las frutas desaconsejadas para los que padecen osteoporosis"
+    (declare (salience 10))
+    ?a <- (object (is-a Restriccion))
+    ?Ingrediente <- (object (is-a Fruta))
+
+    (test (and (eq ?a Osteoporosis) (eq ?Ingrediente Cafe)))
+    => (send ?Ingrediente delete)
+)
+
 ;;Los embutidos, foies , carne roja y otros carnicos grasos son desaconsejadisimos , las carnes magras son mejores
 (defrule procesado::eliminar_proteinas_desaconsejadas_para_osteoporosicos "Quita los alimentos proteicos desaconsejados para los que padecen osteoporosis"
     (declare (salience 10))
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Comida_Proteica))
 
-    (test (and (eq ?a Osteoporosis) (eq ?Ingrediente Carne_roja) ))
+    (test (and (eq ?a Osteoporosis) (eq ?Ingrediente Carne_roja) (eq ?Ingrediente Embutido))
     => (send ?Ingrediente delete)
 )
 
+(defrule procesado::eliminar_proteinas_desaconsejadas_para_alergicosnueces "Quita las nueces de la dieta de un alergico a las nueces"
+    (declare (salience 10))
+    ?a <- (object (is-a Restriccion))
+    ?Ingrediente <- (object (is-a Comida_Proteica))
+
+    (test (and (eq ?a Osteoporosis) (eq ?Ingrediente nueces))
+    => (send ?Ingrediente delete)
+)
 (defrule procesado::cambio_sintesis "Pasamos de procesado a síntesis cuando ya no hay nada más que descartar"
 	(declare (salience -20))
-	=>
+	=>)
 	(focus sintesis)
 )
 
