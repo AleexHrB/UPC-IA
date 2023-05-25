@@ -2,7 +2,19 @@
 ;;; ontologia.clp
 ;;; Translated by owl2clips
 ;;; Translated to CLIPS from ontology Ontologia.ttl
-;;; :Date 18/05/2023 23:04:33
+;;; :Date 26/05/2023 00:04:22
+
+(defclass Limtacion
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Restriccion
+    (is-a Limtacion)
+    (role concrete)
+    (pattern-match reactive)
+)
 
 (defclass Plato
     (is-a USER)
@@ -17,9 +29,6 @@
     (multislot tiene-forma-cocinar
         (type INSTANCE)
         (create-accessor read-write))
-    (multislot Tipo-dieta
-        (type STRING)
-        (create-accessor read-write))
     (slot Calorias
         (type FLOAT)
         (create-accessor read-write))
@@ -31,6 +40,9 @@
         (create-accessor read-write))
     (slot Proteinas
         (type FLOAT)
+        (create-accessor read-write))
+    (multislot Tipo-dieta
+        (type STRING)
         (create-accessor read-write))
 )
 
@@ -48,6 +60,24 @@
 
 (defclass Postre
     (is-a Plato)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Composicion
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Macronutrientes
+    (is-a Composicion)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Micronutrientes
+    (is-a Composicion)
     (role concrete)
     (pattern-match reactive)
 )
@@ -97,32 +127,8 @@
     (pattern-match reactive)
 )
 
-(defclass Limtacion
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass Restriccion
-    (is-a Limtacion)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass Composicion
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass Macronutrientes
-    (is-a Composicion)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass Micronutrientes
-    (is-a Composicion)
+(defclass Dulces
+    (is-a Ingrediente)
     (role concrete)
     (pattern-match reactive)
 )
@@ -131,10 +137,10 @@
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
-    (slot compuesto-por-plato
+    (multislot compuesto-por-plato
         (type INSTANCE)
         (create-accessor read-write))
-    (slot compuesto-por-postre
+    (multislot compuesto-por-postre
         (type INSTANCE)
         (create-accessor read-write))
 )
@@ -143,10 +149,10 @@
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
-    (slot compuesto-por-plato
+    (multislot compuesto-por-plato
         (type INSTANCE)
         (create-accessor read-write))
-    (slot compuesto-por-postre
+    (multislot compuesto-por-postre
         (type INSTANCE)
         (create-accessor read-write))
 )
@@ -155,7 +161,7 @@
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
-    (slot compuesto-por-desayuno
+    (multislot compuesto-por-desayuno
         (type INSTANCE)
         (create-accessor read-write))
 )
@@ -210,9 +216,6 @@
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
-    (multislot tiene-preferencia
-        (type INSTANCE)
-        (create-accessor read-write))
     (multislot tiene-dieta
         (type INSTANCE)
         (create-accessor read-write))
@@ -220,6 +223,9 @@
         (type INSTANCE)
         (create-accessor read-write))
     (multislot vive-durante
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot tiene-preferencia
         (type INSTANCE)
         (create-accessor read-write))
     ;;; Tiene rango {0,1,2}
@@ -239,78 +245,38 @@
 )
 
 (definstances instances
-    ([Aguacate] of Fruta
-    )
-
-    ([Avena] of Cereal
-    )
-
-    ([Avena_cocida_con_canela_y_pasas] of Plato_Desayuno
-         (compuesto-por-ingrediente  [Avena] [Pasa])
-         (Tipo-dieta  "Vegetariana")
-         (Calorias  325)
-         (Carbohidratos  47.5)
-         (Grasas  12.5)
-         (Proteinas  12.5)
-    )
-
-    ([Batido_de_150ml_leche_un_platano_y_un_puñado_de_nueces] of Plato_Desayuno
-         (compuesto-por-ingrediente  [Leche] [Nuez] [Platano])
-         (Tipo-dieta  "Vegetariana")
-         (Calorias  248)
-         (Carbohidratos  38.1)
-         (Grasas  9.18)
-         (Proteinas  8.1)
-    )
-
-    ([Berenjena] of Verdura
-    )
-
-    ([Berenjenas_rellenas_de_carne] of Plato_principal
-         (compuesto-por-ingrediente  [Berenjena] [Carne_roja])
-         (Tipo-dieta  "Mediterrànea")
-         (Calorias  170)
-         (Carbohidratos  18)
-         (Grasas  6)
-         (Proteinas  11)
-    )
-
-    ([Burrito_de_frijoles_negros] of Plato_principal
-         (compuesto-por-ingrediente  [Frijoles] [Pan])
-         (Calorias  425)
-         (Carbohidratos  65)
-         (Grasas  12.5)
-         (Proteinas  17.5)
-    )
-
-    ([Cafe] of Fruta
-    )
-
     ([Calamares_fritos_con_aros_de_cebolla.] of Plato_principal
+         (compuesto-por-ingrediente  [Cebolla] [Marisco])
+         (tiene-forma-cocinar  [Frito])
          (Calorias  500)
          (Carbohidratos  45)
          (Grasas  18)
          (Proteinas  25)
+         (Tipo-dieta  "Pescado")
     )
 
     ([Camarones_tempura_con_salsa_agridulce.] of Plato_principal
+         (compuesto-por-ingrediente  [Pescado_blanco])
+         (tiene-forma-cocinar  [Frito])
          (Calorias  187)
          (Carbohidratos  13.46)
          (Grasas  3.6)
          (Proteinas  23.49)
-    )
-
-    ([Carne_roja] of Comida_Proteica
+         (Tipo-dieta  "Pescado")
     )
 
     ([Churros_con_azúcar_y_chocolate_caliente.] of Plato_Desayuno
+         (compuesto-por-ingrediente  [Aceite_de_oliva] [Chocolate] [Churros])
+         (tiene-forma-cocinar  [Frito])
          (Calorias  425)
          (Carbohidratos  65)
          (Grasas  17.5)
          (Proteinas  7.5)
+         (Tipo-dieta  "Vegetariana")
     )
 
     ([Cien_gramos_de_patatas_bravas_con_salsa_picante_y_alioli.] of Plato_principal
+         (compuesto-por-ingrediente  [Huevo] [Patata])
          (Calorias  187)
          (Carbohidratos  17)
          (Grasas  12)
@@ -318,255 +284,81 @@
     )
 
     ([Compota_de_manzana_casera_sin_azúcar.] of Postre
+         (compuesto-por-ingrediente  [Manzana])
          (Calorias  64)
          (Carbohidratos  15)
          (Grasas  0.5)
          (Proteinas  0.5)
-    )
-
-    ([Cono_de_helado_de_yogur_bajo_en_grasa] of Postre
-         (Calorias  142)
-         (Carbohidratos  7)
-         (Grasas  5.1)
-         (Proteinas  2.9)
+         (Tipo-dieta  "Vegetariana")
     )
 
     ([Copa_de_yogur_con_compota_de_frutas_sin_azúcar.] of Postre
+         (compuesto-por-ingrediente  [Fresa] [Yogur])
          (Calorias  292)
          (Carbohidratos  59.5)
          (Grasas  1.6)
          (Proteinas  5.6)
-    )
-
-    ([Cuatro_Buñuelos] of Plato_Desayuno
-         (Calorias  225)
-         (Carbohidratos  27.5)
-         (Grasas  12.5)
-         (Proteinas  7.5)
+         (Tipo-dieta  "Mediterranea" "Vegetariana")
     )
 
     ([Cuatro_Rollitos_de_primavera_rellenos_de_verduras_y_pollo.] of Plato_principal
+         (compuesto-por-ingrediente  [Carne_blanca] [Pimiento] [Zanahoria])
+         (tiene-forma-cocinar  [Frito])
          (Calorias  253.2)
          (Carbohidratos  29.76)
          (Grasas  11.36)
          (Proteinas  8)
     )
 
-    ([Dos_fajitas_de_pollo_y_verduras] of Plato_principal
-         (Calorias  704)
-         (Carbohidratos  83.04)
-         (Grasas  24.22)
-         (Proteinas  39.34)
-    )
-
-    ([Dos_gelatinas_sin_azúcar] of Plato_Desayuno
-         (Calorias  18)
-         (Carbohidratos  4.4)
-         (Grasas  0)
-         (Proteinas  0)
-    )
-
     ([Doscientos_gramos_de_croquetas_de_jamón_o_pollo.] of Plato_principal
+         (compuesto-por-ingrediente  [Carne_blanca] [Embutido] [Trigo])
+         (tiene-forma-cocinar  [Frito])
          (Calorias  378)
          (Carbohidratos  35.2)
          (Grasas  18.6)
          (Proteinas  16.8)
-    )
-
-    ([Embutido] of Comida_Proteica
+         (Tipo-dieta  "Mediterranea")
     )
 
     ([Empanadas_rellenas_de_carne_o_queso.] of Plato_principal
+         (compuesto-por-ingrediente  [Carne_roja] [Queso] [Trigo])
          (Calorias  263)
          (Carbohidratos  20.22)
          (Grasas  17.25)
          (Proteinas  6.65)
     )
 
-    ([Ensalada_Caprese] of Plato_principal
-         (Calorias  284)
-         (Carbohidratos  5.62)
-         (Grasas  21.91)
-         (Proteinas  16.8)
-    )
-
-    ([Ensalada_de_garbanzos] of Plato_principal
-         (Calorias  382)
-         (Carbohidratos  29.61)
-         (Grasas  26.5)
-         (Proteinas  8.68)
-    )
-
-    ([Ensalada_de_lechuga_tomate_y_pollo] of Plato_principal
-         (Calorias  275)
-         (Carbohidratos  12.5)
-         (Grasas  12.5)
-         (Proteinas  27.5)
-    )
-
-    ([Ensalada_de_lentejas_mediterranea] of Plato_principal
-         (Calorias  273)
-         (Carbohidratos  25.2)
-         (Grasas  10.5)
-         (Proteinas  13.8)
-    )
-
-    ([Ensalada_de_quinoa_con_brocoli] of Plato_principal
-         (Calorias  339)
-         (Carbohidratos  48)
-         (Grasas  10.8)
-         (Proteinas  11.1)
-    )
-
-    ([Ensalada_de_tomate_aceitunas_y_queso_feta] of Plato_principal
-         (Calorias  225)
-         (Carbohidratos  12.5)
-         (Grasas  17.5)
-         (Proteinas  7.5)
-    )
-
-    ([Flan_de_huevo] of Postre
-         (Calorias  204)
-         (Carbohidratos  27.68)
-         (Grasas  8.34)
-         (Proteinas  5.4)
-    )
-
-    ([Frijoles] of Verdura
-    )
-
-    ([Frito] of Forma_Cocinar
-    )
-
-    ([Hamburgesa_de_pollo] of Plato_principal
-         (Calorias  142)
-         (Carbohidratos  0)
-         (Grasas  7.35)
-         (Proteinas  18)
-    )
-
-    ([Horno] of Forma_Cocinar
-    )
-
-    ([Huevo] of Comida_Proteica
-    )
-
-    ([Leche] of Lacteo
-    )
-
-    ([Macedonia_de_mango_fresa_melocoton_y_melón] of Postre
-         (Calorias  108)
-         (Carbohidratos  25)
-         (Grasas  1.63)
-         (Proteinas  1.27)
-    )
-
-    ([Manzana_asada] of Postre
-         (Calorias  162)
-         (Carbohidratos  42.4)
-         (Grasas  0.27)
-         (Proteinas  0.63)
-    )
-
     ([Natillas_de_vainilla_sin_azúcar.] of Postre
+         (compuesto-por-ingrediente  [Huevo] [Vainilla])
          (Calorias  139)
          (Carbohidratos  22.3)
          (Grasas  3.6)
          (Proteinas  4.4)
-    )
-
-    ([Nuez] of Comida_Proteica
+         (Tipo-dieta  "Vegetariana")
     )
 
     ([Paella_de_mariscos_y_pescado.] of Plato_principal
+         (compuesto-por-ingrediente  [Arroz] [Marisco] [Pescado_blanco])
          (Calorias  379)
          (Carbohidratos  40.3)
          (Grasas  13.06)
          (Proteinas  22.85)
-    )
-
-    ([Pan] of Cereal
-    )
-
-    ([Parilla] of Forma_Cocinar
-    )
-
-    ([Pasa] of Fruta
-    )
-
-    ([Pasta_de_tomate] of Plato_principal
-         (Calorias  215)
-         (Carbohidratos  49.54)
-         (Grasas  1.23)
-         (Proteinas  11.32)
-    )
-
-    ([Pasta_integral_con_salsa_de_tomate] of Plato_principal
-         (Calorias  275)
-         (Carbohidratos  47.5)
-         (Grasas  7.5)
-         (Proteinas  12.5)
-    )
-
-    ([Pechuga_de_pollo_a_la_parrilla] of Plato_principal
-         (Calorias  275)
-         (Carbohidratos  12.5)
-         (Grasas  12.5)
-         (Proteinas  32.5)
+         (Tipo-dieta  "Mediterranea" "Pescado")
     )
 
     ([Peras_al_horno_con_canela.] of Postre
+         (compuesto-por-ingrediente  [Pera])
+         (tiene-forma-cocinar  [Horno])
          (Calorias  96)
          (Carbohidratos  25.66)
          (Grasas  0.2)
          (Proteinas  0.63)
-    )
-
-    ([Pescado_a_la_plancha] of Plato_principal
-         (Calorias  325)
-         (Carbohidratos  32.5)
-         (Grasas  12.5)
-         (Proteinas  22.5)
-    )
-
-    ([Pescado_al_horno] of Plato_principal
-         (Calorias  142)
-         (Carbohidratos  0.37)
-         (Grasas  3.89)
-         (Proteinas  24.79)
-    )
-
-    ([Pescado_azul] of Comida_Proteica
-    )
-
-    ([Pizza_4_quesos] of Plato_principal
-         (Calorias  840)
-         (Carbohidratos  90)
-         (Grasas  34.5)
-         (Proteinas  42)
-    )
-
-    ([Plancha] of Forma_Cocinar
-    )
-
-    ([Platano] of Fruta
-    )
-
-    ([Pollo_al_curry] of Plato_principal
-         (Calorias  293)
-         (Carbohidratos  11.19)
-         (Grasas  15.74)
-         (Proteinas  27.07)
-    )
-
-    ([Pollo_al_horno_con_patatas] of Plato_principal
-         (Calorias  325)
-         (Carbohidratos  22.5)
-         (Grasas  12.5)
-         (Proteinas  32.5)
+         (Tipo-dieta  "Vegetariana")
     )
 
     ([Pollo_frito_crujiente_con_patatas_fritas.] of Plato_principal
+         (compuesto-por-ingrediente  [Carne_blanca] [Patata])
+         (tiene-forma-cocinar  [Frito])
          (Calorias  500)
          (Carbohidratos  3)
          (Grasas  10)
@@ -574,114 +366,82 @@
     )
 
     ([Salmón_a_la_parrilla_con_espárragos_y_quinoa.] of Plato_principal
+         (compuesto-por-ingrediente  [Esparragos] [Pescado_azul] [Quinoa])
+         (tiene-forma-cocinar  [Parrilla])
          (Calorias  243)
          (Carbohidratos  0.7)
          (Grasas  10.74)
          (Proteinas  34.04)
+         (Tipo-dieta  "Pescado")
     )
 
     ([Sopa_de_verduras_con_fideos_integrales.] of Plato_principal
+         (compuesto-por-ingrediente  [Fideos] [Zanahoria])
          (Calorias  175)
          (Carbohidratos  27)
          (Grasas  3)
          (Proteinas  7)
-    )
-
-    ([Sándwich_de_atún_con_pan_integral] of Plato_principal
-         (Calorias  325)
-         (Carbohidratos  37.5)
-         (Grasas  12.5)
-         (Proteinas  17.5)
-    )
-
-    ([Tacos_de_carne] of Plato_principal
-         (Calorias  345)
-         (Carbohidratos  25.34)
-         (Grasas  19.79)
-         (Proteinas  17.02)
+         (Tipo-dieta  "Vegetariana")
     )
 
     ([Tacos_de_pescado_con_salsa_de_yogur.] of Plato_principal
+         (compuesto-por-ingrediente  [Pescado_blanco] [Yogur])
          (Calorias  325)
          (Carbohidratos  27.5)
          (Grasas  12.5)
          (Proteinas  22.5)
-    )
-
-    ([Tarta_de_queso] of Postre
-         (Calorias  257)
-         (Carbohidratos  20.4)
-         (Grasas  18)
-         (Proteinas  4.4)
+         (Tipo-dieta  "Mediterranea" "Pescado")
     )
 
     ([Tempura_de_judias_zanahorias_y_patatas.] of Plato_principal
+         (compuesto-por-ingrediente  [Judias] [Patata] [Zanahoria])
+         (tiene-forma-cocinar  [Frito])
          (Calorias  101)
          (Carbohidratos  8.68)
          (Grasas  6.36)
          (Proteinas  2.66)
-    )
-
-    ([Tortilla_de_calabacín] of Plato_principal
-         (Calorias  225)
-         (Carbohidratos  12.5)
-         (Grasas  12.5)
-         (Proteinas  12.5)
-    )
-
-    ([Tortilla_de_espinacas] of Plato_principal
-         (Calorias  246)
-         (Carbohidratos  10.61)
-         (Grasas  16.55)
-         (Proteinas  14.63)
+         (Tipo-dieta  "Vegetariana")
     )
 
     ([Tortilla_de_jamón_y_queso.] of Plato_Desayuno
+         (compuesto-por-ingrediente  [Huevo] [Queso])
          (Calorias  225)
          (Carbohidratos  7.5)
          (Grasas  12.5)
          (Proteinas  17.5)
-    )
-
-    ([Tostada] of Cereal
+         (Tipo-dieta  "Mediterranea")
     )
 
     ([Tostada_con_queso_fresco_y_rodajas_de_tomate.] of Plato_Desayuno
+         (compuesto-por-ingrediente  [Queso] [Tomate] [Tostada])
          (Calorias  225)
          (Carbohidratos  27.5)
          (Grasas  7.5)
          (Proteinas  12.5)
-    )
-
-    ([Wrap_de_pavo_con_espinacas_y_mostaza] of Plato_principal
-         (Calorias  275)
-         (Carbohidratos  27.5)
-         (Grasas  10)
-         (Proteinas  17.5)
+         (Tipo-dieta  "Mediterranea" "Vegetariana")
     )
 
     ([Yogur_con_fresas.] of Plato_Desayuno
+         (compuesto-por-ingrediente  [Fresa] [Yogur])
          (Calorias  145)
          (Carbohidratos  25.8)
          (Grasas  3.2)
          (Proteinas  3.4)
-    )
-
-    ([Zanahoria] of Verdura
+         (Tipo-dieta  "Mediterranea" "Vegetariana")
     )
 
     ([1_tostada_con_1/4_aguacate_y_1_huevo_pochado] of Plato_Desayuno
          (compuesto-por-ingrediente  [Aguacate] [Huevo] [Tostada])
-         (Tipo-dieta  "Mediterrànea" "Vegetariana")
          (Calorias  359)
          (Carbohidratos  24.4)
          (Grasas  19.3)
          (Proteinas  20.6)
+         (Tipo-dieta  "Mediterranea" "Vegetariana")
     )
 
     ([Bistec_a_la_parrilla] of Plato_principal
          (compuesto-por-ingrediente  [Carne_roja])
-         (tiene-forma-cocinar  [Parilla])
+         (tiene-forma-cocinar  [Parrilla])
          (Calorias  276)
          (Carbohidratos  0)
          (Grasas  19.27)
@@ -698,11 +458,11 @@
 
     ([Bocadillo_de_atún] of Plato_Desayuno
          (compuesto-por-ingrediente  [Pan] [Pescado_azul])
-         (Tipo-dieta  "Pescado")
          (Calorias  325)
          (Carbohidratos  32.5)
          (Grasas  12.5)
          (Proteinas  17.5)
+         (Tipo-dieta  "Pescado")
     )
 
     ([Bocadillo_de_salchicon] of Plato_Desayuno
@@ -722,59 +482,531 @@
     )
 
     ([Crema_de_vainilla_con_pera_en_puré] of Postre
+         (compuesto-por-ingrediente  [Pera] [Vainilla])
          (Calorias  100)
          (Carbohidratos  0)
          (Grasas  0.7)
          (Proteinas  20)
+         (Tipo-dieta  "Vegetariana")
     )
 
     ([Dos_Tostadas_con_mantequilla] of Plato_Desayuno
+         (compuesto-por-ingrediente  [Mantequilla] [Tostada])
          (Calorias  179)
          (Carbohidratos  15)
          (Grasas  11)
          (Proteinas  5)
+         (Tipo-dieta  "Vegetariana")
     )
 
     ([Fideuá] of Plato_principal
+         (compuesto-por-ingrediente  [Fideos] [Marisco])
          (Calorias  387)
          (Carbohidratos  42.3)
          (Grasas  19)
          (Proteinas  16)
+         (Tipo-dieta  "Mediterranea" "Pescado")
     )
 
     ([Filete_de_lubina_a_la_plancha_con_salsa_de_limón] of Plato_principal
+         (compuesto-por-ingrediente  [Pescado_azul])
+         (tiene-forma-cocinar  [Plancha])
          (Calorias  148)
          (Carbohidratos  4.7)
          (Grasas  5.7)
          (Proteinas  19.5)
+         (Tipo-dieta  "Pescado")
     )
 
     ([Panqueque_de_avena] of Plato_Desayuno
+         (compuesto-por-ingrediente  [Avena])
          (Calorias  175)
          (Carbohidratos  22.5)
          (Grasas  7.5)
          (Proteinas  7.5)
+         (Tipo-dieta  "Vegetariana")
     )
 
     ([Sopa_de_pescado] of Plato_principal
+         (compuesto-por-ingrediente  [Marisco] [Pescado_blanco])
          (Calorias  76)
          (Carbohidratos  1)
          (Grasas  3.2)
          (Proteinas  10.7)
+         (Tipo-dieta  "Pescado")
     )
 
     ([Tres_Huevos_revueltos] of Plato_Desayuno
+         (compuesto-por-ingrediente  [Huevo])
          (Calorias  320)
          (Carbohidratos  1.34)
          (Grasas  7.45)
          (Proteinas  6.76)
+         (Tipo-dieta  "Mediterranea" "Vegetariana")
     )
 
     ([Yogur_natural_con_miel_y_nueces_picadas] of Postre
+         (compuesto-por-ingrediente  [Miel] [Nuez] [Yogur])
          (Calorias  150)
          (Carbohidratos  16)
          (Grasas  7)
          (Proteinas  11.92)
+         (Tipo-dieta  "Mediterranea" "Vegetariana")
+    )
+
+    ([Aceite_de_oliva] of Aceite
+    )
+
+    ([Aceituna] of Verdura
+    )
+
+    ([Aguacate] of Fruta
+    )
+
+    ([Arroz] of Cereal
+    )
+
+    ([Asado] of Forma_Cocinar
+    )
+
+    ([Avena] of Cereal
+    )
+
+    ([Avena_cocida_con_canela_y_pasas] of Plato_Desayuno
+         (compuesto-por-ingrediente  [Avena] [Pasa])
+         (Calorias  325)
+         (Carbohidratos  47.5)
+         (Grasas  12.5)
+         (Proteinas  12.5)
+         (Tipo-dieta  "Vegetariana")
+    )
+
+    ([Azucar] of Dulces
+    )
+
+    ([Batido_de_150ml_leche_un_platano_y_un_puñado_de_nueces] of Plato_Desayuno
+         (compuesto-por-ingrediente  [Leche] [Nuez] [Platano])
+         (Calorias  248)
+         (Carbohidratos  38.1)
+         (Grasas  9.18)
+         (Proteinas  8.1)
+         (Tipo-dieta  "Vegetariana")
+    )
+
+    ([Berenjena] of Verdura
+    )
+
+    ([Berenjenas_rellenas_de_carne] of Plato_principal
+         (compuesto-por-ingrediente  [Berenjena] [Carne_roja])
+         (Calorias  170)
+         (Carbohidratos  18)
+         (Grasas  6)
+         (Proteinas  11)
+         (Tipo-dieta  "Mediterranea")
+    )
+
+    ([Brocoli] of Verdura
+    )
+
+    ([Burrito_de_frijoles_negros] of Plato_principal
+         (compuesto-por-ingrediente  [Frijoles] [Pan])
+         (Calorias  425)
+         (Carbohidratos  65)
+         (Grasas  12.5)
+         (Proteinas  17.5)
+    )
+
+    ([Cafe] of Fruta
+    )
+
+    ([Calabacin] of Verdura
+    )
+
+    ([Carne_blanca] of Comida_Proteica
+    )
+
+    ([Carne_roja] of Comida_Proteica
+    )
+
+    ([Cebolla] of Verdura
+    )
+
+    ([Chocolate] of Dulces
+    )
+
+    ([Churros] of Dulces
+    )
+
+    ([Cono_de_helado_de_yogur_bajo_en_grasa] of Postre
+         (compuesto-por-ingrediente  [Trigo] [Yogur])
+         (Calorias  142)
+         (Carbohidratos  7)
+         (Grasas  5.1)
+         (Proteinas  2.9)
+         (Tipo-dieta  "Mediterranea" "Vegetariana")
+    )
+
+    ([Cuatro_Buñuelos] of Plato_Desayuno
+         (compuesto-por-ingrediente  [Azucar] [Huevo] [Trigo])
+         (tiene-forma-cocinar  [Frito])
+         (Calorias  225)
+         (Carbohidratos  27.5)
+         (Grasas  12.5)
+         (Proteinas  7.5)
+         (Tipo-dieta  "Vegetariana")
+    )
+
+    ([Dos_fajitas_de_pollo_y_verduras] of Plato_principal
+         (compuesto-por-ingrediente  [Carne_blanca] [Pimiento] [Zanahoria])
+         (Calorias  704)
+         (Carbohidratos  83.04)
+         (Grasas  24.22)
+         (Proteinas  39.34)
+    )
+
+    ([Dos_gelatinas_sin_azúcar] of Plato_Desayuno
+         (compuesto-por-ingrediente  [Gelatina])
+         (Calorias  18)
+         (Carbohidratos  4.4)
+         (Grasas  0)
+         (Proteinas  0)
+    )
+
+    ([Embutido] of Comida_Proteica
+    )
+
+    ([Ensalada_Caprese] of Plato_principal
+         (compuesto-por-ingrediente  [Queso] [Tomate])
+         (Calorias  284)
+         (Carbohidratos  5.62)
+         (Grasas  21.91)
+         (Proteinas  16.8)
+         (Tipo-dieta  "Mediterranea" "Vegetariana")
+    )
+
+    ([Ensalada_de_garbanzos] of Plato_principal
+         (compuesto-por-ingrediente  [Legumbres])
+         (Calorias  382)
+         (Carbohidratos  29.61)
+         (Grasas  26.5)
+         (Proteinas  8.68)
+         (Tipo-dieta  "Mediterranea" "Vegetariana")
+    )
+
+    ([Ensalada_de_lechuga_tomate_y_pollo] of Plato_principal
+         (compuesto-por-ingrediente  [Carne_blanca] [Lechuga] [Tomate])
+         (tiene-forma-cocinar  [Parrilla])
+         (Calorias  275)
+         (Carbohidratos  12.5)
+         (Grasas  12.5)
+         (Proteinas  27.5)
+         (Tipo-dieta  "Mediterranea" "Vegetariana")
+    )
+
+    ([Ensalada_de_lentejas_mediterranea] of Plato_principal
+         (compuesto-por-ingrediente  [Legumbres])
+         (Calorias  273)
+         (Carbohidratos  25.2)
+         (Grasas  10.5)
+         (Proteinas  13.8)
+         (Tipo-dieta  "Mediterranea" "Vegetariana")
+    )
+
+    ([Ensalada_de_quinoa_con_brocoli] of Plato_principal
+         (compuesto-por-ingrediente  [Brocoli] [Quinoa])
+         (Calorias  339)
+         (Carbohidratos  48)
+         (Grasas  10.8)
+         (Proteinas  11.1)
+         (Tipo-dieta  "Vegetariana")
+    )
+
+    ([Ensalada_de_tomate_aceitunas_y_queso_feta] of Plato_principal
+         (compuesto-por-ingrediente  [Aceituna] [Queso] [Tomate])
+         (Calorias  225)
+         (Carbohidratos  12.5)
+         (Grasas  17.5)
+         (Proteinas  7.5)
+         (Tipo-dieta  "Mediterranea" "Vegetariana")
+    )
+
+    ([Esparragos] of Verdura
+    )
+
+    ([Espinacas] of Verdura
+    )
+
+    ([Fideos] of Cereal
+    )
+
+    ([Flan_de_huevo] of Postre
+         (compuesto-por-ingrediente  [Azucar] [Huevo])
+         (Calorias  204)
+         (Carbohidratos  27.68)
+         (Grasas  8.34)
+         (Proteinas  5.4)
+         (Tipo-dieta  "Mediterranea" "Vegetariana")
+    )
+
+    ([Fresa] of Fruta
+    )
+
+    ([Frijoles] of Verdura
+    )
+
+    ([Frito] of Forma_Cocinar
+    )
+
+    ([Gelatina] of Comida_Proteica
+    )
+
+    ([Hamburgesa_de_pollo] of Plato_principal
+         (compuesto-por-ingrediente  [Carne_blanca])
+         (Calorias  142)
+         (Carbohidratos  0)
+         (Grasas  7.35)
+         (Proteinas  18)
+    )
+
+    ([Horno] of Forma_Cocinar
+    )
+
+    ([Huevo] of Comida_Proteica
+    )
+
+    ([Judias] of Verdura
+    )
+
+    ([Leche] of Lacteo
+    )
+
+    ([Lechuga] of Verdura
+    )
+
+    ([Legumbres] of Verdura
+    )
+
+    ([Macedonia_de_mango_fresa_melocoton_y_melón] of Postre
+         (compuesto-por-ingrediente  [Fresa] [Melocoton] [Melon])
+         (Calorias  108)
+         (Carbohidratos  25)
+         (Grasas  1.63)
+         (Proteinas  1.27)
+         (Tipo-dieta  "Mediterranea" "Vegetariana")
+    )
+
+    ([Mantequilla] of Lacteo
+    )
+
+    ([Manzana] of Fruta
+    )
+
+    ([Manzana_asada] of Postre
+         (compuesto-por-ingrediente  [Manzana])
+         (tiene-forma-cocinar  [Asado])
+         (Calorias  162)
+         (Carbohidratos  42.4)
+         (Grasas  0.27)
+         (Proteinas  0.63)
+         (Tipo-dieta  "Vegetariana")
+    )
+
+    ([Marisco] of Comida_Proteica
+    )
+
+    ([Melocoton] of Fruta
+    )
+
+    ([Melon] of Fruta
+    )
+
+    ([Miel] of Dulces
+    )
+
+    ([Nuez] of Comida_Proteica
+    )
+
+    ([Pan] of Cereal
+    )
+
+    ([Parrilla] of Forma_Cocinar
+    )
+
+    ([Pasa] of Fruta
+    )
+
+    ([Pasta] of Cereal
+    )
+
+    ([Pasta_con_tomate] of Plato_principal
+         (compuesto-por-ingrediente  [Pasta] [Tomate])
+         (Calorias  215)
+         (Carbohidratos  49.54)
+         (Grasas  1.23)
+         (Proteinas  11.32)
+         (Tipo-dieta  "Mediterranea" "Vegetariana")
+    )
+
+    ([Pasta_integral_con_salsa_de_tomate] of Plato_principal
+         (compuesto-por-ingrediente  [Pasta] [Tomate])
+         (Calorias  275)
+         (Carbohidratos  47.5)
+         (Grasas  7.5)
+         (Proteinas  12.5)
+         (Tipo-dieta  "Mediterranea" "Vegetariana")
+    )
+
+    ([Patata] of Verdura
+    )
+
+    ([Pechuga_de_pollo_a_la_parrilla] of Plato_principal
+         (compuesto-por-ingrediente  [Carne_blanca])
+         (tiene-forma-cocinar  [Parrilla])
+         (Calorias  275)
+         (Carbohidratos  12.5)
+         (Grasas  12.5)
+         (Proteinas  32.5)
+         (Tipo-dieta  "Mediterranea")
+    )
+
+    ([Pera] of Fruta
+    )
+
+    ([Pescado_a_la_plancha] of Plato_principal
+         (compuesto-por-ingrediente  [Pescado_azul])
+         (Calorias  325)
+         (Carbohidratos  32.5)
+         (Grasas  12.5)
+         (Proteinas  22.5)
+         (Tipo-dieta  "Pescado")
+    )
+
+    ([Pescado_al_horno] of Plato_principal
+         (compuesto-por-ingrediente  [Pescado_azul])
+         (Calorias  142)
+         (Carbohidratos  0.37)
+         (Grasas  3.89)
+         (Proteinas  24.79)
+         (Tipo-dieta  "Pescado")
+    )
+
+    ([Pescado_azul] of Comida_Proteica
+    )
+
+    ([Pescado_blanco] of Comida_Proteica
+    )
+
+    ([Pimiento] of Verdura
+    )
+
+    ([Pizza_4_quesos] of Plato_principal
+         (compuesto-por-ingrediente  [Queso] [Tomate] [Trigo])
+         (Calorias  840)
+         (Carbohidratos  90)
+         (Grasas  34.5)
+         (Proteinas  42)
+         (Tipo-dieta  "Mediterranea" "Vegetariana")
+    )
+
+    ([Plancha] of Forma_Cocinar
+    )
+
+    ([Platano] of Fruta
+    )
+
+    ([Pollo_al_curry] of Plato_principal
+         (compuesto-por-ingrediente  [Carne_blanca])
+         (Calorias  293)
+         (Carbohidratos  11.19)
+         (Grasas  15.74)
+         (Proteinas  27.07)
+    )
+
+    ([Pollo_al_horno_con_patatas] of Plato_principal
+         (compuesto-por-ingrediente  [Carne_blanca] [Patata])
+         (tiene-forma-cocinar  [Horno])
+         (Calorias  325)
+         (Carbohidratos  22.5)
+         (Grasas  12.5)
+         (Proteinas  32.5)
+         (Tipo-dieta  "Mediterranea")
+    )
+
+    ([Queso] of Lacteo
+    )
+
+    ([Quinoa] of Verdura
+    )
+
+    ([Sándwich_de_atún_con_pan_integral] of Plato_principal
+         (compuesto-por-ingrediente  [Pan] [Pescado_azul])
+         (Calorias  325)
+         (Carbohidratos  37.5)
+         (Grasas  12.5)
+         (Proteinas  17.5)
+         (Tipo-dieta  "Pescado")
+    )
+
+    ([Tacos_de_carne] of Plato_principal
+         (compuesto-por-ingrediente  [Carne_roja])
+         (Calorias  345)
+         (Carbohidratos  25.34)
+         (Grasas  19.79)
+         (Proteinas  17.02)
+    )
+
+    ([Tarta_de_queso] of Postre
+         (compuesto-por-ingrediente  [Azucar] [Queso])
+         (Calorias  257)
+         (Carbohidratos  20.4)
+         (Grasas  18)
+         (Proteinas  4.4)
+         (Tipo-dieta  "Vegetariana")
+    )
+
+    ([Tomate] of Verdura
+    )
+
+    ([Tortilla_de_calabacín] of Plato_principal
+         (compuesto-por-ingrediente  [Calabacin] [Huevo])
+         (Calorias  225)
+         (Carbohidratos  12.5)
+         (Grasas  12.5)
+         (Proteinas  12.5)
+         (Tipo-dieta  "Mediterranea" "Vegetariana")
+    )
+
+    ([Tortilla_de_espinacas] of Plato_principal
+         (compuesto-por-ingrediente  [Espinacas] [Huevo])
+         (Calorias  246)
+         (Carbohidratos  10.61)
+         (Grasas  16.55)
+         (Proteinas  14.63)
+         (Tipo-dieta  "Mediterranea" "Vegetariana")
+    )
+
+    ([Tostada] of Cereal
+    )
+
+    ([Trigo] of Cereal
+    )
+
+    ([Vainilla] of Verdura
+    )
+
+    ([Wrap_de_pavo_con_espinacas_y_mostaza] of Plato_principal
+         (compuesto-por-ingrediente  [Carne_blanca] [Espinacas])
+         (Calorias  275)
+         (Carbohidratos  27.5)
+         (Grasas  10)
+         (Proteinas  17.5)
+         (Tipo-dieta  "Vegetariana")
+    )
+
+    ([Yogur] of Lacteo
+    )
+
+    ([Zanahoria] of Verdura
     )
 
 )
