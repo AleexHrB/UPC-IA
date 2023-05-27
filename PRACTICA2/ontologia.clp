@@ -2,19 +2,7 @@
 ;;; ontologia.clp
 ;;; Translated by owl2clips
 ;;; Translated to CLIPS from ontology Ontologia.ttl
-;;; :Date 26/05/2023 00:04:22
-
-(defclass Limtacion
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass Restriccion
-    (is-a Limtacion)
-    (role concrete)
-    (pattern-match reactive)
-)
+;;; :Date 27/05/2023 09:27:16
 
 (defclass Plato
     (is-a USER)
@@ -64,20 +52,14 @@
     (pattern-match reactive)
 )
 
-(defclass Composicion
+(defclass Limtacion
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass Macronutrientes
-    (is-a Composicion)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass Micronutrientes
-    (is-a Composicion)
+(defclass Restriccion
+    (is-a Limtacion)
     (role concrete)
     (pattern-match reactive)
 )
@@ -129,6 +111,24 @@
 
 (defclass Dulces
     (is-a Ingrediente)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Composicion
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Macronutrientes
+    (is-a Composicion)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Micronutrientes
+    (is-a Composicion)
     (role concrete)
     (pattern-match reactive)
 )
@@ -558,12 +558,15 @@
     )
 
     ([Aceituna] of Verdura
+         (tiene-composicion  [Calcio] [Hierro])
     )
 
     ([Aguacate] of Fruta
+         (tiene-composicion  [Potasio])
     )
 
     ([Arroz] of Cereal
+         (tiene-composicion  [Potasio])
     )
 
     ([Asado] of Forma_Cocinar
@@ -594,6 +597,7 @@
     )
 
     ([Berenjena] of Verdura
+         (tiene-composicion  [Potasio])
     )
 
     ([Berenjenas_rellenas_de_carne] of Plato_principal
@@ -606,6 +610,7 @@
     )
 
     ([Brocoli] of Verdura
+         (tiene-composicion  [Calcio])
     )
 
     ([Burrito_de_frijoles_negros] of Plato_principal
@@ -620,21 +625,30 @@
     )
 
     ([Calabacin] of Verdura
+         (tiene-composicion  [Potasio])
+    )
+
+    ([Calcio] of Micronutrientes
     )
 
     ([Carne_blanca] of Comida_Proteica
+         (tiene-composicion  [Potasio])
     )
 
     ([Carne_roja] of Comida_Proteica
+         (tiene-composicion  [Hierro] [Potasio])
     )
 
     ([Cebolla] of Verdura
+         (tiene-composicion  [Calcio] [Potasio])
     )
 
     ([Chocolate] of Dulces
+         (tiene-composicion  [Calcio] [Hierro])
     )
 
     ([Churros] of Dulces
+         (tiene-composicion  [Calcio] [Potasio])
     )
 
     ([Cono_de_helado_de_yogur_bajo_en_grasa] of Postre
@@ -673,6 +687,7 @@
     )
 
     ([Embutido] of Comida_Proteica
+         (tiene-composicion  [Hierro])
     )
 
     ([Ensalada_Caprese] of Plato_principal
@@ -731,12 +746,15 @@
     )
 
     ([Esparragos] of Verdura
+         (tiene-composicion  [Potasio])
     )
 
     ([Espinacas] of Verdura
+         (tiene-composicion  [Hierro] [Potasio])
     )
 
     ([Fideos] of Cereal
+         (tiene-composicion  [Calcio] [Potasio])
     )
 
     ([Flan_de_huevo] of Postre
@@ -749,9 +767,11 @@
     )
 
     ([Fresa] of Fruta
+         (tiene-composicion  [Calcio] [Potasio])
     )
 
     ([Frijoles] of Verdura
+         (tiene-composicion  [Hierro] [Potasio])
     )
 
     ([Frito] of Forma_Cocinar
@@ -768,6 +788,9 @@
          (Proteinas  18)
     )
 
+    ([Hierro] of Micronutrientes
+    )
+
     ([Horno] of Forma_Cocinar
     )
 
@@ -775,15 +798,18 @@
     )
 
     ([Judias] of Verdura
+         (tiene-composicion  [Potasio])
     )
 
     ([Leche] of Lacteo
+         (tiene-composicion  [Calcio] [Potasio])
     )
 
     ([Lechuga] of Verdura
     )
 
-    ([Legumbres] of Verdura
+    ([Legumbres] of Comida_Proteica
+         (tiene-composicion  [Calcio] [Hierro] [Potasio])
     )
 
     ([Macedonia_de_mango_fresa_melocoton_y_melón] of Postre
@@ -796,9 +822,11 @@
     )
 
     ([Mantequilla] of Lacteo
+         (tiene-composicion  [Mantequilla])
     )
 
     ([Manzana] of Fruta
+         (tiene-composicion  [Potasio])
     )
 
     ([Manzana_asada] of Postre
@@ -812,30 +840,37 @@
     )
 
     ([Marisco] of Comida_Proteica
+         (tiene-composicion  [Hierro])
     )
 
     ([Melocoton] of Fruta
+         (tiene-composicion  [Potasio])
     )
 
     ([Melon] of Fruta
+         (tiene-composicion  [Potasio])
     )
 
     ([Miel] of Dulces
     )
 
     ([Nuez] of Comida_Proteica
+         (tiene-composicion  [Calcio] [Potasio])
     )
 
     ([Pan] of Cereal
+         (tiene-composicion  [Calcio] [Potasio])
     )
 
     ([Parrilla] of Forma_Cocinar
     )
 
     ([Pasa] of Fruta
+         (tiene-composicion  [Potasio])
     )
 
     ([Pasta] of Cereal
+         (tiene-composicion  [Calcio] [Potasio])
     )
 
     ([Pasta_con_tomate] of Plato_principal
@@ -857,6 +892,7 @@
     )
 
     ([Patata] of Verdura
+         (tiene-composicion  [Calcio] [Hierro] [Potasio])
     )
 
     ([Pechuga_de_pollo_a_la_parrilla] of Plato_principal
@@ -897,6 +933,7 @@
     )
 
     ([Pimiento] of Verdura
+         (tiene-composicion  [Potasio])
     )
 
     ([Pizza_4_quesos] of Plato_principal
@@ -912,6 +949,7 @@
     )
 
     ([Platano] of Fruta
+         (tiene-composicion  [Potasio])
     )
 
     ([Pollo_al_curry] of Plato_principal
@@ -932,10 +970,15 @@
          (Tipo-dieta  "Mediterranea")
     )
 
+    ([Potasio] of Micronutrientes
+    )
+
     ([Queso] of Lacteo
+         (tiene-composicion  [Calcio])
     )
 
     ([Quinoa] of Verdura
+         (tiene-composicion  [Calcio] [Hierro])
     )
 
     ([Sándwich_de_atún_con_pan_integral] of Plato_principal
@@ -965,6 +1008,7 @@
     )
 
     ([Tomate] of Verdura
+         (tiene-composicion  [Potasio])
     )
 
     ([Tortilla_de_calabacín] of Plato_principal
@@ -986,9 +1030,11 @@
     )
 
     ([Tostada] of Cereal
+         (tiene-composicion  [Calcio])
     )
 
     ([Trigo] of Cereal
+         (tiene-composicion  [Calcio] [Potasio])
     )
 
     ([Vainilla] of Verdura
@@ -1004,9 +1050,11 @@
     )
 
     ([Yogur] of Lacteo
+         (tiene-composicion  [Calcio] [Potasio])
     )
 
     ([Zanahoria] of Verdura
+         (tiene-composicion  [Calcio] [Potasio])
     )
 
 )
