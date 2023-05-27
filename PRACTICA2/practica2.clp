@@ -225,7 +225,7 @@
     (multislot vive-durante
         (type INSTANCE)
         (create-accessor read-write))
-    (multislot tiene-preferencia
+    (slot tiene-preferencia
         (type INSTANCE)
         (create-accessor read-write))
     ;;; Tiene rango {0,1,2}
@@ -1164,6 +1164,7 @@
     ;Sobre preferencias y restricciones
     (bind ?preferencia (selecciona_una_opcion "Si tiene alguna preferencia introduzcala, en caso contrario eliga 'No': " No Vegana Vegetariana Mediterranea Proteica Pescado Carne))
 
+    (printout t ?preferencia crlf)
     (bind $?enfermedades (obtener_tipo_enfermedad Hipertension Diabetes Osteoporosis Alergia_Nueces))
 
 
@@ -1271,6 +1272,11 @@
     (slot cantidad (type INTEGER) (default 0))
 )
 
+(deftemplate sintesis::factibles
+    (slot nombre (type STRING))
+    (multislot platos_factibles)
+)
+
 (defrule sintesis::start
     (declare (salience 30))
     =>
@@ -1278,6 +1284,27 @@
     (assert (recomendacion (nombre "Hidratos de Carbono")) )
     (assert (recomendacion (nombre "Grasas")) )
     (assert (recomendacion (nombre "Proteinas")) )
+)
+
+(defrule sintesis::platos_factibles
+    (declare (salience 20))
+    ?Usr <- (object (is-a Usuario))
+    =>
+    (bind ?Pref (send ?Usr get-tiene-preferencia))
+
+    (bind ?desayun (find-all-instances ((?plat Plato_Desayuno)) (or (eq ?plat:Tipo-dieta ?Pref) (eq ?Pref "No"))))
+    (bind ?comida (find-all-instances ((?plat Plato_principal)) (or (eq ?plat:Tipo-dieta ?Pref) (eq ?Pref "No"))))
+    (bind ?postre (find-all-instances ((?plat Postre)) (or (eq ?plat:Tipo-dieta ?Pref) (eq ?Pref "No"))))
+
+    (assert (factibles (nombre "Desayuno") (platos_factibles ?desayun)))
+    (assert (factibles (nombre "Comidas") (platos_factibles ?comida)))
+    (assert (factibles (nombre "Postres") (platos_factibles ?postre)))
+
+    (printout t "PLATOS FACTIBLES" crlf)
+    (printout t ?Pref crlf)
+    (printout t ?desayun crlf)
+    (printout t ?comida crlf)
+    (printout t ?postre crlf)
 )
 
 (defrule sintesis::tratar_edad_sexo
@@ -1326,6 +1353,7 @@
     (modify ?Grasa (cantidad (*  (/ ?cant 5.5) 0.3)))
     (modify ?Proteina (cantidad (*  (/ ?cant 5.5) 0.15)))
 )
+
 
 (deffunction sintesis::random_menu (?factibles_desayun ?factibles_plato ?factibles_postre ?i) 
     (bind ?r (random 1 (length$ ?factibles_desayun)))
@@ -1510,10 +1538,6 @@
 
   (return ?Grasa)
 )
-
-
-
-
 
 (deffunction sintesis::random_diet (?Cal ?CH ?Proteina ?Grasa ?Tol)
 	(bind ?menu_list (create$))
@@ -1719,6 +1743,8 @@
 	(bind ?dieta (make-instance (gensym) of Dieta (compuesto-por-menu ?menu_list)))
 	(return ?dieta)
 )
+
+
 
 (defrule sintesis::crear_dieta
     	(declare (salience 5))
