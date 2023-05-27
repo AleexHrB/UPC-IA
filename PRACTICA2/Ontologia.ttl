@@ -1,0 +1,1554 @@
+@prefix : <urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#> .
+
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por> rdf:type owl:ObjectProperty ;
+                                                                                      rdfs:subPropertyOf owl:topObjectProperty ;
+                                                                                      rdf:type owl:AsymmetricProperty .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-comidas
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-comidas> rdf:type owl:ObjectProperty ;
+                                                                                              rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por> ;
+                                                                                              rdf:type owl:AsymmetricProperty .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> rdf:type owl:ObjectProperty ;
+                                                                                                  rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por> ;
+                                                                                                  rdf:type owl:AsymmetricProperty ;
+                                                                                                  rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato> ;
+                                                                                                  rdfs:range <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Ingrediente> .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-menu
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-menu> rdf:type owl:ObjectProperty ;
+                                                                                           rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por> ;
+                                                                                           rdf:type owl:AsymmetricProperty ;
+                                                                                           rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Dieta> ;
+                                                                                           rdfs:range <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Menu_diario> .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-plato
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-plato> rdf:type owl:ObjectProperty ;
+                                                                                            rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por> ;
+                                                                                            rdf:type owl:AsymmetricProperty ;
+                                                                                            rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Almuerzo> ,
+                                                                                                        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Cena> ;
+                                                                                            rdfs:range <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/pertenece-a-preferencia
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/pertenece-a-preferencia> rdf:type owl:ObjectProperty ;
+                                                                                                rdfs:subPropertyOf owl:topObjectProperty ;
+                                                                                                rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato> ;
+                                                                                                rdfs:range <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Limtacion> .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene> rdf:type owl:ObjectProperty ;
+                                                                              rdfs:subPropertyOf owl:topObjectProperty ;
+                                                                              rdf:type owl:AsymmetricProperty .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> rdf:type owl:ObjectProperty ;
+                                                                                          rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene> ;
+                                                                                          rdf:type owl:AsymmetricProperty ;
+                                                                                          rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Ingrediente> ;
+                                                                                          rdfs:range <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Composicion> .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-dieta
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-dieta> rdf:type owl:ObjectProperty ;
+                                                                                    rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene> ;
+                                                                                    rdf:type owl:AsymmetricProperty ;
+                                                                                    rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Usuario> ;
+                                                                                    rdfs:range <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Dieta> .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-forma-cocinar
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-forma-cocinar> rdf:type owl:ObjectProperty ;
+                                                                                            rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene> ;
+                                                                                            rdf:type owl:AsymmetricProperty ;
+                                                                                            rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato> ;
+                                                                                            rdfs:range <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Forma_Cocinar> .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-limitacion
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-limitacion> rdf:type owl:ObjectProperty ;
+                                                                                         rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene> ;
+                                                                                         rdf:type owl:AsymmetricProperty ;
+                                                                                         rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Usuario> ;
+                                                                                         rdfs:range <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Limtacion> .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/vive-durante
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/vive-durante> rdf:type owl:ObjectProperty ;
+                                                                                     rdfs:subPropertyOf owl:topObjectProperty ;
+                                                                                     rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Usuario> ;
+                                                                                     rdfs:range <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Temporada> .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#compuesto-almuerzo
+:compuesto-almuerzo rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-comidas> ;
+                    rdf:type owl:FunctionalProperty ,
+                             owl:AsymmetricProperty ;
+                    rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Menu_diario> ;
+                    rdfs:range <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Almuerzo> .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#compuesto-cena
+:compuesto-cena rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-comidas> ;
+                rdf:type owl:FunctionalProperty ,
+                         owl:AsymmetricProperty ;
+                rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Menu_diario> ;
+                rdfs:range <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Cena> .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#compuesto-desayuno
+:compuesto-desayuno rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-comidas> ;
+                    rdf:type owl:FunctionalProperty ,
+                             owl:AsymmetricProperty ;
+                    rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Menu_diario> ;
+                    rdfs:range <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Desayuno> .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#compuesto-por-desayuno
+:compuesto-por-desayuno rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por> ;
+                        rdf:type owl:AsymmetricProperty ;
+                        rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Desayuno> ;
+                        rdfs:range <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_Desayuno> .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#compuesto-por-postre
+:compuesto-por-postre rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por> ;
+                      rdf:type owl:AsymmetricProperty ;
+                      rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Almuerzo> ,
+                                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Cena> ;
+                      rdfs:range <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Postre> .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#tiene-preferencia
+:tiene-preferencia rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene> ;
+                   rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Usuario> ;
+                   rdfs:range <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Preferencia> .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Actividad
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Actividad> rdf:type owl:DatatypeProperty ;
+                                                                                  rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Usuario> ;
+                                                                                  rdf:type owl:FunctionalProperty ;
+                                                                                  rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Usuario> ;
+                                                                                  rdfs:range xsd:integer ;
+                                                                                  rdfs:comment "Tiene rango {0,1,2}" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> rdf:type owl:DatatypeProperty ;
+                                                                                 rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato> ;
+                                                                                 rdf:type owl:FunctionalProperty ;
+                                                                                 rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato> ;
+                                                                                 rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> rdf:type owl:DatatypeProperty ;
+                                                                                      rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato> ;
+                                                                                      rdf:type owl:FunctionalProperty ;
+                                                                                      rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato> ;
+                                                                                      rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Dia_semana
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Dia_semana> rdf:type owl:DatatypeProperty ;
+                                                                                   rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Menu> ;
+                                                                                   rdf:type owl:FunctionalProperty ;
+                                                                                   rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Menu_diario> ;
+                                                                                   rdfs:range xsd:string ;
+                                                                                   rdfs:comment "String perteneciente a {Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo}" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Edad
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Edad> rdf:type owl:DatatypeProperty ;
+                                                                             rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Usuario> ;
+                                                                             rdf:type owl:FunctionalProperty ;
+                                                                             rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Usuario> ;
+                                                                             rdfs:range xsd:unsignedInt .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Enfermedad
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Enfermedad> rdf:type owl:DatatypeProperty ;
+                                                                                   rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Usuario> ;
+                                                                                   rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Usuario> ;
+                                                                                   rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> rdf:type owl:DatatypeProperty ;
+                                                                               rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato> ;
+                                                                               rdf:type owl:FunctionalProperty ;
+                                                                               rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato> ;
+                                                                               rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Menu
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Menu> rdf:type owl:DatatypeProperty ;
+                                                                             rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato> rdf:type owl:DatatypeProperty ;
+                                                                              rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> rdf:type owl:DatatypeProperty ;
+                                                                                  rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato> ;
+                                                                                  rdf:type owl:FunctionalProperty ;
+                                                                                  rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato> ;
+                                                                                  rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Sexo
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Sexo> rdf:type owl:DatatypeProperty ;
+                                                                             rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Usuario> ;
+                                                                             rdf:type owl:FunctionalProperty ;
+                                                                             rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Usuario> ;
+                                                                             rdfs:range xsd:boolean ;
+                                                                             rdfs:comment "0 hombre, 1 mujer" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Usuario
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Usuario> rdf:type owl:DatatypeProperty ;
+                                                                                rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Tipo-dieta
+:Tipo-dieta rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato> ;
+            rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato> ;
+            rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Aceite
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Aceite> rdf:type owl:Class ;
+                                                                               rdfs:subClassOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Ingrediente> .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Almuerzo
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Almuerzo> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Cena
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Cena> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Cereal
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Cereal> rdf:type owl:Class ;
+                                                                               rdfs:subClassOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Ingrediente> .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Comida_Proteica
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Comida_Proteica> rdf:type owl:Class ;
+                                                                                        rdfs:subClassOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Ingrediente> .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Composicion
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Composicion> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Desayuno
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Desayuno> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Dieta
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Dieta> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Forma_Cocinar
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Forma_Cocinar> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Fruta
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Fruta> rdf:type owl:Class ;
+                                                                              rdfs:subClassOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Ingrediente> .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Ingrediente
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Ingrediente> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Lacteo
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Lacteo> rdf:type owl:Class ;
+                                                                               rdfs:subClassOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Ingrediente> .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Limtacion
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Limtacion> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Macronutrientes
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Macronutrientes> rdf:type owl:Class ;
+                                                                                        rdfs:subClassOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Composicion> .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Menu_diario
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Menu_diario> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Micronutrientes
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Micronutrientes> rdf:type owl:Class ;
+                                                                                        rdfs:subClassOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Composicion> .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_Desayuno
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_Desayuno> rdf:type owl:Class ;
+                                                                                       rdfs:subClassOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato> .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> rdf:type owl:Class ;
+                                                                                        rdfs:subClassOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato> .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Postre
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Postre> rdf:type owl:Class ;
+                                                                               rdfs:subClassOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato> .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Preferencia
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Preferencia> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Restriccion
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Restriccion> rdf:type owl:Class ;
+                                                                                    rdfs:subClassOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Limtacion> .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Temporada
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Temporada> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Usuario
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Usuario> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> rdf:type owl:Class ;
+                                                                                rdfs:subClassOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Ingrediente> .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Dulces
+:Dulces rdf:type owl:Class ;
+        rdfs:subClassOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Ingrediente> .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Calamares_fritos_con_aros_de_cebolla.
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Calamares_fritos_con_aros_de_cebolla.> rdf:type owl:NamedIndividual ,
+                                                                                                                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                                                                                                              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Cebolla ,
+                                                                                                                                                                                                                :Marisco ;
+                                                                                                              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-forma-cocinar> :Frito ;
+                                                                                                              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 500 ;
+                                                                                                              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 45 ;
+                                                                                                              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 18 ;
+                                                                                                              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 25 ;
+                                                                                                              :Tipo-dieta "Pescado" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Camarones_tempura_con_salsa_agridulce.
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Camarones_tempura_con_salsa_agridulce.> rdf:type owl:NamedIndividual ,
+                                                                                                                        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                                                                                                               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Pescado_blanco ;
+                                                                                                               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-forma-cocinar> :Frito ;
+                                                                                                               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 187 ;
+                                                                                                               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 13.46 ;
+                                                                                                               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 3.6 ;
+                                                                                                               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 23.49 ;
+                                                                                                               :Tipo-dieta "Pescado" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Churros_con_azúcar_y_chocolate_caliente.
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Churros_con_azúcar_y_chocolate_caliente.> rdf:type owl:NamedIndividual ,
+                                                                                                                          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_Desayuno> ;
+                                                                                                                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Aceite_de_oliva ,
+                                                                                                                                                                                                                   :Chocolate ,
+                                                                                                                                                                                                                   :Churros ;
+                                                                                                                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-forma-cocinar> :Frito ;
+                                                                                                                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 425 ;
+                                                                                                                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 65 ;
+                                                                                                                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 17.5 ;
+                                                                                                                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 7.5 ;
+                                                                                                                 :Tipo-dieta "Vegetariana" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Cien_gramos_de_patatas_bravas_con_salsa_picante_y_alioli.
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Cien_gramos_de_patatas_bravas_con_salsa_picante_y_alioli.> rdf:type owl:NamedIndividual ,
+                                                                                                                                           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                                                                                                                                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Huevo ,
+                                                                                                                                                                                                                                    :Patata ;
+                                                                                                                                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 187 ;
+                                                                                                                                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 17 ;
+                                                                                                                                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 12 ;
+                                                                                                                                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 2.1 .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Compota_de_manzana_casera_sin_azúcar.
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Compota_de_manzana_casera_sin_azúcar.> rdf:type owl:NamedIndividual ,
+                                                                                                                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Postre> ;
+                                                                                                              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Manzana ;
+                                                                                                              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 64 ;
+                                                                                                              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 15 ;
+                                                                                                              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 0.5 ;
+                                                                                                              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 0.5 ;
+                                                                                                              :Tipo-dieta "Vegetariana" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Copa_de_yogur_con_compota_de_frutas_sin_azúcar.
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Copa_de_yogur_con_compota_de_frutas_sin_azúcar.> rdf:type owl:NamedIndividual ,
+                                                                                                                                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Postre> ;
+                                                                                                                        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Fresa ,
+                                                                                                                                                                                                                          :Yogur ;
+                                                                                                                        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 292 ;
+                                                                                                                        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 59.5 ;
+                                                                                                                        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 1.6 ;
+                                                                                                                        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 5.6 ;
+                                                                                                                        :Tipo-dieta "Mediterranea" ,
+                                                                                                                                    "Vegetariana" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Cuatro_Rollitos_de_primavera_rellenos_de_verduras_y_pollo.
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Cuatro_Rollitos_de_primavera_rellenos_de_verduras_y_pollo.> rdf:type owl:NamedIndividual ,
+                                                                                                                                            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                                                                                                                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Carne_blanca ,
+                                                                                                                                                                                                                                     :Pimiento ,
+                                                                                                                                                                                                                                     :Zanahoria ;
+                                                                                                                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-forma-cocinar> :Frito ;
+                                                                                                                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 253.2 ;
+                                                                                                                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 29.76 ;
+                                                                                                                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 11.36 ;
+                                                                                                                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 8 .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Doscientos_gramos_de_croquetas_de_jamón_o_pollo.
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Doscientos_gramos_de_croquetas_de_jamón_o_pollo.> rdf:type owl:NamedIndividual ,
+                                                                                                                                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                                                                                                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Carne_blanca ,
+                                                                                                                                                                                                                           :Embutido ,
+                                                                                                                                                                                                                           :Trigo ;
+                                                                                                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-forma-cocinar> :Frito ;
+                                                                                                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 378 ;
+                                                                                                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 35.2 ;
+                                                                                                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 18.6 ;
+                                                                                                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 16.8 ;
+                                                                                                                         :Tipo-dieta "Mediterranea" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Empanadas_rellenas_de_carne_o_queso.
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Empanadas_rellenas_de_carne_o_queso.> rdf:type owl:NamedIndividual ,
+                                                                                                                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                                                                                                             <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Carne_roja ,
+                                                                                                                                                                                                               :Queso ,
+                                                                                                                                                                                                               :Trigo ;
+                                                                                                             <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 263 ;
+                                                                                                             <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 20.22 ;
+                                                                                                             <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 17.25 ;
+                                                                                                             <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 6.65 .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Natillas_de_vainilla_sin_azúcar.
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Natillas_de_vainilla_sin_azúcar.> rdf:type owl:NamedIndividual ,
+                                                                                                                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Postre> ;
+                                                                                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Huevo ,
+                                                                                                                                                                                                           :Vainilla ;
+                                                                                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 139 ;
+                                                                                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 22.3 ;
+                                                                                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 3.6 ;
+                                                                                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 4.4 ;
+                                                                                                         :Tipo-dieta "Vegetariana" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Paella_de_mariscos_y_pescado.
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Paella_de_mariscos_y_pescado.> rdf:type owl:NamedIndividual ,
+                                                                                                               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                                                                                                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Arroz ,
+                                                                                                                                                                                                        :Marisco ,
+                                                                                                                                                                                                        :Pescado_blanco ;
+                                                                                                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 379 ;
+                                                                                                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 40.3 ;
+                                                                                                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 13.06 ;
+                                                                                                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 22.85 ;
+                                                                                                      :Tipo-dieta "Mediterranea" ,
+                                                                                                                  "Pescado" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Peras_al_horno_con_canela.
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Peras_al_horno_con_canela.> rdf:type owl:NamedIndividual ,
+                                                                                                            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Postre> ;
+                                                                                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Pera ;
+                                                                                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-forma-cocinar> :Horno ;
+                                                                                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 96 ;
+                                                                                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 25.66 ;
+                                                                                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 0.2 ;
+                                                                                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 0.63 ;
+                                                                                                   :Tipo-dieta "Vegetariana" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Pollo_frito_crujiente_con_patatas_fritas.
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Pollo_frito_crujiente_con_patatas_fritas.> rdf:type owl:NamedIndividual ,
+                                                                                                                           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                                                                                                                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Carne_blanca ,
+                                                                                                                                                                                                                    :Patata ;
+                                                                                                                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-forma-cocinar> :Frito ;
+                                                                                                                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 500 ;
+                                                                                                                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 3 ;
+                                                                                                                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 10 ;
+                                                                                                                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 47 .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Salmón_a_la_parrilla_con_espárragos_y_quinoa.
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Salmón_a_la_parrilla_con_espárragos_y_quinoa.> rdf:type owl:NamedIndividual ,
+                                                                                                                               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                                                                                                                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Esparragos ,
+                                                                                                                                                                                                                        :Pescado_azul ,
+                                                                                                                                                                                                                        :Quinoa ;
+                                                                                                                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-forma-cocinar> :Parrilla ;
+                                                                                                                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 243 ;
+                                                                                                                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 0.7 ;
+                                                                                                                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 10.74 ;
+                                                                                                                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 34.04 ;
+                                                                                                                      :Tipo-dieta "Pescado" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Sopa_de_verduras_con_fideos_integrales.
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Sopa_de_verduras_con_fideos_integrales.> rdf:type owl:NamedIndividual ,
+                                                                                                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                                                                                                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Fideos ,
+                                                                                                                                                                                                                  :Zanahoria ;
+                                                                                                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 175 ;
+                                                                                                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 27 ;
+                                                                                                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 3 ;
+                                                                                                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 7 ;
+                                                                                                                :Tipo-dieta "Vegetariana" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Tacos_de_pescado_con_salsa_de_yogur.
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Tacos_de_pescado_con_salsa_de_yogur.> rdf:type owl:NamedIndividual ,
+                                                                                                                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                                                                                                             <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Pescado_blanco ,
+                                                                                                                                                                                                               :Yogur ;
+                                                                                                             <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 325 ;
+                                                                                                             <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 27.5 ;
+                                                                                                             <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 12.5 ;
+                                                                                                             <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 22.5 ;
+                                                                                                             :Tipo-dieta "Mediterranea" ,
+                                                                                                                         "Pescado" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Tempura_de_judias_zanahorias_y_patatas.
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Tempura_de_judias_zanahorias_y_patatas.> rdf:type owl:NamedIndividual ,
+                                                                                                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                                                                                                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Judias ,
+                                                                                                                                                                                                                  :Patata ,
+                                                                                                                                                                                                                  :Zanahoria ;
+                                                                                                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-forma-cocinar> :Frito ;
+                                                                                                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 101 ;
+                                                                                                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 8.68 ;
+                                                                                                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 6.36 ;
+                                                                                                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 2.66 ;
+                                                                                                                :Tipo-dieta "Vegetariana" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Tortilla_de_jamón_y_queso.
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Tortilla_de_jamón_y_queso.> rdf:type owl:NamedIndividual ,
+                                                                                                            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_Desayuno> ;
+                                                                                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Huevo ,
+                                                                                                                                                                                                     :Queso ;
+                                                                                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 225 ;
+                                                                                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 7.5 ;
+                                                                                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 12.5 ;
+                                                                                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 17.5 ;
+                                                                                                   :Tipo-dieta "Mediterranea" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Tostada_con_queso_fresco_y_rodajas_de_tomate.
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Tostada_con_queso_fresco_y_rodajas_de_tomate.> rdf:type owl:NamedIndividual ,
+                                                                                                                               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_Desayuno> ;
+                                                                                                                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Queso ,
+                                                                                                                                                                                                                        :Tomate ,
+                                                                                                                                                                                                                        :Tostada ;
+                                                                                                                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 225 ;
+                                                                                                                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 27.5 ;
+                                                                                                                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 7.5 ;
+                                                                                                                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 12.5 ;
+                                                                                                                      :Tipo-dieta "Mediterranea" ,
+                                                                                                                                  "Vegetariana" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Yogur_con_fresas.
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#Yogur_con_fresas.> rdf:type owl:NamedIndividual ,
+                                                                                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_Desayuno> ;
+                                                                                          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Fresa ,
+                                                                                                                                                                                            :Yogur ;
+                                                                                          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 145 ;
+                                                                                          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 25.8 ;
+                                                                                          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 3.2 ;
+                                                                                          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 3.4 ;
+                                                                                          :Tipo-dieta "Mediterranea" ,
+                                                                                                      "Vegetariana" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#1_tostada_con_1/4_aguacate_y_1_huevo_pochado
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#1_tostada_con_1/4_aguacate_y_1_huevo_pochado> rdf:type owl:NamedIndividual ,
+                                                                                                                              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_Desayuno> ;
+                                                                                                                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Aguacate ,
+                                                                                                                                                                                                                       :Huevo ,
+                                                                                                                                                                                                                       :Tostada ;
+                                                                                                                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 359 ;
+                                                                                                                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 24.4 ;
+                                                                                                                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 19.3 ;
+                                                                                                                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 20.6 ;
+                                                                                                                     :Tipo-dieta "Mediterranea" ,
+                                                                                                                                 "Vegetariana" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Bistec_a_la_parrilla
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Bistec_a_la_parrilla> rdf:type owl:NamedIndividual ,
+                                                                                                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                                                                                             <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Carne_roja ;
+                                                                                             <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-forma-cocinar> :Parrilla ;
+                                                                                             <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 276 ;
+                                                                                             <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 0 ;
+                                                                                             <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 19.27 ;
+                                                                                             <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 24 .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Bizcocho_de_zanahoria_sin_azúcar
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Bizcocho_de_zanahoria_sin_azúcar> rdf:type owl:NamedIndividual ,
+                                                                                                                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Postre> ;
+                                                                                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Huevo ,
+                                                                                                                                                                                                           :Zanahoria ;
+                                                                                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 384 ;
+                                                                                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 49.40 ;
+                                                                                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 13.6 ;
+                                                                                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 5.26 .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Bocadillo_de_atún
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Bocadillo_de_atún> rdf:type owl:NamedIndividual ,
+                                                                                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_Desayuno> ;
+                                                                                          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Pan ,
+                                                                                                                                                                                            :Pescado_azul ;
+                                                                                          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 325 ;
+                                                                                          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 32.5 ;
+                                                                                          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 12.5 ;
+                                                                                          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 17.5 ;
+                                                                                          :Tipo-dieta "Pescado" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Bocadillo_de_salchicon
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Bocadillo_de_salchicon> rdf:type owl:NamedIndividual ,
+                                                                                                        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_Desayuno> ;
+                                                                                               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Embutido ,
+                                                                                                                                                                                                 :Pan ;
+                                                                                               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 325 ;
+                                                                                               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 32.5 ;
+                                                                                               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 17.5 ;
+                                                                                               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 12.5 .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Cafe_con_leche
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Cafe_con_leche> rdf:type owl:NamedIndividual ,
+                                                                                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Postre> ;
+                                                                                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Cafe ,
+                                                                                                                                                                                         :Leche ;
+                                                                                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 75 ;
+                                                                                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 7.5 ;
+                                                                                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 3 ;
+                                                                                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 3 .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Crema_de_vainilla_con_pera_en_puré
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Crema_de_vainilla_con_pera_en_puré> rdf:type owl:NamedIndividual ,
+                                                                                                                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Postre> ;
+                                                                                                           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Pera ,
+                                                                                                                                                                                                             :Vainilla ;
+                                                                                                           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 100 ;
+                                                                                                           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 0 ;
+                                                                                                           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 0.7 ;
+                                                                                                           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 20 ;
+                                                                                                           :Tipo-dieta "Vegetariana" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Dos_Tostadas_con_mantequilla
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Dos_Tostadas_con_mantequilla> rdf:type owl:NamedIndividual ,
+                                                                                                              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_Desayuno> ;
+                                                                                                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Mantequilla ,
+                                                                                                                                                                                                       :Tostada ;
+                                                                                                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 179 ;
+                                                                                                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 15 ;
+                                                                                                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 11 ;
+                                                                                                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 5 ;
+                                                                                                     :Tipo-dieta "Vegetariana" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Fideuá
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Fideuá> rdf:type owl:NamedIndividual ,
+                                                                                        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                                                                               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Fideos ,
+                                                                                                                                                                                 :Marisco ;
+                                                                               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 387 ;
+                                                                               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 42.3 ;
+                                                                               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 19 ;
+                                                                               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 16 ;
+                                                                               :Tipo-dieta "Mediterranea" ,
+                                                                                           "Pescado" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Filete_de_lubina_a_la_plancha_con_salsa_de_limón
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Filete_de_lubina_a_la_plancha_con_salsa_de_limón> rdf:type owl:NamedIndividual ,
+                                                                                                                                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                                                                                                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Pescado_azul ;
+                                                                                                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-forma-cocinar> :Plancha ;
+                                                                                                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 148 ;
+                                                                                                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 4.7 ;
+                                                                                                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 5.7 ;
+                                                                                                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 19.5 ;
+                                                                                                                         :Tipo-dieta "Pescado" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Panqueque_de_avena
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Panqueque_de_avena> rdf:type owl:NamedIndividual ,
+                                                                                                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_Desayuno> ;
+                                                                                           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Avena ;
+                                                                                           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 175 ;
+                                                                                           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 22.5 ;
+                                                                                           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 7.5 ;
+                                                                                           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 7.5 ;
+                                                                                           :Tipo-dieta "Vegetariana" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Sopa_de_pescado
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Sopa_de_pescado> rdf:type owl:NamedIndividual ,
+                                                                                                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                                                                                        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Marisco ,
+                                                                                                                                                                                          :Pescado_blanco ;
+                                                                                        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 76 ;
+                                                                                        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 1 ;
+                                                                                        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 3.2 ;
+                                                                                        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 10.7 ;
+                                                                                        :Tipo-dieta "Pescado" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Tres_Huevos_revueltos
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Tres_Huevos_revueltos> rdf:type owl:NamedIndividual ,
+                                                                                                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_Desayuno> ;
+                                                                                              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Huevo ;
+                                                                                              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 320 ;
+                                                                                              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 1.34 ;
+                                                                                              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 7.45 ;
+                                                                                              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 6.76 ;
+                                                                                              :Tipo-dieta "Mediterranea" ,
+                                                                                                          "Vegetariana" .
+
+
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Yogur_natural_con_miel_y_nueces_picadas
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Yogur_natural_con_miel_y_nueces_picadas> rdf:type owl:NamedIndividual ,
+                                                                                                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Postre> ;
+                                                                                                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Miel ,
+                                                                                                                                                                                                                  :Nuez ,
+                                                                                                                                                                                                                  :Yogur ;
+                                                                                                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 150 ;
+                                                                                                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 16 ;
+                                                                                                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 7 ;
+                                                                                                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 11.92 ;
+                                                                                                                :Tipo-dieta "Mediterranea" ,
+                                                                                                                            "Vegetariana" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Aceite_de_oliva
+:Aceite_de_oliva rdf:type owl:NamedIndividual ,
+                          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Aceite> .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Aceituna
+:Aceituna rdf:type owl:NamedIndividual ,
+                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
+          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
+                                                                                                    :Hierro .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Aguacate
+:Aguacate rdf:type owl:NamedIndividual ,
+                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Fruta> ;
+          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Arroz
+:Arroz rdf:type owl:NamedIndividual ,
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Cereal> ;
+       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Asado
+:Asado rdf:type owl:NamedIndividual ,
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Forma_Cocinar> .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Avena
+:Avena rdf:type owl:NamedIndividual ,
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Cereal> .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Avena_cocida_con_canela_y_pasas
+:Avena_cocida_con_canela_y_pasas rdf:type owl:NamedIndividual ,
+                                          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_Desayuno> ;
+                                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Avena ,
+                                                                                                                                   :Pasa ;
+                                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 325 ;
+                                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 47.5 ;
+                                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 12.5 ;
+                                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 12.5 ;
+                                 :Tipo-dieta "Vegetariana" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Azucar
+:Azucar rdf:type owl:NamedIndividual ,
+                 :Dulces .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Batido_de_150ml_leche_un_platano_y_un_puñado_de_nueces
+:Batido_de_150ml_leche_un_platano_y_un_puñado_de_nueces rdf:type owl:NamedIndividual ,
+                                                                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_Desayuno> ;
+                                                        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Leche ,
+                                                                                                                                                          :Nuez ,
+                                                                                                                                                          :Platano ;
+                                                        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 248 ;
+                                                        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 38.1 ;
+                                                        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 9.18 ;
+                                                        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 8.1 ;
+                                                        :Tipo-dieta "Vegetariana" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Berenjena
+:Berenjena rdf:type owl:NamedIndividual ,
+                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
+           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Berenjenas_rellenas_de_carne
+:Berenjenas_rellenas_de_carne rdf:type owl:NamedIndividual ,
+                                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Berenjena ,
+                                                                                                                                :Carne_roja ;
+                              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 170 ;
+                              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 18 ;
+                              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 6 ;
+                              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 11 ;
+                              :Tipo-dieta "Mediterranea" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Brocoli
+:Brocoli rdf:type owl:NamedIndividual ,
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
+         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Burrito_de_frijoles_negros
+:Burrito_de_frijoles_negros rdf:type owl:NamedIndividual ,
+                                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Frijoles ,
+                                                                                                                              :Pan ;
+                            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 425 ;
+                            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 65 ;
+                            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 12.5 ;
+                            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 17.5 .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Cafe
+:Cafe rdf:type owl:NamedIndividual ,
+               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Fruta> .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Calabacin
+:Calabacin rdf:type owl:NamedIndividual ,
+                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
+           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Calcio
+:Calcio rdf:type owl:NamedIndividual ,
+                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Micronutrientes> ;
+        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
+                                                                                                  :Hierro ,
+                                                                                                  :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Carne_blanca
+:Carne_blanca rdf:type owl:NamedIndividual ,
+                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Comida_Proteica> ;
+              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Carne_roja
+:Carne_roja rdf:type owl:NamedIndividual ,
+                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Comida_Proteica> ;
+            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Hierro ,
+                                                                                                      :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Cebolla
+:Cebolla rdf:type owl:NamedIndividual ,
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
+         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
+                                                                                                   :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Chocolate
+:Chocolate rdf:type owl:NamedIndividual ,
+                    :Dulces ;
+           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
+                                                                                                     :Hierro .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Churros
+:Churros rdf:type owl:NamedIndividual ,
+                  :Dulces ;
+         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
+                                                                                                   :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Cono_de_helado_de_yogur_bajo_en_grasa
+:Cono_de_helado_de_yogur_bajo_en_grasa rdf:type owl:NamedIndividual ,
+                                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Postre> ;
+                                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Trigo ,
+                                                                                                                                         :Yogur ;
+                                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 142 ;
+                                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 7 ;
+                                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 5.1 ;
+                                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 2.9 ;
+                                       :Tipo-dieta "Mediterranea" ,
+                                                   "Vegetariana" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Cuatro_Buñuelos
+:Cuatro_Buñuelos rdf:type owl:NamedIndividual ,
+                          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_Desayuno> ;
+                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Azucar ,
+                                                                                                                   :Huevo ,
+                                                                                                                   :Trigo ;
+                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-forma-cocinar> :Frito ;
+                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 225 ;
+                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 27.5 ;
+                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 12.5 ;
+                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 7.5 ;
+                 :Tipo-dieta "Vegetariana" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Dos_fajitas_de_pollo_y_verduras
+:Dos_fajitas_de_pollo_y_verduras rdf:type owl:NamedIndividual ,
+                                          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Carne_blanca ,
+                                                                                                                                   :Pimiento ,
+                                                                                                                                   :Zanahoria ;
+                                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 704 ;
+                                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 83.04 ;
+                                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 24.22 ;
+                                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 39.34 .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Dos_gelatinas_sin_azúcar
+:Dos_gelatinas_sin_azúcar rdf:type owl:NamedIndividual ,
+                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_Desayuno> ;
+                          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Gelatina ;
+                          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 18 ;
+                          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 4.4 ;
+                          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 0 ;
+                          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 0 .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Embutido
+:Embutido rdf:type owl:NamedIndividual ,
+                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Comida_Proteica> ;
+          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Hierro .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Ensalada_Caprese
+:Ensalada_Caprese rdf:type owl:NamedIndividual ,
+                           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Queso ,
+                                                                                                                    :Tomate ;
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 284 ;
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 5.62 ;
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 21.91 ;
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 16.8 ;
+                  :Tipo-dieta "Mediterranea" ,
+                              "Vegetariana" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Ensalada_de_garbanzos
+:Ensalada_de_garbanzos rdf:type owl:NamedIndividual ,
+                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Legumbres ;
+                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 382 ;
+                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 29.61 ;
+                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 26.5 ;
+                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 8.68 ;
+                       :Tipo-dieta "Mediterranea" ,
+                                   "Vegetariana" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Ensalada_de_lechuga_tomate_y_pollo
+:Ensalada_de_lechuga_tomate_y_pollo rdf:type owl:NamedIndividual ,
+                                             <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Carne_blanca ,
+                                                                                                                                      :Lechuga ,
+                                                                                                                                      :Tomate ;
+                                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-forma-cocinar> :Parrilla ;
+                                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 275 ;
+                                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 12.5 ;
+                                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 12.5 ;
+                                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 27.5 ;
+                                    :Tipo-dieta "Mediterranea" ,
+                                                "Vegetariana" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Ensalada_de_lentejas_mediterranea
+:Ensalada_de_lentejas_mediterranea rdf:type owl:NamedIndividual ,
+                                            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Legumbres ;
+                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 273 ;
+                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 25.2 ;
+                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 10.5 ;
+                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 13.8 ;
+                                   :Tipo-dieta "Mediterranea" ,
+                                               "Vegetariana" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Ensalada_de_quinoa_con_brocoli
+:Ensalada_de_quinoa_con_brocoli rdf:type owl:NamedIndividual ,
+                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Brocoli ,
+                                                                                                                                  :Quinoa ;
+                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 339 ;
+                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 48 ;
+                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 10.8 ;
+                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 11.1 ;
+                                :Tipo-dieta "Vegetariana" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Ensalada_de_tomate_aceitunas_y_queso_feta
+:Ensalada_de_tomate_aceitunas_y_queso_feta rdf:type owl:NamedIndividual ,
+                                                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                                           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Aceituna ,
+                                                                                                                                             :Queso ,
+                                                                                                                                             :Tomate ;
+                                           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 225 ;
+                                           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 12.5 ;
+                                           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 17.5 ;
+                                           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 7.5 ;
+                                           :Tipo-dieta "Mediterranea" ,
+                                                       "Vegetariana" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Esparragos
+:Esparragos rdf:type owl:NamedIndividual ,
+                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
+            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Espinacas
+:Espinacas rdf:type owl:NamedIndividual ,
+                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
+           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Hierro ,
+                                                                                                     :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Fideos
+:Fideos rdf:type owl:NamedIndividual ,
+                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Cereal> ;
+        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
+                                                                                                  :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Flan_de_huevo
+:Flan_de_huevo rdf:type owl:NamedIndividual ,
+                        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Postre> ;
+               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Azucar ,
+                                                                                                                 :Huevo ;
+               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 204 ;
+               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 27.68 ;
+               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 8.34 ;
+               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 5.4 ;
+               :Tipo-dieta "Mediterranea" ,
+                           "Vegetariana" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Fresa
+:Fresa rdf:type owl:NamedIndividual ,
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Fruta> ;
+       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
+                                                                                                 :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Frijoles
+:Frijoles rdf:type owl:NamedIndividual ,
+                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
+          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Hierro ,
+                                                                                                    :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Frito
+:Frito rdf:type owl:NamedIndividual ,
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Forma_Cocinar> .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Gelatina
+:Gelatina rdf:type owl:NamedIndividual ,
+                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Comida_Proteica> .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Hamburgesa_de_pollo
+:Hamburgesa_de_pollo rdf:type owl:NamedIndividual ,
+                              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Carne_blanca ;
+                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 142 ;
+                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 0 ;
+                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 7.35 ;
+                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 18 .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Hierro
+:Hierro rdf:type owl:NamedIndividual ,
+                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Micronutrientes> .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Horno
+:Horno rdf:type owl:NamedIndividual ,
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Forma_Cocinar> .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Huevo
+:Huevo rdf:type owl:NamedIndividual ,
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Comida_Proteica> .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Judias
+:Judias rdf:type owl:NamedIndividual ,
+                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
+        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Leche
+:Leche rdf:type owl:NamedIndividual ,
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Lacteo> ;
+       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
+                                                                                                 :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Lechuga
+:Lechuga rdf:type owl:NamedIndividual ,
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Legumbres
+:Legumbres rdf:type owl:NamedIndividual ,
+                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Comida_Proteica> ;
+           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
+                                                                                                     :Hierro ,
+                                                                                                     :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Macedonia_de_mango_fresa_melocoton_y_melón
+:Macedonia_de_mango_fresa_melocoton_y_melón rdf:type owl:NamedIndividual ,
+                                                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Postre> ;
+                                            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Fresa ,
+                                                                                                                                              :Melocoton ,
+                                                                                                                                              :Melon ;
+                                            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 108 ;
+                                            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 25 ;
+                                            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 1.63 ;
+                                            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 1.27 ;
+                                            :Tipo-dieta "Mediterranea" ,
+                                                        "Vegetariana" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Mantequilla
+:Mantequilla rdf:type owl:NamedIndividual ,
+                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Lacteo> ;
+             <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Mantequilla .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Manzana
+:Manzana rdf:type owl:NamedIndividual ,
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Fruta> ;
+         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Manzana_asada
+:Manzana_asada rdf:type owl:NamedIndividual ,
+                        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Postre> ;
+               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Manzana ;
+               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-forma-cocinar> :Asado ;
+               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 162 ;
+               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 42.4 ;
+               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 0.27 ;
+               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 0.63 ;
+               :Tipo-dieta "Vegetariana" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Marisco
+:Marisco rdf:type owl:NamedIndividual ,
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Comida_Proteica> ;
+         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Hierro .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Melocoton
+:Melocoton rdf:type owl:NamedIndividual ,
+                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Fruta> ;
+           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Melon
+:Melon rdf:type owl:NamedIndividual ,
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Fruta> ;
+       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Miel
+:Miel rdf:type owl:NamedIndividual ,
+               :Dulces .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Nuez
+:Nuez rdf:type owl:NamedIndividual ,
+               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Comida_Proteica> ;
+      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
+                                                                                                :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pan
+:Pan rdf:type owl:NamedIndividual ,
+              <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Cereal> ;
+     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
+                                                                                               :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Parrilla
+:Parrilla rdf:type owl:NamedIndividual ,
+                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Forma_Cocinar> .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pasa
+:Pasa rdf:type owl:NamedIndividual ,
+               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Fruta> ;
+      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pasta
+:Pasta rdf:type owl:NamedIndividual ,
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Cereal> ;
+       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
+                                                                                                 :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pasta_con_tomate
+:Pasta_con_tomate rdf:type owl:NamedIndividual ,
+                           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Pasta ,
+                                                                                                                    :Tomate ;
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 215 ;
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 49.54 ;
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 1.23 ;
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 11.32 ;
+                  :Tipo-dieta "Mediterranea" ,
+                              "Vegetariana" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pasta_integral_con_salsa_de_tomate
+:Pasta_integral_con_salsa_de_tomate rdf:type owl:NamedIndividual ,
+                                             <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Pasta ,
+                                                                                                                                      :Tomate ;
+                                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 275 ;
+                                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 47.5 ;
+                                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 7.5 ;
+                                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 12.5 ;
+                                    :Tipo-dieta "Mediterranea" ,
+                                                "Vegetariana" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Patata
+:Patata rdf:type owl:NamedIndividual ,
+                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
+        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
+                                                                                                  :Hierro ,
+                                                                                                  :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pechuga_de_pollo_a_la_parrilla
+:Pechuga_de_pollo_a_la_parrilla rdf:type owl:NamedIndividual ,
+                                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Carne_blanca ;
+                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-forma-cocinar> :Parrilla ;
+                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 275 ;
+                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 12.5 ;
+                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 12.5 ;
+                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 32.5 ;
+                                :Tipo-dieta "Mediterranea" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pera
+:Pera rdf:type owl:NamedIndividual ,
+               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Fruta> .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pescado_a_la_plancha
+:Pescado_a_la_plancha rdf:type owl:NamedIndividual ,
+                               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Pescado_azul ;
+                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 325 ;
+                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 32.5 ;
+                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 12.5 ;
+                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 22.5 ;
+                      :Tipo-dieta "Pescado" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pescado_al_horno
+:Pescado_al_horno rdf:type owl:NamedIndividual ,
+                           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Pescado_azul ;
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 142 ;
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 0.37 ;
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 3.89 ;
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 24.79 ;
+                  :Tipo-dieta "Pescado" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pescado_azul
+:Pescado_azul rdf:type owl:NamedIndividual ,
+                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Comida_Proteica> .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pescado_blanco
+:Pescado_blanco rdf:type owl:NamedIndividual ,
+                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Comida_Proteica> .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pimiento
+:Pimiento rdf:type owl:NamedIndividual ,
+                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
+          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pizza_4_quesos
+:Pizza_4_quesos rdf:type owl:NamedIndividual ,
+                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Queso ,
+                                                                                                                  :Tomate ,
+                                                                                                                  :Trigo ;
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 840 ;
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 90 ;
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 34.5 ;
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 42 ;
+                :Tipo-dieta "Mediterranea" ,
+                            "Vegetariana" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Plancha
+:Plancha rdf:type owl:NamedIndividual ,
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Forma_Cocinar> .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Platano
+:Platano rdf:type owl:NamedIndividual ,
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Fruta> ;
+         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pollo_al_curry
+:Pollo_al_curry rdf:type owl:NamedIndividual ,
+                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Carne_blanca ;
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 293 ;
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 11.19 ;
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 15.74 ;
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 27.07 .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pollo_al_horno_con_patatas
+:Pollo_al_horno_con_patatas rdf:type owl:NamedIndividual ,
+                                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Carne_blanca ,
+                                                                                                                              :Patata ;
+                            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-forma-cocinar> :Horno ;
+                            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 325 ;
+                            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 22.5 ;
+                            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 12.5 ;
+                            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 32.5 ;
+                            :Tipo-dieta "Mediterranea" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Potasio
+:Potasio rdf:type owl:NamedIndividual ,
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Micronutrientes> .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Queso
+:Queso rdf:type owl:NamedIndividual ,
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Lacteo> ;
+       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Quinoa
+:Quinoa rdf:type owl:NamedIndividual ,
+                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
+        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
+                                                                                                  :Hierro .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Sándwich_de_atún_con_pan_integral
+:Sándwich_de_atún_con_pan_integral rdf:type owl:NamedIndividual ,
+                                            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Pan ,
+                                                                                                                                     :Pescado_azul ;
+                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 325 ;
+                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 37.5 ;
+                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 12.5 ;
+                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 17.5 ;
+                                   :Tipo-dieta "Pescado" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Tacos_de_carne
+:Tacos_de_carne rdf:type owl:NamedIndividual ,
+                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Carne_roja ;
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 345 ;
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 25.34 ;
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 19.79 ;
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 17.02 .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Tarta_de_queso
+:Tarta_de_queso rdf:type owl:NamedIndividual ,
+                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Postre> ;
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Azucar ,
+                                                                                                                  :Queso ;
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 257 ;
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 20.4 ;
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 18 ;
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 4.4 ;
+                :Tipo-dieta "Vegetariana" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Tomate
+:Tomate rdf:type owl:NamedIndividual ,
+                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
+        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Tortilla_de_calabacín
+:Tortilla_de_calabacín rdf:type owl:NamedIndividual ,
+                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Calabacin ,
+                                                                                                                         :Huevo ;
+                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 225 ;
+                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 12.5 ;
+                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 12.5 ;
+                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 12.5 ;
+                       :Tipo-dieta "Mediterranea" ,
+                                   "Vegetariana" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Tortilla_de_espinacas
+:Tortilla_de_espinacas rdf:type owl:NamedIndividual ,
+                                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Espinacas ,
+                                                                                                                         :Huevo ;
+                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 246 ;
+                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 10.61 ;
+                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 16.55 ;
+                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 14.63 ;
+                       :Tipo-dieta "Mediterranea" ,
+                                   "Vegetariana" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Tostada
+:Tostada rdf:type owl:NamedIndividual ,
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Cereal> ;
+         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Trigo
+:Trigo rdf:type owl:NamedIndividual ,
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Cereal> ;
+       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
+                                                                                                 :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Vainilla
+:Vainilla rdf:type owl:NamedIndividual ,
+                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Wrap_de_pavo_con_espinacas_y_mostaza
+:Wrap_de_pavo_con_espinacas_y_mostaza rdf:type owl:NamedIndividual ,
+                                               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> ;
+                                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por-ingrediente> :Carne_blanca ,
+                                                                                                                                        :Espinacas ;
+                                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Calorias> 275 ;
+                                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Carbohidratos> 27.5 ;
+                                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas> 10 ;
+                                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Proteinas> 17.5 ;
+                                      :Tipo-dieta "Vegetariana" .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Yogur
+:Yogur rdf:type owl:NamedIndividual ,
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Lacteo> ;
+       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
+                                                                                                 :Potasio .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Zanahoria
+:Zanahoria rdf:type owl:NamedIndividual ,
+                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
+           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
+                                                                                                     :Potasio .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
