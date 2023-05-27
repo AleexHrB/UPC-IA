@@ -2,52 +2,22 @@
 ;;; ontologia.clp
 ;;; Translated by owl2clips
 ;;; Translated to CLIPS from ontology Ontologia.ttl
-;;; :Date 27/05/2023 09:27:16
+;;; :Date 27/05/2023 12:09:52
 
-(defclass Plato
+(defclass Composicion
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
-    (multislot compuesto-por-ingrediente
-        (type INSTANCE)
-        (create-accessor read-write))
-    (multislot pertenece-a-preferencia
-        (type INSTANCE)
-        (create-accessor read-write))
-    (multislot tiene-forma-cocinar
-        (type INSTANCE)
-        (create-accessor read-write))
-    (slot Calorias
-        (type FLOAT)
-        (create-accessor read-write))
-    (slot Carbohidratos
-        (type FLOAT)
-        (create-accessor read-write))
-    (slot Grasas
-        (type FLOAT)
-        (create-accessor read-write))
-    (slot Proteinas
-        (type FLOAT)
-        (create-accessor read-write))
-    (multislot Tipo-dieta
-        (type STRING)
-        (create-accessor read-write))
 )
 
-(defclass Plato_Desayuno
-    (is-a Plato)
+(defclass Macronutrientes
+    (is-a Composicion)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass Plato_principal
-    (is-a Plato)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass Postre
-    (is-a Plato)
+(defclass Micronutrientes
+    (is-a Composicion)
     (role concrete)
     (pattern-match reactive)
 )
@@ -115,20 +85,50 @@
     (pattern-match reactive)
 )
 
-(defclass Composicion
+(defclass Plato
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
+    (multislot compuesto-por-ingrediente
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot pertenece-a-preferencia
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot tiene-forma-cocinar
+        (type INSTANCE)
+        (create-accessor read-write))
+    (slot Calorias
+        (type FLOAT)
+        (create-accessor read-write))
+    (slot Carbohidratos
+        (type FLOAT)
+        (create-accessor read-write))
+    (slot Grasas
+        (type FLOAT)
+        (create-accessor read-write))
+    (slot Proteinas
+        (type FLOAT)
+        (create-accessor read-write))
+    (multislot Tipo-dieta
+        (type STRING)
+        (create-accessor read-write))
 )
 
-(defclass Macronutrientes
-    (is-a Composicion)
+(defclass Plato_Desayuno
+    (is-a Plato)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass Micronutrientes
-    (is-a Composicion)
+(defclass Plato_principal
+    (is-a Plato)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Postre
+    (is-a Plato)
     (role concrete)
     (pattern-match reactive)
 )
@@ -219,13 +219,13 @@
     (multislot tiene-dieta
         (type INSTANCE)
         (create-accessor read-write))
-    (multislot tiene-limitacion
+    (multislot tiene-restriccion
         (type INSTANCE)
         (create-accessor read-write))
     (multislot vive-durante
         (type INSTANCE)
         (create-accessor read-write))
-    (multislot tiene-preferencia
+    (slot tiene-preferencia
         (type INSTANCE)
         (create-accessor read-write))
     ;;; Tiene rango {0,1,2}
@@ -234,9 +234,6 @@
         (create-accessor read-write))
     (slot Edad
         (type SYMBOL)
-        (create-accessor read-write))
-    (multislot Enfermedad
-        (type STRING)
         (create-accessor read-write))
     ;;; 0 hombre, 1 mujer
     (slot Sexo

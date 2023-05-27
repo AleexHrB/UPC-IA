@@ -86,12 +86,12 @@
                                                                                             rdfs:range <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Forma_Cocinar> .
 
 
-###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-limitacion
-<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-limitacion> rdf:type owl:ObjectProperty ;
-                                                                                         rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene> ;
-                                                                                         rdf:type owl:AsymmetricProperty ;
-                                                                                         rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Usuario> ;
-                                                                                         rdfs:range <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Limtacion> .
+###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-restriccion
+<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-restriccion> rdf:type owl:ObjectProperty ;
+                                                                                          rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene> ;
+                                                                                          rdf:type owl:AsymmetricProperty ;
+                                                                                          rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Usuario> ;
+                                                                                          rdfs:range <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Limtacion> .
 
 
 ###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/vive-durante
@@ -139,7 +139,8 @@
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#compuesto-por-postre
 :compuesto-por-postre rdf:type owl:ObjectProperty ;
                       rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/compuesto-por> ;
-                      rdf:type owl:AsymmetricProperty ;
+                      rdf:type owl:FunctionalProperty ,
+                               owl:AsymmetricProperty ;
                       rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Almuerzo> ,
                                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Cena> ;
                       rdfs:range <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Postre> .
@@ -148,6 +149,8 @@
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#tiene-preferencia
 :tiene-preferencia rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene> ;
+                   rdf:type owl:FunctionalProperty ,
+                            owl:AsymmetricProperty ;
                    rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Usuario> ;
                    rdfs:range <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Preferencia> .
 
@@ -196,13 +199,6 @@
                                                                              rdf:type owl:FunctionalProperty ;
                                                                              rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Usuario> ;
                                                                              rdfs:range xsd:unsignedInt .
-
-
-###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Enfermedad
-<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Enfermedad> rdf:type owl:DatatypeProperty ;
-                                                                                   rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Usuario> ;
-                                                                                   rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Usuario> ;
-                                                                                   rdfs:range xsd:string .
 
 
 ###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Grasas

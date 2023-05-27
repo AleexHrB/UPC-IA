@@ -2,52 +2,22 @@
 ;;; ontologia.clp
 ;;; Translated by owl2clips
 ;;; Translated to CLIPS from ontology Ontologia.ttl
-;;; :Date 27/05/2023 09:27:16
+;;; :Date 27/05/2023 12:09:52
 
-(defclass Plato
+(defclass Composicion
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
-    (multislot compuesto-por-ingrediente
-        (type INSTANCE)
-        (create-accessor read-write))
-    (multislot pertenece-a-preferencia
-        (type INSTANCE)
-        (create-accessor read-write))
-    (multislot tiene-forma-cocinar
-        (type INSTANCE)
-        (create-accessor read-write))
-    (slot Calorias
-        (type FLOAT)
-        (create-accessor read-write))
-    (slot Carbohidratos
-        (type FLOAT)
-        (create-accessor read-write))
-    (slot Grasas
-        (type FLOAT)
-        (create-accessor read-write))
-    (slot Proteinas
-        (type FLOAT)
-        (create-accessor read-write))
-    (multislot Tipo-dieta
-        (type STRING)
-        (create-accessor read-write))
 )
 
-(defclass Plato_Desayuno
-    (is-a Plato)
+(defclass Macronutrientes
+    (is-a Composicion)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass Plato_principal
-    (is-a Plato)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass Postre
-    (is-a Plato)
+(defclass Micronutrientes
+    (is-a Composicion)
     (role concrete)
     (pattern-match reactive)
 )
@@ -115,20 +85,50 @@
     (pattern-match reactive)
 )
 
-(defclass Composicion
+(defclass Plato
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
+    (multislot compuesto-por-ingrediente
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot pertenece-a-preferencia
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot tiene-forma-cocinar
+        (type INSTANCE)
+        (create-accessor read-write))
+    (slot Calorias
+        (type FLOAT)
+        (create-accessor read-write))
+    (slot Carbohidratos
+        (type FLOAT)
+        (create-accessor read-write))
+    (slot Grasas
+        (type FLOAT)
+        (create-accessor read-write))
+    (slot Proteinas
+        (type FLOAT)
+        (create-accessor read-write))
+    (multislot Tipo-dieta
+        (type STRING)
+        (create-accessor read-write))
 )
 
-(defclass Macronutrientes
-    (is-a Composicion)
+(defclass Plato_Desayuno
+    (is-a Plato)
     (role concrete)
     (pattern-match reactive)
 )
 
-(defclass Micronutrientes
-    (is-a Composicion)
+(defclass Plato_principal
+    (is-a Plato)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Postre
+    (is-a Plato)
     (role concrete)
     (pattern-match reactive)
 )
@@ -140,7 +140,7 @@
     (multislot compuesto-por-plato
         (type INSTANCE)
         (create-accessor read-write))
-    (multislot compuesto-por-postre
+    (slot compuesto-por-postre
         (type INSTANCE)
         (create-accessor read-write))
 )
@@ -152,7 +152,7 @@
     (multislot compuesto-por-plato
         (type INSTANCE)
         (create-accessor read-write))
-    (multislot compuesto-por-postre
+    (slot compuesto-por-postre
         (type INSTANCE)
         (create-accessor read-write))
 )
@@ -204,6 +204,10 @@
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
+    (slot nombre
+        (type STRING)
+        (create-accessor read-write)
+    )
 )
 
 (defclass Temporada
@@ -219,7 +223,7 @@
     (multislot tiene-dieta
         (type INSTANCE)
         (create-accessor read-write))
-    (multislot tiene-limitacion
+    (multislot tiene-restriccion
         (type INSTANCE)
         (create-accessor read-write))
     (multislot vive-durante
@@ -234,9 +238,6 @@
         (create-accessor read-write))
     (slot Edad
         (type SYMBOL)
-        (create-accessor read-write))
-    (multislot Enfermedad
-        (type STRING)
         (create-accessor read-write))
     ;;; 0 hombre, 1 mujer
     (slot Sexo
@@ -1046,7 +1047,7 @@
          (Carbohidratos  27.5)
          (Grasas  10)
          (Proteinas  17.5)
-         (Tipo-dieta  "Vegetariana")
+         (Tipo-dieta  "Mediterranea")
     )
 
     ([Yogur] of Lacteo
@@ -1058,6 +1059,7 @@
     )
 
 )
+
 
 
 (defmodule MAIN
@@ -1169,13 +1171,12 @@
 
 
     ;Hay que cambiar los nombres, pero eso cuando esté la ontología puesta
-    (bind ?pref (make-instance ?preferencia of Preferencia))
-    (printout t ?pref crlf)
-    (bind ?enferm ($create))
+    (bind ?pref (make-instance ?preferencia of Preferencia (nombre ?preferencia)))
+    (bind ?restric (create$))
     (loop-for-count (?i 1 (length$ ?enfermedades))
-        (bind ?enferm (insert$ ?enferm (+ (length$ ?enferm) 1) (make-instance (nth$ ?i ?enfermedades) of )(nth$ (random 1 (length$ ?factibles_desayun)) $?factibles_desayun)))
+        (bind ?restric (insert$ ?restric (+ (length$ ?restric) 1) (make-instance (nth$ ?i ?enfermedades) of Restriccion)))
     )
-    (make-instance usuario of Usuario (tiene-enfermedad ?enfermedades) (Sexo ?sexo) (Edad ?edad) (Actividad ?estilo) (tiene-limitacion ?pref) (vive-durante ?temporada)) 
+    (make-instance usuario of Usuario (tiene-restriccion ?restric) (Sexo ?sexo) (Edad ?edad) (Actividad ?estilo) (tiene-preferencia ?pref) (vive-durante ?temporada)) 
 )
 
 
@@ -1361,7 +1362,7 @@
     ?temp <- (object (is-a Temporada))
     ?fruta <- (object (is-a Fruta))
     
-    (test (and (eq ?temp Verano) (or (eq ?fruta Manzana))))
+    (test (and (eq ?temp Verano) (eq ?fruta Manzana)))
     => (eliminar_ingrediente ?fruta)
 )
 
@@ -1420,7 +1421,8 @@
 
 (deftemplate sintesis::factibles
     (slot nombre (type STRING))
-    (multislot platos_factibles)
+    (multislot platos_factibles (type INSTANCE))
+    (slot refills (type INTEGER) (default 0))
 )
 
 (defrule sintesis::start
@@ -1430,27 +1432,27 @@
     (assert (recomendacion (nombre "Hidratos de Carbono")) )
     (assert (recomendacion (nombre "Grasas")) )
     (assert (recomendacion (nombre "Proteinas")) )
+    (assert (factibles (nombre "Desayunos")) )
+    (assert (factibles (nombre "Comidas")) )
+    (assert (factibles (nombre "Postres")) )
 )
 
 (defrule sintesis::platos_factibles
     (declare (salience 20))
-    ?Usr <- (object (is-a Usuario))
+    ?Pref <- (object (is-a Preferencia))
+    ?factibles_desayun <- (factibles (nombre "Desayunos") )
+    ?factibles_comida <- (factibles (nombre "Comidas") )
+    ?factibles_postre <- (factibles (nombre "Postres") )
     =>
-    (bind ?Pref (send ?Usr get-tiene-preferencia))
+    
+    (bind ?Prefnom (send ?Pref get-nombre)) 
+    (bind ?desayun (find-all-instances ((?plat Plato_Desayuno)) (or (member$ (str-cat ?Prefnom) ?plat:Tipo-dieta ) (eq (str-cat ?Prefnom) "No"))))
+    (bind ?comida (find-all-instances ((?plat Plato_principal)) (or (member$ (str-cat ?Prefnom) ?plat:Tipo-dieta ) (eq (str-cat ?Prefnom) "No"))))
+    (bind ?postre (find-all-instances ((?plat Postre)) (or (member$ (str-cat ?Prefnom) ?plat:Tipo-dieta) (eq (str-cat ?Prefnom) "No"))))
 
-    (bind ?desayun (find-all-instances ((?plat Plato_Desayuno)) (or (eq ?plat:Tipo-dieta ?Pref) (eq ?Pref "No"))))
-    (bind ?comida (find-all-instances ((?plat Plato_principal)) (or (eq ?plat:Tipo-dieta ?Pref) (eq ?Pref "No"))))
-    (bind ?postre (find-all-instances ((?plat Postre)) (or (eq ?plat:Tipo-dieta ?Pref) (eq ?Pref "No"))))
-
-    (assert (factibles (nombre "Desayuno") (platos_factibles ?desayun)))
-    (assert (factibles (nombre "Comidas") (platos_factibles ?comida)))
-    (assert (factibles (nombre "Postres") (platos_factibles ?postre)))
-
-    (printout t "PLATOS FACTIBLES" crlf)
-    (printout t ?Pref crlf)
-    (printout t ?desayun crlf)
-    (printout t ?comida crlf)
-    (printout t ?postre crlf)
+    (modify ?factibles_desayun (platos_factibles ?desayun) (refills 0))
+    (modify ?factibles_comida (platos_factibles ?comida) (refills 0))
+    (modify ?factibles_postre  (platos_factibles ?postre) (refills 0))
 )
 
 (defrule sintesis::tratar_edad_sexo
@@ -1686,37 +1688,10 @@
 )
 
 (deffunction sintesis::random_diet (?Cal ?CH ?Proteina ?Grasa ?Tol)
-	(bind ?menu_list (create$))
-	(loop-for-count (?i 1 7) do 
-        (bind ?factibles_desayun (find-all-instances ((?plat Plato_Desayuno)) TRUE))
-        (bind ?factibles_plato (find-all-instances ((?plat Plato_principal)) TRUE))
-        (bind ?factibles_postre (find-all-instances ((?plat Postre)) TRUE)) 
-
-        
-		(bind ?men (random_menu ?factibles_desayun ?factibles_plato ?factibles_postre ?i))
-        (bind ?menCal (contar_Cal ?men))
-        (bind ?menCH (contar_CH ?men))
-        (bind ?menProteina (contar_Proteina ?men))
-        (bind ?menGrasa (contar_Grasa ?men))
-        (while (or  
-                (< ?menCH (- ?CH (* ?CH ?Tol))) (> ?menCH (+ ?CH (* ?CH ?Tol)))
-                (< ?menProteina (- ?Proteina (* ?Proteina ?Tol))) (> ?menProteina (+ ?Proteina (* ?Proteina ?Tol)))
-                (< ?menGrasa (- ?Grasa (* ?Grasa ?Tol))) (> ?menGrasa (+ ?Grasa (* ?Grasa ?Tol))))
-           (bind ?men (random_menu ?factibles_desayun ?factibles_plato ?factibles_postre ?i))
-           (bind ?menCal (contar_Cal ?men)) 
-           (bind ?menCH (contar_CH ?men))
-           (bind ?menGrasa (contar_Grasa ?men))
-            
-        )
-
-
-        (bind ?menu_list (insert$ ?menu_list (+ (length$ ?menu_list) 1) ?men))
-	)
-	(bind ?dieta (make-instance (gensym) of Dieta (compuesto-por-menu ?menu_list)))
-	(return ?dieta)
+    
 )
 
-(deffunction mejorar_desayuno (?factibles_desayun ?men ?CH ?Proteina ?Grasa)
+(deffunction sintesis::mejorar_desayuno (?factibles_desayun ?men ?CH ?Proteina ?Grasa)
     (bind ?desayun (send ?men get-compuesto-desayuno))
     (bind ?plato_list (send ?desayun get-compuesto-por-desayuno))
 
@@ -1785,7 +1760,7 @@
     (return ?men)
 )
 
-(deffunction mejorar_platos_principales (?factibles_desayun ?men ?CH ?Proteina ?Grasa)
+(deffunction sintesis::mejorar_platos_principales (?factibles_desayun ?men ?CH ?Proteina ?Grasa)
     (bind ?desayun (send ?men get-compuesto-desayuno))
     (bind ?plato_list (send ?desayun get-compuesto-por-desayuno))
 
@@ -1854,7 +1829,7 @@
     (return ?men)
 )
 
-(deffunction correcciones (?CH ?Proteina ?Grasa)
+(deffunction sintesis::correcciones (?CH ?Proteina ?Grasa)
     (bind ?dieta (nth$ 1 (find-instance ((?diet Dieta)) TRUE)))
     (bind ?menu_list (send ?dieta get-compuesto-por-menu))
 	(loop-for-count (?i 1 7) do 
@@ -1890,41 +1865,161 @@
 	(return ?dieta)
 )
 
+(deffunction sintesis::escogeRandom2 (?lista)
+    (bind ?r (random 1 (length$ ?lista)))
+    (bind ?retlist (create$ (nth$ ?r $?lista)))
+    (delete$ ?lista ?r ?r)
+    (if (eq (random 1 2) 2) 
+        then (bind ?retlist (insert$ ?retlist (+ (length$ ?retlist) 1) (nth$ (random 1 (length$ ?lista)) $?lista)))
+    )
+    
+    (return ?retlist)
+)
 
+(deffunction sintesis::escogeRandom1 (?lista)
+    (bind ?r (random 1 (length$ ?lista)))
+    (bind ?retlist (create$ (nth$ ?r $?lista)))
+    (return ?retlist)
+)
 
-(defrule sintesis::crear_dieta
-    	(declare (salience 5))
-	(recomendacion (nombre "Calorias")(cantidad ?Cal))
+(deffunction sintesis::refill (?Prefnom ?refs ?class)
+    (if (>= ?refs 3) 
+    then
+        (return (find-all-instances ((?plat ?class)) TRUE))
+    else
+        (return (find-all-instances ((?plat ?class)) (or (member$ (str-cat ?Prefnom) ?plat:Tipo-dieta ) (eq (str-cat ?Prefnom) "No"))))
+    )
+)
+
+(deffunction borrar-elementos (?lista ?Borrar)
+    (loop-for-count (?i 1 (length$ ?Borrar)) do
+       (bind ?lista (delete-member$ ?lista (nth$ ?i ?Borrar)))
+    )
+    (return ?lista)
+)
+
+(defrule sintesis::dieta_aleatoria
+    (declare (salience 10))
+    ?Pref <- (object (is-a Preferencia))
+    (recomendacion (nombre "Calorias")(cantidad ?Cal))
 	(recomendacion (nombre "Hidratos de Carbono")(cantidad ?CH))
 	(recomendacion (nombre "Grasas") (cantidad ?Grasa))
 	(recomendacion (nombre "Proteinas")(cantidad ?Proteina))
-	?usuario <- (object (is-a Usuario))
-	=>
-	(printout t "Empezamos la creación de la dieta" crlf)
-	
-	;; Obtenemos los parámetros de nuestro usuario
-	;;(bind ?preferencia (send ?usuario get-limitacion))
-	(bind ?temporada (send ?usuario get-vive-durante))
-    (printout t "NÚMERO DE CALORIAS A TOMAR: " crlf)
-    (printout t ?Cal crlf)
+    =>
+    (bind ?Prefnom (send ?Pref get-nombre))
+    
+    (bind ?desayun (refill ?Prefnom 0 Plato_Desayuno))
+    (bind ?refD 0)
+    (if (eq (length$ ?desayun) 0)
+    then
+        (bind ?desayun (refill ?Prefnom 3 Plato_Desayuno))
+        (bind ?refD 3)
+    )
+    
+    (bind ?comida (refill ?Prefnom 0 Plato_principal))
+    (bind ?refC 0)
+    (if (eq (length$ ?comida) 0)
+    then
+        (bind ?comida (refill ?Prefnom 3 Plato_principal))
+        (bind ?refC 3)
+    )
 
-    (printout t "NÚMERO DE PROTEINAS A TOMAR: " crlf)
-    (printout t ?Proteina crlf)
+    (bind ?postre (refill ?Prefnom 0 Postre))
+    (bind ?refP 0)
+    (if (eq (length$ ?postre) 0)
+    then
+        (bind ?postre (refill ?Prefnom 3 Postre))
+        (bind ?refP 3)
+    )
 
-    (printout t "NÚMERO DE GRASAS A TOMAR: " crlf)
-    (printout t ?Grasa crlf)
 
-    (printout t "NÚMERO DE HIDRATOS DE CARBONO A TOMAR: " crlf)
-    (printout t ?CH crlf)
-    ;; Creamos una lista con los objetivos de la dieta
-    ;;(bind $?objetivos (obtener_objetivos ?Cal ?CH ?Grasa ?Proteina))
-	
-	;; Creamos la dieta
-	(bind ?dieta (random_diet ?Cal ?CH ?Proteina ?Grasa 2))
-	(printout t ?dieta crlf)
-    (bind ?newDieta (correcciones ?CH ?Proteina ?Grasa))
-    (send ?dieta delete)
+    (printout t "Empezamos la creación de la dieta" crlf)
+    (printout t ?desayun crlf)
+    (printout t ?comida crlf)
+    (printout t ?postre crlf)
+    (bind ?Tol 2.0)
+    (bind ?menu_list (create$))
+    (loop-for-count (?i 1 7) do 
+        (bind ?menCH -100)
+        (bind ?menProteina -100)
+        (bind ?menGrasa -100)
+
+        (while (or  
+                (< ?menCH (- ?CH (* ?CH ?Tol))) (> ?menCH (+ ?CH (* ?CH ?Tol)))
+                (< ?menProteina (- ?Proteina (* ?Proteina ?Tol))) (> ?menProteina (+ ?Proteina (* ?Proteina ?Tol)))
+                (< ?menGrasa (- ?Grasa (* ?Grasa ?Tol))) (> ?menGrasa (+ ?Grasa (* ?Grasa ?Tol))))
+            
+            (bind ?candidatos_desayuno (escogeRandom2 ?desayun))
+            (bind ?desayun (borrar-elementos ?desayun ?candidatos_desayuno))
+            (if (eq (length$ ?desayun) 0)
+            then
+                (bind ?desayun (refill ?Prefnom ?refD Plato_Desayuno))
+                (bind ?refD (+ ?refD 1))
+            )
+
+            (bind ?candidatos_almuerzo_plato (escogeRandom2 ?comida))
+            (bind ?comida (borrar-elementos ?comida ?candidatos_almuerzo_plato))
+            (if (eq (length$ ?comida) 0)
+            then
+                (bind ?comida (refill ?Prefnom ?refC Plato_principal))
+                (bind ?refD (+ ?refC 1))
+            )
+
+            (bind ?candidatos_almuerzo_postre (escogeRandom1 ?postre))
+            (bind ?postre (borrar-elementos ?postre ?candidatos_almuerzo_postre))
+            (if (eq (length$ ?postre) 0)
+            then
+                (bind ?postre (refill ?Prefnom ?refP Postre))
+                (bind ?refD (+ ?refP 1))
+            )
+
+            (bind ?candidatos_cena_plato (escogeRandom2 ?comida))
+            (bind ?comida (borrar-elementos ?comida ?candidatos_cena_plato))
+            (if (eq (length$ ?comida) 0)
+            then
+                (bind ?comida (refill ?Prefnom ?refC Plato_principal))
+                (bind ?refD (+ ?refC 1))
+            )
+
+            (bind ?candidatos_cena_postre (escogeRandom1 ?postre))
+            (bind ?postre (borrar-elementos ?postre ?candidatos_cena_postre))
+            (if (eq (length$ ?postre) 0)
+            then
+                (bind ?postre (refill ?Prefnom ?refP Postre))
+                (bind ?refD (+ ?refP 1))
+            )
+
+
+            (bind ?desayuno (make-instance (gensym*) of Desayuno (compuesto-por-desayuno ?candidatos_desayuno)))
+            (bind ?almuerzo (make-instance (gensym*) of Almuerzo (compuesto-por-plato ?candidatos_almuerzo_plato) (compuesto-por-postre ?candidatos_almuerzo_postre)))
+            (bind ?cena (make-instance (gensym*) of Cena (compuesto-por-plato ?candidatos_cena_plato) (compuesto-por-postre ?candidatos_cena_postre)))
+            
+            (bind ?menu (make-instance (gensym*) of Menu_diario (compuesto-desayuno ?desayuno) (compuesto-almuerzo ?almuerzo) (compuesto-cena ?cena) (Dia_semana ?i)))
+
+            (bind ?menCH (contar_CH ?menu))
+            (bind ?menProteina (contar_Proteina ?menu))
+            (bind ?menGrasa (contar_Grasa ?menu))
+            
+        )
+        (bind ?menu_list (insert$ ?menu_list (+ (length$ ?menu_list) 1) ?menu))
+    )
+    (bind ?dieta (make-instance dieta of Dieta (compuesto-por-menu ?menu_list)))
+
+   
 )
+
+(defrule sintesis::mejora_dieta
+    (declare (salience 5))
+    ?dieta <- (object (is-a Dieta))
+	(recomendacion (nombre "Hidratos de Carbono")(cantidad ?CH))
+	(recomendacion (nombre "Grasas") (cantidad ?Grasa))
+	(recomendacion (nombre "Proteinas")(cantidad ?Proteina))
+    =>
+    (printout t "Mejoramos la dieta" crlf)
+    (printout t ?dieta crlf)
+)
+
+
 
 (defrule sintesis::cambio_salida "Pasamos de síntesis a output"
 	(declare (salience -20))
