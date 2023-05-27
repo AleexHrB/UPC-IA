@@ -1212,7 +1212,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Cereal))
 
-    (test (and (eq ?a Hipertension) (eq ?Ingrediente Pan)))
+    (test (and (eq ?a Hipertension) (eq ?Ingrediente Pan) (eq ?Ingrediente Tostada)))
     => (send ?Ingrediente delete)
 )
 
@@ -1224,6 +1224,7 @@
     (test (and (eq ?a Hipertension) (or (eq ?Ingrediente Marisco) (eq ?Ingrediente Embutido) )))
     => (send ?Ingrediente delete)
 )
+
 
 
 ;; HAN DE EVITAR ALIMENTOS AZUCARADOS I PROCESADOS, CAFE, LACTEOS CON NATA
@@ -1280,12 +1281,14 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Comida_Proteica))
 
-    (test (and (eq ?a Osteoporosis) (eq ?Ingrediente nueces))
+    (test (and (eq ?a Osteoporosis) (eq ?Ingrediente nueces)))
     => (send ?Ingrediente delete)
 )
+
+
 (defrule procesado::cambio_sintesis "Pasamos de procesado a síntesis cuando ya no hay nada más que descartar"
 	(declare (salience -20))
-	=>)
+	=>
 	(focus sintesis)
 )
 
