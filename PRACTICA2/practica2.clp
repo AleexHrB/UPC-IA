@@ -1419,12 +1419,6 @@
     (slot cantidad (type INTEGER) (default 0))
 )
 
-(deftemplate sintesis::factibles
-    (slot nombre (type STRING))
-    (multislot platos_factibles (type INSTANCE))
-    (slot refills (type INTEGER) (default 0))
-)
-
 (defrule sintesis::start
     (declare (salience 30))
     =>
@@ -1432,27 +1426,6 @@
     (assert (recomendacion (nombre "Hidratos de Carbono")) )
     (assert (recomendacion (nombre "Grasas")) )
     (assert (recomendacion (nombre "Proteinas")) )
-    (assert (factibles (nombre "Desayunos")) )
-    (assert (factibles (nombre "Comidas")) )
-    (assert (factibles (nombre "Postres")) )
-)
-
-(defrule sintesis::platos_factibles
-    (declare (salience 20))
-    ?Pref <- (object (is-a Preferencia))
-    ?factibles_desayun <- (factibles (nombre "Desayunos") )
-    ?factibles_comida <- (factibles (nombre "Comidas") )
-    ?factibles_postre <- (factibles (nombre "Postres") )
-    =>
-    
-    (bind ?Prefnom (send ?Pref get-nombre)) 
-    (bind ?desayun (find-all-instances ((?plat Plato_Desayuno)) (or (member$ (str-cat ?Prefnom) ?plat:Tipo-dieta ) (eq (str-cat ?Prefnom) "No"))))
-    (bind ?comida (find-all-instances ((?plat Plato_principal)) (or (member$ (str-cat ?Prefnom) ?plat:Tipo-dieta ) (eq (str-cat ?Prefnom) "No"))))
-    (bind ?postre (find-all-instances ((?plat Postre)) (or (member$ (str-cat ?Prefnom) ?plat:Tipo-dieta) (eq (str-cat ?Prefnom) "No"))))
-
-    (modify ?factibles_desayun (platos_factibles ?desayun) (refills 0))
-    (modify ?factibles_comida (platos_factibles ?comida) (refills 0))
-    (modify ?factibles_postre  (platos_factibles ?postre) (refills 0))
 )
 
 (defrule sintesis::tratar_edad_sexo
@@ -1501,7 +1474,6 @@
     (modify ?Grasa (cantidad (*  (/ ?cant 5.5) 0.3)))
     (modify ?Proteina (cantidad (*  (/ ?cant 5.5) 0.15)))
 )
-
 
 (deffunction sintesis::random_menu (?factibles_desayun ?factibles_plato ?factibles_postre ?i) 
     (bind ?r (random 1 (length$ ?factibles_desayun)))
@@ -1691,7 +1663,7 @@
     
 )
 
-(deffunction sintesis::mejorar_desayuno (?factibles_desayun ?men ?CH ?Proteina ?Grasa)
+(deffunction sintesis::mejorar_desayuno (?factibles_desayun ?men ?CH ?Proteina ?Grasa ?Prefnom)
     (bind ?desayun (send ?men get-compuesto-desayuno))
     (bind ?plato_list (send ?desayun get-compuesto-por-desayuno))
 
@@ -1711,8 +1683,18 @@
         (bind ?newCH (send ?platDesayun get-Carbohidratos))
         (bind ?newGrasa (send ?platDesayun get-Grasas))
         (bind ?newProteina (send ?platDesayun get-Proteinas))
+        (bind ?factor 1.0)
+        (if (member$ (str-cat ?Prefnom) (send ?platDesayun get-Tipo-dieta)) 
+        then
+            (bind ?factor 0.95)
+        )
+
+        (if (member$ ?platDesayun ?plato_list) 
+        then
+            (bind ?factor 5.0)
+        )
             
-        (if (neq (length$ ?plato_list) 2) then 
+        (if (< (length$ ?plato_list) 2) then 
             (bind ?newMenCH (+ ?menCH ?newCH))
             (bind ?newMenGrasa (+ ?menGrasa ?newGrasa))
             (bind ?newMenProteina (+ ?menProteina ?newProteina))
@@ -1721,6 +1703,7 @@
             (if (> ?newMenGrasa ?Grasa) then (bind ?newDeltaGrasa (- ?newMenGrasa ?Grasa)) else (bind ?newDeltaGrasa (- ?Grasa ?newMenGrasa)))
             (if (> ?newMenProteina ?Proteina) then (bind ?newDeltaProteina (- ?newMenProteina ?Proteina)) else (bind ?newDeltaProteina (- ?Proteina ?newMenProteina)))
             (bind ?newHeu (+ (* 0.55 ?newDeltaCH)(* 0.3 ?newDeltaGrasa)(* 0.15 ?newDeltaProteina)))
+            (bind ?newHeu (* ?newHeu ?factor))
 
             (if (< ?newHeu ?heu) then 
                 (bind ?plato_list (insert$ ?plato_list (+ (length$ ?plato_list) 1) ?platDesayun))
@@ -1728,6 +1711,7 @@
                 (bind ?menCH ?newMenCH)
                 (bind ?menProteina ?newMenProteina)
                 (bind ?menGrasa ?newMenGrasa)
+                (printout t "MEJORAMOS DESAYUNO" crlf)
             )
         )
 
@@ -1746,6 +1730,7 @@
             (if (> ?newMenGrasa ?Grasa) then (bind ?newDeltaGrasa (- ?newMenGrasa ?Grasa)) else (bind ?newDeltaGrasa (- ?Grasa ?newMenGrasa)))
             (if (> ?newMenProteina ?Proteina) then (bind ?newDeltaProteina (- ?newMenProteina ?Proteina)) else (bind ?newDeltaProteina (- ?Proteina ?newMenProteina)))
             (bind ?newHeu (+ (* 0.55 ?newDeltaCH)(* 0.3 ?newDeltaGrasa)(* 0.15 ?newDeltaProteina)))
+            (bind ?newHeu (* ?newHeu ?factor))
 
             (if (< ?newHeu ?heu) then 
                 (bind ?plato_list (replace$ ?plato_list ?j ?j ?platDesayun)) 
@@ -1753,16 +1738,22 @@
                 (bind ?menCH ?newMenCH)
                 (bind ?menProteina ?newMenProteina)
                 (bind ?menGrasa ?newMenGrasa)
+                (printout t "MEJORAMOS DESAYUNO" crlf)
                 
             )
         )
     )
+
+    (send ?desayun put-compuesto-por-desayuno ?plato_list)
+    (send ?men put-compuesto-desayuno ?desayun)
     (return ?men)
 )
 
-(deffunction sintesis::mejorar_platos_principales (?factibles_desayun ?men ?CH ?Proteina ?Grasa)
-    (bind ?desayun (send ?men get-compuesto-desayuno))
-    (bind ?plato_list (send ?desayun get-compuesto-por-desayuno))
+(deffunction sintesis::mejorar_platos_principales (?factibles_plato ?men ?CH ?Proteina ?Grasa ?Prefnom)
+    (bind ?almuerzo (send ?men get-compuesto-almuerzo))
+    (bind ?cena (send ?men get-compuesto-cena))
+    (bind ?almuerzo_list (send ?almuerzo get-compuesto-por-plato))
+    (bind ?cena_list (send ?cena get-compuesto-por-plato))
 
     (bind ?menCH (contar_CH ?men))
     (bind ?menProteina (contar_Proteina ?men))
@@ -1774,95 +1765,240 @@
     (if (> ?menGrasa ?Grasa) then (bind ?deltaGrasa (- ?menGrasa ?Grasa)) else (bind ?deltaGrasa (- ?Grasa ?menGrasa)))
     (if (> ?menProteina ?Proteina) then (bind ?deltaProteina (- ?menProteina ?Proteina)) else (bind ?deltaProteina (- ?Proteina ?menProteina)))
     (bind ?heu (+ (* 0.55 ?deltaCH)(* 0.3 ?deltaGrasa)(* 0.15 ?deltaProteina)))
-    (loop-for-count (?i 1 (length$ ?factibles_desayun)) do
-    
-        (bind ?platDesayun (nth$ ?i ?factibles_desayun))
-        (bind ?newCH (send ?platDesayun get-Carbohidratos))
-        (bind ?newGrasa (send ?platDesayun get-Grasas))
-        (bind ?newProteina (send ?platDesayun get-Proteinas))
+
+    (loop-for-count (?i 1 (length$ ?factibles_plato)) do
+
+        
+        (bind ?plato (nth$ ?i ?factibles_plato))
+        (bind ?newCH (send ?plato get-Carbohidratos))
+        (bind ?newGrasa (send ?plato get-Grasas))
+        (bind ?newProteina (send ?plato get-Proteinas))
+        (bind ?factor 1.0)
+
+        (if (member$ (str-cat ?Prefnom) (send ?plato get-Tipo-dieta)) 
+        then
+            (bind ?factor 0.95)
+        )
+
+        (if (member$ ?plato ?almuerzo_list) 
+        then
+            (bind ?factor 5.0)
+        )
             
-        (if (neq (length$ ?plato_list) 2) then 
+        ;;PRIMERO MIRAMOS SI PODEMOS MEJORAR LA COMIDA
+        (if (< (length$ ?almuerzo_list) 2) then 
             (bind ?newMenCH (+ ?menCH ?newCH))
-            (bind ?newMenGrasa (+ ?menCH ?newGrasa))
+            (bind ?newMenGrasa (+ ?menGrasa ?newGrasa))
             (bind ?newMenProteina (+ ?menProteina ?newProteina))
 
-            (if (> ?newMenCH ?newCH) then (bind ?newDeltaCH (- ?newMenCH ?newCH)) else (bind ?newDeltaCH (- ?newCH ?newMenCH)))
-            (if (> ?newMenGrasa ?newGrasa) then (bind ?newDeltaGrasa (- ?newMenGrasa ?newGrasa)) else (bind ?newDeltaGrasa (- ?newGrasa ?newMenGrasa)))
-            (if (> ?newMenProteina ?newProteina) then (bind ?newDeltaProteina (- ?newMenProteina ?newProteina)) else (bind ?newDeltaProteina (- ?newProteina ?newMenProteina)))
+            (if (> ?newMenCH ?CH) then (bind ?newDeltaCH (- ?newMenCH ?CH)) else (bind ?newDeltaCH (- ?CH ?newMenCH)))
+            (if (> ?newMenGrasa ?Grasa) then (bind ?newDeltaGrasa (- ?newMenGrasa ?Grasa)) else (bind ?newDeltaGrasa (- ?Grasa ?newMenGrasa)))
+            (if (> ?newMenProteina ?Proteina) then (bind ?newDeltaProteina (- ?newMenProteina ?Proteina)) else (bind ?newDeltaProteina (- ?Proteina ?newMenProteina)))
             (bind ?newHeu (+ (* 0.55 ?newDeltaCH)(* 0.3 ?newDeltaGrasa)(* 0.15 ?newDeltaProteina)))
+            (bind ?newHeu (* ?newHeu ?factor))
 
             (if (< ?newHeu ?heu) then 
-                (bind ?plato_list (insert$ ?plato_list (+ (length$ ?plato_list) 1) ?platDesayun))
+                (bind ?almuerzo_list (insert$ ?almuerzo_list (+ (length$ ?almuerzo_list) 1) ?plato))
                 (bind ?heu ?newHeu)
                 (bind ?menCH ?newMenCH)
                 (bind ?menProteina ?newMenProteina)
                 (bind ?menGrasa ?newMenGrasa)
+                (bind ?factor (* ?factor 1.5))
+                (printout t "MEJORAMOS PLATO" crlf)
             )
         )
 
-        (loop-for-count (?j 1 (length$ ?plato_list)) do
-            (bind ?OldPlato (nth$ ?j ?plato_list))
+        (loop-for-count (?j 1 (length$ ?almuerzo_list)) do
+            (bind ?OldPlato (nth$ ?j ?almuerzo_list))
             (bind ?oldCH (send ?OldPlato get-Carbohidratos))
             (bind ?oldGrasa (send ?OldPlato get-Grasas))
             (bind ?oldProteina (send ?OldPlato get-Proteinas))
 
             (bind ?newMenCH (- (+ ?menCH ?newCH) ?oldCH))
             (bind ?newMenGrasa (- (+ ?menGrasa ?newGrasa) ?oldGrasa))
-            (bind ?newMenProteina (- (+ ?menGrasa ?newGrasa) ?oldGrasa))
+            (bind ?newMenProteina (- (+ ?menProteina ?newProteina) ?oldProteina))
 
 
-            (if (> ?newMenCH ?newCH) then (bind ?newDeltaCH (- ?newMenCH ?newCH)) else (bind ?newDeltaCH (- ?newCH ?newMenCH)))
-            (if (> ?newMenGrasa ?newGrasa) then (bind ?newDeltaGrasa (- ?newMenGrasa ?newGrasa)) else (bind ?newDeltaGrasa (- ?newGrasa ?newMenGrasa)))
-            (if (> ?newMenProteina ?newProteina) then (bind ?newDeltaProteina (- ?newMenProteina ?newProteina)) else (bind ?newDeltaProteina (- ?newProteina ?newMenProteina)))
+            (if (> ?newMenCH ?CH) then (bind ?newDeltaCH (- ?newMenCH ?CH)) else (bind ?newDeltaCH (- ?CH ?newMenCH)))
+            (if (> ?newMenGrasa ?Grasa) then (bind ?newDeltaGrasa (- ?newMenGrasa ?Grasa)) else (bind ?newDeltaGrasa (- ?Grasa ?newMenGrasa)))
+            (if (> ?newMenProteina ?Proteina) then (bind ?newDeltaProteina (- ?newMenProteina ?Proteina)) else (bind ?newDeltaProteina (- ?Proteina ?newMenProteina)))
             (bind ?newHeu (+ (* 0.55 ?newDeltaCH)(* 0.3 ?newDeltaGrasa)(* 0.15 ?newDeltaProteina)))
+            (bind ?newHeu (* ?newHeu ?factor))
 
             (if (< ?newHeu ?heu) then 
-                (bind ?plato_list (replace$ ?plato_list ?j ?j ?platDesayun)) 
+                (bind ?almuerzo_list (replace$ ?almuerzo_list ?j ?j ?plato)) 
                 (bind ?heu ?newHeu)
                 (bind ?menCH ?newMenCH)
                 (bind ?menProteina ?newMenProteina)
                 (bind ?menGrasa ?newMenGrasa)
+                (bind ?factor (* ?factor 1.5))
+                (printout t "MEJORAMOS PLATO" crlf)
+                
+            )
+        )
+            
+        ;;AHORA PROBAMOS DE HACER LO MISMO CON LA CENA (Si ya se ha introducido en la comida tiene un factor de penalización)
+        (if (< (length$ ?cena_list) 2) then 
+            (bind ?newMenCH (+ ?menCH ?newCH))
+            (bind ?newMenGrasa (+ ?menGrasa ?newGrasa))
+            (bind ?newMenProteina (+ ?menProteina ?newProteina))
+
+            (if (> ?newMenCH ?CH) then (bind ?newDeltaCH (- ?newMenCH ?CH)) else (bind ?newDeltaCH (- ?CH ?newMenCH)))
+            (if (> ?newMenGrasa ?Grasa) then (bind ?newDeltaGrasa (- ?newMenGrasa ?Grasa)) else (bind ?newDeltaGrasa (- ?Grasa ?newMenGrasa)))
+            (if (> ?newMenProteina ?Proteina) then (bind ?newDeltaProteina (- ?newMenProteina ?Proteina)) else (bind ?newDeltaProteina (- ?Proteina ?newMenProteina)))
+            (bind ?newHeu (+ (* 0.55 ?newDeltaCH)(* 0.3 ?newDeltaGrasa)(* 0.15 ?newDeltaProteina)))
+            (bind ?newHeu (* ?newHeu ?factor))
+
+            (if (< ?newHeu ?heu) then 
+                (bind ?cena_list (insert$ ?cena_list (+ (length$ ?cena_list) 1) ?plato))
+                (bind ?heu ?newHeu)
+                (bind ?menCH ?newMenCH)
+                (bind ?menProteina ?newMenProteina)
+                (bind ?menGrasa ?newMenGrasa)
+                (bind ?factor (* ?factor 1.5))
+                (printout t "MEJORAMOS PLATO" crlf)
+            )
+        )
+
+        (loop-for-count (?j 1 (length$ ?cena_list)) do
+            (bind ?OldPlato (nth$ ?j ?cena_list))
+            (bind ?oldCH (send ?OldPlato get-Carbohidratos))
+            (bind ?oldGrasa (send ?OldPlato get-Grasas))
+            (bind ?oldProteina (send ?OldPlato get-Proteinas))
+
+            (bind ?newMenCH (- (+ ?menCH ?newCH) ?oldCH))
+            (bind ?newMenGrasa (- (+ ?menGrasa ?newGrasa) ?oldGrasa))
+            (bind ?newMenProteina (- (+ ?menProteina ?newProteina) ?oldProteina))
+
+
+            (if (> ?newMenCH ?CH) then (bind ?newDeltaCH (- ?newMenCH ?CH)) else (bind ?newDeltaCH (- ?CH ?newMenCH)))
+            (if (> ?newMenGrasa ?Grasa) then (bind ?newDeltaGrasa (- ?newMenGrasa ?Grasa)) else (bind ?newDeltaGrasa (- ?Grasa ?newMenGrasa)))
+            (if (> ?newMenProteina ?Proteina) then (bind ?newDeltaProteina (- ?newMenProteina ?Proteina)) else (bind ?newDeltaProteina (- ?Proteina ?newMenProteina)))
+            (bind ?newHeu (+ (* 0.55 ?newDeltaCH)(* 0.3 ?newDeltaGrasa)(* 0.15 ?newDeltaProteina)))
+            (bind ?newHeu (* ?newHeu ?factor))
+
+            (if (< ?newHeu ?heu) then 
+                (bind ?cena_list (replace$ ?cena_list ?j ?j ?plato)) 
+                (bind ?heu ?newHeu)
+                (bind ?menCH ?newMenCH)
+                (bind ?menProteina ?newMenProteina)
+                (bind ?menGrasa ?newMenGrasa)
+                (printout t "MEJORAMOS PLATO" crlf)
                 
             )
         )
     )
+
+    (send ?almuerzo put-compuesto-por-plato ?almuerzo_list)
+    (send ?cena put-compuesto-por-plato ?cena_list)
+    (send ?men put-compuesto-almuerzo ?almuerzo)
+    (send ?men put-compuesto-cena ?cena)
+    (return ?men)
+)
+
+(deffunction sintesis::mejorar_postre (?factibles_postre ?men ?CH ?Proteina ?Grasa ?Prefnom)
+    (bind ?almuerzo (send ?men get-compuesto-almuerzo))
+    (bind ?cena (send ?men get-compuesto-cena))
+    (bind ?almuerzo_postre (send ?almuerzo get-compuesto-por-postre))
+    (bind ?cena_postre (send ?cena get-compuesto-por-postre))
+
+    (bind ?menCH (contar_CH ?men))
+    (bind ?menProteina (contar_Proteina ?men))
+    (bind ?menGrasa (contar_Grasa ?men))
+    (bind ?deltaCH 0)
+    (bind ?deltaGrasa 0)
+    (bind ?deltaProteina 0)
+    (if (> ?menCH ?CH) then (bind ?deltaCH (- ?menCH ?CH)) else (bind ?deltaCH (- ?CH ?menCH)))
+    (if (> ?menGrasa ?Grasa) then (bind ?deltaGrasa (- ?menGrasa ?Grasa)) else (bind ?deltaGrasa (- ?Grasa ?menGrasa)))
+    (if (> ?menProteina ?Proteina) then (bind ?deltaProteina (- ?menProteina ?Proteina)) else (bind ?deltaProteina (- ?Proteina ?menProteina)))
+    (bind ?heu (+ (* 0.55 ?deltaCH)(* 0.3 ?deltaGrasa)(* 0.15 ?deltaProteina)))
+
+    (loop-for-count (?i 1 (length$ ?factibles_postre)) do
+
+        
+        (bind ?plato (nth$ ?i ?factibles_postre))
+        (bind ?newCH (send ?plato get-Carbohidratos))
+        (bind ?newGrasa (send ?plato get-Grasas))
+        (bind ?newProteina (send ?plato get-Proteinas))
+        (bind ?factor 1.0)
+
+        (if (member$ (str-cat ?Prefnom) (send ?plato get-Tipo-dieta)) 
+        then
+            (bind ?factor 0.95)
+        )
+
+        (if (eq ?plato ?almuerzo_postre) 
+        then
+            (bind ?factor 15.0)
+        )
+            
+        ;;PRIMERO MIRAMOS SI PODEMOS MEJORAR LA COMIDA
+
+       
+        (bind ?oldCH (send ?almuerzo_postre get-Carbohidratos))
+        (bind ?oldGrasa (send ?almuerzo_postre get-Grasas))
+        (bind ?oldProteina (send ?almuerzo_postre get-Proteinas))
+
+        (bind ?newMenCH (- (+ ?menCH ?newCH) ?oldCH))
+        (bind ?newMenGrasa (- (+ ?menGrasa ?newGrasa) ?oldGrasa))
+        (bind ?newMenProteina (- (+ ?menProteina ?newProteina) ?oldProteina))
+
+
+        (if (> ?newMenCH ?CH) then (bind ?newDeltaCH (- ?newMenCH ?CH)) else (bind ?newDeltaCH (- ?CH ?newMenCH)))
+        (if (> ?newMenGrasa ?Grasa) then (bind ?newDeltaGrasa (- ?newMenGrasa ?Grasa)) else (bind ?newDeltaGrasa (- ?Grasa ?newMenGrasa)))
+        (if (> ?newMenProteina ?Proteina) then (bind ?newDeltaProteina (- ?newMenProteina ?Proteina)) else (bind ?newDeltaProteina (- ?Proteina ?newMenProteina)))
+        (bind ?newHeu (+ (* 0.55 ?newDeltaCH)(* 0.3 ?newDeltaGrasa)(* 0.15 ?newDeltaProteina)))
+        (bind ?newHeu (* ?newHeu ?factor))
+
+        (if (< ?newHeu ?heu) then 
+            (bind ?almuerzo_postre ?plato)
+            (bind ?heu ?newHeu)
+            (bind ?menCH ?newMenCH)
+            (bind ?menProteina ?newMenProteina)
+            (bind ?menGrasa ?newMenGrasa)
+            (bind ?factor (* ?factor 1.5))
+            (printout t "MEJORAMOS PLATO" crlf)
+                
+        )
+        
+            
+        ;;AHORA PROBAMOS DE HACER LO MISMO CON LA CENA (Si ya se ha introducido en la comida tiene un factor de penalización)
+
+        (bind ?oldCH (send ?cena_postre get-Carbohidratos))
+        (bind ?oldGrasa (send ?cena_postre get-Grasas))
+        (bind ?oldProteina (send ?cena_postre get-Proteinas))
+
+        (bind ?newMenCH (- (+ ?menCH ?newCH) ?oldCH))
+        (bind ?newMenGrasa (- (+ ?menGrasa ?newGrasa) ?oldGrasa))
+        (bind ?newMenProteina (- (+ ?menProteina ?newProteina) ?oldProteina))
+
+
+        (if (> ?newMenCH ?CH) then (bind ?newDeltaCH (- ?newMenCH ?CH)) else (bind ?newDeltaCH (- ?CH ?newMenCH)))
+        (if (> ?newMenGrasa ?Grasa) then (bind ?newDeltaGrasa (- ?newMenGrasa ?Grasa)) else (bind ?newDeltaGrasa (- ?Grasa ?newMenGrasa)))
+        (if (> ?newMenProteina ?Proteina) then (bind ?newDeltaProteina (- ?newMenProteina ?Proteina)) else (bind ?newDeltaProteina (- ?Proteina ?newMenProteina)))
+        (bind ?newHeu (+ (* 0.55 ?newDeltaCH)(* 0.3 ?newDeltaGrasa)(* 0.15 ?newDeltaProteina)))
+        (bind ?newHeu (* ?newHeu ?factor))
+
+        (if (< ?newHeu ?heu) then 
+            (bind ?cena_postre ?plato) 
+            (bind ?heu ?newHeu)
+            (bind ?menCH ?newMenCH)
+            (bind ?menProteina ?newMenProteina)
+            (bind ?menGrasa ?newMenGrasa)
+            (printout t "MEJORAMOS POSTRE" crlf)
+                
+        )
+    )
+
+    (send ?almuerzo put-compuesto-por-postre ?almuerzo_postre)
+    (send ?cena put-compuesto-por-postre ?cena_postre)
+    (send ?men put-compuesto-almuerzo ?almuerzo)
+    (send ?men put-compuesto-cena ?cena)
     (return ?men)
 )
 
 (deffunction sintesis::correcciones (?CH ?Proteina ?Grasa)
-    (bind ?dieta (nth$ 1 (find-instance ((?diet Dieta)) TRUE)))
-    (bind ?menu_list (send ?dieta get-compuesto-por-menu))
-	(loop-for-count (?i 1 7) do 
-        (bind ?factibles_desayun (find-all-instances ((?plat Plato_Desayuno)) TRUE))
-        (bind ?factibles_plato (find-all-instances ((?plat Plato_principal)) TRUE))
-        (bind ?factibles_postre (find-all-instances ((?plat Postre)) TRUE)) 
-
-
-		(bind ?men (nth$ ?i ?menu_list))
-
-        (bind ?menCH (contar_CH ?men))
-        (bind ?menProteina (contar_Proteina ?men))
-        (bind ?menGrasa (contar_Grasa ?men))
-        (if (> ?menCH ?CH) then (bind ?deltaCH (- ?menCH ?CH)) else (bind ?deltaCH (- ?CH ?menCH)))
-        (if (> ?menGrasa ?Grasa) then (bind ?deltaGrasa (- ?menGrasa ?Grasa)) else (bind ?deltaGrasa (- ?Grasa ?menGrasa)))
-        (if (> ?menProteina ?Proteina) then (bind ?deltaProteina (- ?menProteina ?Proteina)) else (bind ?deltaProteina (- ?Proteina ?menProteina)))
-        (bind ?heu (+ (* 0.55 ?deltaCH)(* 0.3 ?deltaGrasa)(* 0.15 ?deltaProteina)))
-
-        (bind ?men (mejorar_desayuno ?factibles_desayun ?men ?CH ?Proteina ?Grasa))
-        (bind ?menu_list (replace$ ?menu_list ?i ?i ?men))
-
-        (bind ?menCH (contar_CH ?men))
-        (bind ?menProteina (contar_Proteina ?men))
-        (bind ?menGrasa (contar_Grasa ?men))
-        (if (> ?menCH ?CH) then (bind ?deltaCH (- ?menCH ?CH)) else (bind ?deltaCH (- ?CH ?menCH)))
-        (if (> ?menGrasa ?Grasa) then (bind ?deltaGrasa (- ?menGrasa ?Grasa)) else (bind ?deltaGrasa (- ?Grasa ?menGrasa)))
-        (if (> ?menProteina ?Proteina) then (bind ?deltaProteina (- ?menProteina ?Proteina)) else (bind ?deltaProteina (- ?Proteina ?menProteina)))
-        (bind ?newHeu (+ (* 0.55 ?deltaCH)(* 0.3 ?deltaGrasa)(* 0.15 ?deltaProteina)))
-        
-	)
     
-	(bind ?dieta (make-instance (gensym) of Dieta (compuesto-por-menu ?menu_list)))
-	(return ?dieta)
 )
 
 (deffunction sintesis::escogeRandom2 (?lista)
@@ -1891,7 +2027,7 @@
     )
 )
 
-(deffunction borrar-elementos (?lista ?Borrar)
+(deffunction sintesis::borrar-elementos (?lista ?Borrar)
     (loop-for-count (?i 1 (length$ ?Borrar)) do
        (bind ?lista (delete-member$ ?lista (nth$ ?i ?Borrar)))
     )
@@ -1934,9 +2070,6 @@
 
 
     (printout t "Empezamos la creación de la dieta" crlf)
-    (printout t ?desayun crlf)
-    (printout t ?comida crlf)
-    (printout t ?postre crlf)
     (bind ?Tol 2.0)
     (bind ?menu_list (create$))
     (loop-for-count (?i 1 7) do 
@@ -1953,32 +2086,36 @@
             (bind ?desayun (borrar-elementos ?desayun ?candidatos_desayuno))
             (if (eq (length$ ?desayun) 0)
             then
-                (bind ?desayun (refill ?Prefnom ?refD Plato_Desayuno))
                 (bind ?refD (+ ?refD 1))
+                (bind ?desayun (refill ?Prefnom ?refD Plato_Desayuno))
+                
             )
 
             (bind ?candidatos_almuerzo_plato (escogeRandom2 ?comida))
             (bind ?comida (borrar-elementos ?comida ?candidatos_almuerzo_plato))
             (if (eq (length$ ?comida) 0)
             then
-                (bind ?comida (refill ?Prefnom ?refC Plato_principal))
                 (bind ?refD (+ ?refC 1))
+                (bind ?comida (refill ?Prefnom ?refC Plato_principal))
+                
             )
 
             (bind ?candidatos_almuerzo_postre (escogeRandom1 ?postre))
             (bind ?postre (borrar-elementos ?postre ?candidatos_almuerzo_postre))
             (if (eq (length$ ?postre) 0)
             then
-                (bind ?postre (refill ?Prefnom ?refP Postre))
                 (bind ?refD (+ ?refP 1))
+                (bind ?postre (refill ?Prefnom ?refP Postre))
+                
             )
 
             (bind ?candidatos_cena_plato (escogeRandom2 ?comida))
             (bind ?comida (borrar-elementos ?comida ?candidatos_cena_plato))
             (if (eq (length$ ?comida) 0)
             then
-                (bind ?comida (refill ?Prefnom ?refC Plato_principal))
                 (bind ?refD (+ ?refC 1))
+                (bind ?comida (refill ?Prefnom ?refC Plato_principal))
+                
             )
 
             (bind ?candidatos_cena_postre (escogeRandom1 ?postre))
@@ -2010,13 +2147,54 @@
 
 (defrule sintesis::mejora_dieta
     (declare (salience 5))
-    ?dieta <- (object (is-a Dieta))
 	(recomendacion (nombre "Hidratos de Carbono")(cantidad ?CH))
 	(recomendacion (nombre "Grasas") (cantidad ?Grasa))
 	(recomendacion (nombre "Proteinas")(cantidad ?Proteina))
+    ?Pref <- (object (is-a Preferencia))
     =>
     (printout t "Mejoramos la dieta" crlf)
-    (printout t ?dieta crlf)
+    
+    (bind ?Prefnom (send ?Pref get-nombre))
+    (bind ?dieta (nth$ 1 (find-instance ((?diet Dieta)) TRUE)))
+    (bind ?menu_list (send ?dieta get-compuesto-por-menu))
+    
+	(loop-for-count (?i 1 7) do 
+        (bind ?factibles_desayun (find-all-instances ((?plat Plato_Desayuno)) TRUE))
+        (bind ?factibles_plato (find-all-instances ((?plat Plato_principal)) TRUE))
+        (bind ?factibles_postre (find-all-instances ((?plat Postre)) TRUE)) 
+
+
+		(bind ?men (nth$ ?i ?menu_list))
+
+        (bind ?menCH (contar_CH ?men))
+        (bind ?menProteina (contar_Proteina ?men))
+        (bind ?menGrasa (contar_Grasa ?men))
+        (if (> ?menCH ?CH) then (bind ?deltaCH (- ?menCH ?CH)) else (bind ?deltaCH (- ?CH ?menCH)))
+        (if (> ?menGrasa ?Grasa) then (bind ?deltaGrasa (- ?menGrasa ?Grasa)) else (bind ?deltaGrasa (- ?Grasa ?menGrasa)))
+        (if (> ?menProteina ?Proteina) then (bind ?deltaProteina (- ?menProteina ?Proteina)) else (bind ?deltaProteina (- ?Proteina ?menProteina)))
+        (bind ?heu (+ (* 0.55 ?deltaCH)(* 0.3 ?deltaGrasa)(* 0.15 ?deltaProteina)))
+
+        (bind ?men (mejorar_desayuno ?factibles_desayun ?men ?CH ?Proteina ?Grasa ?Prefnom))
+        (bind ?menu_list (replace$ ?menu_list ?i ?i ?men))
+
+        (bind ?men (mejorar_platos_principales ?factibles_plato ?men ?CH ?Proteina ?Grasa ?Prefnom))
+        (bind ?menu_list (replace$ ?menu_list ?i ?i ?men))
+
+        (bind ?men (mejorar_postre ?factibles_postre ?men ?CH ?Proteina ?Grasa ?Prefnom))
+        (bind ?menu_list (replace$ ?menu_list ?i ?i ?men))
+
+        (bind ?menCH (contar_CH ?men))
+        (bind ?menProteina (contar_Proteina ?men))
+        (bind ?menGrasa (contar_Grasa ?men))
+        (if (> ?menCH ?CH) then (bind ?deltaCH (- ?menCH ?CH)) else (bind ?deltaCH (- ?CH ?menCH)))
+        (if (> ?menGrasa ?Grasa) then (bind ?deltaGrasa (- ?menGrasa ?Grasa)) else (bind ?deltaGrasa (- ?Grasa ?menGrasa)))
+        (if (> ?menProteina ?Proteina) then (bind ?deltaProteina (- ?menProteina ?Proteina)) else (bind ?deltaProteina (- ?Proteina ?menProteina)))
+        (bind ?newHeu (+ (* 0.55 ?deltaCH)(* 0.3 ?deltaGrasa)(* 0.15 ?deltaProteina)))
+        
+	)
+    
+    (send ?dieta delete)
+	(bind ?dieta (make-instance newDieta of Dieta (compuesto-por-menu ?menu_list)))
 )
 
 
