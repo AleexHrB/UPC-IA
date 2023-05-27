@@ -1192,13 +1192,20 @@
     )
 )
 
+(deffunction eliminar_ingrediente (?FormaCocinar)
+    (bind ?platos_list (find-all-instances ((?plato Plato)) (member$ ?FormaCocinar (send ?plato get-tiene-forma-cocinar))))
+    (loop-for-count (?i 1 (length$ ?platos_list))
+        (send (nth$ ?i ?platos_list) delete)
+    )
+)
+
 (defrule procesado::eliminar_lacteos_desaconsejados_para_hipertensos "Quita los lacteos desaconsejados para los que padecen hipertension"
     (declare (salience 10))
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Lacteo))
 
     (test (and (eq ?a Hipertension) (or (eq ?Ingrediente Queso) (eq ?Ingrediente Mantequilla))))
-    => (send ?Ingrediente delete)
+    => (eliminar_ingrediente ?Ingrediente)
 )
 
 (defrule procesado::eliminar_vegetales_desaconsejadas_para_hipertensos "Quita los vegetales desaconsejados para los que padecen hipertension"
@@ -1207,7 +1214,7 @@
     ?Ingrediente <- (object (is-a Verdura))
 
     (test (and (eq ?a Hipertension) (eq ?Ingrediente Espinaca )))
-    => (send ?Ingrediente delete)
+    => (eliminar_ingrediente ?Ingrediente)
 )
 
 (defrule procesado::eliminar_proteinas_desaconsejadas_para_hipertensos "Quita los alimentos proteicos desaconsejados para los que padecen hipertension"
@@ -1215,19 +1222,27 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Comida_Proteica))
 
-    (test (and (eq ?a Hipertension)(eq ?Ingrediente Marisco)))
-    => (send ?Ingrediente delete)
+    (test (and (eq ?a Hipertension) (or (eq ?Ingrediente Marisco) (eq ?Ingrediente Embutido) )))
+    => (eliminar_ingrediente ?Ingrediente)
 )
 
+(defrule procesado::eliminar_dulces_desaconsejados_para_hipertensos "Quita los alimentos dulces desaconsejados para los que padecen hipertension"
+    (declare (salience 10))
+    ?a <- (object (is-a Restriccion))
+    ?Ingrediente <- (object (is-a Dulces))
 
-;; HAN DE EVITAR ALIMENTOS AZUCARADOS I PROCESADOS, CAFE, LACTEOS CON NATA
+    (test (and (eq ?a Hipertension)(eq ?Ingrediente Miel)))
+    => (eliminar_ingrediente ?Ingrediente)
+)
+
+;; HAN DE EVITAR ALIMENTOS MUY SALADOS O CON AZUCAR REFINADO Y GRASAS AÑADIDAS QUE SUBEN LA TENSIÓN ARTERIAL 
 (defrule procesado::eliminar_lacteos_desaconsejados_para_diabeticos "Quita los lacteos desaconsejados para los que padecen diabetes de cualquier tipo"
     (declare (salience 10))
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Lacteo))
 
     (test (and (eq ?a Diabetes) (or (eq ?Ingrediente Queso) (eq ?Ingrediente Mantequilla) (eq ?Ingrediente Nata)) ))
-    => (send ?Ingrediente delete)
+    => (eliminar_ingrediente ?Ingrediente)
 )
 
 (defrule procesado::eliminar_proteinas_desaconsejadas_para_diabeticos "Quita los alimentos proteicos desaconsejados para los que padecen diabetes de cualquier tipo"
@@ -1235,8 +1250,27 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Comida_Proteica))
 
-    (test (and (eq ?a Diabetes) (or (eq ?Ingrediente Carne_roja) (eq ?Ingrediente Huevo))))
-    => (send ?Ingrediente delete)
+    (test (and (eq ?a Diabetes) (or (eq ?Ingrediente Carne_roja) (eq ?Ingrediente Huevo) (eq ?Ingrediente Embutido))))
+    => (eliminar_ingrediente ?Ingrediente)
+)
+
+;;PAN DE TRIGO REFINADO ES MALISIMO 
+(defrule procesado::eliminar_cereales_desaconsejadas_para_diabeticos "Quita los alimentos cereales desaconsejados para los que padecen diabetes de cualquier tipo"
+    (declare (salience 10))
+    ?a <- (object (is-a Restriccion))
+    ?Ingrediente <- (object (is-a Cereal))
+
+    (test (and (eq ?a Diabetes) (or (eq ?Ingrediente Pan) (eq ?Ingrediente Tostada) )))
+    => (eliminar_ingrediente ?Ingrediente)
+)
+
+(defrule procesado::eliminar_dulces_desaconsejados_para_diabeticos "Quita los alimentos dulces desaconsejados para los que padecen diabetes de cualquier tipo"
+    (declare (salience 10))
+    ?a <- (object (is-a Restriccion))
+    ?Ingrediente <- (object (is-a Dulces))
+
+    (test (and (eq ?a Diabetes) (or (eq ?Ingrediente Churros) (eq ?Ingrediente Chocolate) (eq ?Ingrediente Azucar) (eq ?Ingrediente Miel) )))
+    => (eliminar_ingrediente ?Ingrediente)
 )
 
 ;;HAN DE EVITAR EMBUTIDOS, ULTRAPROCESADOS, CAFE , LACTEOS CON NATA, PAN ARROZ GALLETAS
@@ -1247,7 +1281,7 @@
     ?Ingrediente <- (object (is-a Lacteo))
 
     (test (and (eq ?a Osteoporosis)(or (eq ?Ingrediente Mantequilla) (eq ?Ingrediente Nata)) ))
-    => (send ?Ingrediente delete)
+    => (eliminar_ingrediente ?Ingrediente)
 )
 
 ;;Los embutidos, foies , carne roja y otros carnicos grasos son desaconsejadisimos , las carnes magras son mejores
@@ -1256,9 +1290,115 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Comida_Proteica))
 
-    (test (and (eq ?a Osteoporosis) (eq ?Ingrediente Carne_roja) ))
-    => (send ?Ingrediente delete)
+    (test (and (eq ?a Osteoporosis) (or (eq ?Ingrediente Carne_roja) (eq ?Ingrediente Embutido)) ))
+    => (eliminar_ingrediente ?Ingrediente)
 )
+
+(defrule procesado::eliminar_cereal_desaconsejados_para_osteoporosicos "Quita los alimentos con cereales desaconsejados para los que padecen osteoporosis"
+    (declare (salience 10))
+    ?a <- (object (is-a Restriccion))
+    ?Ingrediente <- (object (is-a Comida_Proteica))
+
+    (test (and (eq ?a Osteoporosis)  (or (eq ?Ingrediente Pan) (eq ?Ingrediente Tostada) (eq ?Ingrediente Arroz)) ))
+    => (eliminar_ingrediente ?Ingrediente)
+)
+
+(defrule procesado::eliminar_fruta_desaconsejada_para_osteoporosicos "Quita las frutas desaconsejadas para los que padecen osteoporosis"
+    (declare (salience 10))
+    ?a <- (object (is-a Restriccion))
+    ?Ingrediente <- (object (is-a Fruta))
+
+    (test (and (eq ?a Osteoporosis) (eq ?Ingrediente Cafe) ))
+    => (eliminar_ingrediente ?Ingrediente)
+)
+
+(defrule procesado::eliminar_dulces_desaconsejados_para_osteoporosicos "Quita los dulces desaconsejados para los que padecen osteoporosis"
+    (declare (salience 10))
+    ?a <- (object (is-a Restriccion))
+    ?Ingrediente <- (object (is-a Dulces))
+
+    (test (and (eq ?a Osteoporosis) (or (eq ?Ingrediente Azucar) (eq ?Ingrediente Churros)) ))
+    => (eliminar_ingrediente ?Ingrediente)
+)
+
+(defrule procesado::eliminar_nueces_para_los_alergicos "Quita las nueces de la dieta de los alergicos a las nueces"
+    (declare (salience 10))
+    ?a <- (object (is-a Restriccion))
+    ?Ingrediente <- (object (is-a Comida_Proteica))
+
+    (test (and (eq ?a Alergia_Nueces) (eq ?Ingrediente Nuez)) )
+    => (eliminar_ingrediente ?Ingrediente)
+)
+
+
+;; Reglas para quitar frutas cuando estas no sean de temporada o no sean buenas en esa temporada
+(defrule procesado::eliminar_frutas_de_otras_temporadas_en_invierno "Quita frutas de otras temporadas que no sean invierno"
+    (declare (salience 10))
+    ?temp <- (object (is-a Temporada))
+    ?fruta <- (object (is-a Fruta))
+    
+    (test (and (eq ?temp Invierno) (or (eq ?fruta Fresa) (eq ?fruta Melocoton) (eq ?fruta Melon) (eq ?fruta Aguacate) )))
+    => (eliminar_ingrediente ?fruta)
+)
+
+(defrule procesado::eliminar_frutas_de_otras_temporadas_en_primavera "Quita frutas de otras temporadas que no sean primavera"
+    (declare (salience 10))
+    ?temp <- (object (is-a Temporada))
+    ?fruta <- (object (is-a Fruta))
+    
+    (test (and (eq ?temp Primavera) (or (eq ?fruta Fresa) (eq ?fruta Melocoton) (eq ?fruta Melon))))
+    => (eliminar_ingrediente ?fruta)
+)
+
+(defrule procesado::eliminar_frutas_de_otras_temporadas_en_verano "Quita frutas de otras temporadas que no sean verano"
+    (declare (salience 10))
+    ?temp <- (object (is-a Temporada))
+    ?fruta <- (object (is-a Fruta))
+    
+    (test (and (eq ?temp Verano) (or (eq ?fruta Manzana))))
+    => (eliminar_ingrediente ?fruta)
+)
+
+(defrule procesado::eliminar_frutas_de_otras_temporadas_en_otono "Quita frutas de otras temporadas que no sean verano"
+    (declare (salience 10))
+    ?temp <- (object (is-a Temporada))
+    ?fruta <- (object (is-a Fruta))
+    
+    (test (and (eq ?temp Otono) (or (eq ?fruta Fresa) (eq ?fruta Melon) )))
+    => (eliminar_ingrediente ?fruta)
+)
+
+;;Reglas para quitar metodos de cocinar nocivos para diferentes restricciones de enfermedades
+
+(defrule procesado::eliminar_metodos_de_coccion_diabeticos "Quita los metodos de coccion nocivos/desaconsejados para los diabeticos"
+    (declare (salience 10))
+    ?a <- (object (is-a Restriccion))
+    ?Metodo <- (object (is-a Forma_Cocinar))
+
+    (test ( and (eq ?a Diabetes) (eq ?Metodo Frito)))
+    => (eliminar_forma)
+
+)
+
+(defrule procesado::eliminar_metodos_de_coccion_osteporosicos "Quita los metodos de coccion nocivos/desaconsejados para los osteoporosicos"
+    (declare (salience 10))
+    ?a <- (object (is-a Restriccion))
+    ?Metodo <- (object (is-a Forma_Cocinar))
+
+    (test ( and (eq ?a Osteoporosis) (eq ?Metodo Frito)))
+    => (eliminar_forma)
+)
+
+(defrule procesado::eliminar_metodos_de_coccion_hipertensos "Quita los metodos de coccion nocivos/desaconsejados para los hipertensos"
+    (declare (salience 10))
+    ?a <- (object (is-a Restriccion))
+    ?Metodo <- (object (is-a Forma_Cocinar))
+
+    (test ( and (eq ?a Hipertension) (eq ?Metodo Frito)))
+    => (eliminar_forma)
+
+)
+
 
 (defrule procesado::cambio_sintesis "Pasamos de procesado a síntesis cuando ya no hay nada más que descartar"
 	(declare (salience -20))
