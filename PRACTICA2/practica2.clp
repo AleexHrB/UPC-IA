@@ -1164,12 +1164,14 @@
     ;Sobre preferencias y restricciones
     (bind ?preferencia (selecciona_una_opcion "Si tiene alguna preferencia introduzcala, en caso contrario eliga 'No': " No Vegana Vegetariana Mediterranea Proteica Pescado Carne))
 
-    (printout t ?preferencia crlf)
+    
     (bind $?enfermedades (obtener_tipo_enfermedad Hipertension Diabetes Osteoporosis Alergia_Nueces))
 
 
     ;Hay que cambiar los nombres, pero eso cuando esté la ontología puesta
-    (make-instance usuario of Usuario (Enfermedad $?enfermedades) (Sexo ?sexo) (Edad ?edad) (Actividad ?estilo) (tiene-limitacion ?preferencia) (vive-durante ?temporada)) 
+    (bind ?pref (make-instance ?preferencia of Preferencia))
+    (printout t ?pref crlf)
+    (make-instance usuario of Usuario (tiene-enfermedad $?enfermedades) (Sexo ?sexo) (Edad ?edad) (Actividad ?estilo) (tiene-limitacion ?pref) (vive-durante ?temporada)) 
 )
 
 
