@@ -1191,7 +1191,7 @@
     )
 )
 
-(deffunction eliminar_ingrediente (?FormaCocinar)
+(deffunction eliminar_formacocinar (?FormaCocinar)
     (bind ?platos_list (find-all-instances ((?plato Plato)) (member$ ?FormaCocinar (send ?plato get-tiene-forma-cocinar))))
     (loop-for-count (?i 1 (length$ ?platos_list))
         (send (nth$ ?i ?platos_list) delete)
@@ -1375,7 +1375,7 @@
     ?Metodo <- (object (is-a Forma_Cocinar))
 
     (test ( and (eq ?a Diabetes) (eq ?Metodo Frito)))
-    => (eliminar_forma)
+    => (eliminar_formacocinar)
 
 )
 
@@ -1385,7 +1385,7 @@
     ?Metodo <- (object (is-a Forma_Cocinar))
 
     (test ( and (eq ?a Osteoporosis) (eq ?Metodo Frito)))
-    => (eliminar_forma)
+    => (eliminar_formacocinar)
 )
 
 (defrule procesado::eliminar_metodos_de_coccion_hipertensos "Quita los metodos de coccion nocivos/desaconsejados para los hipertensos"
@@ -1394,7 +1394,7 @@
     ?Metodo <- (object (is-a Forma_Cocinar))
 
     (test ( and (eq ?a Hipertension) (eq ?Metodo Frito)))
-    => (eliminar_forma)
+    => (eliminar_formacocinar)
 
 )
 
