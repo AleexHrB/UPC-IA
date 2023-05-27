@@ -1165,13 +1165,17 @@
     (bind ?preferencia (selecciona_una_opcion "Si tiene alguna preferencia introduzcala, en caso contrario eliga 'No': " No Vegana Vegetariana Mediterranea Proteica Pescado Carne))
 
     
-    (bind $?enfermedades (obtener_tipo_enfermedad Hipertension Diabetes Osteoporosis Alergia_Nueces))
+    (bind ?enfermedades (obtener_tipo_enfermedad Hipertension Diabetes Osteoporosis Alergia_Nueces))
 
 
     ;Hay que cambiar los nombres, pero eso cuando esté la ontología puesta
     (bind ?pref (make-instance ?preferencia of Preferencia))
     (printout t ?pref crlf)
-    (make-instance usuario of Usuario (tiene-enfermedad $?enfermedades) (Sexo ?sexo) (Edad ?edad) (Actividad ?estilo) (tiene-limitacion ?pref) (vive-durante ?temporada)) 
+    (bind ?enferm ($create))
+    (loop-for-count (?i 1 (length$ ?enfermedades))
+        (bind ?enferm (insert$ ?enferm (+ (length$ ?enferm) 1) (make-instance (nth$ ?i ?enfermedades) of )(nth$ (random 1 (length$ ?factibles_desayun)) $?factibles_desayun)))
+    )
+    (make-instance usuario of Usuario (tiene-enfermedad ?enfermedades) (Sexo ?sexo) (Edad ?edad) (Actividad ?estilo) (tiene-limitacion ?pref) (vive-durante ?temporada)) 
 )
 
 
@@ -1194,7 +1198,7 @@
     )
 )
 
-(deffunction eliminar_formacocinar (?FormaCocinar)
+(deffunction eliminar_forma (?FormaCocinar)
     (bind ?platos_list (find-all-instances ((?plato Plato)) (member$ ?FormaCocinar (send ?plato get-tiene-forma-cocinar))))
     (loop-for-count (?i 1 (length$ ?platos_list))
         (send (nth$ ?i ?platos_list) delete)
@@ -1378,7 +1382,7 @@
     ?Metodo <- (object (is-a Forma_Cocinar))
 
     (test ( and (eq ?a Diabetes) (eq ?Metodo Frito)))
-    => (eliminar_formacocinar)
+    => (eliminar_forma ?Metodo)
 
 )
 
@@ -1388,7 +1392,7 @@
     ?Metodo <- (object (is-a Forma_Cocinar))
 
     (test ( and (eq ?a Osteoporosis) (eq ?Metodo Frito)))
-    => (eliminar_formacocinar)
+    => (eliminar_forma ?Metodo)
 )
 
 (defrule procesado::eliminar_metodos_de_coccion_hipertensos "Quita los metodos de coccion nocivos/desaconsejados para los hipertensos"
@@ -1397,7 +1401,7 @@
     ?Metodo <- (object (is-a Forma_Cocinar))
 
     (test ( and (eq ?a Hipertension) (eq ?Metodo Frito)))
-    => (eliminar_formacocinar)
+    => (eliminar_forma ?Metodo)
 
 )
 
