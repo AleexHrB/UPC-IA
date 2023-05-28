@@ -1217,10 +1217,15 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Lacteo))
 
+<<<<<<< HEAD
     (test (and (eq ?a Hipertension) (or (eq ?Ingrediente Queso) (eq ?Ingrediente Mantequilla))))
     => 
     (printout t "VOA A APARECER MUCHAS VECES" crlf)
     (eliminar_ingrediente ?Ingrediente)
+=======
+    (test (and (eq ?a [Hipertension]) (or (eq ?Ingrediente [Queso]) (eq ?Ingrediente [Mantequilla]))))
+    => (eliminar_ingrediente ?Ingrediente)
+>>>>>>> e4ec81b490b576e4bda0aff18fd16a5eced33d14
 )
 
 (defrule procesado::eliminar_vegetales_desaconsejadas_para_hipertensos "Quita los vegetales desaconsejados para los que padecen hipertension"
@@ -1228,7 +1233,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Verdura))
 
-    (test (and (eq ?a Hipertension) (eq ?Ingrediente Espinaca )))
+    (test (and (eq ?a [Hipertension]) (eq ?Ingrediente [Espinaca] )))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1237,7 +1242,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Comida_Proteica))
 
-    (test (and (eq ?a Hipertension) (or (eq ?Ingrediente Marisco) (eq ?Ingrediente Embutido) )))
+    (test (and (eq ?a [Hipertension]) (or (eq ?Ingrediente [Marisco]) (eq ?Ingrediente [Embutido]) )))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1246,7 +1251,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Dulces))
 
-    (test (and (eq ?a Hipertension)(eq ?Ingrediente Miel)))
+    (test (and (eq ?a [Hipertension])(eq ?Ingrediente [Miel])))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1256,7 +1261,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Lacteo))
 
-    (test (and (eq ?a Diabetes) (or (eq ?Ingrediente Queso) (eq ?Ingrediente Mantequilla) (eq ?Ingrediente Nata)) ))
+    (test (and (eq ?a [Diabetes]) (or (eq ?Ingrediente [Queso]) (eq ?Ingrediente [Mantequilla]) (eq ?Ingrediente [Nata])) ))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1265,7 +1270,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Comida_Proteica))
 
-    (test (and (eq ?a Diabetes) (or (eq ?Ingrediente Carne_roja) (eq ?Ingrediente Huevo) (eq ?Ingrediente Embutido))))
+    (test (and (eq ?a [Diabetes]) (or (eq ?Ingrediente [Carne_roja]) (eq ?Ingrediente [Huevo]) (eq ?Ingrediente [Embutido]))))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1275,7 +1280,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Cereal))
 
-    (test (and (eq ?a Diabetes) (or (eq ?Ingrediente Pan) (eq ?Ingrediente Tostada) )))
+    (test (and (eq ?a [Diabetes]) (or (eq ?Ingrediente [Pan]) (eq ?Ingrediente [Tostada]) )))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1286,11 +1291,16 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Dulces))
 
+<<<<<<< HEAD
     (test (and (eq ?a Diabetes) (or (eq ?Ingrediente Churros) (eq ?Ingrediente Chocolate) (eq ?Ingrediente Azucar) (eq ?Ingrediente Miel) )))
     => 
     (printout t "FUERA CHURROS" crlf)
     (eliminar_ingrediente ?Ingrediente)
     
+=======
+    (test (and (eq ?a [Diabetes]) (or (eq ?Ingrediente [Churros]) (eq ?Ingrediente [Chocolate]) (eq ?Ingrediente [Azucar]) (eq ?Ingrediente [Miel]) )))
+    => (eliminar_ingrediente ?Ingrediente)
+>>>>>>> e4ec81b490b576e4bda0aff18fd16a5eced33d14
 )
 
 ;;HAN DE EVITAR EMBUTIDOS, ULTRAPROCESADOS, CAFE , LACTEOS CON NATA, PAN ARROZ GALLETAS
@@ -1300,7 +1310,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Lacteo))
 
-    (test (and (eq ?a Osteoporosis)(or (eq ?Ingrediente Mantequilla) (eq ?Ingrediente Nata)) ))
+    (test (and (eq ?a [Osteoporosis])(or (eq ?Ingrediente [Mantequilla]) (eq ?Ingrediente [Nata])) ))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1310,7 +1320,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Comida_Proteica))
 
-    (test (and (eq ?a Osteoporosis) (or (eq ?Ingrediente Carne_roja) (eq ?Ingrediente Embutido)) ))
+    (test (and (eq ?a [Osteoporosis]) (or (eq ?Ingrediente [Carne_roja]) (eq ?Ingrediente [Embutido])) ))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1319,7 +1329,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Comida_Proteica))
 
-    (test (and (eq ?a Osteoporosis)  (or (eq ?Ingrediente Pan) (eq ?Ingrediente Tostada) (eq ?Ingrediente Arroz)) ))
+    (test (and (eq ?a [Osteoporosis])  (or (eq ?Ingrediente [Pan]) (eq ?Ingrediente [Tostada]) (eq ?Ingrediente [Arroz])) ))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1328,7 +1338,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Fruta))
 
-    (test (and (eq ?a Osteoporosis) (eq ?Ingrediente Cafe) ))
+    (test (and (eq ?a [Osteoporosis]) (eq ?Ingrediente [Cafe]) ))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1337,7 +1347,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Dulces))
 
-    (test (and (eq ?a Osteoporosis) (or (eq ?Ingrediente Azucar) (eq ?Ingrediente Churros)) ))
+    (test (and (eq ?a [Osteoporosis]) (or (eq ?Ingrediente [Azucar]) (eq ?Ingrediente [Churros])) ))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1346,7 +1356,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Comida_Proteica))
 
-    (test (and (eq ?a Alergia_Nueces) (eq ?Ingrediente Nuez)) )
+    (test (and (eq ?a [Alergia_Nueces]) (eq ?Ingrediente [Nuez])) )
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1357,7 +1367,7 @@
     ?temp <- (object (is-a Temporada))
     ?fruta <- (object (is-a Fruta))
     
-    (test (and (eq ?temp Invierno) (or (eq ?fruta Fresa) (eq ?fruta Melocoton) (eq ?fruta Melon) (eq ?fruta Aguacate) )))
+    (test (and (eq ?temp [Invierno]) (or (eq ?fruta [Fresa]) (eq ?fruta [Melocoton]) (eq ?fruta [Melon]) (eq ?fruta [Aguacate]) )))
     => (eliminar_ingrediente ?fruta)
 )
 
@@ -1366,7 +1376,7 @@
     ?temp <- (object (is-a Temporada))
     ?fruta <- (object (is-a Fruta))
     
-    (test (and (eq ?temp Primavera) (or (eq ?fruta Fresa) (eq ?fruta Melocoton) (eq ?fruta Melon))))
+    (test (and (eq ?temp [Primavera]) (or (eq ?fruta [Fresa]) (eq ?fruta [Melocoton]) (eq ?fruta [Melon]))))
     => (eliminar_ingrediente ?fruta)
 )
 
@@ -1375,7 +1385,7 @@
     ?temp <- (object (is-a Temporada))
     ?fruta <- (object (is-a Fruta))
     
-    (test (and (eq ?temp Verano) (eq ?fruta Manzana)))
+    (test (and (eq ?temp [Verano]) (eq ?fruta [Manzana])))
     => (eliminar_ingrediente ?fruta)
 )
 
@@ -1384,7 +1394,7 @@
     ?temp <- (object (is-a Temporada))
     ?fruta <- (object (is-a Fruta))
     
-    (test (and (eq ?temp Otono) (or (eq ?fruta Fresa) (eq ?fruta Melon) )))
+    (test (and (eq ?temp [Otono]) (or (eq ?fruta [Fresa]) (eq ?fruta [Melon]) )))
     => (eliminar_ingrediente ?fruta)
 )
 
@@ -1395,7 +1405,7 @@
     ?a <- (object (is-a Restriccion))
     ?Metodo <- (object (is-a Forma_Cocinar))
 
-    (test ( and (eq ?a Diabetes) (eq ?Metodo Frito)))
+    (test ( and (eq ?a [Diabetes]) (eq ?Metodo [Frito])))
     => (eliminar_forma ?Metodo)
 
 )
@@ -1405,7 +1415,7 @@
     ?a <- (object (is-a Restriccion))
     ?Metodo <- (object (is-a Forma_Cocinar))
 
-    (test ( and (eq ?a Osteoporosis) (eq ?Metodo Frito)))
+    (test ( and (eq ?a [Osteoporosis]) (eq ?Metodo [Frito])))
     => (eliminar_forma ?Metodo)
 )
 
@@ -1414,7 +1424,7 @@
     ?a <- (object (is-a Restriccion))
     ?Metodo <- (object (is-a Forma_Cocinar))
 
-    (test ( and (eq ?a Hipertension) (eq ?Metodo Frito)))
+    (test ( and (eq ?a [Hipertension]) (eq ?Metodo [Frito])))
     => (eliminar_forma ?Metodo)
 
 )
