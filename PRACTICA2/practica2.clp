@@ -2234,9 +2234,9 @@
     )
 
     (printout t "Empezamos la creación de la dieta" crlf)
-    (printout t ?desayun crlf)
-    (printout t ?comida crlf)
-    (printout t ?postre crlf)
+    ;(printout t ?desayun crlf)
+    ;(printout t ?comida crlf)
+    ;(printout t ?postre crlf)
     (bind ?menu_list (create$))
 
     (loop-for-count (?i 1 7) do 
