@@ -2165,8 +2165,8 @@
 (deffunction sintesis::escogeRandom2 (?lista)
     (bind ?r (random 1 (length$ ?lista)))
     (bind ?retlist (create$ (nth$ ?r $?lista)))
-    (delete$ ?lista ?r ?r)
-    (if (eq (random 1 2) 2) 
+    (bind ?lista (delete$ ?lista ?r ?r))
+    (if (and (eq (random 1 2) 2) (> (length$ ?lista) 0)) 
         then (bind ?retlist (insert$ ?retlist (+ (length$ ?retlist) 1) (nth$ (random 1 (length$ ?lista)) $?lista)))
     )
     
@@ -2233,9 +2233,6 @@
     (bind ?Tol 2.0)
     (bind ?menu_list (create$))
 
-    (printout t ?desayun crlf)
-    (printout t ?comida crlf)
-    (printout t ?postre crlf)
     (loop-for-count (?i 1 7) do 
         (bind ?menCH -100)
         (bind ?menProteina -100)
