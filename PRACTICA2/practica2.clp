@@ -1797,7 +1797,8 @@
         (bind ?factor 1.0)
         (if (member$ (str-cat ?Prefnom) (send ?platDesayun get-Tipo-dieta)) 
         then
-            (bind ?factor 0.90)
+            (bind ?factor 0.85)
+            if (eq (str-cat ?Prefnom) "Vegetariana") then (bind ?factor 0.35)
         )
 
         (if (member$ ?platDesayun ?plato_list) 
@@ -1911,7 +1912,8 @@
 
         (if (member$ (str-cat ?Prefnom) (send ?plato get-Tipo-dieta)) 
         then
-            (bind ?factor 0.90)
+            (bind ?factor 0.85)
+            if (eq (str-cat ?Prefnom) "Vegetariana") then (bind ?factor 0.35)
         )
 
         (if (member$ ?plato ?almuerzo_list) 
@@ -2073,7 +2075,8 @@
 
         (if (member$ (str-cat ?Prefnom) (send ?plato get-Tipo-dieta)) 
         then
-            (bind ?factor 0.90)
+            (bind ?factor 0.85)
+            if (eq (str-cat ?Prefnom) "Vegetariana") then (bind ?factor 0.35)
         )
 
         (if (eq ?plato ?almuerzo_postre) 
