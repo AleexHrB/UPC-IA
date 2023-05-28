@@ -1246,13 +1246,6 @@
         (bind ?restric (insert$ ?restric (+ (length$ ?restric) 1) (make-instance (nth$ ?i ?enfermedades) of Restriccion (nombre (nth$ ?i ?enfermedades)))))
     )
     
-    
-    (bind ?restricciones (find-all-instances ((?res Restriccion)) TRUE))
-    (loop-for-count (?i 1 (length$ ?restricciones)) do
-        (printout t (nth$ ?i ?restricciones) crlf)
-        (printout t (eq (nth$ ?i ?restricciones) [Diabetes]) crlf)
-    )
-
     (make-instance usuario of Usuario (tiene-restriccion ?restric) (Sexo ?sexo) (Edad ?edad) (Actividad ?estilo) (tiene-preferencia ?pref) (vive-durante ?temporada)) 
 )
 
@@ -1270,16 +1263,34 @@
 ;;FALTA EL PUTISIMO PAN I EMBUTIDOS
 ;;HIPERTENSOS
 (deffunction eliminar_ingrediente (?Ingrediente)
-    (bind ?platos_list (find-all-instances ((?plato Plato)) (member$ ?Ingrediente (send ?plato get-compuesto-por-ingrediente))))
+    (bind ?platos_list (find-all-instances ((?plato Plato)) TRUE))
     (loop-for-count (?i 1 (length$ ?platos_list))
-        (send (nth$ ?i ?platos_list) delete)
+        (bind ?ingredients_list (send (nth$ ?i ?platos_list) get-compuesto-por-ingrediente))
+        (bind ?eliminar FALSE)
+        (loop-for-count (?i 1 (length$ ?ingredients_list)) do
+            (bind ?act (nth$ ?i ?ingredients_list))
+            (bind ?eliminar (eq (send ?Ingrediente get-nombre) (send ?act get-nombre)))
+        )
+        (if ?eliminar 
+        then 
+            (send (nth$ ?i ?platos_list) delete)
+        )     
     )
 )
 
 (deffunction eliminar_forma (?FormaCocinar)
-    (bind ?platos_list (find-all-instances ((?plato Plato)) (member$ ?FormaCocinar (send ?plato get-tiene-forma-cocinar))))
+    (bind ?platos_list (find-all-instances ((?plato Plato)) TRUE))
     (loop-for-count (?i 1 (length$ ?platos_list))
-        (send (nth$ ?i ?platos_list) delete)
+        (bind ?Forma_list (send (nth$ ?i ?platos_list) get-tiene-forma-cocinar))
+        (bind ?eliminar FALSE)
+        (loop-for-count (?i 1 (length$ ?Forma_list)) do
+            (bind ?act (nth$ ?i ?Forma_list))
+            (bind ?eliminar (eq (send ?FormaCocinar get-nombre) (send ?act get-nombre)))
+        )
+        (if ?eliminar 
+        then 
+            (send (nth$ ?i ?platos_list) delete)
+        )     
     )
 )
 
@@ -1288,7 +1299,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Lacteo))
 
-    (test (and (eq (send ?a get-nombre) "Hipertension") (or (eq (send ?Ingrediente get-nombre) "Queso") (eq (send ?Ingrediente get-nombre) "Mantequilla"))))
+    (test (and (eq (str-cat (send ?a get-nombre)) "Hipertension") (or (eq (str-cat (send ?Ingrediente get-nombre)) "Queso") (eq (str-cat (send ?Ingrediente get-nombre)) "Mantequilla"))))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1297,7 +1308,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Verdura))
 
-    (test (and (eq (send ?a get-nombre) "Hipertension") (eq (send ?Ingrediente get-nombre) "Espinaca" )))
+    (test (and (eq (str-cat (send ?a get-nombre)) "Hipertension") (eq (str-cat (send ?Ingrediente get-nombre)) "Espinaca" )))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1306,7 +1317,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Comida_Proteica))
 
-    (test (and (eq (send ?a get-nombre) "Hipertension") (or (eq (send ?Ingrediente get-nombre) "Marisco") (eq (send ?Ingrediente get-nombre) "Embutido") )))
+    (test (and (eq (str-cat (send ?a get-nombre)) "Hipertension") (or (eq (str-cat (send ?Ingrediente get-nombre)) "Marisco") (eq (str-cat (send ?Ingrediente get-nombre)) "Embutido") )))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1315,7 +1326,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Dulces))
 
-    (test (and (eq (send ?a get-nombre) "Hipertension")(eq (send ?Ingrediente get-nombre) "Miel")))
+    (test (and (eq (str-cat (send ?a get-nombre)) "Hipertension")(eq (str-cat (send ?Ingrediente get-nombre)) "Miel")))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1325,7 +1336,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Lacteo))
 
-    (test (and (eq (send ?a get-nombre) "Diabetes") (or (eq (send ?Ingrediente get-nombre) "Queso") (eq (send ?Ingrediente get-nombre) "Mantequilla") (eq (send ?Ingrediente get-nombre) "Nata")) ))
+    (test (and (eq (str-cat (send ?a get-nombre)) "Diabetes") (or (eq (str-cat (send ?Ingrediente get-nombre)) "Queso") (eq (str-cat (send ?Ingrediente get-nombre)) "Mantequilla") (eq (str-cat (send ?Ingrediente get-nombre)) "Nata")) ))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1334,7 +1345,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Comida_Proteica))
 
-    (test (and (eq (send ?a get-nombre) "Diabetes") (or (eq (send ?Ingrediente get-nombre) "Carne_roja") (eq (send ?Ingrediente get-nombre) "Huevo") (eq (send ?Ingrediente get-nombre) "Embutido"))))
+    (test (and (eq (str-cat (send ?a get-nombre)) "Diabetes") (or (eq (str-cat (send ?Ingrediente get-nombre)) "Carne_roja") (eq (str-cat (send ?Ingrediente get-nombre)) "Huevo") (eq (str-cat (send ?Ingrediente get-nombre)) "Embutido"))))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1344,7 +1355,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Cereal))
 
-    (test (and (eq (send ?a get-nombre) "Diabetes") (or (eq (send ?Ingrediente get-nombre) "Pan") (eq ?Ingrediente [Tostada]) )))
+    (test (and (eq (str-cat (send ?a get-nombre)) "Diabetes") (or (eq (str-cat (send ?Ingrediente get-nombre)) "Pan") (eq ?Ingrediente [Tostada]) )))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1355,8 +1366,9 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Dulces))
 
-    (test (and (eq (send ?a get-nombre) "Diabetes") (or (eq (send ?Ingrediente get-nombre) "Churros") (eq (send ?Ingrediente get-nombre) "Chocolate") (eq (send ?Ingrediente get-nombre) "Azucar") (eq (send ?Ingrediente get-nombre) "Miel") )))
-    => (eliminar_ingrediente ?Ingrediente)
+    (test (and (eq (str-cat (send ?a get-nombre)) "Diabetes") (or (eq (str-cat (send ?Ingrediente get-nombre)) "Churros") (eq (str-cat (send ?Ingrediente get-nombre)) "Chocolate") (eq (str-cat (send ?Ingrediente get-nombre)) "Azucar") (eq (str-cat (send ?Ingrediente get-nombre)) "Miel") )))
+    => 
+    (eliminar_ingrediente ?Ingrediente)
 )
 
 ;;HAN DE EVITAR EMBUTIDOS, ULTRAPROCESADOS, CAFE , LACTEOS CON NATA, PAN ARROZ GALLETAS
@@ -1366,7 +1378,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Lacteo))
 
-    (test (and (eq (send ?a get-nombre) "Osteoporosis")(or (eq (send ?Ingrediente get-nombre) "Mantequilla") (eq (send ?Ingrediente get-nombre) "Nata")) ))
+    (test (and (eq (str-cat (send ?a get-nombre)) "Osteoporosis")(or (eq (str-cat (send ?Ingrediente get-nombre)) "Mantequilla") (eq (str-cat (send ?Ingrediente get-nombre)) "Nata")) ))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1376,7 +1388,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Comida_Proteica))
 
-    (test (and (eq (send ?a get-nombre) "Osteoporosis") (or (eq (send ?Ingrediente get-nombre) "Carne_roja") (eq (send ?Ingrediente get-nombre) "Embutido")) ))
+    (test (and (eq (str-cat (send ?a get-nombre)) "Osteoporosis") (or (eq (str-cat (send ?Ingrediente get-nombre)) "Carne_roja") (eq (str-cat (send ?Ingrediente get-nombre)) "Embutido")) ))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1385,7 +1397,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Comida_Proteica))
 
-    (test (and (eq (send ?a get-nombre) "Osteoporosis")  (or (eq (send ?Ingrediente get-nombre) "Pan") (eq (send ?Ingrediente get-nombre) "Tostada") (eq (send ?Ingrediente get-nombre) "Arroz")) ))
+    (test (and (eq (str-cat (send ?a get-nombre)) "Osteoporosis")  (or (eq (str-cat (send ?Ingrediente get-nombre)) "Pan") (eq (str-cat (send ?Ingrediente get-nombre)) "Tostada") (eq (str-cat (send ?Ingrediente get-nombre)) "Arroz")) ))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1394,7 +1406,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Fruta))
 
-    (test (and (eq (send ?a get-nombre) "Osteoporosis") (eq (send ?Ingrediente get-nombre) "Cafe") ))
+    (test (and (eq (str-cat (send ?a get-nombre)) "Osteoporosis") (eq (str-cat (send ?Ingrediente get-nombre)) "Cafe") ))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1403,7 +1415,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Dulces))
 
-    (test (and (eq (send ?a get-nombre) "Osteoporosis") (or (eq (send ?Ingrediente get-nombre) "Azucar") (eq (send ?Ingrediente get-nombre) "Churros")) ))
+    (test (and (eq (str-cat (send ?a get-nombre)) "Osteoporosis") (or (eq (str-cat (send ?Ingrediente get-nombre)) "Azucar") (eq (str-cat (send ?Ingrediente get-nombre)) "Churros")) ))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1412,7 +1424,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Comida_Proteica))
 
-    (test (and (eq (send ?a get-nombre) "Alergia_Nueces") (eq (send ?Ingrediente get-nombre) "Nuez")) )
+    (test (and (eq (str-cat (send ?a get-nombre)) "Alergia_Nueces") (eq (str-cat (send ?Ingrediente get-nombre)) "Nuez")) )
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1423,7 +1435,7 @@
     ?temp <- (object (is-a Temporada))
     ?fruta <- (object (is-a Fruta))
     
-    (test (and (eq (send ?temp get-nombre) "Invierno") (or (eq (send ?fruta get-nombre) "Fresa") (eq (send ?fruta get-nombre) "Melocoton") (eq (send ?fruta get-nombre) "Melon") (eq (send ?fruta get-nombre) "Aguacate") )))
+    (test (and (eq (str-cat (send ?temp get-nombre)) "Invierno") (or (eq (send ?fruta get-nombre) "Fresa") (eq (send ?fruta get-nombre) "Melocoton") (eq (send ?fruta get-nombre) "Melon") (eq (send ?fruta get-nombre) "Aguacate") )))
     => (eliminar_ingrediente ?fruta)
 )
 
@@ -1432,7 +1444,7 @@
     ?temp <- (object (is-a Temporada))
     ?fruta <- (object (is-a Fruta))
     
-    (test (and (eq (send ?temp get-nombre) "Primavera") (or (eq (send ?fruta get-nombre) "Fresa") (eq (send ?fruta get-nombre) "Melocoton") (eq (send ?fruta get-nombre) "Melon"))))
+    (test (and (eq (str-cat (send ?temp get-nombre)) "Primavera") (or (eq (send ?fruta get-nombre) "Fresa") (eq (send ?fruta get-nombre) "Melocoton") (eq (send ?fruta get-nombre) "Melon"))))
     => (eliminar_ingrediente ?fruta)
 )
 
@@ -1441,7 +1453,7 @@
     ?temp <- (object (is-a Temporada))
     ?fruta <- (object (is-a Fruta))
     
-    (test (and (eq (send ?temp get-nombre) "Verano") (eq (send ?fruta get-nombre) "Manzana")))
+    (test (and (eq (str-cat (send ?temp get-nombre)) "Verano") (eq (send ?fruta get-nombre) "Manzana")))
     => (eliminar_ingrediente ?fruta)
 )
 
@@ -1450,7 +1462,7 @@
     ?temp <- (object (is-a Temporada))
     ?fruta <- (object (is-a Fruta))
     
-    (test (and (eq (send ?temp get-nombre) "Otono") (or (eq (send ?fruta get-nombre) "Fresa") (eq (send ?fruta get-nombre) "Melon") )))
+    (test (and (eq (str-cat (send ?temp get-nombre)) "Otono") (or (eq (send ?fruta get-nombre) "Fresa") (eq (send ?fruta get-nombre) "Melon") )))
     => (eliminar_ingrediente ?fruta)
 )
 
@@ -1461,7 +1473,7 @@
     ?a <- (object (is-a Restriccion))
     ?Metodo <- (object (is-a Forma_Cocinar))
 
-    (test ( and (eq (send ?a get-nombre) "Diabetes") (eq (send ?Metodo get-nombre) "Frito]")))
+    (test ( and (eq (str-cat (send ?a get-nombre)) "Diabetes") (eq (str-cat (send ?Metodo get-nombre)) "Frito")))
     => (eliminar_forma ?Metodo)
 
 )
@@ -1471,7 +1483,7 @@
     ?a <- (object (is-a Restriccion))
     ?Metodo <- (object (is-a Forma_Cocinar))
 
-    (test ( and (eq (send ?a get-nombre) "Osteoporosis") (eq (send ?Metodo get-nombre) "Frito")))
+    (test ( and (eq (str-cat (send ?a get-nombre)) "Osteoporosis") (eq (str-cat (send ?Metodo get-nombre)) "Frito")))
     => (eliminar_forma ?Metodo)
 )
 
@@ -1480,7 +1492,7 @@
     ?a <- (object (is-a Restriccion))
     ?Metodo <- (object (is-a Forma_Cocinar))
 
-    (test ( and (eq (send ?a get-nombre) "Hipertension") (eq (send ?Metodo get-nombre) "Frito")))
+    (test ( and (eq (str-cat (send ?a get-nombre)) "Hipertension") (eq (str-cat (send ?Metodo get-nombre)) "Frito")))
     => (eliminar_forma ?Metodo)
 
 )
