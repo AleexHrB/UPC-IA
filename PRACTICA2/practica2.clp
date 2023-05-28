@@ -1264,45 +1264,33 @@
 ;;HIPERTENSOS
 (deffunction eliminar_ingrediente (?Ingrediente)
     (bind ?platos_list (find-all-instances ((?plato Plato)) TRUE))
-    (bind ?paraEliminar (create$))
     (loop-for-count (?i 1 (length$ ?platos_list))
         (bind ?ingredients_list (send (nth$ ?i ?platos_list) get-compuesto-por-ingrediente))
         (bind ?eliminar FALSE)
-        (loop-for-count (?i 1 (length$ ?ingredients_list)) do
-            (bind ?act (nth$ ?i ?ingredients_list))
+        (loop-for-count (?j 1 (length$ ?ingredients_list)) do
+            (bind ?act (nth$ ?j ?ingredients_list))
             (bind ?eliminar (eq (send ?Ingrediente get-nombre) (send ?act get-nombre)))
         )
         (if ?eliminar 
         then 
-            (bind ?paraEliminar (insert$ ?paraEliminar (+ (length$ ?paraEliminar) 1) (nth$ ?i ?platos_list)))
+            (send (nth$ ?i ?platos_list) delete)
         )     
-    )
-    (while (> (length$ ?paraEliminar) 0)
-        (bind ?elim (nth$ 1 ?paraEliminar))
-        (bind ?paraEliminar (delete$ ?paraEliminar 1 1))
-        (send ?elim delete)
     )
 )
 
 (deffunction eliminar_forma (?FormaCocinar)
     (bind ?platos_list (find-all-instances ((?plato Plato)) TRUE))
-    (bind ?paraEliminar (create$))
     (loop-for-count (?i 1 (length$ ?platos_list))
         (bind ?Forma_list (send (nth$ ?i ?platos_list) get-tiene-forma-cocinar))
         (bind ?eliminar FALSE)
-        (loop-for-count (?i 1 (length$ ?Forma_list)) do
-            (bind ?act (nth$ ?i ?Forma_list))
+        (loop-for-count (?j 1 (length$ ?Forma_list)) do
+            (bind ?act (nth$ ?j ?Forma_list))
             (bind ?eliminar (eq (send ?FormaCocinar get-nombre) (send ?act get-nombre)))
         )
         (if ?eliminar 
         then 
-            (bind ?paraEliminar (insert$ ?paraEliminar (+ (length$ ?paraEliminar) 1) (nth$ ?i ?platos_list)))
+            (send (nth$ ?i ?platos_list) delete)
         )     
-    )
-    (while (> (length$ ?paraEliminar) 0)
-        (bind ?elim (nth$ 1 ?paraEliminar))
-        (bind ?paraEliminar (delete$ ?paraEliminar 1 1))
-        (send ?elim delete)
     )
 )
 
@@ -2243,6 +2231,9 @@
     )
 
     (printout t "Empezamos la creación de la dieta" crlf)
+    (printout t ?desayun crlf)
+    (printout t ?comida crlf)
+    (printout t ?postre crlf)
     (bind ?menu_list (create$))
 
     (loop-for-count (?i 1 7) do 
