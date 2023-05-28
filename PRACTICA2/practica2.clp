@@ -1797,7 +1797,7 @@
         (bind ?factor 1.0)
         (if (member$ (str-cat ?Prefnom) (send ?platDesayun get-Tipo-dieta)) 
         then
-            (bind ?factor 0.65)
+            (bind ?factor 0.75)
             if (eq (str-cat ?Prefnom) "Vegetariana") then (bind ?factor 0.35)
         )
 
@@ -1840,7 +1840,7 @@
 
             (if (< ?newHeu ?heu) then 
                 (bind ?plato_list (insert$ ?plato_list (+ (length$ ?plato_list) 1) ?platDesayun))
-                (bind ?heu ?newHeu)
+                (bind ?heu (/ ?newHeu ?factor))
                 (bind ?menCH ?newMenCH)
                 (bind ?menProteina ?newMenProteina)
                 (bind ?menGrasa ?newMenGrasa)
@@ -1852,6 +1852,12 @@
             (bind ?oldCH (send ?OldPlato get-Carbohidratos))
             (bind ?oldGrasa (send ?OldPlato get-Grasas))
             (bind ?oldProteina (send ?OldPlato get-Proteinas))
+            (bind ?oldHeu ?heu)
+            (if (member$ (str-cat ?Prefnom) (send ?OldPlato get-Tipo-dieta)) 
+            then
+                (bind ?oldHeu (* ?oldHeu 0.75))
+            )
+
 
             (bind ?newMenCH (- (+ ?menCH ?newCH) ?oldCH))
             (bind ?newMenGrasa (- (+ ?menGrasa ?newGrasa) ?oldGrasa))
@@ -1864,9 +1870,9 @@
             (bind ?newHeu (+ (* 0.55 ?newDeltaCH)(* 0.3 ?newDeltaGrasa)(* 0.15 ?newDeltaProteina)))
             (bind ?newHeu (* ?newHeu ?factor))
 
-            (if (< ?newHeu ?heu) then 
+            (if (< ?newHeu ?oldHeu) then 
                 (bind ?plato_list (replace$ ?plato_list ?j ?j ?platDesayun)) 
-                (bind ?heu ?newHeu)
+                (bind ?heu (/ ?newHeu ?factor))
                 (bind ?menCH ?newMenCH)
                 (bind ?menProteina ?newMenProteina)
                 (bind ?menGrasa ?newMenGrasa)
@@ -1912,7 +1918,7 @@
 
         (if (member$ (str-cat ?Prefnom) (send ?plato get-Tipo-dieta)) 
         then
-            (bind ?factor 0.65)
+            (bind ?factor 0.75)
             if (eq (str-cat ?Prefnom) "Vegetariana") then (bind ?factor 0.35)
         )
 
@@ -1950,7 +1956,7 @@
 
             (if (< ?newHeu ?heu) then 
                 (bind ?almuerzo_list (insert$ ?almuerzo_list (+ (length$ ?almuerzo_list) 1) ?plato))
-                (bind ?heu ?newHeu)
+                (bind ?heu (/ ?newHeu ?factor))
                 (bind ?menCH ?newMenCH)
                 (bind ?menProteina ?newMenProteina)
                 (bind ?menGrasa ?newMenGrasa)
@@ -1963,6 +1969,11 @@
             (bind ?oldCH (send ?OldPlato get-Carbohidratos))
             (bind ?oldGrasa (send ?OldPlato get-Grasas))
             (bind ?oldProteina (send ?OldPlato get-Proteinas))
+            (bind ?oldHeu ?heu)
+            (if (member$ (str-cat ?Prefnom) (send ?OldPlato get-Tipo-dieta)) 
+            then
+                (bind ?oldHeu (* ?oldHeu 0.75))
+            )
 
             (bind ?newMenCH (- (+ ?menCH ?newCH) ?oldCH))
             (bind ?newMenGrasa (- (+ ?menGrasa ?newGrasa) ?oldGrasa))
@@ -1975,9 +1986,9 @@
             (bind ?newHeu (+ (* 0.55 ?newDeltaCH)(* 0.3 ?newDeltaGrasa)(* 0.15 ?newDeltaProteina)))
             (bind ?newHeu (* ?newHeu ?factor))
 
-            (if (< ?newHeu ?heu) then 
+            (if (< ?newHeu ?oldHeu) then 
                 (bind ?almuerzo_list (replace$ ?almuerzo_list ?j ?j ?plato)) 
-                (bind ?heu ?newHeu)
+                (bind ?heu (/ ?newHeu ?factor))
                 (bind ?menCH ?newMenCH)
                 (bind ?menProteina ?newMenProteina)
                 (bind ?menGrasa ?newMenGrasa)
@@ -2000,7 +2011,7 @@
 
             (if (< ?newHeu ?heu) then 
                 (bind ?cena_list (insert$ ?cena_list (+ (length$ ?cena_list) 1) ?plato))
-                (bind ?heu ?newHeu)
+                (bind ?heu (/ ?newHeu ?factor))
                 (bind ?menCH ?newMenCH)
                 (bind ?menProteina ?newMenProteina)
                 (bind ?menGrasa ?newMenGrasa)
@@ -2014,6 +2025,12 @@
             (bind ?oldGrasa (send ?OldPlato get-Grasas))
             (bind ?oldProteina (send ?OldPlato get-Proteinas))
 
+            (bind ?oldHeu ?heu)
+            (if (member$ (str-cat ?Prefnom) (send ?OldPlato get-Tipo-dieta)) 
+            then
+                (bind ?oldHeu (* ?oldHeu 0.75))
+            )
+
             (bind ?newMenCH (- (+ ?menCH ?newCH) ?oldCH))
             (bind ?newMenGrasa (- (+ ?menGrasa ?newGrasa) ?oldGrasa))
             (bind ?newMenProteina (- (+ ?menProteina ?newProteina) ?oldProteina))
@@ -2025,9 +2042,9 @@
             (bind ?newHeu (+ (* 0.55 ?newDeltaCH)(* 0.3 ?newDeltaGrasa)(* 0.15 ?newDeltaProteina)))
             (bind ?newHeu (* ?newHeu ?factor))
 
-            (if (< ?newHeu ?heu) then 
+            (if (< ?newHeu ?oldHeu) then 
                 (bind ?cena_list (replace$ ?cena_list ?j ?j ?plato)) 
-                (bind ?heu ?newHeu)
+                (bind ?heu (/ ?newHeu ?factor))
                 (bind ?menCH ?newMenCH)
                 (bind ?menProteina ?newMenProteina)
                 (bind ?menGrasa ?newMenGrasa)
@@ -2075,7 +2092,7 @@
 
         (if (member$ (str-cat ?Prefnom) (send ?plato get-Tipo-dieta)) 
         then
-            (bind ?factor 0.65)
+            (bind ?factor 0.75)
             if (eq (str-cat ?Prefnom) "Vegetariana") then (bind ?factor 0.35)
         )
 
@@ -2105,6 +2122,10 @@
         (bind ?oldCH (send ?almuerzo_postre get-Carbohidratos))
         (bind ?oldGrasa (send ?almuerzo_postre get-Grasas))
         (bind ?oldProteina (send ?almuerzo_postre get-Proteinas))
+        (if (member$ (str-cat ?Prefnom) (send ?almuerzo_postre get-Tipo-dieta)) 
+            then
+                (bind ?oldHeu (* ?oldHeu 0.75))
+        )
 
         (bind ?newMenCH (- (+ ?menCH ?newCH) ?oldCH))
         (bind ?newMenGrasa (- (+ ?menGrasa ?newGrasa) ?oldGrasa))
@@ -2119,7 +2140,7 @@
 
         (if (< ?newHeu ?heu) then 
             (bind ?almuerzo_postre ?plato)
-            (bind ?heu ?newHeu)
+            (bind ?heu (/ ?newHeu ?factor))
             (bind ?menCH ?newMenCH)
             (bind ?menProteina ?newMenProteina)
             (bind ?menGrasa ?newMenGrasa)
@@ -2133,6 +2154,11 @@
         (bind ?oldCH (send ?cena_postre get-Carbohidratos))
         (bind ?oldGrasa (send ?cena_postre get-Grasas))
         (bind ?oldProteina (send ?cena_postre get-Proteinas))
+        (if (member$ (str-cat ?Prefnom) (send ?cena_postre get-Tipo-dieta)) 
+            then
+                (bind ?oldHeu (* ?oldHeu 0.75))
+        )
+
 
         (bind ?newMenCH (- (+ ?menCH ?newCH) ?oldCH))
         (bind ?newMenGrasa (- (+ ?menGrasa ?newGrasa) ?oldGrasa))
@@ -2147,7 +2173,7 @@
 
         (if (< ?newHeu ?heu) then 
             (bind ?cena_postre ?plato) 
-            (bind ?heu ?newHeu)
+            (bind ?heu (/ ?newHeu ?factor))
             (bind ?menCH ?newMenCH)
             (bind ?menProteina ?newMenProteina)
             (bind ?menGrasa ?newMenGrasa)
