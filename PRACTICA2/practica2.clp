@@ -1855,7 +1855,8 @@
             (bind ?oldHeu ?heu)
             (if (member$ (str-cat ?Prefnom) (send ?OldPlato get-Tipo-dieta)) 
             then
-                (bind ?oldHeu (* ?oldHeu 0.85))
+                if (eq (str-cat ?Prefnom) "Vegetariana") then  (bind ?oldHeu (* ?oldHeu 0.35))
+                else (bind ?oldHeu (* ?oldHeu 0.85))
             )
 
 
@@ -1972,7 +1973,8 @@
             (bind ?oldHeu ?heu)
             (if (member$ (str-cat ?Prefnom) (send ?OldPlato get-Tipo-dieta)) 
             then
-                (bind ?oldHeu (* ?oldHeu 0.85))
+                if (eq (str-cat ?Prefnom) "Vegetariana") then  (bind ?oldHeu (* ?oldHeu 0.35))
+                else (bind ?oldHeu (* ?oldHeu 0.85))
             )
 
             (bind ?newMenCH (- (+ ?menCH ?newCH) ?oldCH))
@@ -2028,7 +2030,8 @@
             (bind ?oldHeu ?heu)
             (if (member$ (str-cat ?Prefnom) (send ?OldPlato get-Tipo-dieta)) 
             then
-                (bind ?oldHeu (* ?oldHeu 0.85))
+                if (eq (str-cat ?Prefnom) "Vegetariana") then  (bind ?oldHeu (* ?oldHeu 0.35))
+                else (bind ?oldHeu (* ?oldHeu 0.85))
             )
 
             (bind ?newMenCH (- (+ ?menCH ?newCH) ?oldCH))
@@ -2125,7 +2128,8 @@
         (bind ?oldHeu ?heu)
         (if (member$ (str-cat ?Prefnom) (send ?almuerzo_postre get-Tipo-dieta)) 
             then
-                (bind ?oldHeu (* ?oldHeu 0.85))
+                if (eq (str-cat ?Prefnom) "Vegetariana") then  (bind ?oldHeu (* ?oldHeu 0.35))
+                else (bind ?oldHeu (* ?oldHeu 0.85))
         )
 
         (bind ?newMenCH (- (+ ?menCH ?newCH) ?oldCH))
@@ -2157,7 +2161,8 @@
         (bind ?oldProteina (send ?cena_postre get-Proteinas))
         (if (member$ (str-cat ?Prefnom) (send ?cena_postre get-Tipo-dieta)) 
             then
-                (bind ?oldHeu (* ?oldHeu 0.85))
+                if (eq (str-cat ?Prefnom) "Vegetariana") then  (bind ?oldHeu (* ?oldHeu 0.35))
+                else (bind ?oldHeu (* ?oldHeu 0.85))
         )
 
 
@@ -2172,7 +2177,7 @@
         (bind ?newHeu (+ (* 0.55 ?newDeltaCH)(* 0.3 ?newDeltaGrasa)(* 0.15 ?newDeltaProteina)))
         (bind ?newHeu (* ?newHeu ?factor))
 
-        (if (< ?newHeu ?heu) then 
+        (if (< ?newHeu ?oldHeu) then 
             (bind ?cena_postre ?plato) 
             (bind ?heu (/ ?newHeu ?factor))
             (bind ?menCH ?newMenCH)
@@ -2323,7 +2328,7 @@
             
         (bind ?menu (make-instance (gensym*) of Menu_diario (compuesto-desayuno ?desayuno) (compuesto-almuerzo ?almuerzo) (compuesto-cena ?cena) (Dia_semana ?i)))
 
-         (bind ?menCH (contar_CH ?menu))
+        (bind ?menCH (contar_CH ?menu))
         (bind ?menProteina (contar_Proteina ?menu))
         (bind ?menGrasa (contar_Grasa ?menu))
             
@@ -2383,7 +2388,6 @@
         (bind ?newHeu (+ (* 0.55 ?deltaCH)(* 0.3 ?deltaGrasa)(* 0.15 ?deltaProteina)))
 
         (if (< ?newHeu ?heu) then (bind ?mod TRUE))
-        
 	)
     
     (if ?mod then
