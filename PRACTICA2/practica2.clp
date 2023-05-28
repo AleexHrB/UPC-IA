@@ -1423,7 +1423,7 @@
     ?temp <- (object (is-a Temporada))
     ?fruta <- (object (is-a Fruta))
     
-    (test (and (eq ?temp:nombre "Invierno") (or (eq (send ?fruta get-nombre) "Fresa") (eq (send ?fruta get-nombre) "Melocoton") (eq (send ?fruta get-nombre) "Melon") (eq (send ?fruta get-nombre) "Aguacate") )))
+    (test (and (eq (send ?temp get-nombre) "Invierno") (or (eq (send ?fruta get-nombre) "Fresa") (eq (send ?fruta get-nombre) "Melocoton") (eq (send ?fruta get-nombre) "Melon") (eq (send ?fruta get-nombre) "Aguacate") )))
     => (eliminar_ingrediente ?fruta)
 )
 
@@ -1432,7 +1432,7 @@
     ?temp <- (object (is-a Temporada))
     ?fruta <- (object (is-a Fruta))
     
-    (test (and (eq ?temp:nombre "Primavera") (or (eq (send ?fruta get-nombre) "Fresa") (eq (send ?fruta get-nombre) "Melocoton") (eq (send ?fruta get-nombre) "Melon"))))
+    (test (and (eq (send ?temp get-nombre) "Primavera") (or (eq (send ?fruta get-nombre) "Fresa") (eq (send ?fruta get-nombre) "Melocoton") (eq (send ?fruta get-nombre) "Melon"))))
     => (eliminar_ingrediente ?fruta)
 )
 
@@ -1441,7 +1441,7 @@
     ?temp <- (object (is-a Temporada))
     ?fruta <- (object (is-a Fruta))
     
-    (test (and (eq ?temp:nombre "Verano") (eq (send ?fruta get-nombre) "Manzana")))
+    (test (and (eq (send ?temp get-nombre) "Verano") (eq (send ?fruta get-nombre) "Manzana")))
     => (eliminar_ingrediente ?fruta)
 )
 
@@ -1450,7 +1450,7 @@
     ?temp <- (object (is-a Temporada))
     ?fruta <- (object (is-a Fruta))
     
-    (test (and (eq ?temp:nombre "Otono") (or (eq (send ?fruta get-nombre) "Fresa") (eq (send ?fruta get-nombre) "Melon") )))
+    (test (and (eq (send ?temp get-nombre) "Otono") (or (eq (send ?fruta get-nombre) "Fresa") (eq (send ?fruta get-nombre) "Melon") )))
     => (eliminar_ingrediente ?fruta)
 )
 
