@@ -159,16 +159,6 @@
 #    Data properties
 #################################################################
 
-###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4#nombre
-:nombre rdf:type owl:DatatypeProperty ;
-        rdfs:subPropertyOf owl:topDataProperty ;
-        rdf:type owl:FunctionalProperty ;
-        rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Micronutrientes> ,
-                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Preferencia> ,
-                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Restriccion> ;
-        rdfs:range xsd:string .
-
-
 ###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Actividad
 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Actividad> rdf:type owl:DatatypeProperty ;
                                                                                   rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Usuario> ;
@@ -256,6 +246,18 @@
             rdfs:subPropertyOf <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato> ;
             rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato> ;
             rdfs:range xsd:string .
+
+
+###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#nombre
+:nombre rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf owl:topDataProperty ;
+        rdf:type owl:FunctionalProperty ;
+        rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Forma_Cocinar> ,
+                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Ingrediente> ,
+                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Micronutrientes> ,
+                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Preferencia> ,
+                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Restriccion> ;
+        rdfs:range xsd:string .
 
 
 #################################################################
@@ -808,36 +810,42 @@
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Aceite_de_oliva
 :Aceite_de_oliva rdf:type owl:NamedIndividual ,
-                          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Aceite> .
+                          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Aceite> ;
+                 :nombre "Aceite_de_Oliva" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Aceituna
 :Aceituna rdf:type owl:NamedIndividual ,
                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
-                                                                                                    :Hierro .
+                                                                                                    :Hierro ;
+          :nombre "Aceituna" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Aguacate
 :Aguacate rdf:type owl:NamedIndividual ,
                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Fruta> ;
-          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio ;
+          :nombre "Aguacate" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Arroz
 :Arroz rdf:type owl:NamedIndividual ,
                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Cereal> ;
-       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio ;
+       :nombre "Arroz" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Asado
 :Asado rdf:type owl:NamedIndividual ,
-                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Forma_Cocinar> .
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Forma_Cocinar> ;
+       :nombre "Asado" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Avena
 :Avena rdf:type owl:NamedIndividual ,
-                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Cereal> .
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Cereal> ;
+       :nombre "Avena" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Avena_cocida_con_canela_y_pasas
@@ -854,7 +862,8 @@
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Azucar
 :Azucar rdf:type owl:NamedIndividual ,
-                 :Dulces .
+                 :Dulces ;
+        :nombre "Azucar" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Batido_de_150ml_leche_un_platano_y_un_puñado_de_nueces
@@ -873,7 +882,8 @@
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Berenjena
 :Berenjena rdf:type owl:NamedIndividual ,
                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
-           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio ;
+           :nombre "Berenjena" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Berenjenas_rellenas_de_carne
@@ -891,7 +901,8 @@
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Brocoli
 :Brocoli rdf:type owl:NamedIndividual ,
                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
-         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio .
+         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ;
+         :nombre "Brocoli" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Burrito_de_frijoles_negros
@@ -907,13 +918,15 @@
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Cafe
 :Cafe rdf:type owl:NamedIndividual ,
-               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Fruta> .
+               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Fruta> ;
+      :nombre "Cafe" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Calabacin
 :Calabacin rdf:type owl:NamedIndividual ,
                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
-           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio ;
+           :nombre "Calabacin" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Calcio
@@ -939,21 +952,24 @@
 :Cebolla rdf:type owl:NamedIndividual ,
                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
-                                                                                                   :Potasio .
+                                                                                                   :Potasio ;
+         :nombre "Cebolla" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Chocolate
 :Chocolate rdf:type owl:NamedIndividual ,
                     :Dulces ;
            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
-                                                                                                     :Hierro .
+                                                                                                     :Hierro ;
+           :nombre "Chocolate" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Churros
 :Churros rdf:type owl:NamedIndividual ,
                   :Dulces ;
          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
-                                                                                                   :Potasio .
+                                                                                                   :Potasio ;
+         :nombre "Churros" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Cono_de_helado_de_yogur_bajo_en_grasa
@@ -1008,7 +1024,8 @@
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Embutido
 :Embutido rdf:type owl:NamedIndividual ,
                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Comida_Proteica> ;
-          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Hierro .
+          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Hierro ;
+          :nombre "Embutido" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Ensalada_Caprese
@@ -1092,21 +1109,24 @@
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Esparragos
 :Esparragos rdf:type owl:NamedIndividual ,
                      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
-            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio ;
+            :nombre "Esparragos" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Espinacas
 :Espinacas rdf:type owl:NamedIndividual ,
                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Hierro ,
-                                                                                                     :Potasio .
+                                                                                                     :Potasio ;
+           :nombre "Espinacas" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Fideos
 :Fideos rdf:type owl:NamedIndividual ,
                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Cereal> ;
         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
-                                                                                                  :Potasio .
+                                                                                                  :Potasio ;
+        :nombre "Fideos" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Flan_de_huevo
@@ -1126,24 +1146,28 @@
 :Fresa rdf:type owl:NamedIndividual ,
                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Fruta> ;
        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
-                                                                                                 :Potasio .
+                                                                                                 :Potasio ;
+       :nombre "Fresa" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Frijoles
 :Frijoles rdf:type owl:NamedIndividual ,
                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Hierro ,
-                                                                                                    :Potasio .
+                                                                                                    :Potasio ;
+          :nombre "Frijoles" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Frito
 :Frito rdf:type owl:NamedIndividual ,
-                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Forma_Cocinar> .
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Forma_Cocinar> ;
+       :nombre "Frito" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Gelatina
 :Gelatina rdf:type owl:NamedIndividual ,
-                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Comida_Proteica> .
+                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Comida_Proteica> ;
+          :nombre "Gelatina" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Hamburgesa_de_pollo
@@ -1164,30 +1188,35 @@
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Horno
 :Horno rdf:type owl:NamedIndividual ,
-                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Forma_Cocinar> .
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Forma_Cocinar> ;
+       :nombre "Horno" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Huevo
 :Huevo rdf:type owl:NamedIndividual ,
-                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Comida_Proteica> .
+                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Comida_Proteica> ;
+       :nombre "Huevo" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Judias
 :Judias rdf:type owl:NamedIndividual ,
                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
-        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio ;
+        :nombre "Judias" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Leche
 :Leche rdf:type owl:NamedIndividual ,
                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Lacteo> ;
        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
-                                                                                                 :Potasio .
+                                                                                                 :Potasio ;
+       :nombre "Leche" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Lechuga
 :Lechuga rdf:type owl:NamedIndividual ,
-                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> .
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
+         :nombre "Lechuga" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Legumbres
@@ -1195,7 +1224,8 @@
                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Comida_Proteica> ;
            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
                                                                                                      :Hierro ,
-                                                                                                     :Potasio .
+                                                                                                     :Potasio ;
+           :nombre "Legumbres" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Macedonia_de_mango_fresa_melocoton_y_melón
@@ -1215,13 +1245,15 @@
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Mantequilla
 :Mantequilla rdf:type owl:NamedIndividual ,
                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Lacteo> ;
-             <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Mantequilla .
+             <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Mantequilla ;
+             :nombre "Mantequilla" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Manzana
 :Manzana rdf:type owl:NamedIndividual ,
                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Fruta> ;
-         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio ;
+         :nombre "Manzana" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Manzana_asada
@@ -1239,56 +1271,65 @@
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Marisco
 :Marisco rdf:type owl:NamedIndividual ,
                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Comida_Proteica> ;
-         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Hierro .
+         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Hierro ;
+         :nombre "Marisco" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Melocoton
 :Melocoton rdf:type owl:NamedIndividual ,
                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Fruta> ;
-           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+           <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio ;
+           :nombre "Melocoton" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Melon
 :Melon rdf:type owl:NamedIndividual ,
                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Fruta> ;
-       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio ;
+       :nombre "Melon" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Miel
 :Miel rdf:type owl:NamedIndividual ,
-               :Dulces .
+               :Dulces ;
+      :nombre "Miel" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Nuez
 :Nuez rdf:type owl:NamedIndividual ,
                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Comida_Proteica> ;
       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
-                                                                                                :Potasio .
+                                                                                                :Potasio ;
+      :nombre "Nuez" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pan
 :Pan rdf:type owl:NamedIndividual ,
               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Cereal> ;
      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
-                                                                                               :Potasio .
+                                                                                               :Potasio ;
+     :nombre "Pan" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Parrilla
 :Parrilla rdf:type owl:NamedIndividual ,
-                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Forma_Cocinar> .
+                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Forma_Cocinar> ;
+          :nombre "Parrilla" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pasa
 :Pasa rdf:type owl:NamedIndividual ,
                <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Fruta> ;
-      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+      <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio ;
+      :nombre "Pasa" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pasta
 :Pasta rdf:type owl:NamedIndividual ,
                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Cereal> ;
        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
-                                                                                                 :Potasio .
+                                                                                                 :Potasio ;
+       :nombre "Pasta" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pasta_con_tomate
@@ -1322,7 +1363,8 @@
                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
                                                                                                   :Hierro ,
-                                                                                                  :Potasio .
+                                                                                                  :Potasio ;
+        :nombre "Patata" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pechuga_de_pollo_a_la_parrilla
@@ -1339,7 +1381,8 @@
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pera
 :Pera rdf:type owl:NamedIndividual ,
-               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Fruta> .
+               <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Fruta> ;
+      :nombre "Pera" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pescado_a_la_plancha
@@ -1366,18 +1409,21 @@
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pescado_azul
 :Pescado_azul rdf:type owl:NamedIndividual ,
-                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Comida_Proteica> .
+                       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Comida_Proteica> ;
+              :nombre "Pescado_azul" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pescado_blanco
 :Pescado_blanco rdf:type owl:NamedIndividual ,
-                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Comida_Proteica> .
+                         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Comida_Proteica> ;
+                :nombre "Pescado_blanco" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pimiento
 :Pimiento rdf:type owl:NamedIndividual ,
                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
-          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+          <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio ;
+          :nombre "Pimiento" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pizza_4_quesos
@@ -1396,13 +1442,15 @@
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Plancha
 :Plancha rdf:type owl:NamedIndividual ,
-                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Forma_Cocinar> .
+                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Forma_Cocinar> ;
+         :nombre "Plancha" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Platano
 :Platano rdf:type owl:NamedIndividual ,
                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Fruta> ;
-         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio ;
+         :nombre "Platano" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Pollo_al_curry
@@ -1437,14 +1485,16 @@
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Queso
 :Queso rdf:type owl:NamedIndividual ,
                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Lacteo> ;
-       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio .
+       <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ;
+       :nombre "Queso" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Quinoa
 :Quinoa rdf:type owl:NamedIndividual ,
                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
-                                                                                                  :Hierro .
+                                                                                                  :Hierro ;
+        :nombre "Quinoa" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Sándwich_de_atún_con_pan_integral
@@ -1484,7 +1534,8 @@
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Tomate
 :Tomate rdf:type owl:NamedIndividual ,
                  <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
-        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio .
+        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Potasio ;
+        :nombre "Tomate" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Tortilla_de_calabacín
@@ -1516,19 +1567,22 @@
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Tostada
 :Tostada rdf:type owl:NamedIndividual ,
                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Cereal> ;
-         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio .
+         <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ;
+         :nombre "Tostada" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Trigo
 :Trigo rdf:type owl:NamedIndividual ,
                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Cereal> ;
        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
-                                                                                                 :Potasio .
+                                                                                                 :Potasio ;
+       :nombre "Trigo" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Vainilla
 :Vainilla rdf:type owl:NamedIndividual ,
-                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> .
+                   <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
+          :nombre "Vainilla" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Wrap_de_pavo_con_espinacas_y_mostaza
@@ -1547,14 +1601,16 @@
 :Yogur rdf:type owl:NamedIndividual ,
                 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Lacteo> ;
        <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
-                                                                                                 :Potasio .
+                                                                                                 :Potasio ;
+       :nombre "Yogur" .
 
 
 ###  urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#Zanahoria
 :Zanahoria rdf:type owl:NamedIndividual ,
                     <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Verdura> ;
            <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene-composicion> :Calcio ,
-                                                                                                     :Potasio .
+                                                                                                     :Potasio ;
+           :nombre "Zanahoria" .
 
 
 ###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi

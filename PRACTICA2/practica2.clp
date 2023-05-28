@@ -2,7 +2,7 @@
 ;;; ontologia.clp
 ;;; Translated by owl2clips
 ;;; Translated to CLIPS from ontology Ontologia.ttl
-;;; :Date 28/05/2023 09:36:09
+;;; :Date 28/05/2023 10:51:59
 
 (defclass Ingrediente
     (is-a USER)
@@ -10,6 +10,9 @@
     (pattern-match reactive)
     (multislot tiene-composicion
         (type INSTANCE)
+        (create-accessor read-write))
+    (slot nombre
+        (type STRING)
         (create-accessor read-write))
 )
 
@@ -65,6 +68,9 @@
     (is-a Limtacion)
     (role concrete)
     (pattern-match reactive)
+    (slot nombre
+        (type STRING)
+        (create-accessor read-write))
 )
 
 (defclass Plato
@@ -182,6 +188,9 @@
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
+    (slot nombre
+        (type STRING)
+        (create-accessor read-write))
 )
 
 (defclass Menu_diario
@@ -558,24 +567,30 @@
     )
 
     ([Aceite_de_oliva] of Aceite
+         (nombre  "Aceite_de_Oliva")
     )
 
     ([Aceituna] of Verdura
          (tiene-composicion  [Calcio] [Hierro])
+         (nombre  "Aceituna")
     )
 
     ([Aguacate] of Fruta
          (tiene-composicion  [Potasio])
+         (nombre  "Aguacate")
     )
 
     ([Arroz] of Cereal
          (tiene-composicion  [Potasio])
+         (nombre  "Arroz")
     )
 
     ([Asado] of Forma_Cocinar
+         (nombre  "Asado")
     )
 
     ([Avena] of Cereal
+         (nombre  "Avena")
     )
 
     ([Avena_cocida_con_canela_y_pasas] of Plato_Desayuno
@@ -588,6 +603,7 @@
     )
 
     ([Azucar] of Dulces
+         (nombre  "Azucar")
     )
 
     ([Batido_de_150ml_leche_un_platano_y_un_puñado_de_nueces] of Plato_Desayuno
@@ -601,6 +617,7 @@
 
     ([Berenjena] of Verdura
          (tiene-composicion  [Potasio])
+         (nombre  "Berenjena")
     )
 
     ([Berenjenas_rellenas_de_carne] of Plato_principal
@@ -614,6 +631,7 @@
 
     ([Brocoli] of Verdura
          (tiene-composicion  [Calcio])
+         (nombre  "Brocoli")
     )
 
     ([Burrito_de_frijoles_negros] of Plato_principal
@@ -625,10 +643,12 @@
     )
 
     ([Cafe] of Fruta
+         (nombre  "Cafe")
     )
 
     ([Calabacin] of Verdura
          (tiene-composicion  [Potasio])
+         (nombre  "Calabacin")
     )
 
     ([Calcio] of Micronutrientes
@@ -645,14 +665,17 @@
 
     ([Cebolla] of Verdura
          (tiene-composicion  [Calcio] [Potasio])
+         (nombre  "Cebolla")
     )
 
     ([Chocolate] of Dulces
          (tiene-composicion  [Calcio] [Hierro])
+         (nombre  "Chocolate")
     )
 
     ([Churros] of Dulces
          (tiene-composicion  [Calcio] [Potasio])
+         (nombre  "Churros")
     )
 
     ([Cono_de_helado_de_yogur_bajo_en_grasa] of Postre
@@ -692,6 +715,7 @@
 
     ([Embutido] of Comida_Proteica
          (tiene-composicion  [Hierro])
+         (nombre  "Embutido")
     )
 
     ([Ensalada_Caprese] of Plato_principal
@@ -751,14 +775,17 @@
 
     ([Esparragos] of Verdura
          (tiene-composicion  [Potasio])
+         (nombre  "Esparragos")
     )
 
     ([Espinacas] of Verdura
          (tiene-composicion  [Hierro] [Potasio])
+         (nombre  "Espinacas")
     )
 
     ([Fideos] of Cereal
          (tiene-composicion  [Calcio] [Potasio])
+         (nombre  "Fideos")
     )
 
     ([Flan_de_huevo] of Postre
@@ -772,16 +799,20 @@
 
     ([Fresa] of Fruta
          (tiene-composicion  [Calcio] [Potasio])
+         (nombre  "Fresa")
     )
 
     ([Frijoles] of Verdura
          (tiene-composicion  [Hierro] [Potasio])
+         (nombre  "Frijoles")
     )
 
     ([Frito] of Forma_Cocinar
+         (nombre  "Frito")
     )
 
     ([Gelatina] of Comida_Proteica
+         (nombre  "Gelatina")
     )
 
     ([Hamburgesa_de_pollo] of Plato_principal
@@ -797,24 +828,30 @@
     )
 
     ([Horno] of Forma_Cocinar
+         (nombre  "Horno")
     )
 
     ([Huevo] of Comida_Proteica
+         (nombre  "Huevo")
     )
 
     ([Judias] of Verdura
          (tiene-composicion  [Potasio])
+         (nombre  "Judias")
     )
 
     ([Leche] of Lacteo
          (tiene-composicion  [Calcio] [Potasio])
+         (nombre  "Leche")
     )
 
     ([Lechuga] of Verdura
+         (nombre  "Lechuga")
     )
 
     ([Legumbres] of Comida_Proteica
          (tiene-composicion  [Calcio] [Hierro] [Potasio])
+         (nombre  "Legumbres")
     )
 
     ([Macedonia_de_mango_fresa_melocoton_y_melón] of Postre
@@ -828,10 +865,12 @@
 
     ([Mantequilla] of Lacteo
          (tiene-composicion  [Mantequilla])
+         (nombre  "Mantequilla")
     )
 
     ([Manzana] of Fruta
          (tiene-composicion  [Potasio])
+         (nombre  "Manzana")
     )
 
     ([Manzana_asada] of Postre
@@ -846,36 +885,45 @@
 
     ([Marisco] of Comida_Proteica
          (tiene-composicion  [Hierro])
+         (nombre  "Marisco")
     )
 
     ([Melocoton] of Fruta
          (tiene-composicion  [Potasio])
+         (nombre  "Melocoton")
     )
 
     ([Melon] of Fruta
          (tiene-composicion  [Potasio])
+         (nombre  "Melon")
     )
 
     ([Miel] of Dulces
+         (nombre  "Miel")
     )
 
     ([Nuez] of Comida_Proteica
          (tiene-composicion  [Calcio] [Potasio])
+         (nombre  "Nuez")
     )
 
     ([Pan] of Cereal
          (tiene-composicion  [Calcio] [Potasio])
+         (nombre  "Pan")
     )
 
     ([Parrilla] of Forma_Cocinar
+         (nombre  "Parrilla")
     )
 
     ([Pasa] of Fruta
          (tiene-composicion  [Potasio])
+         (nombre  "Pasa")
     )
 
     ([Pasta] of Cereal
          (tiene-composicion  [Calcio] [Potasio])
+         (nombre  "Pasta")
     )
 
     ([Pasta_con_tomate] of Plato_principal
@@ -898,6 +946,7 @@
 
     ([Patata] of Verdura
          (tiene-composicion  [Calcio] [Hierro] [Potasio])
+         (nombre  "Patata")
     )
 
     ([Pechuga_de_pollo_a_la_parrilla] of Plato_principal
@@ -911,6 +960,7 @@
     )
 
     ([Pera] of Fruta
+         (nombre  "Pera")
     )
 
     ([Pescado_a_la_plancha] of Plato_principal
@@ -932,13 +982,16 @@
     )
 
     ([Pescado_azul] of Comida_Proteica
+         (nombre  "Pescado_azul")
     )
 
     ([Pescado_blanco] of Comida_Proteica
+         (nombre  "Pescado_blanco")
     )
 
     ([Pimiento] of Verdura
          (tiene-composicion  [Potasio])
+         (nombre  "Pimiento")
     )
 
     ([Pizza_4_quesos] of Plato_principal
@@ -951,10 +1004,12 @@
     )
 
     ([Plancha] of Forma_Cocinar
+         (nombre  "Plancha")
     )
 
     ([Platano] of Fruta
          (tiene-composicion  [Potasio])
+         (nombre  "Platano")
     )
 
     ([Pollo_al_curry] of Plato_principal
@@ -981,10 +1036,12 @@
 
     ([Queso] of Lacteo
          (tiene-composicion  [Calcio])
+         (nombre  "Queso")
     )
 
     ([Quinoa] of Verdura
          (tiene-composicion  [Calcio] [Hierro])
+         (nombre  "Quinoa")
     )
 
     ([Sándwich_de_atún_con_pan_integral] of Plato_principal
@@ -1015,6 +1072,7 @@
 
     ([Tomate] of Verdura
          (tiene-composicion  [Potasio])
+         (nombre  "Tomate")
     )
 
     ([Tortilla_de_calabacín] of Plato_principal
@@ -1037,13 +1095,16 @@
 
     ([Tostada] of Cereal
          (tiene-composicion  [Calcio])
+         (nombre  "Tostada")
     )
 
     ([Trigo] of Cereal
          (tiene-composicion  [Calcio] [Potasio])
+         (nombre  "Trigo")
     )
 
     ([Vainilla] of Verdura
+         (nombre  "Vainilla")
     )
 
     ([Wrap_de_pavo_con_espinacas_y_mostaza] of Plato_principal
@@ -1057,10 +1118,12 @@
 
     ([Yogur] of Lacteo
          (tiene-composicion  [Calcio] [Potasio])
+         (nombre  "Yogur")
     )
 
     ([Zanahoria] of Verdura
          (tiene-composicion  [Calcio] [Potasio])
+         (nombre  "Zanahoria")
     )
 
 )
@@ -1179,9 +1242,16 @@
     (bind ?pref (make-instance ?preferencia of Preferencia (nombre ?preferencia)))
     (bind ?restric (create$))
     (loop-for-count (?i 1 (length$ ?enfermedades))
-        (bind ?restric (insert$ ?restric (+ (length$ ?restric) 1) (make-instance (nth$ ?i ?enfermedades) of Restriccion)))
+        (bind ?restric (insert$ ?restric (+ (length$ ?restric) 1) (make-instance (nth$ ?i ?enfermedades) of Restriccion (nombre (nth$ ?i ?enfermedades)))))
     )
     
+    
+    (bind ?restricciones (find-all-instances ((?res Restriccion)) TRUE))
+    (loop-for-count (?i 1 (length$ ?restricciones)) do
+        (printout t (nth$ ?i ?restricciones) crlf)
+        (printout t (eq (nth$ ?i ?restricciones) [Diabetes]) crlf)
+    )
+
     (make-instance usuario of Usuario (tiene-restriccion ?restric) (Sexo ?sexo) (Edad ?edad) (Actividad ?estilo) (tiene-preferencia ?pref) (vive-durante ?temporada)) 
 )
 
@@ -1217,15 +1287,10 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Lacteo))
 
-<<<<<<< HEAD
-    (test (and (eq ?a Hipertension) (or (eq ?Ingrediente Queso) (eq ?Ingrediente Mantequilla))))
+    (test (and (eq ?a:nombre "Hipertension") (or (eq ?Ingrediente:nombre "Queso") (eq ?Ingrediente [Mantequilla]))))
     => 
-    (printout t "VOA A APARECER MUCHAS VECES" crlf)
+
     (eliminar_ingrediente ?Ingrediente)
-=======
-    (test (and (eq ?a [Hipertension]) (or (eq ?Ingrediente [Queso]) (eq ?Ingrediente [Mantequilla]))))
-    => (eliminar_ingrediente ?Ingrediente)
->>>>>>> e4ec81b490b576e4bda0aff18fd16a5eced33d14
 )
 
 (defrule procesado::eliminar_vegetales_desaconsejadas_para_hipertensos "Quita los vegetales desaconsejados para los que padecen hipertension"
@@ -1291,16 +1356,8 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Dulces))
 
-<<<<<<< HEAD
-    (test (and (eq ?a Diabetes) (or (eq ?Ingrediente Churros) (eq ?Ingrediente Chocolate) (eq ?Ingrediente Azucar) (eq ?Ingrediente Miel) )))
-    => 
-    (printout t "FUERA CHURROS" crlf)
-    (eliminar_ingrediente ?Ingrediente)
-    
-=======
     (test (and (eq ?a [Diabetes]) (or (eq ?Ingrediente [Churros]) (eq ?Ingrediente [Chocolate]) (eq ?Ingrediente [Azucar]) (eq ?Ingrediente [Miel]) )))
     => (eliminar_ingrediente ?Ingrediente)
->>>>>>> e4ec81b490b576e4bda0aff18fd16a5eced33d14
 )
 
 ;;HAN DE EVITAR EMBUTIDOS, ULTRAPROCESADOS, CAFE , LACTEOS CON NATA, PAN ARROZ GALLETAS
