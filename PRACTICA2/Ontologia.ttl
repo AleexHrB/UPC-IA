@@ -49,13 +49,6 @@
                                                                                             rdfs:range <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato_principal> .
 
 
-###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/pertenece-a-preferencia
-<http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/pertenece-a-preferencia> rdf:type owl:ObjectProperty ;
-                                                                                                rdfs:subPropertyOf owl:topObjectProperty ;
-                                                                                                rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Plato> ;
-                                                                                                rdfs:range <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Limtacion> .
-
-
 ###  http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene
 <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/tiene> rdf:type owl:ObjectProperty ;
                                                                               rdfs:subPropertyOf owl:topObjectProperty ;

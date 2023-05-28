@@ -2,16 +2,34 @@
 ;;; ontologia.clp
 ;;; Translated by owl2clips
 ;;; Translated to CLIPS from ontology Ontologia.ttl
-;;; :Date 28/05/2023 11:12:32
+;;; :Date 28/05/2023 21:58:43
+
+(defclass Composicion
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Macronutrientes
+    (is-a Composicion)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Micronutrientes
+    (is-a Composicion)
+    (role concrete)
+    (pattern-match reactive)
+    (slot nombre
+        (type STRING)
+        (create-accessor read-write))
+)
 
 (defclass Plato
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
     (multislot compuesto-por-ingrediente
-        (type INSTANCE)
-        (create-accessor read-write))
-    (multislot pertenece-a-preferencia
         (type INSTANCE)
         (create-accessor read-write))
     (multislot tiene-forma-cocinar
@@ -114,27 +132,6 @@
 
 (defclass Restriccion
     (is-a Limtacion)
-    (role concrete)
-    (pattern-match reactive)
-    (slot nombre
-        (type STRING)
-        (create-accessor read-write))
-)
-
-(defclass Composicion
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass Macronutrientes
-    (is-a Composicion)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass Micronutrientes
-    (is-a Composicion)
     (role concrete)
     (pattern-match reactive)
     (slot nombre
