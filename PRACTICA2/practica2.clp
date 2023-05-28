@@ -2,7 +2,55 @@
 ;;; ontologia.clp
 ;;; Translated by owl2clips
 ;;; Translated to CLIPS from ontology Ontologia.ttl
-;;; :Date 28/05/2023 10:51:59
+;;; :Date 28/05/2023 11:12:32
+
+(defclass Plato
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+    (multislot compuesto-por-ingrediente
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot pertenece-a-preferencia
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot tiene-forma-cocinar
+        (type INSTANCE)
+        (create-accessor read-write))
+    (slot Calorias
+        (type FLOAT)
+        (create-accessor read-write))
+    (slot Carbohidratos
+        (type FLOAT)
+        (create-accessor read-write))
+    (slot Grasas
+        (type FLOAT)
+        (create-accessor read-write))
+    (slot Proteinas
+        (type FLOAT)
+        (create-accessor read-write))
+    (multislot Tipo-dieta
+        (type STRING)
+        (create-accessor read-write))
+)
+
+(defclass Plato_Desayuno
+    (is-a Plato)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Plato_principal
+    (is-a Plato)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Postre
+    (is-a Plato)
+    (role concrete)
+    (pattern-match reactive)
+)
 
 (defclass Ingrediente
     (is-a USER)
@@ -71,54 +119,6 @@
     (slot nombre
         (type STRING)
         (create-accessor read-write))
-)
-
-(defclass Plato
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-    (multislot compuesto-por-ingrediente
-        (type INSTANCE)
-        (create-accessor read-write))
-    (multislot pertenece-a-preferencia
-        (type INSTANCE)
-        (create-accessor read-write))
-    (multislot tiene-forma-cocinar
-        (type INSTANCE)
-        (create-accessor read-write))
-    (slot Calorias
-        (type FLOAT)
-        (create-accessor read-write))
-    (slot Carbohidratos
-        (type FLOAT)
-        (create-accessor read-write))
-    (slot Grasas
-        (type FLOAT)
-        (create-accessor read-write))
-    (slot Proteinas
-        (type FLOAT)
-        (create-accessor read-write))
-    (multislot Tipo-dieta
-        (type STRING)
-        (create-accessor read-write))
-)
-
-(defclass Plato_Desayuno
-    (is-a Plato)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass Plato_principal
-    (is-a Plato)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass Postre
-    (is-a Plato)
-    (role concrete)
-    (pattern-match reactive)
 )
 
 (defclass Composicion
@@ -225,6 +225,9 @@
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
+    (slot nombre
+        (type STRING)
+        (create-accessor read-write))
 )
 
 (defclass Usuario
@@ -1130,6 +1133,7 @@
 
 
 
+
 (defmodule MAIN
     (export ?ALL)
 )
@@ -1164,10 +1168,6 @@
 	(declare (salience 20)) 
 	=> 
 	(printout t "Super Galactic polynomial diet maker et al yayos solver" crlf)
-    (make-instance [Invierno] of Temporada)
-    (make-instance [Verano] of Temporada)
-    (make-instance [Otono] of Temporada)
-    (make-instance [Primavera] of Temporada)
 	(focus entrada)
 )
 
@@ -1230,6 +1230,7 @@
     ;Sobre su estado actual
     (bind ?estilo (selecciona_una_opcion "Introduzca su estilo de vida usando el número correspondiente (0:Sedentaria , 1:Normal, 2:Activo): " 0 1 2))
     (bind ?temporada (selecciona_una_opcion "Introduzca la temporada del año" Invierno Primavera Otono Verano))
+    (bind ?temportada (make-instance ?temporada of Temporada (nombre ?temporada)))
 
     ;Sobre preferencias y restricciones
     (bind ?preferencia (selecciona_una_opcion "Si tiene alguna preferencia introduzcala, en caso contrario eliga 'No': " No Vegetariana Mediterranea Pescado))
@@ -1393,7 +1394,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Fruta))
 
-    (test (and (eq (send ?a get-nombre) "Osteoporosis") (eq ?Ingrediente:ingrediente "Cafe") ))
+    (test (and (eq (send ?a get-nombre) "Osteoporosis") (eq (send ?Ingrediente get-nombre) "Cafe") ))
     => (eliminar_ingrediente ?Ingrediente)
 )
 

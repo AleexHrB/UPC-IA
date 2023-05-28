@@ -2,7 +2,55 @@
 ;;; ontologia.clp
 ;;; Translated by owl2clips
 ;;; Translated to CLIPS from ontology Ontologia.ttl
-;;; :Date 28/05/2023 10:51:59
+;;; :Date 28/05/2023 11:12:32
+
+(defclass Plato
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+    (multislot compuesto-por-ingrediente
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot pertenece-a-preferencia
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot tiene-forma-cocinar
+        (type INSTANCE)
+        (create-accessor read-write))
+    (slot Calorias
+        (type FLOAT)
+        (create-accessor read-write))
+    (slot Carbohidratos
+        (type FLOAT)
+        (create-accessor read-write))
+    (slot Grasas
+        (type FLOAT)
+        (create-accessor read-write))
+    (slot Proteinas
+        (type FLOAT)
+        (create-accessor read-write))
+    (multislot Tipo-dieta
+        (type STRING)
+        (create-accessor read-write))
+)
+
+(defclass Plato_Desayuno
+    (is-a Plato)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Plato_principal
+    (is-a Plato)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Postre
+    (is-a Plato)
+    (role concrete)
+    (pattern-match reactive)
+)
 
 (defclass Ingrediente
     (is-a USER)
@@ -71,54 +119,6 @@
     (slot nombre
         (type STRING)
         (create-accessor read-write))
-)
-
-(defclass Plato
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-    (multislot compuesto-por-ingrediente
-        (type INSTANCE)
-        (create-accessor read-write))
-    (multislot pertenece-a-preferencia
-        (type INSTANCE)
-        (create-accessor read-write))
-    (multislot tiene-forma-cocinar
-        (type INSTANCE)
-        (create-accessor read-write))
-    (slot Calorias
-        (type FLOAT)
-        (create-accessor read-write))
-    (slot Carbohidratos
-        (type FLOAT)
-        (create-accessor read-write))
-    (slot Grasas
-        (type FLOAT)
-        (create-accessor read-write))
-    (slot Proteinas
-        (type FLOAT)
-        (create-accessor read-write))
-    (multislot Tipo-dieta
-        (type STRING)
-        (create-accessor read-write))
-)
-
-(defclass Plato_Desayuno
-    (is-a Plato)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass Plato_principal
-    (is-a Plato)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass Postre
-    (is-a Plato)
-    (role concrete)
-    (pattern-match reactive)
 )
 
 (defclass Composicion
@@ -225,6 +225,9 @@
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
+    (slot nombre
+        (type STRING)
+        (create-accessor read-write))
 )
 
 (defclass Usuario
