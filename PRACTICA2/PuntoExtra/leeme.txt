@@ -1,0 +1,24 @@
+En esta carpeta solo hay un archivo clp que implementa los 4 modulos: Entrada, Procesado, Síntesis y salida.
+La ontologia también está definida en el archivo practica2.clp, antes de empezar la definición de los módulos.
+
+Para ejecutar el programa simplemente cargad practica2.clp en una terminal de CLIPS e introducir (reset) (para que se carguen las instancias de la ontologia) y luego (run) 
+para ejecutar el codigo.
+
+El programa pregunta al usuario su edad, sexo, nivel de actividad física (3 opciones de actividad), la temporada del año, las preferencias del usuario y las enfermedades 
+que padece dentro de una lista de enfermedades o restricciones alimenticias.
+
+Primero, el programa eliminara todos los platos que contengan alimentos prohibidos por las restricciones alimenticias que ha dado el usuario.
+
+Seguidamente, el programa calculará las calorias que tiene que consumir el usuario al día y luego calculará los gramos de carbohidratos, grasas i proteinas necesarias. C
+Con esta información se construye una dieta aleatoria que no se vaya "demasiado" lejos del objetivo (como es aleatorio hemos tenido que permitir un rango muy amplio de 
+valores posibles para que nuestro programa puediera acabar). Cabe destacar que el programa random no repite nunca una comida.
+
+Finalmente se hacen las correcciones de la dieta, como el margen de error en la ejecución aleatoria es muy amplio, nuestro programa mira, para cada día, si puede mejorar 
+el desayuno para que se ajuste mejor al objetivo. Después de las correcciones el programa de dietas puede llegar a repetir desayunos.
+
+En un futuro implementaremos que se tengan en cuenta las preferencias del usuario (ya sea en las correcciones o en la creación aleatoria) y también extenderemos la corrección
+de la dieta para que pruebe distintas opciones de comida y cena para ver si puede mejorar aún más.
+
+Nuestro sistema de mejora es similar a una Búsqueda Local, el programa intenta cambiar platos hasta que encuentre uno que esté más cerca del objetivo.
+
+Finalmente el programa imprime el resultado.
