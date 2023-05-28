@@ -1264,6 +1264,7 @@
 ;;HIPERTENSOS
 (deffunction eliminar_ingrediente (?Ingrediente)
     (bind ?platos_list (find-all-instances ((?plato Plato)) TRUE))
+    (bind ?paraEliminar (create$))
     (loop-for-count (?i 1 (length$ ?platos_list))
         (bind ?ingredients_list (send (nth$ ?i ?platos_list) get-compuesto-por-ingrediente))
         (bind ?eliminar FALSE)
@@ -1273,13 +1274,19 @@
         )
         (if ?eliminar 
         then 
-            (send (nth$ ?i ?platos_list) delete)
+            (bind ?paraEliminar (insert$ ?paraEliminar (+ (length$ ?paraEliminar) 1) (nth$ ?i ?platos_list)))
         )     
+    )
+    (while (> (length$ ?paraEliminar) 0)
+        (bind ?elim (nth$ 1 ?paraEliminar))
+        (bind ?paraEliminar (delete$ ?paraEliminar 1 1))
+        (send ?elim delete)
     )
 )
 
 (deffunction eliminar_forma (?FormaCocinar)
     (bind ?platos_list (find-all-instances ((?plato Plato)) TRUE))
+    (bind ?paraEliminar (create$))
     (loop-for-count (?i 1 (length$ ?platos_list))
         (bind ?Forma_list (send (nth$ ?i ?platos_list) get-tiene-forma-cocinar))
         (bind ?eliminar FALSE)
@@ -1289,8 +1296,13 @@
         )
         (if ?eliminar 
         then 
-            (send (nth$ ?i ?platos_list) delete)
+            (bind ?paraEliminar (insert$ ?paraEliminar (+ (length$ ?paraEliminar) 1) (nth$ ?i ?platos_list)))
         )     
+    )
+    (while (> (length$ ?paraEliminar) 0)
+        (bind ?elim (nth$ 1 ?paraEliminar))
+        (bind ?paraEliminar (delete$ ?paraEliminar 1 1))
+        (send ?elim delete)
     )
 )
 
@@ -1425,7 +1437,8 @@
     ?Ingrediente <- (object (is-a Comida_Proteica))
 
     (test (and (eq (str-cat (send ?a get-nombre)) "Alergia_Nueces") (eq (str-cat (send ?Ingrediente get-nombre)) "Nuez")) )
-    => (eliminar_ingrediente ?Ingrediente)
+    =>
+    (eliminar_ingrediente ?Ingrediente)
 )
 
 
