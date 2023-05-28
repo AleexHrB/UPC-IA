@@ -1167,7 +1167,7 @@
 (defrule MAIN::inicio 
 	(declare (salience 20)) 
 	=> 
-	(printout t "Super Galactic polynomial diet maker et al yayos solver" crlf)
+	(printout t "Bienvenido al creador de dietas" crlf)
 	(focus entrada)
 )
 
@@ -1796,7 +1796,7 @@
         (bind ?factor 1.0)
         (if (member$ (str-cat ?Prefnom) (send ?platDesayun get-Tipo-dieta)) 
         then
-            (bind ?factor 0.95)
+            (bind ?factor 0.90)
         )
 
         (if (member$ ?platDesayun ?plato_list) 
@@ -1910,7 +1910,7 @@
 
         (if (member$ (str-cat ?Prefnom) (send ?plato get-Tipo-dieta)) 
         then
-            (bind ?factor 0.95)
+            (bind ?factor 0.90)
         )
 
         (if (member$ ?plato ?almuerzo_list) 
@@ -2072,7 +2072,7 @@
 
         (if (member$ (str-cat ?Prefnom) (send ?plato get-Tipo-dieta)) 
         then
-            (bind ?factor 0.95)
+            (bind ?factor 0.90)
         )
 
         (if (eq ?plato ?almuerzo_postre) 
@@ -2230,7 +2230,6 @@
     )
 
     (printout t "Empezamos la creación de la dieta" crlf)
-    (bind ?Tol 2.0)
     (bind ?menu_list (create$))
 
     (loop-for-count (?i 1 7) do 
@@ -2238,72 +2237,66 @@
         (bind ?menProteina -100)
         (bind ?menGrasa -100)
 
-        (while (or  
-                (< ?menCH (- ?CH (* ?CH ?Tol))) (> ?menCH (+ ?CH (* ?CH ?Tol)))
-                (< ?menProteina (- ?Proteina (* ?Proteina ?Tol))) (> ?menProteina (+ ?Proteina (* ?Proteina ?Tol)))
-                (< ?menGrasa (- ?Grasa (* ?Grasa ?Tol))) (> ?menGrasa (+ ?Grasa (* ?Grasa ?Tol))))
-            
-            (bind ?candidatos_desayuno (escogeRandom2 ?desayun))
-            (bind ?desayun (borrar-elementos ?desayun ?candidatos_desayuno))
-            (if (eq (length$ ?desayun) 0)
-            then
-                (bind ?refD (+ ?refD 1))
-                (bind ?desayun (refill ?Prefnom ?refD Plato_Desayuno))
+
+        (bind ?candidatos_desayuno (escogeRandom2 ?desayun))
+        (bind ?desayun (borrar-elementos ?desayun ?candidatos_desayuno))
+        (if (eq (length$ ?desayun) 0)
+        then
+            (bind ?refD (+ ?refD 1))
+            (bind ?desayun (refill ?Prefnom ?refD Plato_Desayuno))
                 
-            )
-
-            (bind ?candidatos_almuerzo_plato (escogeRandom2 ?comida))
-            (bind ?comida (borrar-elementos ?comida ?candidatos_almuerzo_plato))
-            (if (eq (length$ ?comida) 0)
-            then
-                (bind ?refD (+ ?refC 1))
-                (bind ?comida (refill ?Prefnom ?refC Plato_principal))
-                
-            )
-
-            (bind ?candidatos_almuerzo_postre (escogeRandom1 ?postre))
-            (bind ?postre (borrar-elementos ?postre ?candidatos_almuerzo_postre))
-            (if (eq (length$ ?postre) 0)
-            then
-                (bind ?refD (+ ?refP 1))
-                (bind ?postre (refill ?Prefnom ?refP Postre))
-                
-            )
-
-            (bind ?candidatos_cena_plato (escogeRandom2 ?comida))
-            (bind ?comida (borrar-elementos ?comida ?candidatos_cena_plato))
-            (if (eq (length$ ?comida) 0)
-            then
-                (bind ?refD (+ ?refC 1))
-                (bind ?comida (refill ?Prefnom ?refC Plato_principal))
-                
-            )
-
-            (bind ?candidatos_cena_postre (escogeRandom1 ?postre))
-            (bind ?postre (borrar-elementos ?postre ?candidatos_cena_postre))
-            (if (eq (length$ ?postre) 0)
-            then
-                (bind ?postre (refill ?Prefnom ?refP Postre))
-                (bind ?refD (+ ?refP 1))
-            )
-
-
-            (bind ?desayuno (make-instance (gensym*) of Desayuno (compuesto-por-desayuno ?candidatos_desayuno)))
-            (bind ?almuerzo (make-instance (gensym*) of Almuerzo (compuesto-por-plato ?candidatos_almuerzo_plato) (compuesto-por-postre ?candidatos_almuerzo_postre)))
-            (bind ?cena (make-instance (gensym*) of Cena (compuesto-por-plato ?candidatos_cena_plato) (compuesto-por-postre ?candidatos_cena_postre)))
-            
-            (bind ?menu (make-instance (gensym*) of Menu_diario (compuesto-desayuno ?desayuno) (compuesto-almuerzo ?almuerzo) (compuesto-cena ?cena) (Dia_semana ?i)))
-
-            (bind ?menCH (contar_CH ?menu))
-            (bind ?menProteina (contar_Proteina ?menu))
-            (bind ?menGrasa (contar_Grasa ?menu))
-            
         )
+
+        (bind ?candidatos_almuerzo_plato (escogeRandom2 ?comida))
+        (bind ?comida (borrar-elementos ?comida ?candidatos_almuerzo_plato))
+        (if (eq (length$ ?comida) 0)
+        then
+            (bind ?refD (+ ?refC 1))
+            (bind ?comida (refill ?Prefnom ?refC Plato_principal))
+                
+        )
+
+        (bind ?candidatos_almuerzo_postre (escogeRandom1 ?postre))
+        (bind ?postre (borrar-elementos ?postre ?candidatos_almuerzo_postre))
+        (if (eq (length$ ?postre) 0)
+        then
+            (bind ?refD (+ ?refP 1))
+            (bind ?postre (refill ?Prefnom ?refP Postre))
+                
+        )
+
+        (bind ?candidatos_cena_plato (escogeRandom2 ?comida))
+        (bind ?comida (borrar-elementos ?comida ?candidatos_cena_plato))
+        (if (eq (length$ ?comida) 0)
+        then
+            (bind ?refD (+ ?refC 1))
+            (bind ?comida (refill ?Prefnom ?refC Plato_principal))
+                
+        )
+
+        (bind ?candidatos_cena_postre (escogeRandom1 ?postre))
+        (bind ?postre (borrar-elementos ?postre ?candidatos_cena_postre))
+        (if (eq (length$ ?postre) 0)
+        then
+            (bind ?postre (refill ?Prefnom ?refP Postre))
+            (bind ?refD (+ ?refP 1))
+        )
+
+
+        (bind ?desayuno (make-instance (gensym*) of Desayuno (compuesto-por-desayuno ?candidatos_desayuno)))
+        (bind ?almuerzo (make-instance (gensym*) of Almuerzo (compuesto-por-plato ?candidatos_almuerzo_plato) (compuesto-por-postre ?candidatos_almuerzo_postre)))
+        (bind ?cena (make-instance (gensym*) of Cena (compuesto-por-plato ?candidatos_cena_plato) (compuesto-por-postre ?candidatos_cena_postre)))
+            
+        (bind ?menu (make-instance (gensym*) of Menu_diario (compuesto-desayuno ?desayuno) (compuesto-almuerzo ?almuerzo) (compuesto-cena ?cena) (Dia_semana ?i)))
+
+         (bind ?menCH (contar_CH ?menu))
+        (bind ?menProteina (contar_Proteina ?menu))
+        (bind ?menGrasa (contar_Grasa ?menu))
+            
+        
         (bind ?menu_list (insert$ ?menu_list (+ (length$ ?menu_list) 1) ?menu))
     )
     (bind ?dieta (make-instance dieta of Dieta (compuesto-por-menu ?menu_list)))
-
-   
 )
 
 (defrule sintesis::mejora_dieta
