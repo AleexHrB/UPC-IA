@@ -2,37 +2,7 @@
 ;;; ontologia.clp
 ;;; Translated by owl2clips
 ;;; Translated to CLIPS from ontology Ontologia.ttl
-;;; :Date 27/05/2023 12:09:52
-
-(defclass Composicion
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass Macronutrientes
-    (is-a Composicion)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass Micronutrientes
-    (is-a Composicion)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass Limtacion
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass Restriccion
-    (is-a Limtacion)
-    (role concrete)
-    (pattern-match reactive)
-)
+;;; :Date 28/05/2023 09:36:09
 
 (defclass Ingrediente
     (is-a USER)
@@ -85,6 +55,18 @@
     (pattern-match reactive)
 )
 
+(defclass Limtacion
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Restriccion
+    (is-a Limtacion)
+    (role concrete)
+    (pattern-match reactive)
+)
+
 (defclass Plato
     (is-a USER)
     (role concrete)
@@ -131,6 +113,27 @@
     (is-a Plato)
     (role concrete)
     (pattern-match reactive)
+)
+
+(defclass Composicion
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Macronutrientes
+    (is-a Composicion)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Micronutrientes
+    (is-a Composicion)
+    (role concrete)
+    (pattern-match reactive)
+    (slot nombre
+        (type STRING)
+        (create-accessor read-write))
 )
 
 (defclass Almuerzo
@@ -206,8 +209,7 @@
     (pattern-match reactive)
     (slot nombre
         (type STRING)
-        (create-accessor read-write)
-    )
+        (create-accessor read-write))
 )
 
 (defclass Temporada
@@ -630,6 +632,7 @@
     )
 
     ([Calcio] of Micronutrientes
+         (nombre  "Calcio")
     )
 
     ([Carne_blanca] of Comida_Proteica
@@ -790,6 +793,7 @@
     )
 
     ([Hierro] of Micronutrientes
+         (nombre  "Hierro")
     )
 
     ([Horno] of Forma_Cocinar
@@ -972,6 +976,7 @@
     )
 
     ([Potasio] of Micronutrientes
+         (nombre  "Potasio")
     )
 
     ([Queso] of Lacteo
@@ -1047,7 +1052,7 @@
          (Carbohidratos  27.5)
          (Grasas  10)
          (Proteinas  17.5)
-         (Tipo-dieta  "Mediterranea")
+         (Tipo-dieta  "Vegetariana")
     )
 
     ([Yogur] of Lacteo
@@ -1663,6 +1668,19 @@
     
 )
 
+(deffunction sintesis::tiene_micro (?Plat ?micro)
+    (bind ?ingredientes (send ?Plat get-compuesto-por-ingrediente))
+    (loop-for-count (?i 1 (length$ ?ingredientes)) do
+        (bind ?ingre (nth$ ?i ?ingredientes))
+        (if (member$ ?micro (send ?ingre get-tiene-composicion))
+        then
+            (return TRUE)
+        )   
+    )
+    (return FALSE)
+)
+
+
 (deffunction sintesis::mejorar_desayuno (?factibles_desayun ?men ?CH ?Proteina ?Grasa ?Prefnom)
     (bind ?desayun (send ?men get-compuesto-desayuno))
     (bind ?plato_list (send ?desayun get-compuesto-por-desayuno))
@@ -1673,6 +1691,12 @@
     (bind ?deltaCH 0)
     (bind ?deltaGrasa 0)
     (bind ?deltaProteina 0)
+
+    (bind ?Hierro (find-instance ((?micro Micronutrientes)) (eq ?micro:nombre "Hierro")))
+    (bind ?Calcio (find-instance ((?micro Micronutrientes)) (eq ?micro:nombre "Calcio")))
+    (bind ?Potasio (find-instance ((?micro Micronutrientes)) (eq ?micro:nombre "Potasio")))
+
+
     (if (> ?menCH ?CH) then (bind ?deltaCH (- ?menCH ?CH)) else (bind ?deltaCH (- ?CH ?menCH)))
     (if (> ?menGrasa ?Grasa) then (bind ?deltaGrasa (- ?menGrasa ?Grasa)) else (bind ?deltaGrasa (- ?Grasa ?menGrasa)))
     (if (> ?menProteina ?Proteina) then (bind ?deltaProteina (- ?menProteina ?Proteina)) else (bind ?deltaProteina (- ?Proteina ?menProteina)))
@@ -1694,6 +1718,27 @@
             (bind ?factor 5.0)
         )
             
+        
+        (if (member$ ?platDesayun ?plato_list) 
+        then
+            (bind ?factor 5.0)
+        )
+
+        (if (tiene_micro ?platDesayun ?Hierro)
+        then
+            (bind ?factor (- ?factor 0.01))
+        )
+
+        (if (tiene_micro ?platDesayun ?Calcio)
+        then
+            (bind ?factor (- ?factor 0.01))
+        )
+
+        (if (tiene_micro ?platDesayun ?Potasio)
+        then
+            (bind ?factor (- ?factor 0.01))
+        )
+
         (if (< (length$ ?plato_list) 2) then 
             (bind ?newMenCH (+ ?menCH ?newCH))
             (bind ?newMenGrasa (+ ?menGrasa ?newGrasa))
@@ -1711,7 +1756,6 @@
                 (bind ?menCH ?newMenCH)
                 (bind ?menProteina ?newMenProteina)
                 (bind ?menGrasa ?newMenGrasa)
-                (printout t "MEJORAMOS DESAYUNO" crlf)
             )
         )
 
@@ -1738,7 +1782,6 @@
                 (bind ?menCH ?newMenCH)
                 (bind ?menProteina ?newMenProteina)
                 (bind ?menGrasa ?newMenGrasa)
-                (printout t "MEJORAMOS DESAYUNO" crlf)
                 
             )
         )
@@ -1754,6 +1797,10 @@
     (bind ?cena (send ?men get-compuesto-cena))
     (bind ?almuerzo_list (send ?almuerzo get-compuesto-por-plato))
     (bind ?cena_list (send ?cena get-compuesto-por-plato))
+
+    (bind ?Hierro (find-instance ((?micro Micronutrientes)) (eq ?micro:nombre "Hierro")))
+    (bind ?Calcio (find-instance ((?micro Micronutrientes)) (eq ?micro:nombre "Calcio")))
+    (bind ?Potasio (find-instance ((?micro Micronutrientes)) (eq ?micro:nombre "Potasio")))
 
     (bind ?menCH (contar_CH ?men))
     (bind ?menProteina (contar_Proteina ?men))
@@ -1784,6 +1831,21 @@
         then
             (bind ?factor 5.0)
         )
+
+        (if (tiene_micro ?plato ?Hierro)
+        then
+            (bind ?factor (- ?factor 0.01))
+        )
+
+        (if (tiene_micro ?plato ?Calcio)
+        then
+            (bind ?factor (- ?factor 0.01))
+        )
+
+        (if (tiene_micro ?plato ?Potasio)
+        then
+            (bind ?factor (- ?factor 0.01))
+        )
             
         ;;PRIMERO MIRAMOS SI PODEMOS MEJORAR LA COMIDA
         (if (< (length$ ?almuerzo_list) 2) then 
@@ -1804,7 +1866,6 @@
                 (bind ?menProteina ?newMenProteina)
                 (bind ?menGrasa ?newMenGrasa)
                 (bind ?factor (* ?factor 1.5))
-                (printout t "MEJORAMOS PLATO" crlf)
             )
         )
 
@@ -1832,7 +1893,6 @@
                 (bind ?menProteina ?newMenProteina)
                 (bind ?menGrasa ?newMenGrasa)
                 (bind ?factor (* ?factor 1.5))
-                (printout t "MEJORAMOS PLATO" crlf)
                 
             )
         )
@@ -1856,7 +1916,6 @@
                 (bind ?menProteina ?newMenProteina)
                 (bind ?menGrasa ?newMenGrasa)
                 (bind ?factor (* ?factor 1.5))
-                (printout t "MEJORAMOS PLATO" crlf)
             )
         )
 
@@ -1883,7 +1942,6 @@
                 (bind ?menCH ?newMenCH)
                 (bind ?menProteina ?newMenProteina)
                 (bind ?menGrasa ?newMenGrasa)
-                (printout t "MEJORAMOS PLATO" crlf)
                 
             )
         )
@@ -1901,6 +1959,10 @@
     (bind ?cena (send ?men get-compuesto-cena))
     (bind ?almuerzo_postre (send ?almuerzo get-compuesto-por-postre))
     (bind ?cena_postre (send ?cena get-compuesto-por-postre))
+
+    (bind ?Hierro (find-instance ((?micro Micronutrientes)) (eq ?micro:nombre "Hierro")))
+    (bind ?Calcio (find-instance ((?micro Micronutrientes)) (eq ?micro:nombre "Calcio")))
+    (bind ?Potasio (find-instance ((?micro Micronutrientes)) (eq ?micro:nombre "Potasio")))
 
     (bind ?menCH (contar_CH ?men))
     (bind ?menProteina (contar_Proteina ?men))
@@ -1931,6 +1993,21 @@
         then
             (bind ?factor 15.0)
         )
+
+        (if (tiene_micro ?plato ?Hierro)
+        then
+            (bind ?factor (- ?factor 0.01))
+        )
+
+        (if (tiene_micro ?plato ?Calcio)
+        then
+            (bind ?factor (- ?factor 0.01))
+        )
+
+        (if (tiene_micro ?plato ?Potasio)
+        then
+            (bind ?factor (- ?factor 0.01))
+        )
             
         ;;PRIMERO MIRAMOS SI PODEMOS MEJORAR LA COMIDA
 
@@ -1957,7 +2034,6 @@
             (bind ?menProteina ?newMenProteina)
             (bind ?menGrasa ?newMenGrasa)
             (bind ?factor (* ?factor 1.5))
-            (printout t "MEJORAMOS PLATO" crlf)
                 
         )
         
@@ -1985,7 +2061,6 @@
             (bind ?menCH ?newMenCH)
             (bind ?menProteina ?newMenProteina)
             (bind ?menGrasa ?newMenGrasa)
-            (printout t "MEJORAMOS POSTRE" crlf)
                 
         )
     )
@@ -2158,10 +2233,6 @@
     (bind ?Prefnom (send ?Pref get-nombre))
     ;(bind ?dieta (nth$ 1 (find-instance ((?diet Dieta)) TRUE)))
     (bind ?menu_list (send ?dieta get-compuesto-por-menu))
-    (printout t "CH / GRASAS / PROTEINAS RECOMENDADAS" crlf)
-    (printout t ?CH crlf)
-    (printout t ?Grasa crlf)
-    (printout t ?Proteina crlf)
     (bind ?mod FALSE)
 
 	(loop-for-count (?i 1 7) do 
@@ -2180,50 +2251,14 @@
         (if (> ?menProteina ?Proteina) then (bind ?deltaProteina (- ?menProteina ?Proteina)) else (bind ?deltaProteina (- ?Proteina ?menProteina)))
         (bind ?heu (+ (* 0.55 ?deltaCH)(* 0.3 ?deltaGrasa)(* 0.15 ?deltaProteina)))
 
-        (printout t "DIA/ CH / GRASAS / PROTEINAS" crlf)
-        (printout t ?i crlf)
-        (printout t ?menCH crlf)
-        (printout t ?menGrasa crlf)
-        (printout t ?menProteina crlf)
-
         (bind ?men (mejorar_desayuno ?factibles_desayun ?men ?CH ?Proteina ?Grasa ?Prefnom))
         (bind ?menu_list (replace$ ?menu_list ?i ?i ?men))
-        (printout t "CH / GRASAS / PROTEINAS" crlf)
-        
-        (bind ?menCH (contar_CH ?men))
-        (bind ?menProteina (contar_Proteina ?men))
-        (bind ?menGrasa (contar_Grasa ?men))
-
-        (printout t ?i crlf)
-        (printout t ?menCH crlf)
-        (printout t ?menGrasa crlf)
-        (printout t ?menProteina crlf)
 
         (bind ?men (mejorar_platos_principales ?factibles_plato ?men ?CH ?Proteina ?Grasa ?Prefnom))
         (bind ?menu_list (replace$ ?menu_list ?i ?i ?men))
-        (printout t "CH / GRASAS / PROTEINAS" crlf)
-
-        (bind ?menCH (contar_CH ?men))
-        (bind ?menProteina (contar_Proteina ?men))
-        (bind ?menGrasa (contar_Grasa ?men))
-        
-
-        (printout t ?menCH crlf)
-        (printout t ?menGrasa crlf)
-        (printout t ?menProteina crlf)
 
         (bind ?men (mejorar_postre ?factibles_postre ?men ?CH ?Proteina ?Grasa ?Prefnom))
         (bind ?menu_list (replace$ ?menu_list ?i ?i ?men))
-        (printout t "CH / GRASAS / PROTEINAS" crlf)
-
-        (bind ?menCH (contar_CH ?men))
-        (bind ?menProteina (contar_Proteina ?men))
-        (bind ?menGrasa (contar_Grasa ?men))
-        
-
-        (printout t ?menCH crlf)
-        (printout t ?menGrasa crlf)
-        (printout t ?menProteina crlf)
 
         (bind ?menCH (contar_CH ?men))
         (bind ?menProteina (contar_Proteina ?men))

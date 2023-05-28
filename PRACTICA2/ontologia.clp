@@ -2,37 +2,7 @@
 ;;; ontologia.clp
 ;;; Translated by owl2clips
 ;;; Translated to CLIPS from ontology Ontologia.ttl
-;;; :Date 27/05/2023 12:09:52
-
-(defclass Composicion
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass Macronutrientes
-    (is-a Composicion)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass Micronutrientes
-    (is-a Composicion)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass Limtacion
-    (is-a USER)
-    (role concrete)
-    (pattern-match reactive)
-)
-
-(defclass Restriccion
-    (is-a Limtacion)
-    (role concrete)
-    (pattern-match reactive)
-)
+;;; :Date 28/05/2023 09:36:09
 
 (defclass Ingrediente
     (is-a USER)
@@ -85,6 +55,18 @@
     (pattern-match reactive)
 )
 
+(defclass Limtacion
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Restriccion
+    (is-a Limtacion)
+    (role concrete)
+    (pattern-match reactive)
+)
+
 (defclass Plato
     (is-a USER)
     (role concrete)
@@ -133,6 +115,27 @@
     (pattern-match reactive)
 )
 
+(defclass Composicion
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Macronutrientes
+    (is-a Composicion)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Micronutrientes
+    (is-a Composicion)
+    (role concrete)
+    (pattern-match reactive)
+    (slot nombre
+        (type STRING)
+        (create-accessor read-write))
+)
+
 (defclass Almuerzo
     (is-a USER)
     (role concrete)
@@ -140,7 +143,7 @@
     (multislot compuesto-por-plato
         (type INSTANCE)
         (create-accessor read-write))
-    (multislot compuesto-por-postre
+    (slot compuesto-por-postre
         (type INSTANCE)
         (create-accessor read-write))
 )
@@ -152,7 +155,7 @@
     (multislot compuesto-por-plato
         (type INSTANCE)
         (create-accessor read-write))
-    (multislot compuesto-por-postre
+    (slot compuesto-por-postre
         (type INSTANCE)
         (create-accessor read-write))
 )
@@ -204,6 +207,9 @@
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
+    (slot nombre
+        (type STRING)
+        (create-accessor read-write))
 )
 
 (defclass Temporada
@@ -626,6 +632,7 @@
     )
 
     ([Calcio] of Micronutrientes
+         (nombre  "Calcio")
     )
 
     ([Carne_blanca] of Comida_Proteica
@@ -786,6 +793,7 @@
     )
 
     ([Hierro] of Micronutrientes
+         (nombre  "Hierro")
     )
 
     ([Horno] of Forma_Cocinar
@@ -968,6 +976,7 @@
     )
 
     ([Potasio] of Micronutrientes
+         (nombre  "Potasio")
     )
 
     ([Queso] of Lacteo
