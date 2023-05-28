@@ -2151,13 +2151,19 @@
 	(recomendacion (nombre "Grasas") (cantidad ?Grasa))
 	(recomendacion (nombre "Proteinas")(cantidad ?Proteina))
     ?Pref <- (object (is-a Preferencia))
+    ?dieta <- (object (is-a Dieta))
     =>
     (printout t "Mejoramos la dieta" crlf)
     
     (bind ?Prefnom (send ?Pref get-nombre))
-    (bind ?dieta (nth$ 1 (find-instance ((?diet Dieta)) TRUE)))
+    ;(bind ?dieta (nth$ 1 (find-instance ((?diet Dieta)) TRUE)))
     (bind ?menu_list (send ?dieta get-compuesto-por-menu))
-    
+    (printout t "CH / GRASAS / PROTEINAS RECOMENDADAS" crlf)
+    (printout t ?CH crlf)
+    (printout t ?Grasa crlf)
+    (printout t ?Proteina crlf)
+    (bind ?mod FALSE)
+
 	(loop-for-count (?i 1 7) do 
         (bind ?factibles_desayun (find-all-instances ((?plat Plato_Desayuno)) TRUE))
         (bind ?factibles_plato (find-all-instances ((?plat Plato_principal)) TRUE))
@@ -2174,27 +2180,68 @@
         (if (> ?menProteina ?Proteina) then (bind ?deltaProteina (- ?menProteina ?Proteina)) else (bind ?deltaProteina (- ?Proteina ?menProteina)))
         (bind ?heu (+ (* 0.55 ?deltaCH)(* 0.3 ?deltaGrasa)(* 0.15 ?deltaProteina)))
 
+        (printout t "DIA/ CH / GRASAS / PROTEINAS" crlf)
+        (printout t ?i crlf)
+        (printout t ?menCH crlf)
+        (printout t ?menGrasa crlf)
+        (printout t ?menProteina crlf)
+
         (bind ?men (mejorar_desayuno ?factibles_desayun ?men ?CH ?Proteina ?Grasa ?Prefnom))
         (bind ?menu_list (replace$ ?menu_list ?i ?i ?men))
+        (printout t "CH / GRASAS / PROTEINAS" crlf)
+        
+        (bind ?menCH (contar_CH ?men))
+        (bind ?menProteina (contar_Proteina ?men))
+        (bind ?menGrasa (contar_Grasa ?men))
+
+        (printout t ?i crlf)
+        (printout t ?menCH crlf)
+        (printout t ?menGrasa crlf)
+        (printout t ?menProteina crlf)
 
         (bind ?men (mejorar_platos_principales ?factibles_plato ?men ?CH ?Proteina ?Grasa ?Prefnom))
         (bind ?menu_list (replace$ ?menu_list ?i ?i ?men))
-
-        (bind ?men (mejorar_postre ?factibles_postre ?men ?CH ?Proteina ?Grasa ?Prefnom))
-        (bind ?menu_list (replace$ ?menu_list ?i ?i ?men))
+        (printout t "CH / GRASAS / PROTEINAS" crlf)
 
         (bind ?menCH (contar_CH ?men))
         (bind ?menProteina (contar_Proteina ?men))
         (bind ?menGrasa (contar_Grasa ?men))
+        
+
+        (printout t ?menCH crlf)
+        (printout t ?menGrasa crlf)
+        (printout t ?menProteina crlf)
+
+        (bind ?men (mejorar_postre ?factibles_postre ?men ?CH ?Proteina ?Grasa ?Prefnom))
+        (bind ?menu_list (replace$ ?menu_list ?i ?i ?men))
+        (printout t "CH / GRASAS / PROTEINAS" crlf)
+
+        (bind ?menCH (contar_CH ?men))
+        (bind ?menProteina (contar_Proteina ?men))
+        (bind ?menGrasa (contar_Grasa ?men))
+        
+
+        (printout t ?menCH crlf)
+        (printout t ?menGrasa crlf)
+        (printout t ?menProteina crlf)
+
+        (bind ?menCH (contar_CH ?men))
+        (bind ?menProteina (contar_Proteina ?men))
+        (bind ?menGrasa (contar_Grasa ?men))
+
         (if (> ?menCH ?CH) then (bind ?deltaCH (- ?menCH ?CH)) else (bind ?deltaCH (- ?CH ?menCH)))
         (if (> ?menGrasa ?Grasa) then (bind ?deltaGrasa (- ?menGrasa ?Grasa)) else (bind ?deltaGrasa (- ?Grasa ?menGrasa)))
         (if (> ?menProteina ?Proteina) then (bind ?deltaProteina (- ?menProteina ?Proteina)) else (bind ?deltaProteina (- ?Proteina ?menProteina)))
         (bind ?newHeu (+ (* 0.55 ?deltaCH)(* 0.3 ?deltaGrasa)(* 0.15 ?deltaProteina)))
+
+        (if (< ?newHeu ?heu) then (bind ?mod TRUE))
         
 	)
     
-    (send ?dieta delete)
-	(bind ?dieta (make-instance newDieta of Dieta (compuesto-por-menu ?menu_list)))
+    (if ?mod then
+        (send ?dieta delete)
+	    (bind ?dieta (make-instance newDieta of Dieta (compuesto-por-menu ?menu_list)))
+    )
 )
 
 
