@@ -164,7 +164,8 @@
         rdfs:subPropertyOf owl:topDataProperty ;
         rdf:type owl:FunctionalProperty ;
         rdfs:domain <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Micronutrientes> ,
-                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Preferencia> ;
+                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Preferencia> ,
+                    <http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4/Restriccion> ;
         rdfs:range xsd:string .
 
 

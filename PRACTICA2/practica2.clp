@@ -1181,6 +1181,7 @@
     (loop-for-count (?i 1 (length$ ?enfermedades))
         (bind ?restric (insert$ ?restric (+ (length$ ?restric) 1) (make-instance (nth$ ?i ?enfermedades) of Restriccion)))
     )
+    
     (make-instance usuario of Usuario (tiene-restriccion ?restric) (Sexo ?sexo) (Edad ?edad) (Actividad ?estilo) (tiene-preferencia ?pref) (vive-durante ?temporada)) 
 )
 
@@ -1217,7 +1218,9 @@
     ?Ingrediente <- (object (is-a Lacteo))
 
     (test (and (eq ?a Hipertension) (or (eq ?Ingrediente Queso) (eq ?Ingrediente Mantequilla))))
-    => (eliminar_ingrediente ?Ingrediente)
+    => 
+    (printout t "VOA A APARECER MUCHAS VECES" crlf)
+    (eliminar_ingrediente ?Ingrediente)
 )
 
 (defrule procesado::eliminar_vegetales_desaconsejadas_para_hipertensos "Quita los vegetales desaconsejados para los que padecen hipertension"
@@ -1276,13 +1279,18 @@
     => (eliminar_ingrediente ?Ingrediente)
 )
 
+
+
 (defrule procesado::eliminar_dulces_desaconsejados_para_diabeticos "Quita los alimentos dulces desaconsejados para los que padecen diabetes de cualquier tipo"
     (declare (salience 10))
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Dulces))
 
     (test (and (eq ?a Diabetes) (or (eq ?Ingrediente Churros) (eq ?Ingrediente Chocolate) (eq ?Ingrediente Azucar) (eq ?Ingrediente Miel) )))
-    => (eliminar_ingrediente ?Ingrediente)
+    => 
+    (printout t "FUERA CHURROS" crlf)
+    (eliminar_ingrediente ?Ingrediente)
+    
 )
 
 ;;HAN DE EVITAR EMBUTIDOS, ULTRAPROCESADOS, CAFE , LACTEOS CON NATA, PAN ARROZ GALLETAS
@@ -2143,10 +2151,13 @@
         (bind ?refP 3)
     )
 
-
     (printout t "Empezamos la creación de la dieta" crlf)
     (bind ?Tol 2.0)
     (bind ?menu_list (create$))
+
+    (printout t ?desayun crlf)
+    (printout t ?comida crlf)
+    (printout t ?postre crlf)
     (loop-for-count (?i 1 7) do 
         (bind ?menCH -100)
         (bind ?menProteina -100)
