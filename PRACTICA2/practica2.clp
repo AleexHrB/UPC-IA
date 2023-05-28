@@ -2118,10 +2118,11 @@
             
         ;;PRIMERO MIRAMOS SI PODEMOS MEJORAR LA COMIDA
 
-       
+
         (bind ?oldCH (send ?almuerzo_postre get-Carbohidratos))
         (bind ?oldGrasa (send ?almuerzo_postre get-Grasas))
         (bind ?oldProteina (send ?almuerzo_postre get-Proteinas))
+        (bind ?oldHeu ?heu)
         (if (member$ (str-cat ?Prefnom) (send ?almuerzo_postre get-Tipo-dieta)) 
             then
                 (bind ?oldHeu (* ?oldHeu 0.85))
