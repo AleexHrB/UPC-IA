@@ -1296,7 +1296,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Verdura))
 
-    (test (and (eq ?a:nombre "Hipertension") (eq ?Ingrediente:nombre "Espinaca" )))
+    (test (and (eq (send ?a get-nombre) "Hipertension") (eq (send ?Ingrediente get-nombre) "Espinaca" )))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1305,7 +1305,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Comida_Proteica))
 
-    (test (and (eq ?a:nombre "Hipertension") (or (eq ?Ingrediente:nombre "Marisco") (eq ?Ingrediente:nombre "Embutido") )))
+    (test (and (eq (send ?a get-nombre) "Hipertension") (or (eq (send ?Ingrediente get-nombre) "Marisco") (eq (send ?Ingrediente get-nombre) "Embutido") )))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1314,7 +1314,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Dulces))
 
-    (test (and (eq ?a:nombre "Hipertension")(eq ?Ingrediente:nombre "Miel")))
+    (test (and (eq (send ?a get-nombre) "Hipertension")(eq (send ?Ingrediente get-nombre) "Miel")))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1324,7 +1324,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Lacteo))
 
-    (test (and (eq ?a:nombre "Diabetes") (or (eq ?Ingrediente:nombre "Queso") (eq ?Ingrediente:nombre "Mantequilla") (eq ?Ingrediente:nombre "Nata")) ))
+    (test (and (eq (send ?a get-nombre) "Diabetes") (or (eq (send ?Ingrediente get-nombre) "Queso") (eq (send ?Ingrediente get-nombre) "Mantequilla") (eq (send ?Ingrediente get-nombre) "Nata")) ))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1333,7 +1333,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Comida_Proteica))
 
-    (test (and (eq ?a:nombre "Diabetes") (or (eq ?Ingrediente:nombre "Carne_roja") (eq ?Ingrediente:nombre "Huevo") (eq ?Ingrediente:nombre "Embutido"))))
+    (test (and (eq (send ?a get-nombre) "Diabetes") (or (eq (send ?Ingrediente get-nombre) "Carne_roja") (eq (send ?Ingrediente get-nombre) "Huevo") (eq (send ?Ingrediente get-nombre) "Embutido"))))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1343,7 +1343,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Cereal))
 
-    (test (and (eq ?a:nombre "Diabetes") (or (eq ?Ingrediente:nombre "Pan") (eq ?Ingrediente [Tostada]) )))
+    (test (and (eq (send ?a get-nombre) "Diabetes") (or (eq (send ?Ingrediente get-nombre) "Pan") (eq ?Ingrediente [Tostada]) )))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1354,7 +1354,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Dulces))
 
-    (test (and (eq ?a:nombre "Diabetes") (or (eq ?Ingrediente:nombre "Churros") (eq ?Ingrediente:nombre "Chocolate") (eq ?Ingrediente:nombre "Azucar") (eq ?Ingrediente:nombre "Miel") )))
+    (test (and (eq (send ?a get-nombre) "Diabetes") (or (eq (send ?Ingrediente get-nombre) "Churros") (eq (send ?Ingrediente get-nombre) "Chocolate") (eq (send ?Ingrediente get-nombre) "Azucar") (eq (send ?Ingrediente get-nombre) "Miel") )))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1365,7 +1365,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Lacteo))
 
-    (test (and (eq ?a:nombre "Osteoporosis")(or (eq ?Ingrediente:nombre "Mantequilla") (eq ?Ingrediente:nombre "Nata")) ))
+    (test (and (eq (send ?a get-nombre) "Osteoporosis")(or (eq (send ?Ingrediente get-nombre) "Mantequilla") (eq (send ?Ingrediente get-nombre) "Nata")) ))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1375,7 +1375,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Comida_Proteica))
 
-    (test (and (eq ?a:nombre "Osteoporosis") (or (eq ?Ingrediente:nombre "Carne_roja") (eq ?Ingrediente:nombre "Embutido")) ))
+    (test (and (eq (send ?a get-nombre) "Osteoporosis") (or (eq (send ?Ingrediente get-nombre) "Carne_roja") (eq (send ?Ingrediente get-nombre) "Embutido")) ))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1384,7 +1384,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Comida_Proteica))
 
-    (test (and (eq ?a:nombre "Osteoporosis")  (or (eq ?Ingrediente:nombre "Pan") (eq ?Ingrediente:nombre "Tostada") (eq ?Ingrediente:nombre "Arroz")) ))
+    (test (and (eq (send ?a get-nombre) "Osteoporosis")  (or (eq (send ?Ingrediente get-nombre) "Pan") (eq (send ?Ingrediente get-nombre) "Tostada") (eq (send ?Ingrediente get-nombre) "Arroz")) ))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1393,7 +1393,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Fruta))
 
-    (test (and (eq ?a:nombre "Osteoporosis") (eq ?Ingrediente:ingrediente "Cafe") ))
+    (test (and (eq (send ?a get-nombre) "Osteoporosis") (eq ?Ingrediente:ingrediente "Cafe") ))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1402,7 +1402,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Dulces))
 
-    (test (and (eq ?a:nombre "Osteoporosis") (or (eq ?Ingrediente:nombre "Azucar") (eq ?Ingrediente:nombre "Churros")) ))
+    (test (and (eq (send ?a get-nombre) "Osteoporosis") (or (eq (send ?Ingrediente get-nombre) "Azucar") (eq (send ?Ingrediente get-nombre) "Churros")) ))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1411,7 +1411,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Comida_Proteica))
 
-    (test (and (eq ?a:nombre "Alergia_Nueces") (eq ?Ingrediente:nombre "Nuez")) )
+    (test (and (eq (send ?a get-nombre) "Alergia_Nueces") (eq (send ?Ingrediente get-nombre) "Nuez")) )
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1422,7 +1422,7 @@
     ?temp <- (object (is-a Temporada))
     ?fruta <- (object (is-a Fruta))
     
-    (test (and (eq ?temp:nombre "Invierno") (or (eq ?fruta:nombre "Fresa") (eq ?fruta:nombre "Melocoton") (eq ?fruta:nombre "Melon") (eq ?fruta:nombre "Aguacate") )))
+    (test (and (eq ?temp:nombre "Invierno") (or (eq (send ?fruta get-nombre) "Fresa") (eq (send ?fruta get-nombre) "Melocoton") (eq (send ?fruta get-nombre) "Melon") (eq (send ?fruta get-nombre) "Aguacate") )))
     => (eliminar_ingrediente ?fruta)
 )
 
@@ -1431,7 +1431,7 @@
     ?temp <- (object (is-a Temporada))
     ?fruta <- (object (is-a Fruta))
     
-    (test (and (eq ?temp:nombre "Primavera") (or (eq ?fruta:nombre "Fresa") (eq ?fruta:nombre "Melocoton") (eq ?fruta:nombre "Melon"))))
+    (test (and (eq ?temp:nombre "Primavera") (or (eq (send ?fruta get-nombre) "Fresa") (eq (send ?fruta get-nombre) "Melocoton") (eq (send ?fruta get-nombre) "Melon"))))
     => (eliminar_ingrediente ?fruta)
 )
 
@@ -1440,7 +1440,7 @@
     ?temp <- (object (is-a Temporada))
     ?fruta <- (object (is-a Fruta))
     
-    (test (and (eq ?temp:nombre "Verano") (eq ?fruta:nombre "Manzana")))
+    (test (and (eq ?temp:nombre "Verano") (eq (send ?fruta get-nombre) "Manzana")))
     => (eliminar_ingrediente ?fruta)
 )
 
@@ -1449,7 +1449,7 @@
     ?temp <- (object (is-a Temporada))
     ?fruta <- (object (is-a Fruta))
     
-    (test (and (eq ?temp:nombre "Otono") (or (eq ?fruta:nombre "Fresa") (eq ?fruta:nombre "Melon") )))
+    (test (and (eq ?temp:nombre "Otono") (or (eq (send ?fruta get-nombre) "Fresa") (eq (send ?fruta get-nombre) "Melon") )))
     => (eliminar_ingrediente ?fruta)
 )
 
@@ -1460,7 +1460,7 @@
     ?a <- (object (is-a Restriccion))
     ?Metodo <- (object (is-a Forma_Cocinar))
 
-    (test ( and (eq ?a:nombre "Diabetes") (eq ?Metodo:nombre "Frito]")))
+    (test ( and (eq (send ?a get-nombre) "Diabetes") (eq (send ?Metodo get-nombre) "Frito]")))
     => (eliminar_forma ?Metodo)
 
 )
@@ -1470,7 +1470,7 @@
     ?a <- (object (is-a Restriccion))
     ?Metodo <- (object (is-a Forma_Cocinar))
 
-    (test ( and (eq ?a:nombre "Osteoporosis") (eq ?Metodo:nombre "Frito")))
+    (test ( and (eq (send ?a get-nombre) "Osteoporosis") (eq (send ?Metodo get-nombre) "Frito")))
     => (eliminar_forma ?Metodo)
 )
 
@@ -1479,7 +1479,7 @@
     ?a <- (object (is-a Restriccion))
     ?Metodo <- (object (is-a Forma_Cocinar))
 
-    (test ( and (eq ?a:nombre "Hipertension") (eq ?Metodo:nombre "Frito")))
+    (test ( and (eq (send ?a get-nombre) "Hipertension") (eq (send ?Metodo get-nombre) "Frito")))
     => (eliminar_forma ?Metodo)
 
 )
