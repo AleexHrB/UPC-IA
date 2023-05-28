@@ -1855,7 +1855,7 @@
             (bind ?oldHeu ?heu)
             (if (member$ (str-cat ?Prefnom) (send ?OldPlato get-Tipo-dieta)) 
             then
-                (bind ?oldHeu (* ?oldHeu 0.75))
+                (bind ?oldHeu (* ?oldHeu 0.85))
             )
 
 
