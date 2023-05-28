@@ -1797,7 +1797,7 @@
         (bind ?factor 1.0)
         (if (member$ (str-cat ?Prefnom) (send ?platDesayun get-Tipo-dieta)) 
         then
-            (bind ?factor 0.75)
+            (bind ?factor 0.85)
             if (eq (str-cat ?Prefnom) "Vegetariana") then (bind ?factor 0.35)
         )
 
@@ -1918,7 +1918,7 @@
 
         (if (member$ (str-cat ?Prefnom) (send ?plato get-Tipo-dieta)) 
         then
-            (bind ?factor 0.75)
+            (bind ?factor 0.85)
             if (eq (str-cat ?Prefnom) "Vegetariana") then (bind ?factor 0.35)
         )
 
@@ -1972,7 +1972,7 @@
             (bind ?oldHeu ?heu)
             (if (member$ (str-cat ?Prefnom) (send ?OldPlato get-Tipo-dieta)) 
             then
-                (bind ?oldHeu (* ?oldHeu 0.75))
+                (bind ?oldHeu (* ?oldHeu 0.85))
             )
 
             (bind ?newMenCH (- (+ ?menCH ?newCH) ?oldCH))
@@ -2028,7 +2028,7 @@
             (bind ?oldHeu ?heu)
             (if (member$ (str-cat ?Prefnom) (send ?OldPlato get-Tipo-dieta)) 
             then
-                (bind ?oldHeu (* ?oldHeu 0.75))
+                (bind ?oldHeu (* ?oldHeu 0.85))
             )
 
             (bind ?newMenCH (- (+ ?menCH ?newCH) ?oldCH))
@@ -2092,7 +2092,7 @@
 
         (if (member$ (str-cat ?Prefnom) (send ?plato get-Tipo-dieta)) 
         then
-            (bind ?factor 0.75)
+            (bind ?factor 0.85)
             if (eq (str-cat ?Prefnom) "Vegetariana") then (bind ?factor 0.35)
         )
 
@@ -2124,7 +2124,7 @@
         (bind ?oldProteina (send ?almuerzo_postre get-Proteinas))
         (if (member$ (str-cat ?Prefnom) (send ?almuerzo_postre get-Tipo-dieta)) 
             then
-                (bind ?oldHeu (* ?oldHeu 0.75))
+                (bind ?oldHeu (* ?oldHeu 0.85))
         )
 
         (bind ?newMenCH (- (+ ?menCH ?newCH) ?oldCH))
@@ -2156,7 +2156,7 @@
         (bind ?oldProteina (send ?cena_postre get-Proteinas))
         (if (member$ (str-cat ?Prefnom) (send ?cena_postre get-Tipo-dieta)) 
             then
-                (bind ?oldHeu (* ?oldHeu 0.75))
+                (bind ?oldHeu (* ?oldHeu 0.85))
         )
 
 
