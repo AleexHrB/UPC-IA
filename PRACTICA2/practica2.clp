@@ -1563,51 +1563,7 @@
     (modify ?Grasa (cantidad (*  (/ ?cant 5.5) 0.3)))
     (modify ?Proteina (cantidad (*  (/ ?cant 5.5) 0.15)))
 )
-
-(deffunction sintesis::random_menu (?factibles_desayun ?factibles_plato ?factibles_postre ?i) 
-    (bind ?r (random 1 (length$ ?factibles_desayun)))
-    (bind ?desayun (create$ (nth$ ?r $?factibles_desayun)))
-    (delete$ ?factibles_desayun ?r ?r)
-    (if (eq (random 1 2) 2) 
-        then (bind ?desayun (insert$ ?desayun (+ (length$ ?desayun) 1) (nth$ (random 1 (length$ ?factibles_desayun)) $?factibles_desayun)))
-    )
-    
-    (bind ?rpl (random 1 (length$ ?factibles_plato)))
-    (bind ?rpos (random 1 (length$ ?factibles_postre)))
-    (bind ?comida (create$ (nth$ ?rpl ?factibles_plato)))
-    (bind ?postreComida  (nth$ ?rpos ?factibles_postre))
-    
-    (delete$ ?factibles_plato ?rpl ?rpl)
-    (delete$ ?factibles_postre ?rpos ?rpos)
-
-    (if (eq (random 1 2) 2) 
-        then 
-            (bind ?rpl (random 1 (length$ ?factibles_plato)))
-            (bind ?comida (insert$ ?comida (+ (length$ ?comida) 1) (nth$ ?rpl $?factibles_plato))) 
-            (delete$ ?factibles_plato ?rpl ?rpl)
-    )
-
-    (bind ?rpl (random 1 (length$ ?factibles_plato)))
-    (bind ?rpos (random 1 (length$ ?factibles_postre)))
-    (bind ?platoCena (create$ (nth$ ?rpl ?factibles_plato)))
-    (bind ?postreCena (nth$ ?rpos ?factibles_postre))
-    (delete$ ?factibles_plato ?rpl ?rpl)
-    
-    (if (eq (random 1 2) 2) 
-        then 
-            (bind ?rpl (random 1 (length$ ?factibles_plato)))
-            (bind ?platoCena (insert$ ?platoCena (+ (length$ ?platoCena) 1) (nth$ ?rpl $?factibles_plato))) 
-            
-    )
-
-    (bind ?desayuno (make-instance (gensym*) of Desayuno (compuesto-por-desayuno ?desayun)))
-	(bind ?almuerzo (make-instance (gensym*) of Almuerzo (compuesto-por-plato ?comida) (compuesto-por-postre ?postreComida)))
-	(bind ?cena (make-instance (gensym*) of Cena (compuesto-por-plato ?platoCena) (compuesto-por-postre ?postreCena)))
-	(bind ?menu (make-instance (gensym*) of Menu_diario (compuesto-desayuno ?desayuno) (compuesto-almuerzo ?almuerzo) (compuesto-cena ?cena) (Dia_semana ?i)))
-
-    (return ?menu)
-)
-
+ 
 (deffunction sintesis::contar_Cal (?menu) 
   (bind ?Cal 0)
   (bind ?desayun (send ?menu get-compuesto-desayuno))
@@ -1748,10 +1704,6 @@
   (return ?Grasa)
 )
 
-(deffunction sintesis::random_diet (?Cal ?CH ?Proteina ?Grasa ?Tol)
-    
-)
-
 (deffunction sintesis::tiene_micro (?Plat ?micro)
     (bind ?ingredientes (send ?Plat get-compuesto-por-ingrediente))
     (loop-for-count (?i 1 (length$ ?ingredientes)) do
@@ -1763,7 +1715,6 @@
     )
     (return FALSE)
 )
-
 
 (deffunction sintesis::mejorar_desayuno (?factibles_desayun ?men ?CH ?Proteina ?Grasa ?Prefnom)
     (bind ?desayun (send ?men get-compuesto-desayuno))
@@ -2191,10 +2142,6 @@
     (return ?men)
 )
 
-(deffunction sintesis::correcciones (?CH ?Proteina ?Grasa)
-    
-)
-
 (deffunction sintesis::escogeRandom2 (?lista)
     (bind ?r (random 1 (length$ ?lista)))
     (bind ?retlist (create$ (nth$ ?r $?lista)))
@@ -2392,8 +2339,6 @@
 	    (bind ?dieta (make-instance newDieta of Dieta (compuesto-por-menu ?menu_list)))
     )
 )
-
-
 
 (defrule sintesis::cambio_salida "Pasamos de síntesis a output"
 	(declare (salience -20))
