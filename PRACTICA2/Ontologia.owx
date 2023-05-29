@@ -1,0 +1,3952 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/lluc/ontologies/2023/4/untitled-ontology-4">
+    <Prefix name="" IRI="urn:webprotege:ontology:df87f925-200c-455c-a141-b8634fb57c35#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="/Aceite"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Almuerzo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Cena"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Cereal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Comida_Proteica"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Composicion"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Desayuno"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Dieta"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Forma_Cocinar"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Fruta"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Ingrediente"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Lacteo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Limtacion"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Macronutrientes"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Menu_diario"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Micronutrientes"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Plato"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Plato_Desayuno"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Plato_principal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Postre"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Preferencia"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Restriccion"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Temporada"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Usuario"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Verdura"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI=":Dulces"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/compuesto-por"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/compuesto-por-comidas"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/compuesto-por-menu"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/compuesto-por-plato"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/pertenece-a-preferencia"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/tiene"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/tiene-composicion"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/tiene-dieta"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/tiene-forma-cocinar"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/tiene-limitacion"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/vive-durante"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI=":compuesto-almuerzo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI=":compuesto-cena"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI=":compuesto-desayuno"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI=":compuesto-por-desayuno"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI=":compuesto-por-postre"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI=":tiene-preferencia"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/Actividad"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/Calorias"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/Carbohidratos"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/Dia_semana"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/Edad"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/Enfermedad"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/Grasas"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/Menu"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/Plato"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/Proteinas"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/Sexo"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/Usuario"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Calamares_fritos_con_aros_de_cebolla."/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Camarones_tempura_con_salsa_agridulce."/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Churros_con_azúcar_y_chocolate_caliente."/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Cien_gramos_de_patatas_bravas_con_salsa_picante_y_alioli."/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Compota_de_manzana_casera_sin_azúcar."/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Copa_de_yogur_con_compota_de_frutas_sin_azúcar."/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Cuatro_Rollitos_de_primavera_rellenos_de_verduras_y_pollo."/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Doscientos_gramos_de_croquetas_de_jamón_o_pollo."/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Empanadas_rellenas_de_carne_o_queso."/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Natillas_de_vainilla_sin_azúcar."/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Paella_de_mariscos_y_pescado."/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Peras_al_horno_con_canela."/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Pollo_frito_crujiente_con_patatas_fritas."/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Salmón_a_la_parrilla_con_espárragos_y_quinoa."/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Sopa_de_verduras_con_fideos_integrales."/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Tacos_de_pescado_con_salsa_de_yogur."/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Tempura_de_judias_zanahorias_y_patatas."/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Tortilla_de_jamón_y_queso."/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Tostada_con_queso_fresco_y_rodajas_de_tomate."/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Yogur_con_fresas."/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#1_tostada_con_1/4_aguacate_y_1_huevo_pochado"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Bistec_a_la_parrilla"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Bizcocho_de_zanahoria_sin_azúcar"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Bocadillo_de_atún"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Bocadillo_de_salchicon"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Cafe_con_leche"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Crema_de_vainilla_con_pera_en_puré"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Dos_Tostadas_con_mantequilla"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Fideuá"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Filete_de_lubina_a_la_plancha_con_salsa_de_limón"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Panqueque_de_avena"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Sopa_de_pescado"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Tres_Huevos_revueltos"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Yogur_natural_con_miel_y_nueces_picadas"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Aceite_de_oliva"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Aceituna"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Aguacate"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Arroz"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Asado"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Avena"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Avena_cocida_con_canela_y_pasas"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Azucar"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Batido_de_150ml_leche_un_platano_y_un_puñado_de_nueces"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Berenjena"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Berenjenas_rellenas_de_carne"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Brocoli"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Burrito_de_frijoles_negros"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Cafe"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Calabacin"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Carne_blanca"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Carne_roja"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Cebolla"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Chocolate"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Churros"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Cono_de_helado_de_yogur_bajo_en_grasa"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Cuatro_Buñuelos"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Dos_fajitas_de_pollo_y_verduras"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Dos_gelatinas_sin_azúcar"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Embutido"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Ensalada_Caprese"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_garbanzos"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_lechuga_tomate_y_pollo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_lentejas_mediterranea"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_quinoa_con_brocoli"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_tomate_aceitunas_y_queso_feta"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Esparragos"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Espinacas"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Fideos"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Flan_de_huevo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Fresa"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Frijoles"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Frito"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Gelatina"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Hamburgesa_de_pollo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Horno"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Huevo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Judias"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Leche"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Lechuga"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Legumbres"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Macedonia_de_mango_fresa_melocoton_y_melón"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Mantequilla"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Manzana"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Manzana_asada"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Marisco"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Melocoton"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Melon"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Miel"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Nuez"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Pan"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Parrilla"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Pasa"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Pasta"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Pasta_con_tomate"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Pasta_integral_con_salsa_de_tomate"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Patata"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Pechuga_de_pollo_a_la_parrilla"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Pera"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Pescado_a_la_plancha"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Pescado_al_horno"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Pescado_azul"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Pescado_blanco"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Pimiento"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Pizza_4_quesos"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Plancha"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Platano"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Pollo_al_curry"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Pollo_al_horno_con_patatas"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Queso"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Quinoa"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Sándwich_de_atún_con_pan_integral"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Tacos_de_carne"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Tarta_de_queso"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Tomate"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Tortilla_de_calabacín"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Tortilla_de_espinacas"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Tostada"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Trigo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Vainilla"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Wrap_de_pavo_con_espinacas_y_mostaza"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Yogur"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":Zanahoria"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="/Aceite"/>
+        <Class IRI="/Ingrediente"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Cereal"/>
+        <Class IRI="/Ingrediente"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Comida_Proteica"/>
+        <Class IRI="/Ingrediente"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Fruta"/>
+        <Class IRI="/Ingrediente"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Lacteo"/>
+        <Class IRI="/Ingrediente"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Macronutrientes"/>
+        <Class IRI="/Composicion"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Micronutrientes"/>
+        <Class IRI="/Composicion"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Plato_Desayuno"/>
+        <Class IRI="/Plato"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Plato_principal"/>
+        <Class IRI="/Plato"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Postre"/>
+        <Class IRI="/Plato"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Restriccion"/>
+        <Class IRI="/Limtacion"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Verdura"/>
+        <Class IRI="/Ingrediente"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Dulces"/>
+        <Class IRI="/Ingrediente"/>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual IRI="#Calamares_fritos_con_aros_de_cebolla."/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual IRI="#Camarones_tempura_con_salsa_agridulce."/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_Desayuno"/>
+        <NamedIndividual IRI="#Churros_con_azúcar_y_chocolate_caliente."/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual IRI="#Cien_gramos_de_patatas_bravas_con_salsa_picante_y_alioli."/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Postre"/>
+        <NamedIndividual IRI="#Compota_de_manzana_casera_sin_azúcar."/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Postre"/>
+        <NamedIndividual IRI="#Copa_de_yogur_con_compota_de_frutas_sin_azúcar."/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual IRI="#Cuatro_Rollitos_de_primavera_rellenos_de_verduras_y_pollo."/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual IRI="#Doscientos_gramos_de_croquetas_de_jamón_o_pollo."/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual IRI="#Empanadas_rellenas_de_carne_o_queso."/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Postre"/>
+        <NamedIndividual IRI="#Natillas_de_vainilla_sin_azúcar."/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual IRI="#Paella_de_mariscos_y_pescado."/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Postre"/>
+        <NamedIndividual IRI="#Peras_al_horno_con_canela."/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual IRI="#Pollo_frito_crujiente_con_patatas_fritas."/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual IRI="#Salmón_a_la_parrilla_con_espárragos_y_quinoa."/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual IRI="#Sopa_de_verduras_con_fideos_integrales."/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual IRI="#Tacos_de_pescado_con_salsa_de_yogur."/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual IRI="#Tempura_de_judias_zanahorias_y_patatas."/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_Desayuno"/>
+        <NamedIndividual IRI="#Tortilla_de_jamón_y_queso."/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_Desayuno"/>
+        <NamedIndividual IRI="#Tostada_con_queso_fresco_y_rodajas_de_tomate."/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_Desayuno"/>
+        <NamedIndividual IRI="#Yogur_con_fresas."/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_Desayuno"/>
+        <NamedIndividual IRI="#1_tostada_con_1/4_aguacate_y_1_huevo_pochado"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual IRI="/Bistec_a_la_parrilla"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Postre"/>
+        <NamedIndividual IRI="/Bizcocho_de_zanahoria_sin_azúcar"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_Desayuno"/>
+        <NamedIndividual IRI="/Bocadillo_de_atún"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_Desayuno"/>
+        <NamedIndividual IRI="/Bocadillo_de_salchicon"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Postre"/>
+        <NamedIndividual IRI="/Cafe_con_leche"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Postre"/>
+        <NamedIndividual IRI="/Crema_de_vainilla_con_pera_en_puré"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_Desayuno"/>
+        <NamedIndividual IRI="/Dos_Tostadas_con_mantequilla"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual IRI="/Fideuá"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual IRI="/Filete_de_lubina_a_la_plancha_con_salsa_de_limón"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_Desayuno"/>
+        <NamedIndividual IRI="/Panqueque_de_avena"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual IRI="/Sopa_de_pescado"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_Desayuno"/>
+        <NamedIndividual IRI="/Tres_Huevos_revueltos"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Postre"/>
+        <NamedIndividual IRI="/Yogur_natural_con_miel_y_nueces_picadas"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Aceite"/>
+        <NamedIndividual abbreviatedIRI=":Aceite_de_oliva"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Verdura"/>
+        <NamedIndividual abbreviatedIRI=":Aceituna"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Fruta"/>
+        <NamedIndividual abbreviatedIRI=":Aguacate"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Cereal"/>
+        <NamedIndividual abbreviatedIRI=":Arroz"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Forma_Cocinar"/>
+        <NamedIndividual abbreviatedIRI=":Asado"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Cereal"/>
+        <NamedIndividual abbreviatedIRI=":Avena"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_Desayuno"/>
+        <NamedIndividual abbreviatedIRI=":Avena_cocida_con_canela_y_pasas"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Dulces"/>
+        <NamedIndividual abbreviatedIRI=":Azucar"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_Desayuno"/>
+        <NamedIndividual abbreviatedIRI=":Batido_de_150ml_leche_un_platano_y_un_puñado_de_nueces"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Verdura"/>
+        <NamedIndividual abbreviatedIRI=":Berenjena"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual abbreviatedIRI=":Berenjenas_rellenas_de_carne"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Verdura"/>
+        <NamedIndividual abbreviatedIRI=":Brocoli"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual abbreviatedIRI=":Burrito_de_frijoles_negros"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Fruta"/>
+        <NamedIndividual abbreviatedIRI=":Cafe"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Verdura"/>
+        <NamedIndividual abbreviatedIRI=":Calabacin"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Comida_Proteica"/>
+        <NamedIndividual abbreviatedIRI=":Carne_blanca"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Comida_Proteica"/>
+        <NamedIndividual abbreviatedIRI=":Carne_roja"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Verdura"/>
+        <NamedIndividual abbreviatedIRI=":Cebolla"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Dulces"/>
+        <NamedIndividual abbreviatedIRI=":Chocolate"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Dulces"/>
+        <NamedIndividual abbreviatedIRI=":Churros"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Postre"/>
+        <NamedIndividual abbreviatedIRI=":Cono_de_helado_de_yogur_bajo_en_grasa"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_Desayuno"/>
+        <NamedIndividual abbreviatedIRI=":Cuatro_Buñuelos"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual abbreviatedIRI=":Dos_fajitas_de_pollo_y_verduras"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_Desayuno"/>
+        <NamedIndividual abbreviatedIRI=":Dos_gelatinas_sin_azúcar"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Comida_Proteica"/>
+        <NamedIndividual abbreviatedIRI=":Embutido"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_Caprese"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_garbanzos"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_lechuga_tomate_y_pollo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_lentejas_mediterranea"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_quinoa_con_brocoli"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_tomate_aceitunas_y_queso_feta"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Verdura"/>
+        <NamedIndividual abbreviatedIRI=":Esparragos"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Verdura"/>
+        <NamedIndividual abbreviatedIRI=":Espinacas"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Cereal"/>
+        <NamedIndividual abbreviatedIRI=":Fideos"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Postre"/>
+        <NamedIndividual abbreviatedIRI=":Flan_de_huevo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Fruta"/>
+        <NamedIndividual abbreviatedIRI=":Fresa"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Verdura"/>
+        <NamedIndividual abbreviatedIRI=":Frijoles"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Forma_Cocinar"/>
+        <NamedIndividual abbreviatedIRI=":Frito"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Comida_Proteica"/>
+        <NamedIndividual abbreviatedIRI=":Gelatina"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual abbreviatedIRI=":Hamburgesa_de_pollo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Forma_Cocinar"/>
+        <NamedIndividual abbreviatedIRI=":Horno"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Comida_Proteica"/>
+        <NamedIndividual abbreviatedIRI=":Huevo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Verdura"/>
+        <NamedIndividual abbreviatedIRI=":Judias"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Lacteo"/>
+        <NamedIndividual abbreviatedIRI=":Leche"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Verdura"/>
+        <NamedIndividual abbreviatedIRI=":Lechuga"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Verdura"/>
+        <NamedIndividual abbreviatedIRI=":Legumbres"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Postre"/>
+        <NamedIndividual abbreviatedIRI=":Macedonia_de_mango_fresa_melocoton_y_melón"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Lacteo"/>
+        <NamedIndividual abbreviatedIRI=":Mantequilla"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Fruta"/>
+        <NamedIndividual abbreviatedIRI=":Manzana"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Postre"/>
+        <NamedIndividual abbreviatedIRI=":Manzana_asada"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Comida_Proteica"/>
+        <NamedIndividual abbreviatedIRI=":Marisco"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Fruta"/>
+        <NamedIndividual abbreviatedIRI=":Melocoton"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Fruta"/>
+        <NamedIndividual abbreviatedIRI=":Melon"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Dulces"/>
+        <NamedIndividual abbreviatedIRI=":Miel"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Comida_Proteica"/>
+        <NamedIndividual abbreviatedIRI=":Nuez"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Cereal"/>
+        <NamedIndividual abbreviatedIRI=":Pan"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Forma_Cocinar"/>
+        <NamedIndividual abbreviatedIRI=":Parrilla"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Fruta"/>
+        <NamedIndividual abbreviatedIRI=":Pasa"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Cereal"/>
+        <NamedIndividual abbreviatedIRI=":Pasta"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual abbreviatedIRI=":Pasta_con_tomate"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual abbreviatedIRI=":Pasta_integral_con_salsa_de_tomate"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Verdura"/>
+        <NamedIndividual abbreviatedIRI=":Patata"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual abbreviatedIRI=":Pechuga_de_pollo_a_la_parrilla"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Fruta"/>
+        <NamedIndividual abbreviatedIRI=":Pera"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual abbreviatedIRI=":Pescado_a_la_plancha"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual abbreviatedIRI=":Pescado_al_horno"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Comida_Proteica"/>
+        <NamedIndividual abbreviatedIRI=":Pescado_azul"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Comida_Proteica"/>
+        <NamedIndividual abbreviatedIRI=":Pescado_blanco"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Verdura"/>
+        <NamedIndividual abbreviatedIRI=":Pimiento"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual abbreviatedIRI=":Pizza_4_quesos"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Forma_Cocinar"/>
+        <NamedIndividual abbreviatedIRI=":Plancha"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Fruta"/>
+        <NamedIndividual abbreviatedIRI=":Platano"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual abbreviatedIRI=":Pollo_al_curry"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual abbreviatedIRI=":Pollo_al_horno_con_patatas"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Lacteo"/>
+        <NamedIndividual abbreviatedIRI=":Queso"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Verdura"/>
+        <NamedIndividual abbreviatedIRI=":Quinoa"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual abbreviatedIRI=":Sándwich_de_atún_con_pan_integral"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual abbreviatedIRI=":Tacos_de_carne"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Postre"/>
+        <NamedIndividual abbreviatedIRI=":Tarta_de_queso"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Verdura"/>
+        <NamedIndividual abbreviatedIRI=":Tomate"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual abbreviatedIRI=":Tortilla_de_calabacín"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual abbreviatedIRI=":Tortilla_de_espinacas"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Cereal"/>
+        <NamedIndividual abbreviatedIRI=":Tostada"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Cereal"/>
+        <NamedIndividual abbreviatedIRI=":Trigo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Verdura"/>
+        <NamedIndividual abbreviatedIRI=":Vainilla"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Plato_principal"/>
+        <NamedIndividual abbreviatedIRI=":Wrap_de_pavo_con_espinacas_y_mostaza"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Lacteo"/>
+        <NamedIndividual abbreviatedIRI=":Yogur"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Verdura"/>
+        <NamedIndividual abbreviatedIRI=":Zanahoria"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Calamares_fritos_con_aros_de_cebolla."/>
+        <NamedIndividual abbreviatedIRI=":Cebolla"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Calamares_fritos_con_aros_de_cebolla."/>
+        <NamedIndividual abbreviatedIRI=":Marisco"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/tiene-forma-cocinar"/>
+        <NamedIndividual IRI="#Calamares_fritos_con_aros_de_cebolla."/>
+        <NamedIndividual abbreviatedIRI=":Frito"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Camarones_tempura_con_salsa_agridulce."/>
+        <NamedIndividual abbreviatedIRI=":Pescado_blanco"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/tiene-forma-cocinar"/>
+        <NamedIndividual IRI="#Camarones_tempura_con_salsa_agridulce."/>
+        <NamedIndividual abbreviatedIRI=":Frito"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Churros_con_azúcar_y_chocolate_caliente."/>
+        <NamedIndividual abbreviatedIRI=":Aceite_de_oliva"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Churros_con_azúcar_y_chocolate_caliente."/>
+        <NamedIndividual abbreviatedIRI=":Chocolate"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Churros_con_azúcar_y_chocolate_caliente."/>
+        <NamedIndividual abbreviatedIRI=":Churros"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/tiene-forma-cocinar"/>
+        <NamedIndividual IRI="#Churros_con_azúcar_y_chocolate_caliente."/>
+        <NamedIndividual abbreviatedIRI=":Frito"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Cien_gramos_de_patatas_bravas_con_salsa_picante_y_alioli."/>
+        <NamedIndividual abbreviatedIRI=":Huevo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Cien_gramos_de_patatas_bravas_con_salsa_picante_y_alioli."/>
+        <NamedIndividual abbreviatedIRI=":Patata"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Compota_de_manzana_casera_sin_azúcar."/>
+        <NamedIndividual abbreviatedIRI=":Manzana"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Copa_de_yogur_con_compota_de_frutas_sin_azúcar."/>
+        <NamedIndividual abbreviatedIRI=":Fresa"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Copa_de_yogur_con_compota_de_frutas_sin_azúcar."/>
+        <NamedIndividual abbreviatedIRI=":Yogur"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Cuatro_Rollitos_de_primavera_rellenos_de_verduras_y_pollo."/>
+        <NamedIndividual abbreviatedIRI=":Carne_blanca"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Cuatro_Rollitos_de_primavera_rellenos_de_verduras_y_pollo."/>
+        <NamedIndividual abbreviatedIRI=":Pimiento"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Cuatro_Rollitos_de_primavera_rellenos_de_verduras_y_pollo."/>
+        <NamedIndividual abbreviatedIRI=":Zanahoria"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/tiene-forma-cocinar"/>
+        <NamedIndividual IRI="#Cuatro_Rollitos_de_primavera_rellenos_de_verduras_y_pollo."/>
+        <NamedIndividual abbreviatedIRI=":Frito"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Doscientos_gramos_de_croquetas_de_jamón_o_pollo."/>
+        <NamedIndividual abbreviatedIRI=":Carne_blanca"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Doscientos_gramos_de_croquetas_de_jamón_o_pollo."/>
+        <NamedIndividual abbreviatedIRI=":Embutido"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Doscientos_gramos_de_croquetas_de_jamón_o_pollo."/>
+        <NamedIndividual abbreviatedIRI=":Trigo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/tiene-forma-cocinar"/>
+        <NamedIndividual IRI="#Doscientos_gramos_de_croquetas_de_jamón_o_pollo."/>
+        <NamedIndividual abbreviatedIRI=":Frito"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Empanadas_rellenas_de_carne_o_queso."/>
+        <NamedIndividual abbreviatedIRI=":Carne_roja"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Empanadas_rellenas_de_carne_o_queso."/>
+        <NamedIndividual abbreviatedIRI=":Queso"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Empanadas_rellenas_de_carne_o_queso."/>
+        <NamedIndividual abbreviatedIRI=":Trigo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Natillas_de_vainilla_sin_azúcar."/>
+        <NamedIndividual abbreviatedIRI=":Huevo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Natillas_de_vainilla_sin_azúcar."/>
+        <NamedIndividual abbreviatedIRI=":Vainilla"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Paella_de_mariscos_y_pescado."/>
+        <NamedIndividual abbreviatedIRI=":Arroz"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Paella_de_mariscos_y_pescado."/>
+        <NamedIndividual abbreviatedIRI=":Marisco"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Paella_de_mariscos_y_pescado."/>
+        <NamedIndividual abbreviatedIRI=":Pescado_blanco"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Peras_al_horno_con_canela."/>
+        <NamedIndividual abbreviatedIRI=":Pera"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/tiene-forma-cocinar"/>
+        <NamedIndividual IRI="#Peras_al_horno_con_canela."/>
+        <NamedIndividual abbreviatedIRI=":Horno"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Pollo_frito_crujiente_con_patatas_fritas."/>
+        <NamedIndividual abbreviatedIRI=":Carne_blanca"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Pollo_frito_crujiente_con_patatas_fritas."/>
+        <NamedIndividual abbreviatedIRI=":Patata"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/tiene-forma-cocinar"/>
+        <NamedIndividual IRI="#Pollo_frito_crujiente_con_patatas_fritas."/>
+        <NamedIndividual abbreviatedIRI=":Frito"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Salmón_a_la_parrilla_con_espárragos_y_quinoa."/>
+        <NamedIndividual abbreviatedIRI=":Esparragos"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Salmón_a_la_parrilla_con_espárragos_y_quinoa."/>
+        <NamedIndividual abbreviatedIRI=":Pescado_azul"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Salmón_a_la_parrilla_con_espárragos_y_quinoa."/>
+        <NamedIndividual abbreviatedIRI=":Quinoa"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/tiene-forma-cocinar"/>
+        <NamedIndividual IRI="#Salmón_a_la_parrilla_con_espárragos_y_quinoa."/>
+        <NamedIndividual abbreviatedIRI=":Parrilla"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Sopa_de_verduras_con_fideos_integrales."/>
+        <NamedIndividual abbreviatedIRI=":Fideos"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Sopa_de_verduras_con_fideos_integrales."/>
+        <NamedIndividual abbreviatedIRI=":Zanahoria"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Tacos_de_pescado_con_salsa_de_yogur."/>
+        <NamedIndividual abbreviatedIRI=":Pescado_blanco"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Tacos_de_pescado_con_salsa_de_yogur."/>
+        <NamedIndividual abbreviatedIRI=":Yogur"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Tempura_de_judias_zanahorias_y_patatas."/>
+        <NamedIndividual abbreviatedIRI=":Judias"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Tempura_de_judias_zanahorias_y_patatas."/>
+        <NamedIndividual abbreviatedIRI=":Patata"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Tempura_de_judias_zanahorias_y_patatas."/>
+        <NamedIndividual abbreviatedIRI=":Zanahoria"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/tiene-forma-cocinar"/>
+        <NamedIndividual IRI="#Tempura_de_judias_zanahorias_y_patatas."/>
+        <NamedIndividual abbreviatedIRI=":Frito"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Tortilla_de_jamón_y_queso."/>
+        <NamedIndividual abbreviatedIRI=":Huevo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Tortilla_de_jamón_y_queso."/>
+        <NamedIndividual abbreviatedIRI=":Queso"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Tostada_con_queso_fresco_y_rodajas_de_tomate."/>
+        <NamedIndividual abbreviatedIRI=":Queso"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Tostada_con_queso_fresco_y_rodajas_de_tomate."/>
+        <NamedIndividual abbreviatedIRI=":Tomate"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Tostada_con_queso_fresco_y_rodajas_de_tomate."/>
+        <NamedIndividual abbreviatedIRI=":Tostada"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Yogur_con_fresas."/>
+        <NamedIndividual abbreviatedIRI=":Fresa"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#Yogur_con_fresas."/>
+        <NamedIndividual abbreviatedIRI=":Yogur"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#1_tostada_con_1/4_aguacate_y_1_huevo_pochado"/>
+        <NamedIndividual abbreviatedIRI=":Aguacate"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#1_tostada_con_1/4_aguacate_y_1_huevo_pochado"/>
+        <NamedIndividual abbreviatedIRI=":Huevo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="#1_tostada_con_1/4_aguacate_y_1_huevo_pochado"/>
+        <NamedIndividual abbreviatedIRI=":Tostada"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="/Bistec_a_la_parrilla"/>
+        <NamedIndividual abbreviatedIRI=":Carne_roja"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/tiene-forma-cocinar"/>
+        <NamedIndividual IRI="/Bistec_a_la_parrilla"/>
+        <NamedIndividual abbreviatedIRI=":Parrilla"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="/Bizcocho_de_zanahoria_sin_azúcar"/>
+        <NamedIndividual abbreviatedIRI=":Huevo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="/Bizcocho_de_zanahoria_sin_azúcar"/>
+        <NamedIndividual abbreviatedIRI=":Zanahoria"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="/Bocadillo_de_atún"/>
+        <NamedIndividual abbreviatedIRI=":Pan"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="/Bocadillo_de_atún"/>
+        <NamedIndividual abbreviatedIRI=":Pescado_azul"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="/Bocadillo_de_salchicon"/>
+        <NamedIndividual abbreviatedIRI=":Embutido"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="/Bocadillo_de_salchicon"/>
+        <NamedIndividual abbreviatedIRI=":Pan"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="/Cafe_con_leche"/>
+        <NamedIndividual abbreviatedIRI=":Cafe"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="/Cafe_con_leche"/>
+        <NamedIndividual abbreviatedIRI=":Leche"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="/Crema_de_vainilla_con_pera_en_puré"/>
+        <NamedIndividual abbreviatedIRI=":Pera"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="/Crema_de_vainilla_con_pera_en_puré"/>
+        <NamedIndividual abbreviatedIRI=":Vainilla"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="/Dos_Tostadas_con_mantequilla"/>
+        <NamedIndividual abbreviatedIRI=":Mantequilla"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="/Dos_Tostadas_con_mantequilla"/>
+        <NamedIndividual abbreviatedIRI=":Tostada"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="/Fideuá"/>
+        <NamedIndividual abbreviatedIRI=":Fideos"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="/Fideuá"/>
+        <NamedIndividual abbreviatedIRI=":Marisco"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="/Filete_de_lubina_a_la_plancha_con_salsa_de_limón"/>
+        <NamedIndividual abbreviatedIRI=":Pescado_azul"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/tiene-forma-cocinar"/>
+        <NamedIndividual IRI="/Filete_de_lubina_a_la_plancha_con_salsa_de_limón"/>
+        <NamedIndividual abbreviatedIRI=":Plancha"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="/Panqueque_de_avena"/>
+        <NamedIndividual abbreviatedIRI=":Avena"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="/Sopa_de_pescado"/>
+        <NamedIndividual abbreviatedIRI=":Marisco"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="/Sopa_de_pescado"/>
+        <NamedIndividual abbreviatedIRI=":Pescado_blanco"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="/Tres_Huevos_revueltos"/>
+        <NamedIndividual abbreviatedIRI=":Huevo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="/Yogur_natural_con_miel_y_nueces_picadas"/>
+        <NamedIndividual abbreviatedIRI=":Miel"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="/Yogur_natural_con_miel_y_nueces_picadas"/>
+        <NamedIndividual abbreviatedIRI=":Nuez"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual IRI="/Yogur_natural_con_miel_y_nueces_picadas"/>
+        <NamedIndividual abbreviatedIRI=":Yogur"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Avena_cocida_con_canela_y_pasas"/>
+        <NamedIndividual abbreviatedIRI=":Avena"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Avena_cocida_con_canela_y_pasas"/>
+        <NamedIndividual abbreviatedIRI=":Pasa"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Batido_de_150ml_leche_un_platano_y_un_puñado_de_nueces"/>
+        <NamedIndividual abbreviatedIRI=":Leche"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Batido_de_150ml_leche_un_platano_y_un_puñado_de_nueces"/>
+        <NamedIndividual abbreviatedIRI=":Nuez"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Batido_de_150ml_leche_un_platano_y_un_puñado_de_nueces"/>
+        <NamedIndividual abbreviatedIRI=":Platano"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Berenjenas_rellenas_de_carne"/>
+        <NamedIndividual abbreviatedIRI=":Berenjena"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Berenjenas_rellenas_de_carne"/>
+        <NamedIndividual abbreviatedIRI=":Carne_roja"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Burrito_de_frijoles_negros"/>
+        <NamedIndividual abbreviatedIRI=":Frijoles"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Burrito_de_frijoles_negros"/>
+        <NamedIndividual abbreviatedIRI=":Pan"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Cono_de_helado_de_yogur_bajo_en_grasa"/>
+        <NamedIndividual abbreviatedIRI=":Trigo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Cono_de_helado_de_yogur_bajo_en_grasa"/>
+        <NamedIndividual abbreviatedIRI=":Yogur"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Cuatro_Buñuelos"/>
+        <NamedIndividual abbreviatedIRI=":Azucar"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Cuatro_Buñuelos"/>
+        <NamedIndividual abbreviatedIRI=":Huevo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Cuatro_Buñuelos"/>
+        <NamedIndividual abbreviatedIRI=":Trigo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/tiene-forma-cocinar"/>
+        <NamedIndividual abbreviatedIRI=":Cuatro_Buñuelos"/>
+        <NamedIndividual abbreviatedIRI=":Frito"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Dos_fajitas_de_pollo_y_verduras"/>
+        <NamedIndividual abbreviatedIRI=":Carne_blanca"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Dos_fajitas_de_pollo_y_verduras"/>
+        <NamedIndividual abbreviatedIRI=":Pimiento"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Dos_fajitas_de_pollo_y_verduras"/>
+        <NamedIndividual abbreviatedIRI=":Zanahoria"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Dos_gelatinas_sin_azúcar"/>
+        <NamedIndividual abbreviatedIRI=":Gelatina"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_Caprese"/>
+        <NamedIndividual abbreviatedIRI=":Queso"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_Caprese"/>
+        <NamedIndividual abbreviatedIRI=":Tomate"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_garbanzos"/>
+        <NamedIndividual abbreviatedIRI=":Legumbres"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_lechuga_tomate_y_pollo"/>
+        <NamedIndividual abbreviatedIRI=":Carne_blanca"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_lechuga_tomate_y_pollo"/>
+        <NamedIndividual abbreviatedIRI=":Lechuga"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_lechuga_tomate_y_pollo"/>
+        <NamedIndividual abbreviatedIRI=":Tomate"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/tiene-forma-cocinar"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_lechuga_tomate_y_pollo"/>
+        <NamedIndividual abbreviatedIRI=":Parrilla"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_lentejas_mediterranea"/>
+        <NamedIndividual abbreviatedIRI=":Legumbres"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_quinoa_con_brocoli"/>
+        <NamedIndividual abbreviatedIRI=":Brocoli"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_quinoa_con_brocoli"/>
+        <NamedIndividual abbreviatedIRI=":Quinoa"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_tomate_aceitunas_y_queso_feta"/>
+        <NamedIndividual abbreviatedIRI=":Aceituna"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_tomate_aceitunas_y_queso_feta"/>
+        <NamedIndividual abbreviatedIRI=":Queso"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_tomate_aceitunas_y_queso_feta"/>
+        <NamedIndividual abbreviatedIRI=":Tomate"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Flan_de_huevo"/>
+        <NamedIndividual abbreviatedIRI=":Azucar"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Flan_de_huevo"/>
+        <NamedIndividual abbreviatedIRI=":Huevo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Hamburgesa_de_pollo"/>
+        <NamedIndividual abbreviatedIRI=":Carne_blanca"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Macedonia_de_mango_fresa_melocoton_y_melón"/>
+        <NamedIndividual abbreviatedIRI=":Fresa"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Macedonia_de_mango_fresa_melocoton_y_melón"/>
+        <NamedIndividual abbreviatedIRI=":Melocoton"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Macedonia_de_mango_fresa_melocoton_y_melón"/>
+        <NamedIndividual abbreviatedIRI=":Melon"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Manzana_asada"/>
+        <NamedIndividual abbreviatedIRI=":Manzana"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/tiene-forma-cocinar"/>
+        <NamedIndividual abbreviatedIRI=":Manzana_asada"/>
+        <NamedIndividual abbreviatedIRI=":Asado"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Pasta_con_tomate"/>
+        <NamedIndividual abbreviatedIRI=":Pasta"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Pasta_con_tomate"/>
+        <NamedIndividual abbreviatedIRI=":Tomate"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Pasta_integral_con_salsa_de_tomate"/>
+        <NamedIndividual abbreviatedIRI=":Pasta"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Pasta_integral_con_salsa_de_tomate"/>
+        <NamedIndividual abbreviatedIRI=":Tomate"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Pechuga_de_pollo_a_la_parrilla"/>
+        <NamedIndividual abbreviatedIRI=":Carne_blanca"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/tiene-forma-cocinar"/>
+        <NamedIndividual abbreviatedIRI=":Pechuga_de_pollo_a_la_parrilla"/>
+        <NamedIndividual abbreviatedIRI=":Parrilla"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Pescado_a_la_plancha"/>
+        <NamedIndividual abbreviatedIRI=":Pescado_azul"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Pescado_al_horno"/>
+        <NamedIndividual abbreviatedIRI=":Pescado_azul"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Pizza_4_quesos"/>
+        <NamedIndividual abbreviatedIRI=":Queso"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Pizza_4_quesos"/>
+        <NamedIndividual abbreviatedIRI=":Tomate"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Pizza_4_quesos"/>
+        <NamedIndividual abbreviatedIRI=":Trigo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Pollo_al_curry"/>
+        <NamedIndividual abbreviatedIRI=":Carne_blanca"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Pollo_al_horno_con_patatas"/>
+        <NamedIndividual abbreviatedIRI=":Carne_blanca"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Pollo_al_horno_con_patatas"/>
+        <NamedIndividual abbreviatedIRI=":Patata"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/tiene-forma-cocinar"/>
+        <NamedIndividual abbreviatedIRI=":Pollo_al_horno_con_patatas"/>
+        <NamedIndividual abbreviatedIRI=":Horno"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Sándwich_de_atún_con_pan_integral"/>
+        <NamedIndividual abbreviatedIRI=":Pan"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Sándwich_de_atún_con_pan_integral"/>
+        <NamedIndividual abbreviatedIRI=":Pescado_azul"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Tacos_de_carne"/>
+        <NamedIndividual abbreviatedIRI=":Carne_roja"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Tarta_de_queso"/>
+        <NamedIndividual abbreviatedIRI=":Azucar"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Tarta_de_queso"/>
+        <NamedIndividual abbreviatedIRI=":Queso"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Tortilla_de_calabacín"/>
+        <NamedIndividual abbreviatedIRI=":Calabacin"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Tortilla_de_calabacín"/>
+        <NamedIndividual abbreviatedIRI=":Huevo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Tortilla_de_espinacas"/>
+        <NamedIndividual abbreviatedIRI=":Espinacas"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Tortilla_de_espinacas"/>
+        <NamedIndividual abbreviatedIRI=":Huevo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Wrap_de_pavo_con_espinacas_y_mostaza"/>
+        <NamedIndividual abbreviatedIRI=":Carne_blanca"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <NamedIndividual abbreviatedIRI=":Wrap_de_pavo_con_espinacas_y_mostaza"/>
+        <NamedIndividual abbreviatedIRI=":Espinacas"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="#Calamares_fritos_con_aros_de_cebolla."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">500</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="#Calamares_fritos_con_aros_de_cebolla."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">45</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="#Calamares_fritos_con_aros_de_cebolla."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">18</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="#Calamares_fritos_con_aros_de_cebolla."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">25</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="#Calamares_fritos_con_aros_de_cebolla."/>
+        <Literal>Pescado</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="#Camarones_tempura_con_salsa_agridulce."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">187</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="#Camarones_tempura_con_salsa_agridulce."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">13.46</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="#Camarones_tempura_con_salsa_agridulce."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">3.6</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="#Camarones_tempura_con_salsa_agridulce."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">23.49</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="#Camarones_tempura_con_salsa_agridulce."/>
+        <Literal>Pescado</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="#Churros_con_azúcar_y_chocolate_caliente."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">425</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="#Churros_con_azúcar_y_chocolate_caliente."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">65</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="#Churros_con_azúcar_y_chocolate_caliente."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">17.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="#Churros_con_azúcar_y_chocolate_caliente."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">7.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="#Churros_con_azúcar_y_chocolate_caliente."/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="#Cien_gramos_de_patatas_bravas_con_salsa_picante_y_alioli."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">187</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="#Cien_gramos_de_patatas_bravas_con_salsa_picante_y_alioli."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">17</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="#Cien_gramos_de_patatas_bravas_con_salsa_picante_y_alioli."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">12</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="#Cien_gramos_de_patatas_bravas_con_salsa_picante_y_alioli."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">2.1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="#Compota_de_manzana_casera_sin_azúcar."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">64</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="#Compota_de_manzana_casera_sin_azúcar."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">15</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="#Compota_de_manzana_casera_sin_azúcar."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">0.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="#Compota_de_manzana_casera_sin_azúcar."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">0.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="#Compota_de_manzana_casera_sin_azúcar."/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="#Copa_de_yogur_con_compota_de_frutas_sin_azúcar."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">292</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="#Copa_de_yogur_con_compota_de_frutas_sin_azúcar."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">59.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="#Copa_de_yogur_con_compota_de_frutas_sin_azúcar."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">1.6</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="#Copa_de_yogur_con_compota_de_frutas_sin_azúcar."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5.6</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="#Copa_de_yogur_con_compota_de_frutas_sin_azúcar."/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="#Copa_de_yogur_con_compota_de_frutas_sin_azúcar."/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="#Cuatro_Rollitos_de_primavera_rellenos_de_verduras_y_pollo."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">253.2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="#Cuatro_Rollitos_de_primavera_rellenos_de_verduras_y_pollo."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">29.76</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="#Cuatro_Rollitos_de_primavera_rellenos_de_verduras_y_pollo."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">11.36</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="#Cuatro_Rollitos_de_primavera_rellenos_de_verduras_y_pollo."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">8</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="#Doscientos_gramos_de_croquetas_de_jamón_o_pollo."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">378</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="#Doscientos_gramos_de_croquetas_de_jamón_o_pollo."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">35.2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="#Doscientos_gramos_de_croquetas_de_jamón_o_pollo."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">18.6</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="#Doscientos_gramos_de_croquetas_de_jamón_o_pollo."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">16.8</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="#Doscientos_gramos_de_croquetas_de_jamón_o_pollo."/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="#Empanadas_rellenas_de_carne_o_queso."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">263</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="#Empanadas_rellenas_de_carne_o_queso."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">20.22</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="#Empanadas_rellenas_de_carne_o_queso."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">17.25</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="#Empanadas_rellenas_de_carne_o_queso."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">6.65</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="#Natillas_de_vainilla_sin_azúcar."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">139</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="#Natillas_de_vainilla_sin_azúcar."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">22.3</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="#Natillas_de_vainilla_sin_azúcar."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">3.6</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="#Natillas_de_vainilla_sin_azúcar."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">4.4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="#Natillas_de_vainilla_sin_azúcar."/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="#Paella_de_mariscos_y_pescado."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">379</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="#Paella_de_mariscos_y_pescado."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">40.3</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="#Paella_de_mariscos_y_pescado."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">13.06</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="#Paella_de_mariscos_y_pescado."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">22.85</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="#Paella_de_mariscos_y_pescado."/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="#Paella_de_mariscos_y_pescado."/>
+        <Literal>Pescado</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="#Peras_al_horno_con_canela."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">96</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="#Peras_al_horno_con_canela."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">25.66</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="#Peras_al_horno_con_canela."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">0.2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="#Peras_al_horno_con_canela."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">0.63</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="#Peras_al_horno_con_canela."/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="#Pollo_frito_crujiente_con_patatas_fritas."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">500</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="#Pollo_frito_crujiente_con_patatas_fritas."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">3</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="#Pollo_frito_crujiente_con_patatas_fritas."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="#Pollo_frito_crujiente_con_patatas_fritas."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">47</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="#Salmón_a_la_parrilla_con_espárragos_y_quinoa."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">243</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="#Salmón_a_la_parrilla_con_espárragos_y_quinoa."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">0.7</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="#Salmón_a_la_parrilla_con_espárragos_y_quinoa."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">10.74</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="#Salmón_a_la_parrilla_con_espárragos_y_quinoa."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">34.04</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="#Salmón_a_la_parrilla_con_espárragos_y_quinoa."/>
+        <Literal>Pescado</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="#Sopa_de_verduras_con_fideos_integrales."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">175</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="#Sopa_de_verduras_con_fideos_integrales."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">27</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="#Sopa_de_verduras_con_fideos_integrales."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">3</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="#Sopa_de_verduras_con_fideos_integrales."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">7</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="#Sopa_de_verduras_con_fideos_integrales."/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="#Tacos_de_pescado_con_salsa_de_yogur."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">325</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="#Tacos_de_pescado_con_salsa_de_yogur."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">27.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="#Tacos_de_pescado_con_salsa_de_yogur."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">12.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="#Tacos_de_pescado_con_salsa_de_yogur."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">22.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="#Tacos_de_pescado_con_salsa_de_yogur."/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="#Tacos_de_pescado_con_salsa_de_yogur."/>
+        <Literal>Pescado</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="#Tempura_de_judias_zanahorias_y_patatas."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">101</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="#Tempura_de_judias_zanahorias_y_patatas."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">8.68</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="#Tempura_de_judias_zanahorias_y_patatas."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">6.36</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="#Tempura_de_judias_zanahorias_y_patatas."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">2.66</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="#Tempura_de_judias_zanahorias_y_patatas."/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="#Tortilla_de_jamón_y_queso."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">225</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="#Tortilla_de_jamón_y_queso."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">7.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="#Tortilla_de_jamón_y_queso."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">12.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="#Tortilla_de_jamón_y_queso."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">17.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="#Tortilla_de_jamón_y_queso."/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="#Tostada_con_queso_fresco_y_rodajas_de_tomate."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">225</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="#Tostada_con_queso_fresco_y_rodajas_de_tomate."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">27.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="#Tostada_con_queso_fresco_y_rodajas_de_tomate."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">7.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="#Tostada_con_queso_fresco_y_rodajas_de_tomate."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">12.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="#Tostada_con_queso_fresco_y_rodajas_de_tomate."/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="#Tostada_con_queso_fresco_y_rodajas_de_tomate."/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="#Yogur_con_fresas."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">145</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="#Yogur_con_fresas."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">25.8</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="#Yogur_con_fresas."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">3.2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="#Yogur_con_fresas."/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">3.4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="#Yogur_con_fresas."/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="#Yogur_con_fresas."/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="#1_tostada_con_1/4_aguacate_y_1_huevo_pochado"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">359</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="#1_tostada_con_1/4_aguacate_y_1_huevo_pochado"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">24.4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="#1_tostada_con_1/4_aguacate_y_1_huevo_pochado"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">19.3</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="#1_tostada_con_1/4_aguacate_y_1_huevo_pochado"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">20.6</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="#1_tostada_con_1/4_aguacate_y_1_huevo_pochado"/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="#1_tostada_con_1/4_aguacate_y_1_huevo_pochado"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="/Bistec_a_la_parrilla"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">276</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="/Bistec_a_la_parrilla"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="/Bistec_a_la_parrilla"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">19.27</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="/Bistec_a_la_parrilla"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">24</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="/Bizcocho_de_zanahoria_sin_azúcar"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">384</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="/Bizcocho_de_zanahoria_sin_azúcar"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">49.40</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="/Bizcocho_de_zanahoria_sin_azúcar"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">13.6</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="/Bizcocho_de_zanahoria_sin_azúcar"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5.26</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="/Bocadillo_de_atún"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">325</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="/Bocadillo_de_atún"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">32.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="/Bocadillo_de_atún"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">12.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="/Bocadillo_de_atún"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">17.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="/Bocadillo_de_atún"/>
+        <Literal>Pescado</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="/Bocadillo_de_salchicon"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">325</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="/Bocadillo_de_salchicon"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">32.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="/Bocadillo_de_salchicon"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">17.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="/Bocadillo_de_salchicon"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">12.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="/Cafe_con_leche"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">75</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="/Cafe_con_leche"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">7.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="/Cafe_con_leche"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">3</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="/Cafe_con_leche"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">3</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="/Crema_de_vainilla_con_pera_en_puré"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">100</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="/Crema_de_vainilla_con_pera_en_puré"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="/Crema_de_vainilla_con_pera_en_puré"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">0.7</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="/Crema_de_vainilla_con_pera_en_puré"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">20</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="/Crema_de_vainilla_con_pera_en_puré"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="/Dos_Tostadas_con_mantequilla"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">179</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="/Dos_Tostadas_con_mantequilla"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">15</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="/Dos_Tostadas_con_mantequilla"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">11</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="/Dos_Tostadas_con_mantequilla"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="/Dos_Tostadas_con_mantequilla"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="/Fideuá"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">387</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="/Fideuá"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">42.3</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="/Fideuá"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">19</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="/Fideuá"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">16</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="/Fideuá"/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="/Fideuá"/>
+        <Literal>Pescado</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="/Filete_de_lubina_a_la_plancha_con_salsa_de_limón"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">148</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="/Filete_de_lubina_a_la_plancha_con_salsa_de_limón"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">4.7</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="/Filete_de_lubina_a_la_plancha_con_salsa_de_limón"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5.7</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="/Filete_de_lubina_a_la_plancha_con_salsa_de_limón"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">19.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="/Filete_de_lubina_a_la_plancha_con_salsa_de_limón"/>
+        <Literal>Pescado</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="/Panqueque_de_avena"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">175</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="/Panqueque_de_avena"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">22.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="/Panqueque_de_avena"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">7.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="/Panqueque_de_avena"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">7.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="/Panqueque_de_avena"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="/Sopa_de_pescado"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">76</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="/Sopa_de_pescado"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="/Sopa_de_pescado"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">3.2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="/Sopa_de_pescado"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">10.7</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="/Sopa_de_pescado"/>
+        <Literal>Pescado</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="/Tres_Huevos_revueltos"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">320</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="/Tres_Huevos_revueltos"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">1.34</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="/Tres_Huevos_revueltos"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">7.45</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="/Tres_Huevos_revueltos"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">6.76</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="/Tres_Huevos_revueltos"/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="/Tres_Huevos_revueltos"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual IRI="/Yogur_natural_con_miel_y_nueces_picadas"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">150</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual IRI="/Yogur_natural_con_miel_y_nueces_picadas"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">16</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual IRI="/Yogur_natural_con_miel_y_nueces_picadas"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">7</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual IRI="/Yogur_natural_con_miel_y_nueces_picadas"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">11.92</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="/Yogur_natural_con_miel_y_nueces_picadas"/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual IRI="/Yogur_natural_con_miel_y_nueces_picadas"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Avena_cocida_con_canela_y_pasas"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">325</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Avena_cocida_con_canela_y_pasas"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">47.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Avena_cocida_con_canela_y_pasas"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">12.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Avena_cocida_con_canela_y_pasas"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">12.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Avena_cocida_con_canela_y_pasas"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Batido_de_150ml_leche_un_platano_y_un_puñado_de_nueces"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">248</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Batido_de_150ml_leche_un_platano_y_un_puñado_de_nueces"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">38.1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Batido_de_150ml_leche_un_platano_y_un_puñado_de_nueces"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">9.18</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Batido_de_150ml_leche_un_platano_y_un_puñado_de_nueces"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">8.1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Batido_de_150ml_leche_un_platano_y_un_puñado_de_nueces"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Berenjenas_rellenas_de_carne"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">170</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Berenjenas_rellenas_de_carne"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">18</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Berenjenas_rellenas_de_carne"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">6</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Berenjenas_rellenas_de_carne"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">11</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Berenjenas_rellenas_de_carne"/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Burrito_de_frijoles_negros"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">425</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Burrito_de_frijoles_negros"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">65</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Burrito_de_frijoles_negros"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">12.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Burrito_de_frijoles_negros"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">17.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Cono_de_helado_de_yogur_bajo_en_grasa"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">142</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Cono_de_helado_de_yogur_bajo_en_grasa"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">7</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Cono_de_helado_de_yogur_bajo_en_grasa"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5.1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Cono_de_helado_de_yogur_bajo_en_grasa"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">2.9</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Cono_de_helado_de_yogur_bajo_en_grasa"/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Cono_de_helado_de_yogur_bajo_en_grasa"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Cuatro_Buñuelos"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">225</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Cuatro_Buñuelos"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">27.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Cuatro_Buñuelos"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">12.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Cuatro_Buñuelos"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">7.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Cuatro_Buñuelos"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Dos_fajitas_de_pollo_y_verduras"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">704</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Dos_fajitas_de_pollo_y_verduras"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">83.04</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Dos_fajitas_de_pollo_y_verduras"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">24.22</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Dos_fajitas_de_pollo_y_verduras"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">39.34</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Dos_gelatinas_sin_azúcar"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">18</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Dos_gelatinas_sin_azúcar"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">4.4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Dos_gelatinas_sin_azúcar"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Dos_gelatinas_sin_azúcar"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_Caprese"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">284</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_Caprese"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5.62</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_Caprese"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">21.91</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_Caprese"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">16.8</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_Caprese"/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_Caprese"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_garbanzos"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">382</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_garbanzos"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">29.61</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_garbanzos"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">26.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_garbanzos"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">8.68</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_garbanzos"/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_garbanzos"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_lechuga_tomate_y_pollo"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">275</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_lechuga_tomate_y_pollo"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">12.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_lechuga_tomate_y_pollo"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">12.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_lechuga_tomate_y_pollo"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">27.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_lechuga_tomate_y_pollo"/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_lechuga_tomate_y_pollo"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_lentejas_mediterranea"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">273</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_lentejas_mediterranea"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">25.2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_lentejas_mediterranea"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">10.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_lentejas_mediterranea"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">13.8</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_lentejas_mediterranea"/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_lentejas_mediterranea"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_quinoa_con_brocoli"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">339</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_quinoa_con_brocoli"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">48</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_quinoa_con_brocoli"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">10.8</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_quinoa_con_brocoli"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">11.1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_quinoa_con_brocoli"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_tomate_aceitunas_y_queso_feta"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">225</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_tomate_aceitunas_y_queso_feta"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">12.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_tomate_aceitunas_y_queso_feta"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">17.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_tomate_aceitunas_y_queso_feta"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">7.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_tomate_aceitunas_y_queso_feta"/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Ensalada_de_tomate_aceitunas_y_queso_feta"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Flan_de_huevo"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">204</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Flan_de_huevo"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">27.68</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Flan_de_huevo"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">8.34</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Flan_de_huevo"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">5.4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Flan_de_huevo"/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Flan_de_huevo"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Hamburgesa_de_pollo"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">142</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Hamburgesa_de_pollo"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Hamburgesa_de_pollo"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">7.35</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Hamburgesa_de_pollo"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">18</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Macedonia_de_mango_fresa_melocoton_y_melón"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">108</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Macedonia_de_mango_fresa_melocoton_y_melón"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">25</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Macedonia_de_mango_fresa_melocoton_y_melón"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">1.63</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Macedonia_de_mango_fresa_melocoton_y_melón"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">1.27</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Macedonia_de_mango_fresa_melocoton_y_melón"/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Macedonia_de_mango_fresa_melocoton_y_melón"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Manzana_asada"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">162</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Manzana_asada"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">42.4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Manzana_asada"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">0.27</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Manzana_asada"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">0.63</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Manzana_asada"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Pasta_con_tomate"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">215</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Pasta_con_tomate"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">49.54</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Pasta_con_tomate"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">1.23</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Pasta_con_tomate"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">11.32</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Pasta_con_tomate"/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Pasta_con_tomate"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Pasta_integral_con_salsa_de_tomate"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">275</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Pasta_integral_con_salsa_de_tomate"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">47.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Pasta_integral_con_salsa_de_tomate"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">7.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Pasta_integral_con_salsa_de_tomate"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">12.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Pasta_integral_con_salsa_de_tomate"/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Pasta_integral_con_salsa_de_tomate"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Pechuga_de_pollo_a_la_parrilla"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">275</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Pechuga_de_pollo_a_la_parrilla"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">12.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Pechuga_de_pollo_a_la_parrilla"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">12.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Pechuga_de_pollo_a_la_parrilla"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">32.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Pechuga_de_pollo_a_la_parrilla"/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Pescado_a_la_plancha"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">325</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Pescado_a_la_plancha"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">32.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Pescado_a_la_plancha"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">12.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Pescado_a_la_plancha"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">22.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Pescado_a_la_plancha"/>
+        <Literal>Pescado</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Pescado_al_horno"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">142</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Pescado_al_horno"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">0.37</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Pescado_al_horno"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">3.89</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Pescado_al_horno"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">24.79</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Pescado_al_horno"/>
+        <Literal>Pescado</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Pizza_4_quesos"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">840</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Pizza_4_quesos"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">90</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Pizza_4_quesos"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">34.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Pizza_4_quesos"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">42</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Pizza_4_quesos"/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Pizza_4_quesos"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Pollo_al_curry"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">293</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Pollo_al_curry"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">11.19</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Pollo_al_curry"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">15.74</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Pollo_al_curry"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">27.07</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Pollo_al_horno_con_patatas"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">325</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Pollo_al_horno_con_patatas"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">22.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Pollo_al_horno_con_patatas"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">12.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Pollo_al_horno_con_patatas"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">32.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Pollo_al_horno_con_patatas"/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Sándwich_de_atún_con_pan_integral"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">325</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Sándwich_de_atún_con_pan_integral"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">37.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Sándwich_de_atún_con_pan_integral"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">12.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Sándwich_de_atún_con_pan_integral"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">17.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Sándwich_de_atún_con_pan_integral"/>
+        <Literal>Pescado</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Tacos_de_carne"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">345</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Tacos_de_carne"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">25.34</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Tacos_de_carne"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">19.79</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Tacos_de_carne"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">17.02</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Tarta_de_queso"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">257</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Tarta_de_queso"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">20.4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Tarta_de_queso"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">18</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Tarta_de_queso"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">4.4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Tarta_de_queso"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Tortilla_de_calabacín"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">225</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Tortilla_de_calabacín"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">12.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Tortilla_de_calabacín"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">12.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Tortilla_de_calabacín"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">12.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Tortilla_de_calabacín"/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Tortilla_de_calabacín"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Tortilla_de_espinacas"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">246</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Tortilla_de_espinacas"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">10.61</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Tortilla_de_espinacas"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">16.55</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Tortilla_de_espinacas"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">14.63</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Tortilla_de_espinacas"/>
+        <Literal>Mediterranea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Tortilla_de_espinacas"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Calorias"/>
+        <NamedIndividual abbreviatedIRI=":Wrap_de_pavo_con_espinacas_y_mostaza"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">275</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Carbohidratos"/>
+        <NamedIndividual abbreviatedIRI=":Wrap_de_pavo_con_espinacas_y_mostaza"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">27.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Grasas"/>
+        <NamedIndividual abbreviatedIRI=":Wrap_de_pavo_con_espinacas_y_mostaza"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/Proteinas"/>
+        <NamedIndividual abbreviatedIRI=":Wrap_de_pavo_con_espinacas_y_mostaza"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">17.5</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <NamedIndividual abbreviatedIRI=":Wrap_de_pavo_con_espinacas_y_mostaza"/>
+        <Literal>Vegetariana</Literal>
+    </DataPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/compuesto-por"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/compuesto-por-comidas"/>
+        <ObjectProperty IRI="/compuesto-por"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <ObjectProperty IRI="/compuesto-por"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/compuesto-por-menu"/>
+        <ObjectProperty IRI="/compuesto-por"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/compuesto-por-plato"/>
+        <ObjectProperty IRI="/compuesto-por"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/pertenece-a-preferencia"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/tiene"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/tiene-composicion"/>
+        <ObjectProperty IRI="/tiene"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/tiene-dieta"/>
+        <ObjectProperty IRI="/tiene"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/tiene-forma-cocinar"/>
+        <ObjectProperty IRI="/tiene"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/tiene-limitacion"/>
+        <ObjectProperty IRI="/tiene"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/vive-durante"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI=":compuesto-almuerzo"/>
+        <ObjectProperty IRI="/compuesto-por-comidas"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI=":compuesto-cena"/>
+        <ObjectProperty IRI="/compuesto-por-comidas"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI=":compuesto-desayuno"/>
+        <ObjectProperty IRI="/compuesto-por-comidas"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI=":compuesto-por-desayuno"/>
+        <ObjectProperty IRI="/compuesto-por"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI=":compuesto-por-postre"/>
+        <ObjectProperty IRI="/compuesto-por"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI=":tiene-preferencia"/>
+        <ObjectProperty IRI="/tiene"/>
+    </SubObjectPropertyOf>
+    <FunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI=":compuesto-almuerzo"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI=":compuesto-cena"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI=":compuesto-desayuno"/>
+    </FunctionalObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="/compuesto-por"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="/compuesto-por-comidas"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="/compuesto-por-menu"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="/compuesto-por-plato"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="/tiene"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="/tiene-composicion"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="/tiene-dieta"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="/tiene-forma-cocinar"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="/tiene-limitacion"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty abbreviatedIRI=":compuesto-almuerzo"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty abbreviatedIRI=":compuesto-cena"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty abbreviatedIRI=":compuesto-desayuno"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty abbreviatedIRI=":compuesto-por-desayuno"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty abbreviatedIRI=":compuesto-por-postre"/>
+    </AsymmetricObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <Class IRI="/Plato"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/compuesto-por-menu"/>
+        <Class IRI="/Dieta"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/compuesto-por-plato"/>
+        <Class IRI="/Almuerzo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/compuesto-por-plato"/>
+        <Class IRI="/Cena"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/pertenece-a-preferencia"/>
+        <Class IRI="/Plato"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/tiene-composicion"/>
+        <Class IRI="/Ingrediente"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/tiene-dieta"/>
+        <Class IRI="/Usuario"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/tiene-forma-cocinar"/>
+        <Class IRI="/Plato"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/tiene-limitacion"/>
+        <Class IRI="/Usuario"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/vive-durante"/>
+        <Class IRI="/Usuario"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI=":compuesto-almuerzo"/>
+        <Class IRI="/Menu_diario"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI=":compuesto-cena"/>
+        <Class IRI="/Menu_diario"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI=":compuesto-desayuno"/>
+        <Class IRI="/Menu_diario"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI=":compuesto-por-desayuno"/>
+        <Class IRI="/Desayuno"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI=":compuesto-por-postre"/>
+        <Class IRI="/Almuerzo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI=":compuesto-por-postre"/>
+        <Class IRI="/Cena"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI=":tiene-preferencia"/>
+        <Class IRI="/Usuario"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/compuesto-por-ingrediente"/>
+        <Class IRI="/Ingrediente"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/compuesto-por-menu"/>
+        <Class IRI="/Menu_diario"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/compuesto-por-plato"/>
+        <Class IRI="/Plato_principal"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/pertenece-a-preferencia"/>
+        <Class IRI="/Limtacion"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/tiene-composicion"/>
+        <Class IRI="/Composicion"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/tiene-dieta"/>
+        <Class IRI="/Dieta"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/tiene-forma-cocinar"/>
+        <Class IRI="/Forma_Cocinar"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/tiene-limitacion"/>
+        <Class IRI="/Limtacion"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/vive-durante"/>
+        <Class IRI="/Temporada"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI=":compuesto-almuerzo"/>
+        <Class IRI="/Almuerzo"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI=":compuesto-cena"/>
+        <Class IRI="/Cena"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI=":compuesto-desayuno"/>
+        <Class IRI="/Desayuno"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI=":compuesto-por-desayuno"/>
+        <Class IRI="/Plato_Desayuno"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI=":compuesto-por-postre"/>
+        <Class IRI="/Postre"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI=":tiene-preferencia"/>
+        <Class IRI="/Preferencia"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="/Actividad"/>
+        <DataProperty IRI="/Usuario"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="/Calorias"/>
+        <DataProperty IRI="/Plato"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="/Carbohidratos"/>
+        <DataProperty IRI="/Plato"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="/Dia_semana"/>
+        <DataProperty IRI="/Menu"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="/Edad"/>
+        <DataProperty IRI="/Usuario"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="/Enfermedad"/>
+        <DataProperty IRI="/Usuario"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="/Grasas"/>
+        <DataProperty IRI="/Plato"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="/Menu"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="/Plato"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="/Proteinas"/>
+        <DataProperty IRI="/Plato"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="/Sexo"/>
+        <DataProperty IRI="/Usuario"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="/Usuario"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <DataProperty IRI="/Plato"/>
+    </SubDataPropertyOf>
+    <FunctionalDataProperty>
+        <DataProperty IRI="/Actividad"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="/Calorias"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="/Carbohidratos"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="/Dia_semana"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="/Edad"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="/Grasas"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="/Proteinas"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="/Sexo"/>
+    </FunctionalDataProperty>
+    <DataPropertyDomain>
+        <DataProperty IRI="/Actividad"/>
+        <Class IRI="/Usuario"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="/Calorias"/>
+        <Class IRI="/Plato"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="/Carbohidratos"/>
+        <Class IRI="/Plato"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="/Dia_semana"/>
+        <Class IRI="/Menu_diario"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="/Edad"/>
+        <Class IRI="/Usuario"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="/Enfermedad"/>
+        <Class IRI="/Usuario"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="/Grasas"/>
+        <Class IRI="/Plato"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="/Proteinas"/>
+        <Class IRI="/Plato"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="/Sexo"/>
+        <Class IRI="/Usuario"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <Class IRI="/Plato"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="/Actividad"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="/Calorias"/>
+        <Datatype abbreviatedIRI="xsd:float"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="/Carbohidratos"/>
+        <Datatype abbreviatedIRI="xsd:float"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="/Dia_semana"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="/Edad"/>
+        <Datatype abbreviatedIRI="xsd:unsignedInt"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="/Enfermedad"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="/Grasas"/>
+        <Datatype abbreviatedIRI="xsd:float"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="/Proteinas"/>
+        <Datatype abbreviatedIRI="xsd:float"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="/Sexo"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI=":Tipo-dieta"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Actividad</IRI>
+        <Literal>Tiene rango {0,1,2}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Dia_semana</IRI>
+        <Literal>String perteneciente a {Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Sexo</IRI>
+        <Literal>0 hombre, 1 mujer</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+
