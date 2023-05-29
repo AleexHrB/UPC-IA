@@ -416,7 +416,7 @@
     )
 
     ([Tortilla_de_jamón_y_queso.] of Plato_Desayuno
-         (compuesto-por-ingrediente  [Huevo] [Queso])
+         (compuesto-por-ingrediente  [Huevo] [Queso] [Embutido])
          (Calorias  225)
          (Carbohidratos  7.5)
          (Grasas  12.5)
@@ -657,10 +657,12 @@
 
     ([Carne_blanca] of Comida_Proteica
          (tiene-composicion  [Potasio])
+         (nombre "Carne_blanca")
     )
 
     ([Carne_roja] of Comida_Proteica
          (tiene-composicion  [Hierro] [Potasio])
+         (nombre "Carne_roja")
     )
 
     ([Cebolla] of Verdura
@@ -1266,7 +1268,7 @@
         (bind ?eliminar FALSE)
         (loop-for-count (?j 1 (length$ ?ingredients_list)) do
             (bind ?act (nth$ ?j ?ingredients_list))
-            (bind ?eliminar (or (eq (send ?Ingrediente get-nombre) (send ?act get-nombre)) ?eliminar))
+            (if (eq (send ?Ingrediente get-nombre) (send ?act get-nombre)) then (bind ?eliminar TRUE))
         )
         (if ?eliminar 
         then 
@@ -1282,7 +1284,7 @@
         (bind ?eliminar FALSE)
         (loop-for-count (?j 1 (length$ ?Forma_list)) do
             (bind ?act (nth$ ?j ?Forma_list))
-            (bind ?eliminar (or (eq (send ?FormaCocinar get-nombre) (send ?act get-nombre)) ?eliminar))
+            (if (eq (send ?FormaCocinar get-nombre) (send ?act get-nombre)) then (bind ?eliminar TRUE))
         )
         (if ?eliminar 
         then 
@@ -1305,7 +1307,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Verdura))
 
-    (test (and (eq (str-cat (send ?a get-nombre)) "Hipertension") (eq (str-cat (send ?Ingrediente get-nombre)) "Espinaca" )))
+    (test (and (eq (str-cat (send ?a get-nombre)) "Hipertension") (eq (str-cat (send ?Ingrediente get-nombre)) "Espinacas" )))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1352,7 +1354,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Cereal))
 
-    (test (and (eq (str-cat (send ?a get-nombre)) "Diabetes") (or (eq (str-cat (send ?Ingrediente get-nombre)) "Pan") (eq ?Ingrediente [Tostada]) )))
+    (test (and (eq (str-cat (send ?a get-nombre)) "Diabetes") (or (eq (str-cat (send ?Ingrediente get-nombre)) "Pan") (eq (str-cat (send ?Ingrediente get-nombre)) "Tostada") )))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
@@ -1753,12 +1755,7 @@
         then
             (bind ?factor 5.0)
         )
-            
-        
-        (if (member$ ?platDesayun ?plato_list) 
-        then
-            (bind ?factor 5.0)
-        )
+
 
         (if (tiene_micro ?platDesayun ?Hierro)
         then
@@ -1946,7 +1943,11 @@
                 
             )
         )
-            
+
+        (if (not (member$ ?plato ?cena_list)) 
+        then
+            (bind ?factor (/ ?factor 5.0))
+        )   
         ;;AHORA PROBAMOS DE HACER LO MISMO CON LA CENA (Si ya se ha introducido en la comida tiene un factor de penalización)
         (if (< (length$ ?cena_list) 2) then 
             (bind ?newMenCH (+ ?menCH ?newCH))
@@ -2046,12 +2047,7 @@
             (bind ?factor 0.85)
             if (eq (str-cat ?Prefnom) "Vegetariana") then (bind ?factor 0.35)
         )
-
-        (if (eq ?plato ?almuerzo_postre) 
-        then
-            (bind ?factor 15.0)
-        )
-
+        
         (if (tiene_micro ?plato ?Hierro)
         then
             (bind ?factor (- ?factor 0.01))
@@ -2163,6 +2159,7 @@
     (if (>= ?refs 3) 
     then
         (return (find-all-instances ((?plat ?class)) TRUE))
+
     else
         (return (find-all-instances ((?plat ?class)) (or (member$ (str-cat ?Prefnom) ?plat:Tipo-dieta ) (eq (str-cat ?Prefnom) "No"))))
     )
@@ -2220,21 +2217,20 @@
         (bind ?menProteina -100)
         (bind ?menGrasa -100)
 
-
         (bind ?candidatos_desayuno (escogeRandom2 ?desayun))
         (bind ?desayun (borrar-elementos ?desayun ?candidatos_desayuno))
-        (if (eq (length$ ?desayun) 0)
+        (if (< (length$ ?desayun) 1)
         then
             (bind ?refD (+ ?refD 1))
             (bind ?desayun (refill ?Prefnom ?refD Plato_Desayuno))
-                
+            (printout t ?desayun crlf)
         )
 
         (bind ?candidatos_almuerzo_plato (escogeRandom2 ?comida))
         (bind ?comida (borrar-elementos ?comida ?candidatos_almuerzo_plato))
         (if (eq (length$ ?comida) 0)
         then
-            (bind ?refD (+ ?refC 1))
+            (bind ?refC (+ ?refC 1))
             (bind ?comida (refill ?Prefnom ?refC Plato_principal))
                 
         )
@@ -2243,7 +2239,7 @@
         (bind ?postre (borrar-elementos ?postre ?candidatos_almuerzo_postre))
         (if (eq (length$ ?postre) 0)
         then
-            (bind ?refD (+ ?refP 1))
+            (bind ?refP (+ ?refP 1))
             (bind ?postre (refill ?Prefnom ?refP Postre))
                 
         )
@@ -2252,7 +2248,7 @@
         (bind ?comida (borrar-elementos ?comida ?candidatos_cena_plato))
         (if (eq (length$ ?comida) 0)
         then
-            (bind ?refD (+ ?refC 1))
+            (bind ?refC (+ ?refC 1))
             (bind ?comida (refill ?Prefnom ?refC Plato_principal))
                 
         )
@@ -2262,7 +2258,7 @@
         (if (eq (length$ ?postre) 0)
         then
             (bind ?postre (refill ?Prefnom ?refP Postre))
-            (bind ?refD (+ ?refP 1))
+            (bind ?refP (+ ?refP 1))
         )
 
 
