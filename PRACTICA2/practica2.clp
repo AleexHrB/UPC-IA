@@ -1266,7 +1266,7 @@
         (bind ?eliminar FALSE)
         (loop-for-count (?j 1 (length$ ?ingredients_list)) do
             (bind ?act (nth$ ?j ?ingredients_list))
-            (bind ?eliminar (or (eq (send ?Ingrediente get-nombre) (send ?act get-nombre)) ?eliminar))
+            (if (eq (send ?Ingrediente get-nombre) (send ?act get-nombre)) then (bind ?eliminar TRUE))
         )
         (if ?eliminar 
         then 
@@ -1282,7 +1282,7 @@
         (bind ?eliminar FALSE)
         (loop-for-count (?j 1 (length$ ?Forma_list)) do
             (bind ?act (nth$ ?j ?Forma_list))
-            (bind ?eliminar (or (eq (send ?FormaCocinar get-nombre) (send ?act get-nombre)) ?eliminar))
+            (if (eq (send ?FormaCocinar get-nombre) (send ?act get-nombre)) then (bind ?eliminar TRUE))
         )
         (if ?eliminar 
         then 
@@ -1305,7 +1305,7 @@
     ?a <- (object (is-a Restriccion))
     ?Ingrediente <- (object (is-a Verdura))
 
-    (test (and (eq (str-cat (send ?a get-nombre)) "Hipertension") (eq (str-cat (send ?Ingrediente get-nombre)) "Espinaca" )))
+    (test (and (eq (str-cat (send ?a get-nombre)) "Hipertension") (eq (str-cat (send ?Ingrediente get-nombre)) "Espinacas" )))
     => (eliminar_ingrediente ?Ingrediente)
 )
 
