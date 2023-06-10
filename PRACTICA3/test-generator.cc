@@ -138,11 +138,12 @@ int main() {
 
         ofs << std::endl << ")" << std::endl << std::endl;
 
-        ofs << "(:goal (forall (?t - tarea) (asignada ?t))))" << std::endl;
+        ofs << "(:goal (forall (?t - tarea) (asignada ?t)))" << std::endl;
         
         if (ext >= 2 and ext < 4) ofs << std::endl << "(:metric minimize (total-horas))" << std::endl;
         else if (ext == 4) ofs << std::endl << "(:metric minimize (+ (* (ponderacion-horas) (total-horas)) (* (ponderacion-personas) (personas-currando))))" << std::endl;
         
+        ofs << ")" << std::endl;
         ofs.close();  
     }
     
