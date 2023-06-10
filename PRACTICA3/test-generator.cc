@@ -11,6 +11,7 @@ int main() {
 
     if (ext < 0 or ext > 4) {
         std::cout << "Introduce un número del 0 al 4" << std::endl;
+        return - 1;
     }
 
     
@@ -67,7 +68,7 @@ int main() {
                 case 0:
                     type = "programador_uno";
                     break;
-
+                
                 case 1:
                     type = "programador_dos";
                     break;
@@ -75,7 +76,7 @@ int main() {
                 case 2:
                     type = "programador_tres";
                     break;
-
+                
                 default:
                     break;
             } 
@@ -94,7 +95,7 @@ int main() {
 
         //Definimos predicados es_tipo_tres
         for (int i = 0; i < nTareas/2; ++i) {
-            if (tareas[i] == 2) {
+            if (tareas[i] == 2 && ext != 0) {
                 ofs << "(es_tipo_dos tarea" << i << ")" << std::endl;
                 ofs << "(es_tipo_dos tarea" << i + nTareas/2 << ")" << std::endl;
             }
@@ -102,29 +103,45 @@ int main() {
                 ofs << "(es_tipo_tres tarea" << i << ")" << std::endl;
                 ofs << "(es_tipo_tres tarea" << i + nTareas/2 << ")" << std::endl;
             }
+            if (ext != 0) {
+                    ofs << "(es_tarea_asignada tarea" << i + nTareas/2  << " tarea" << i << ")" << std::endl;
+                    ofs << "(es_tarea_adicional tarea " << i + nTareas/2 << ")" << std::endl;
+            }
+            if (ext >= 2) {
+                ofs << "(= (hora-tarea tarea" << i << ")" << rand() % 102 + 1 << ")" << std::endl;
+                ofs << "(= (hora-tarea tarea" << i + nTarea/2 << ")" << 0 << ")" << std::endl;
+            }
         }
 
-        ofs << std::endl;
+        //Assignamos es_calidad_dos
+        if (ext >= 3) {
+            for (int i = 0; i < nProgramadores; ++i) {
+                if (rand() % 3 == 0) {
+                    ofs << "(es_calidad_dos programador" << i << ")" << std::endl;
+                }
+                if (ext >= 2) {
+                    ofs << "(= (tareas-ass programador" << i << ") 0)" << std::endl;
+                }
+            }
 
-        //Definimos predicados es_tarea_asignada
-        if (ext != 0) {
-
-            ofs << std::endl;
         }
-        
+   
+        if (ext >= 2) {
+            ofs << "(= (total-horas) 0)" << std::endl;
+        }
+
+        if (ext == 4) {
+            ofs << "(= (ponderacion-horas) 100)" << std::endl;
+            ofs << "(= (ponderacion-personas) 20)" << std::endl;
+            ofs << "(= (personas-currando) 0)" << std::endl;
+        }
+
         ofs << std::endl << ")" << std::endl << std::endl;
 
         ofs << "(:goal (forall (?t - tarea) (asignada ?t))))" << std::endl;
         
-        std::string predicates[] = {"es_tipo_tres", "es_tarea_asignada", "es_calidad_dos"};
-        
-        
-        
-        
-        int nPreds = 3;
-        if (ext == 0) nPreds = 1;
-        else if (ext == 1) nPreds = 2;
-
+        if (ext >= 2 and ext < 4) ofs << std::endl << "(:metric minimize (total-horas))" << std::endl;
+        else if (ext == 4) ofs << std::endl << "(:metric minimize (+ (* (ponderacion-horas) (total-horas)) (* (ponderacion-personas) (personas-currando))))" << std::endl;
         
         ofs.close();  
     }
