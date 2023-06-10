@@ -7,11 +7,19 @@
 int main() {
     std::cout << "Que extension quieres probar?" << std::endl;
     int ext;
+    int pondPersonas, pondHoras;
     std::cin >> ext;
 
     if (ext < 0 or ext > 4) {
         std::cout << "Introduce un número del 0 al 4" << std::endl;
         return - 1;
+    }
+
+    if (ext == 4) {
+        std::cout << "Selecciona valor de ponderacion personas" << std::endl;
+        std::cin >> pondPersonas;
+        std::cout << "Selecciona valor de ponderacion horas" << std::endl;
+        std::cin >> pondHoras;
     }
 
     
@@ -108,18 +116,18 @@ int main() {
                     ofs << "(es_tarea_adicional tarea" << i + nTareas/2 << ")" << std::endl;
             }
             if (ext >= 2) {
-                ofs << "(= (hora-tarea tarea" << i << ")" << rand() % 102 + 1 << ")" << std::endl;
-                ofs << "(= (hora-tarea tarea" << i + nTareas/2 << ")" << 0 << ")" << std::endl;
+                ofs << "(= (hora-ass tarea" << i << ")" << rand() % 10 + 1 << ")" << std::endl;
+                ofs << "(= (hora-ass tarea" << i + nTareas/2 << ")" << 0 << ")" << std::endl;
             }
         }
 
         //Assignamos es_calidad_dos
-        if (ext >= 3) {
+        if (ext >= 2) {
             for (int i = 0; i < nProgramadores; ++i) {
                 if (rand() % 3 == 0) {
                     ofs << "(es_calidad_dos programador" << i << ")" << std::endl;
                 }
-                if (ext >= 2) {
+                if (ext >= 3) {
                     ofs << "(= (tareas-ass programador" << i << ") 0)" << std::endl;
                 }
             }
@@ -131,8 +139,8 @@ int main() {
         }
 
         if (ext == 4) {
-            ofs << "(= (ponderacion-horas) 100)" << std::endl;
-            ofs << "(= (ponderacion-personas) 20)" << std::endl;
+            ofs << "(= (ponderacion-horas) " << pondHoras << ")" << std::endl;
+            ofs << "(= (ponderacion-personas) " << pondPersonas << ")" << std::endl;
             ofs << "(= (personas-currando) 0)" << std::endl;
         }
 

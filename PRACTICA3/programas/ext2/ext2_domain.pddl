@@ -36,7 +36,7 @@
     :precondition (and (not (es_tipo_tres ?t)) (es_tarea_asignada ?t2 ?t) (not (asignada ?t)))
     :effect (and (asignada ?t) (valida ?t2) (es_tarea_prohibida ?t2 ?p) (increase (total-horas) (hora-ass ?t))
     (increase (total-horas) 1)
-    (when (es_calidad_dos ?t) (increase (total-horas) 1))
+    (when (es_calidad_dos ?p) (increase (total-horas) 1))
     )
 )
 
@@ -46,7 +46,7 @@
     :effect (and (asignada ?t) (valida ?t2) (es_tarea_prohibida ?t2 ?p) (es_tipo_dos ?t2) (increase (total-horas) (hora-ass ?t))
     (when (es_tipo_tres ?t) (and (increase (total-horas) 2)))
     (increase (total-horas) 1)
-    (when (es_calidad_dos ?t) (increase (total-horas) 1))
+    (when (es_calidad_dos ?p) (increase (total-horas) 1))
     )
 )
 
@@ -55,7 +55,7 @@
     :precondition (and (es_tarea_asignada ?t2 ?t) (not (asignada ?t)))
     :effect (and (asignada ?t) (valida ?t2) (es_tarea_prohibida ?t2 ?p) (es_tipo_tres ?t2) (increase (total-horas) (hora-ass ?t))
     (increase (total-horas) 1)
-    (when (es_calidad_dos ?t) (increase (total-horas) 1))
+    (when (es_calidad_dos ?p) (increase (total-horas) 1))
     )
 )
 
