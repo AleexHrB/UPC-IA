@@ -1,4 +1,4 @@
-(define (problem ext1_domain) (:domain ext1_domain)
+(define (problem ext1) (:domain ext1)
 (:objects 
     kayand - programador_tres
     jordimongol - programador_dos

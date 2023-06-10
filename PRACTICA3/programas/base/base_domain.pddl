@@ -1,6 +1,6 @@
 ;Header and description
 
-(define (domain plan)
+(define (domain base)
 
 
 (:requirements :adl :fluents :typing)

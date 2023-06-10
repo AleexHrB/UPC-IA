@@ -31,9 +31,11 @@
 
     laia - programador_uno
 
+    
+
 )
 
-    (:init
+(:init
     (es_tarea_asignada pasar_eda programar_supersopa)
     (es_tarea_asignada vender_alma entrar_inlab)
     (es_tarea_asignada costa_ferrer_vidal francisco_javier)

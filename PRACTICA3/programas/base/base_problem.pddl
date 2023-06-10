@@ -1,4 +1,4 @@
-(define (problem plan) (:domain plan)
+(define (problem base) (:domain base)
 
 
 (:objects 
