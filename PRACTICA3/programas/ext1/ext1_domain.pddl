@@ -1,5 +1,5 @@
 
-(define (domain ext1_domain)
+(define (domain ext1)
 
 
 (:requirements :strips :adl)
