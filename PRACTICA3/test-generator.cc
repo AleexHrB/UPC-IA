@@ -105,7 +105,7 @@ int main() {
             }
             if (ext != 0) {
                     ofs << "(es_tarea_asignada tarea" << i + nTareas/2  << " tarea" << i << ")" << std::endl;
-                    ofs << "(es_tarea_adicional tarea " << i + nTareas/2 << ")" << std::endl;
+                    ofs << "(es_tarea_adicional tarea" << i + nTareas/2 << ")" << std::endl;
             }
             if (ext >= 2) {
                 ofs << "(= (hora-tarea tarea" << i << ")" << rand() % 102 + 1 << ")" << std::endl;
