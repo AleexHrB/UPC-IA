@@ -109,7 +109,7 @@ int main() {
             }
             if (ext >= 2) {
                 ofs << "(= (hora-tarea tarea" << i << ")" << rand() % 102 + 1 << ")" << std::endl;
-                ofs << "(= (hora-tarea tarea" << i + nTarea/2 << ")" << 0 << ")" << std::endl;
+                ofs << "(= (hora-tarea tarea" << i + nTareas/2 << ")" << 0 << ")" << std::endl;
             }
         }
 
