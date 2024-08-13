@@ -1,6 +1,0 @@
-{
-    "java.project.referencedLibraries": [
-        "lib/**/*.jar",
-        "PRACTICA1\\lib\\Comparticion.jar"
-    ]
-}
